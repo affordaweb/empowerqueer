@@ -50,7 +50,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased bg-[#0F0A1E] text-white`}>
+      <body className={`${inter.variable} font-sans antialiased bg-white text-[#474747]`}>
         {children}
       </body>
     </html>
