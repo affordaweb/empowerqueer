@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empower Queer Hub | LGBTQIA+ Support, Events & Inclusive Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pride-red:    #E40303;
+      --pride-orange: #FF8C00;
+      --pride-yellow: #FFED00;
+      --pride-green:  #008026;
+      --pride-blue:   #004DFF;
+      --pride-violet: #750787;
+      --accent:       #7C3AED;
+      --accent-light: #A78BFA;
+      --bg-dark:      #0F0A1E;
+      --bg-card:      #1A1133;
+      --bg-card2:     #221944;
+      --text:         #F3F0FF;
+      --text-muted:   #A89CC8;
+      --border:       rgba(167,139,250,0.18);
+      --radius:       1rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .rainbow-bar {
+      height: 5px;
+      background: linear-gradient(90deg,
+        var(--pride-red) 0%,
+        var(--pride-orange) 17%,
+        var(--pride-yellow) 34%,
+        var(--pride-green) 51%,
+        var(--pride-blue) 68%,
+        var(--pride-violet) 100%);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,10,30,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-light), #F472B6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .btn-donate {
+      background: linear-gradient(135deg, var(--accent), #EC4899);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(124,58,237,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(236,72,153,0.2) 0%, transparent 60%),
+        var(--bg-dark);
+    }
+
+    .hero-orbs { position: absolute; inset: 0; pointer-events: none; }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .orb1 { width: 400px; height: 400px; background: var(--accent); top: -100px; left: -100px; animation-delay: 0s; }
+    .orb2 { width: 300px; height: 300px; background: #EC4899; bottom: -50px; right: -50px; animation-delay: 3s; }
+    .orb3 { width: 200px; height: 200px; background: #06B6D4; top: 40%; left: 60%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(124,58,237,0.4);
+      border-radius: 2rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent-light), #F472B6, #FB923C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #EC4899);
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(124,58,237,0.4);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.5); }
+
+    .btn-secondary {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--accent-light); background: rgba(124,58,237,0.1); }
+
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-desc { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; }
+
+    .features { background: var(--bg-card); }
+    .features-header { text-align: center; margin-bottom: 3.5rem; }
+    .features-header .section-desc { margin: 0 auto; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .feature-card:hover { transform: translateY(-4px); border-color: var(--accent-light); }
+
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .icon-purple { background: rgba(124,58,237,0.2); }
+    .icon-pink   { background: rgba(236,72,153,0.2); }
+    .icon-cyan   { background: rgba(6,182,212,0.2); }
+
+    .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .feature-card p  { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+
+    .feature-link {
+      color: var(--accent-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+
+    .feature-link:hover { gap: 0.6rem; }
+
+    .kopisodes-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .kopisodes-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .podcast-icon {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #EC4899);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.4); }
+      50% { box-shadow: 0 0 0 20px rgba(124,58,237,0); }
+    }
+
+    .kopisodes-card h4 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .kopisodes-card p  { color: var(--text-muted); font-size: 0.9rem; }
+
+    .about { background: var(--bg-card); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-pillars { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .pillar-num {
+      background: linear-gradient(135deg, var(--accent), #EC4899);
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pillar p { font-size: 0.95rem; color: var(--text-muted); }
+
+    .wagayway-box {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .wagayway-box h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; }
+
+    .focus-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tag {
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: var(--accent-light);
+      padding: 0.3rem 0.85rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .founder-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .founder-photo-wrap { position: relative; }
+
+    .founder-photo {
+      width: 220px; height: 280px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--bg-card2), var(--bg-card));
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      overflow: hidden;
+    }
+
+    .founder-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); }
+
+    .founder-accent {
+      position: absolute;
+      bottom: -12px; right: -12px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #EC4899);
+      opacity: 0.5;
+      filter: blur(20px);
+    }
+
+    blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      line-height: 1.5;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .founder-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .founder-title { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+
+    .founder-contacts { display: flex; flex-direction: column; gap: 0.5rem; }
+    .founder-contacts a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .founder-contacts a:hover { color: var(--accent-light); }
+
+    .stats { background: var(--bg-card); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover { transform: translateY(-4px); }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent-light), #F472B6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s;
+      color: var(--text-muted);
+      font-size: 2rem;
+    }
+
+    .gallery-item:hover { transform: scale(1.02); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    .sponsors { background: var(--bg-card); }
+    .sponsors-header { text-align: center; margin-bottom: 3rem; }
+
+    .sponsors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .sponsor-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 2rem;
+      font-size: 0.95rem; font-weight: 600;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .sponsor-card:hover { border-color: var(--accent-light); color: var(--text); }
+
+    footer {
+      background: #07050F;
+      border-top: 1px solid var(--border);
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.75rem; line-height: 1.7; }
+
+    .footer-col h5 {
+      font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-bottom: 1rem;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--accent-light); }
+
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
+
+    .social-links { display: flex; gap: 0.75rem; }
+
+    .social-link {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .social-link:hover { border-color: var(--accent-light); color: var(--accent-light); }
+
+    .recent-posts { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem; }
+
+    .recent-post a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.83rem;
+      display: block; line-height: 1.4;
+      transition: color 0.2s;
+      border-left: 2px solid var(--border);
+      padding-left: 0.6rem;
+    }
+
+    .recent-post a:hover { color: var(--accent-light); border-color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .kopisodes-inner, .about-inner, .founder-inner { grid-template-columns: 1fr; }
+      .founder-photo { width: 100%; height: 240px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<nav>
+  <span class="nav-logo">Empower Queer Hub</span>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Trainings</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="#">Opportunities</a></li>
+    <li><a href="#">Directory</a></li>
+    <li><a href="#">Kopisodes</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#" class="btn-donate">Donate Now!</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">🏳️‍🌈 LGBTQIA+ Support Hub</div>
+    <h1>
+      Empower Queer Hub<br/>
+      <span>LGBTQIA+ Support, Events & Inclusive Resources</span>
+    </h1>
+    <p class="hero-tagline">"You Are Seen. You Are Valid. You Are Home."</p>
+    <p class="hero-desc">
+      Your all-in-one LGBTQIA+ support hub — connecting you to queer mental health services,
+      legal help, safe spaces, livelihood support, and local LGBTQIA+ events.
+    </p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary">Learn More</a>
+      <a href="#" class="btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <div class="features-header">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">A Space Built for You</h2>
+      <p class="section-desc">Trusted support, learning, and community — all in one safe digital space.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">🛡️</div>
+        <h3>Central Resource Hub</h3>
+        <p>Access trusted support and opportunities in one safe space — from mental health services, queer-safe care, shelters, HIV and legal assistance.</p>
+        <a href="#" class="feature-link">Explore Resources →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-pink">📚</div>
+        <h3>Learning Space</h3>
+        <p>Explore workshops, guides, and learning modules built for LGBTQIA+ individuals and allies.</p>
+        <a href="#" class="feature-link">Start Learning →</a>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-cyan">🤝</div>
+        <h3>Networking & Collaboration</h3>
+        <p>Find events, community groups, advocacy circles, and volunteer opportunities that connect you with like-minded individuals.</p>
+        <a href="#" class="feature-link">Connect & Collaborate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="kopisodes-inner">
+      <div>
+        <div class="kopisodes-card">
+          <div class="podcast-icon">🎙️</div>
+          <h4>Now Listening</h4>
+          <p>Kopisodes — Honest Conversations Over Coffee</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Podcast</div>
+        <h2 class="section-title">Kopisodes<br/>Honest Conversations Over Coffee</h2>
+        <p class="section-desc" style="margin-bottom:1.5rem">
+          Kopisodes is a podcast that blends real stories, shared experiences, and meaningful dialogue —
+          amplifying LGBTQIA+ voices through relaxed, coffee-style conversations.
+        </p>
+        <a href="https://www.facebook.com" target="_blank" class="btn-primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="container">
+    <div class="about-inner">
+      <div>
+        <div class="section-label">About the Hub</div>
+        <h2 class="section-title">Born from Urgency, Built with Purpose</h2>
+        <p class="section-desc">
+          Born from the Wagayway EmpowerQueer Project, this hub offers a safe digital space for
+          learning, events, and empowerment.
+        </p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-num">1</div>
+            <p>Central access point for support services</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">2</div>
+            <p>Community hub for learning and events</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">3</div>
+            <p>Referral gateway to mental health, legal aid, HIV services, and livelihood opportunities</p>
+          </div>
+        </div>
+      </div>
+      <div class="wagayway-box">
+        <div class="section-label">About Wagayway Equality</div>
+        <h3>Wagayway Equality</h3>
+        <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:1.25rem">
+          A grassroots LGBTQIA+ human rights and community development organization based in Batangas, founded in 2018.
+        </p>
+        <div class="focus-tags">
+          <span class="tag">Gender Equality & LGBTQIA+ Inclusion</span>
+          <span class="tag">Community-Based Health & HIV Services</span>
+          <span class="tag">Socio-Economic Empowerment</span>
+          <span class="tag">Safe Spaces & Mental Health Support</span>
+          <span class="tag">Youth Engagement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem">
+      <div class="section-label">Founder's Message</div>
+      <h2 class="section-title">Empowering LGBTQIA+ Voices</h2>
+    </div>
+    <div class="founder-inner">
+      <div class="founder-photo-wrap">
+        <div class="founder-photo">
+          <img
+            src="https://www.empowerqueerhub.com/wp-content/uploads/aivan-profile-pic.png"
+            alt="Aivan Castillo Alvarez"
+            onerror="this.style.display='none';this.parentElement.innerHTML='👤';"
+          />
+        </div>
+        <div class="founder-accent"></div>
+      </div>
+      <div>
+        <blockquote>
+          "When we started Wagayway Equality, it wasn't built from abundance — it was built from urgency."
+        </blockquote>
+        <p class="founder-name">Aivan Castillo Alvarez</p>
+        <p class="founder-title">Founder, Wagayway Equality / Empower Queer Hub</p>
+        <div class="founder-contacts">
+          <a href="mailto:aivan.c.alvarez@gmail.com">✉️ aivan.c.alvarez@gmail.com</a>
+          <a href="tel:+639177050413">📞 +63 917 705 0413</a>
+          <a href="https://www.linkedin.com/in/aivanalvarez" target="_blank">🔗 linkedin.com/in/aivanalvarez</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-label">Our Impact</div>
+      <h2 class="section-title">Community by the Numbers</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">950+</div>
+        <div class="stat-label">Happy Members</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">✓</div>
+        <div class="stat-label">Verified Resources Available</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">🎉</div>
+        <div class="stat-label">Community-Led Events Hosted Yearly</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">💬</div>
+        <div class="stat-label">Stories & Lived Experiences Shared</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0.5rem">
+      <div class="section-label">Our Community</div>
+      <h2 class="section-title">Moments & Memories</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-109.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='🌈';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-120.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='🏳️‍🌈';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-130.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='✨';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-140.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='💜';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-150.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='🌟';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-160.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='🎊';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-170.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='❤️';"/></div>
+      <div class="gallery-item"><img src="https://www.empowerqueerhub.com/wp-content/uploads/EmpQueer-Image-194.jpg" alt="Community" onerror="this.style.display='none';this.parentElement.innerHTML='🤝';"/></div>
+    </div>
+  </div>
+</section>
+
+<section class="sponsors">
+  <div class="container">
+    <div class="sponsors-header">
+      <div class="section-label">Partners & Sponsors</div>
+      <h2 class="section-title">Supported By</h2>
+    </div>
+    <div class="sponsors-grid">
+      <div class="sponsor-card">Humanis</div>
+      <div class="sponsor-card">Free to Be Me</div>
+      <div class="sponsor-card">Wagayway Equality</div>
+      <div class="sponsor-card">Wellspring Philanthropic Fund</div>
+      <div class="sponsor-card">Building Opportunities Summit</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size:1.3rem">Empower Queer Hub</div>
+        <p>A safe digital space for LGBTQIA+ learning, events, and empowerment — powered by Wagayway Equality.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">About the Hub</a></li>
+          <li><a href="#">Accessibility Statement</a></li>
+          <li><a href="#">Submit Resource or Event</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Voices Among Us</a></li>
+          <li><a href="#">Share Your Story</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Categories</h5>
+        <ul>
+          <li><a href="#">Community Center</a></li>
+          <li><a href="#">Community Voices</a></li>
+          <li><a href="#">Diagnostic & Testing</a></li>
+          <li><a href="#">Mental Health</a></li>
+          <li><a href="#">Support Resources</a></li>
+          <li><a href="#">Sexual Health</a></li>
+          <li><a href="#">Youth Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recent Posts</h5>
+        <div class="recent-posts">
+          <div class="recent-post"><a href="#">2025 HIV & AIDS Surveillance Update: What the Data Tells Us</a></div>
+          <div class="recent-post"><a href="#">Human Rights 101 by Wagayway Equality</a></div>
+          <div class="recent-post"><a href="#">HIV 101 by Wagayway Equality</a></div>
+          <div class="recent-post"><a href="#">SOGIESC 101 by Wagayway Equality Inc</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 EmpowerQueer Hub. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Facebook">f</a>
+        <a href="#" class="social-link" title="Twitter">𝕏</a>
+        <a href="#" class="social-link" title="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
