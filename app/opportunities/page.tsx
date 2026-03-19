@@ -55,18 +55,18 @@ export default function OpportunitiesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F5F2FA] to-[#E8E2F5] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#3D3558] mb-4">
+          <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">
             Opportunities Desk
           </h1>
-          <p className="text-[#52506A] text-xl leading-relaxed mb-4">
+          <p className="text-[#4E5A4A] text-xl leading-relaxed mb-4">
             Training, certifications, opportunities—shared for the community.
           </p>
-          <p className="text-[#52506A] max-w-2xl mx-auto mb-6">
+          <p className="text-[#4E5A4A] max-w-2xl mx-auto mb-6">
             The Opportunities Desk curates free and accessible learning, certification, and livelihood opportunities available in the Philippines. This space is designed to quietly support LGBTQIA+ individuals and allies who are looking to build skills, gain credentials, or explore new pathways—at their own pace.
           </p>
-          <p className="font-serif text-lg italic text-[#3D3558]">
+          <p className="font-serif text-lg italic text-[#4A3F6B]">
             &ldquo;Growth is not a race—it&rsquo;s a process.&rdquo;
           </p>
         </div>
@@ -78,34 +78,34 @@ export default function OpportunitiesPage() {
           {listings.map((listing) => (
             <div
               key={listing.title}
-              className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#C2BED8] hover:shadow-md transition-all"
+              className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#B5C4AE] hover:shadow-md transition-all"
             >
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="bg-[#C2BED8] text-[#3D3558] text-xs px-3 py-1 rounded-full font-semibold">
+                <span className="bg-[#B5C4AE] text-[#4A3F6B] text-xs px-3 py-1 rounded-full font-semibold">
                   {listing.type}
                 </span>
                 {listing.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-[#C2BED8]/30 border border-[#C2BED8] text-[#3D3558] text-xs px-3 py-1 rounded-full"
+                    className="bg-[#B5C4AE]/30 border border-[#B5C4AE] text-[#4A3F6B] text-xs px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <div className="flex items-center gap-2 text-[#52506A] text-sm mb-3">
-                <Calendar size={14} className="text-[#3D3558]" />
+              <div className="flex items-center gap-2 text-[#4E5A4A] text-sm mb-3">
+                <Calendar size={14} className="text-[#4A3F6B]" />
                 <span>Posted: {listing.date}</span>
               </div>
-              <h2 className="font-serif text-2xl font-bold text-[#3D3558] mb-4">
+              <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
                 {listing.title}
               </h2>
-              <p className="text-[#52506A] leading-relaxed mb-6">
+              <p className="text-[#4E5A4A] leading-relaxed mb-6">
                 {listing.description}
               </p>
               <a
                 href="mailto:contact@empowerqueerhub.com"
-                className="inline-flex items-center gap-2 bg-[#C2BED8] text-[#3D3558] font-semibold px-6 py-2.5 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all text-sm"
+                className="inline-flex items-center gap-2 bg-[#B5C4AE] text-[#4A3F6B] font-semibold px-6 py-2.5 rounded-full hover:bg-[#6B8F63] hover:text-white transition-all text-sm"
               >
                 <Briefcase size={14} />
                 Apply / Inquire
@@ -116,9 +116,9 @@ export default function OpportunitiesPage() {
       </section>
 
       {/* External Resources */}
-      <section className="py-16 px-4 bg-[#F2EFF8]">
+      <section className="py-16 px-4 bg-[#EFF3EC]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-2xl font-bold text-[#3D3558] mb-8">
+          <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-8">
             Additional Resources
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -128,13 +128,13 @@ export default function OpportunitiesPage() {
                 href={res.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#C2BED8] hover:shadow-sm transition-all group"
+                className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#B5C4AE] hover:shadow-sm transition-all group"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-semibold text-[#3D3558] text-sm">{res.name}</h3>
-                  <ExternalLink size={13} className="text-[#3D3558] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <h3 className="font-semibold text-[#4A3F6B] text-sm">{res.name}</h3>
+                  <ExternalLink size={13} className="text-[#4A3F6B] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <p className="text-[#52506A] text-xs">{res.desc}</p>
+                <p className="text-[#4E5A4A] text-xs">{res.desc}</p>
               </a>
             ))}
           </div>
@@ -142,17 +142,17 @@ export default function OpportunitiesPage() {
       </section>
 
       {/* Submit */}
-      <section className="py-16 px-4 bg-[#C2BED8]/10">
+      <section className="py-16 px-4 bg-[#B5C4AE]/10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl font-bold text-[#3D3558] mb-4">
+          <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
             Have an Opportunity to Share?
           </h2>
-          <p className="text-[#52506A] mb-6">
+          <p className="text-[#4E5A4A] mb-6">
             Submit fellowships, trainings, grants, or job opportunities to be featured on the Opportunities Desk.
           </p>
           <a
             href="mailto:contact@empowerqueerhub.com"
-            className="inline-flex items-center gap-2 bg-[#C2BED8] text-[#3D3558] font-semibold px-8 py-3 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#B5C4AE] text-[#4A3F6B] font-semibold px-8 py-3 rounded-full hover:bg-[#6B8F63] hover:text-white transition-all"
           >
             Submit via Email
           </a>
