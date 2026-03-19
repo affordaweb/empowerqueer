@@ -52,7 +52,7 @@ function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[#5C4A3A] hover:text-[#5C3D2E] text-sm px-3 py-2 rounded-md hover:bg-[#E8D5B0]/30 transition-all"
+                  className="text-[#52506A] hover:text-[#3D3558] text-sm px-3 py-2 rounded-md hover:bg-[#C2BED8]/30 transition-all"
                 >
                   {link.label}
                 </a>
@@ -62,7 +62,7 @@ function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="/donate/"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#C4784C] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#9E5C35] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#7B6E9E] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#5E5280] transition-colors"
             >
               <Heart size={14} />
               Donate Now!
@@ -70,7 +70,7 @@ function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen(!open)}
-              className="lg:hidden text-[#5C3D2E] p-2"
+              className="lg:hidden text-[#3D3558] p-2"
             >
               {open ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -83,7 +83,7 @@ function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="block text-[#5C4A3A] hover:text-[#5C3D2E] hover:bg-[#E8D5B0]/20 px-5 py-3 text-sm transition-all"
+                    className="block text-[#52506A] hover:text-[#3D3558] hover:bg-[#C2BED8]/20 px-5 py-3 text-sm transition-all"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -93,7 +93,7 @@ function Navbar() {
               <li className="px-4 py-3">
                 <a
                   href="/donate/"
-                  className="block bg-[#C4784C] text-white text-sm font-semibold px-4 py-2 rounded-full text-center"
+                  className="block bg-[#7B6E9E] text-white text-sm font-semibold px-4 py-2 rounded-full text-center"
                 >
                   <Heart size={14} className="inline mr-1.5" />
                   Donate Now!
@@ -111,15 +111,15 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-24 px-4">
+    <section className="bg-gradient-to-br from-[#F5F2FA] to-[#E8E2F5] py-24 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <p className="font-serif text-2xl sm:text-3xl italic text-[#C4784C] mb-6">
+        <p className="font-serif text-2xl sm:text-3xl italic text-[#7B6E9E] mb-6">
           You Are Seen. You Are Valid. You Are Home.
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#5C3D2E] leading-tight mb-6">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#3D3558] leading-tight mb-6">
           Empower Queer Hub | LGBTQIA+ Support, Events &amp; Inclusive Resources
         </h1>
-        <p className="max-w-2xl mx-auto text-[#5C4A3A] text-lg leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-[#52506A] text-lg leading-relaxed mb-10">
           EmpowerQueer is your all-in-one LGBTQIA+ support hub. Whether you&rsquo;re
           searching for queer mental health services, legal help, safe spaces, livelihood
           support, or local LGBTQIA+ events—this is where connection starts.
@@ -130,13 +130,13 @@ function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="/about/"
-            className="bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-8 py-3.5 rounded-full hover:bg-[#C4784C] hover:text-white transition-all text-base"
+            className="bg-[#C2BED8] text-[#3D3558] font-semibold px-8 py-3.5 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all text-base"
           >
             Learn More
           </a>
           <a
             href="/contact/"
-            className="bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-8 py-3.5 rounded-full hover:bg-[#C4784C] hover:text-white transition-all text-base"
+            className="bg-[#C2BED8] text-[#3D3558] font-semibold px-8 py-3.5 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all text-base"
           >
             Contact Us
           </a>
@@ -174,16 +174,16 @@ const features = [
 
 function Features() {
   return (
-    <section className="py-20 bg-[#FDF3E7]">
+    <section className="py-20 bg-[#F2EFF8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <p className="text-[#5C3D2E] font-semibold tracking-widest uppercase text-sm mb-3">
+          <p className="text-[#3D3558] font-semibold tracking-widest uppercase text-sm mb-3">
             What We Offer
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#5C3D2E] mb-4">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3D3558] mb-4">
             Everything You Need, In One Hub
           </h2>
-          <p className="text-[#5C4A3A] max-w-xl mx-auto text-lg">
+          <p className="text-[#52506A] max-w-xl mx-auto text-lg">
             Community-led support across mental health, education, and
             connection.
           </p>
@@ -194,20 +194,20 @@ function Features() {
             return (
               <div
                 key={feat.title}
-                className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-md hover:border-[#E8D5B0] transition-all duration-300 group"
+                className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-md hover:border-[#C2BED8] transition-all duration-300 group"
               >
-                <div className="w-14 h-14 bg-[#E8D5B0] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#C4784C] transition-colors">
-                  <Icon size={26} className="text-[#5C3D2E] group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 bg-[#C2BED8] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#7B6E9E] transition-colors">
+                  <Icon size={26} className="text-[#3D3558] group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-[#5C3D2E] mb-3">
+                <h3 className="font-serif text-xl font-bold text-[#3D3558] mb-3">
                   {feat.title}
                 </h3>
-                <p className="text-[#5C4A3A] text-sm leading-relaxed mb-6">
+                <p className="text-[#52506A] text-sm leading-relaxed mb-6">
                   {feat.description}
                 </p>
                 <a
                   href={feat.href}
-                  className="inline-flex items-center gap-1.5 text-[#5C3D2E] hover:text-[#9E5C35] text-sm font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#3D3558] hover:text-[#5E5280] text-sm font-semibold transition-colors"
                 >
                   Explore <ChevronRight size={16} />
                 </a>
@@ -228,19 +228,19 @@ function Kopisodes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Podcast card */}
-          <div className="bg-[#E8D5B0]/20 border border-[#E8D5B0] rounded-3xl p-10">
-            <div className="w-16 h-16 bg-[#E8D5B0] rounded-2xl flex items-center justify-center mb-6">
-              <Mic2 size={30} className="text-[#5C3D2E]" />
+          <div className="bg-[#C2BED8]/20 border border-[#C2BED8] rounded-3xl p-10">
+            <div className="w-16 h-16 bg-[#C2BED8] rounded-2xl flex items-center justify-center mb-6">
+              <Mic2 size={30} className="text-[#3D3558]" />
             </div>
-            <h3 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-3">
+            <h3 className="font-serif text-2xl font-bold text-[#3D3558] mb-3">
               Kopisodes
             </h3>
-            <p className="text-[#5C4A3A] text-sm mb-6 leading-relaxed">
+            <p className="text-[#52506A] text-sm mb-6 leading-relaxed">
               Kopisodes is a podcast that blends real stories, shared experiences, and meaningful dialogue—just like a good conversation over coffee. Each episode creates space for open talks, fresh ideas, and voices that deserve to be heard, making every listen both relatable and thought-provoking.
             </p>
             <a
               href="/kopisodes/"
-              className="inline-flex items-center gap-2 bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-6 py-3 rounded-full hover:bg-[#C4784C] hover:text-white transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-[#C2BED8] text-[#3D3558] font-semibold px-6 py-3 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all text-sm"
             >
               Listen Now <ChevronRight size={16} />
             </a>
@@ -248,21 +248,21 @@ function Kopisodes() {
 
           {/* Text side */}
           <div>
-            <p className="text-[#5C3D2E] font-semibold tracking-widest uppercase text-sm mb-3">
+            <p className="text-[#3D3558] font-semibold tracking-widest uppercase text-sm mb-3">
               Our Podcast
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#5C3D2E] mb-6 leading-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3D3558] mb-6 leading-tight">
               Kopisodes — Honest Conversations Over Coffee
             </h2>
-            <p className="text-[#5C4A3A] text-lg leading-relaxed mb-6">
+            <p className="text-[#52506A] text-lg leading-relaxed mb-6">
               Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
             </p>
-            <p className="text-[#5C4A3A] text-base leading-relaxed mb-8">
+            <p className="text-[#52506A] text-base leading-relaxed mb-8">
               Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
             </p>
             <a
               href="/kopisodes/"
-              className="inline-flex items-center gap-2 bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-7 py-3 rounded-full hover:bg-[#C4784C] hover:text-white transition-all"
+              className="inline-flex items-center gap-2 bg-[#C2BED8] text-[#3D3558] font-semibold px-7 py-3 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all"
             >
               Explore Kopisodes <ChevronRight size={16} />
             </a>
@@ -301,56 +301,56 @@ const focusAreas = [
 
 function About() {
   return (
-    <section className="py-20 bg-[#FDF3E7]">
+    <section className="py-20 bg-[#F2EFF8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="text-[#5C3D2E] font-semibold tracking-widest uppercase text-sm mb-3">
+            <p className="text-[#3D3558] font-semibold tracking-widest uppercase text-sm mb-3">
               Our Story
             </p>
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#5C3D2E] mb-8 leading-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3D3558] mb-8 leading-tight">
               Born from Urgency, Built with Purpose
             </h2>
             <div className="space-y-5">
               {pillars.map((p) => (
                 <div
                   key={p.title}
-                  className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#E8D5B0] hover:shadow-sm transition-all"
+                  className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#C2BED8] hover:shadow-sm transition-all"
                 >
-                  <h4 className="font-semibold text-[#5C3D2E] mb-1">{p.title}</h4>
-                  <p className="text-[#5C4A3A] text-sm leading-relaxed">{p.desc}</p>
+                  <h4 className="font-semibold text-[#3D3558] mb-1">{p.title}</h4>
+                  <p className="text-[#52506A] text-sm leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Wagayway box */}
-          <div className="bg-white border border-[#E8D5B0] rounded-3xl p-8 shadow-sm">
+          <div className="bg-white border border-[#C2BED8] rounded-3xl p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#E8D5B0] rounded-xl flex items-center justify-center">
-                <Heart size={22} className="text-[#5C3D2E]" />
+              <div className="w-12 h-12 bg-[#C2BED8] rounded-xl flex items-center justify-center">
+                <Heart size={22} className="text-[#3D3558]" />
               </div>
               <div>
-                <h3 className="font-serif text-xl font-bold text-[#5C3D2E]">
+                <h3 className="font-serif text-xl font-bold text-[#3D3558]">
                   Wagayway Equality
                 </h3>
-                <p className="text-[#5C4A3A] text-sm">
+                <p className="text-[#52506A] text-sm">
                   Founded 2018 · Batangas, Philippines
                 </p>
               </div>
             </div>
-            <p className="text-[#5C4A3A] text-sm leading-relaxed mb-6">
+            <p className="text-[#52506A] text-sm leading-relaxed mb-6">
               Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ human rights and community development organization based in Batangas. Founded in 2018, Wagayway Equality champions gender equality &amp; LGBTQIA+ inclusion, community-based health &amp; HIV services, socio-economic empowerment for LGBTQIA+ families, safe spaces &amp; mental health support, and volunteerism, leadership, and youth engagement.
             </p>
             <div>
-              <p className="text-[#5C3D2E] text-xs uppercase tracking-widest font-semibold mb-3">
+              <p className="text-[#3D3558] text-xs uppercase tracking-widest font-semibold mb-3">
                 Focus Areas
               </p>
               <div className="flex flex-wrap gap-2">
                 {focusAreas.map((area) => (
                   <span
                     key={area}
-                    className="bg-[#E8D5B0]/30 border border-[#E8D5B0] text-[#5C3D2E] text-xs px-3 py-1.5 rounded-full"
+                    className="bg-[#C2BED8]/30 border border-[#C2BED8] text-[#3D3558] text-xs px-3 py-1.5 rounded-full"
                   >
                     {area}
                   </span>
@@ -370,26 +370,26 @@ function Founder() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="mx-auto w-24 h-24 rounded-full overflow-hidden mb-8 border-4 border-[#E8D5B0]">
+        <div className="mx-auto w-24 h-24 rounded-full overflow-hidden mb-8 border-4 border-[#C2BED8]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/aivan-profile-pic.png" alt="Aivan Castillo Alvarez" className="w-full h-full object-cover" />
         </div>
         <div className="rainbow-bar h-[3px] w-12 mx-auto rounded-full mb-8" />
-        <blockquote className="font-serif text-lg sm:text-xl text-[#5C3D2E] leading-relaxed mb-8 italic text-left max-w-3xl mx-auto">
+        <blockquote className="font-serif text-lg sm:text-xl text-[#3D3558] leading-relaxed mb-8 italic text-left max-w-3xl mx-auto">
           &ldquo;When we started Wagayway Equality, it wasn&rsquo;t built from abundance— it was built from urgency. From stories of discrimination that were never reported. From young LGBTQIA+ people who had nowhere safe to turn. From community members who walked alone with their fears, questions, and pain. From the quiet truth we witnessed every day: our people deserved more than the silence they were left with.&rdquo;
           <br /><br />
           &ldquo;As we grow, this platform will evolve with you. Because EmpowerQueer is not mine alone; it belongs to the community it serves. On behalf of Wagayway Equality and everyone who made this possible, I welcome you—with pride, hope, and unwavering purpose. Padayon. The fight continues, and so does our love for one another.&rdquo;
         </blockquote>
         <div className="mb-8">
-          <p className="text-[#5C3D2E] font-bold text-lg">Aivan Castillo Alvarez</p>
-          <p className="text-[#5C4A3A] text-sm">
+          <p className="text-[#3D3558] font-bold text-lg">Aivan Castillo Alvarez</p>
+          <p className="text-[#52506A] text-sm">
             Founder / Executive Director — Empower Queer Hub
           </p>
         </div>
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <a
             href="mailto:aivan.c.alvarez@gmail.com"
-            className="flex items-center gap-2 text-[#5C4A3A] hover:text-[#5C3D2E] text-sm transition-colors bg-[#E8D5B0]/20 border border-[#E8D5B0] px-4 py-2 rounded-full hover:border-[#C4784C]"
+            className="flex items-center gap-2 text-[#52506A] hover:text-[#3D3558] text-sm transition-colors bg-[#C2BED8]/20 border border-[#C2BED8] px-4 py-2 rounded-full hover:border-[#7B6E9E]"
           >
             <Mail size={15} />
             Email Aivan
@@ -398,7 +398,7 @@ function Founder() {
             href="https://www.linkedin.com/in/aivanalvarez"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[#5C4A3A] hover:text-[#5C3D2E] text-sm transition-colors bg-[#E8D5B0]/20 border border-[#E8D5B0] px-4 py-2 rounded-full hover:border-[#C4784C]"
+            className="flex items-center gap-2 text-[#52506A] hover:text-[#3D3558] text-sm transition-colors bg-[#C2BED8]/20 border border-[#C2BED8] px-4 py-2 rounded-full hover:border-[#7B6E9E]"
           >
             <Linkedin size={15} />
             LinkedIn
@@ -420,21 +420,21 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="py-16 bg-[#FDF3E7]">
+    <section className="py-16 bg-[#F2EFF8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-[#E8D5B0] rounded-3xl px-8 py-12 shadow-sm">
+        <div className="bg-white border border-[#C2BED8] rounded-3xl px-8 py-12 shadow-sm">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat) => {
               const Icon = stat.icon;
               return (
                 <div key={stat.label} className="group">
-                  <div className="w-12 h-12 bg-[#E8D5B0] rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C4784C] transition-colors">
-                    <Icon size={20} className="text-[#5C3D2E] group-hover:text-white transition-colors" />
+                  <div className="w-12 h-12 bg-[#C2BED8] rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#7B6E9E] transition-colors">
+                    <Icon size={20} className="text-[#3D3558] group-hover:text-white transition-colors" />
                   </div>
-                  <div className="font-serif text-4xl font-bold text-[#5C3D2E] mb-1">
+                  <div className="font-serif text-4xl font-bold text-[#3D3558] mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[#5C4A3A] text-sm font-medium">
+                  <div className="text-[#52506A] text-sm font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -465,10 +465,10 @@ function Gallery() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-[#5C3D2E] font-semibold tracking-widest uppercase text-sm mb-3">
+          <p className="text-[#3D3558] font-semibold tracking-widest uppercase text-sm mb-3">
             Community in Action
           </p>
-          <h2 className="font-serif text-4xl font-bold text-[#5C3D2E]">
+          <h2 className="font-serif text-4xl font-bold text-[#3D3558]">
             Our Moments
           </h2>
         </div>
@@ -476,7 +476,7 @@ function Gallery() {
           {galleryItems.map((item, i) => (
             <div
               key={i}
-              className={`relative bg-[#E8D5B0]/20 border border-[#E8D5B0] rounded-xl overflow-hidden group hover:border-[#C4784C] hover:shadow-sm transition-all ${
+              className={`relative bg-[#C2BED8]/20 border border-[#C2BED8] rounded-xl overflow-hidden group hover:border-[#7B6E9E] hover:shadow-sm transition-all ${
                 i === 0 ? "sm:col-span-2 sm:row-span-2" : ""
               }`}
               style={{ aspectRatio: i === 0 ? "1/1" : "4/3" }}
@@ -507,10 +507,10 @@ const sponsors = [
 
 function Sponsors() {
   return (
-    <section className="py-16 bg-[#FDF3E7]">
+    <section className="py-16 bg-[#F2EFF8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <p className="text-[#5C3D2E] text-sm uppercase tracking-widest font-semibold">
+          <p className="text-[#3D3558] text-sm uppercase tracking-widest font-semibold">
             We are grateful to our awesome sponsors. Thank you!
           </p>
         </div>
@@ -518,7 +518,7 @@ function Sponsors() {
           {sponsors.map((s) => (
             <div
               key={s.name}
-              className="bg-white border border-gray-200 rounded-xl px-6 py-4 hover:border-[#E8D5B0] hover:bg-[#E8D5B0]/10 transition-all shadow-sm flex items-center justify-center"
+              className="bg-white border border-gray-200 rounded-xl px-6 py-4 hover:border-[#C2BED8] hover:bg-[#C2BED8]/10 transition-all shadow-sm flex items-center justify-center"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={s.logo} alt={s.name} className="h-12 w-auto object-contain" />
@@ -570,7 +570,7 @@ function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/empower-queer-logo.png" alt="Empower Queer Hub" className="h-10 w-auto" />
             </div>
-            <p className="text-[#5C4A3A] text-sm leading-relaxed mb-5">
+            <p className="text-[#52506A] text-sm leading-relaxed mb-5">
               A safe, inclusive digital hub for LGBTQIA+ Filipinos — connecting
               communities to mental health, legal aid, and advocacy resources.
             </p>
@@ -586,24 +586,24 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 bg-[#E8D5B0]/30 border border-[#E8D5B0] rounded-lg flex items-center justify-center text-[#5C3D2E] hover:bg-[#C4784C] hover:text-white hover:border-[#C4784C] transition-all"
+                  className="w-9 h-9 bg-[#C2BED8]/30 border border-[#C2BED8] rounded-lg flex items-center justify-center text-[#3D3558] hover:bg-[#7B6E9E] hover:text-white hover:border-[#7B6E9E] transition-all"
                 >
                   <Icon size={16} />
                 </a>
               ))}
             </div>
-            <div className="space-y-1 text-[#5C4A3A] text-xs">
+            <div className="space-y-1 text-[#52506A] text-xs">
               <div className="flex items-center gap-2"><Phone size={12} /><span>+63.929.741.4738</span></div>
               <div className="flex items-center gap-2"><MapPin size={12} /><span>Batangas, Philippines</span></div>
             </div>
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#5C3D2E] text-sm mb-4 uppercase tracking-wider">Quick Links</h4>
+            <h4 className="font-semibold text-[#3D3558] text-sm mb-4 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-[#5C4A3A] hover:text-[#5C3D2E] text-sm transition-colors flex items-center gap-1.5 group">
+                  <a href={link.href} className="text-[#52506A] hover:text-[#3D3558] text-sm transition-colors flex items-center gap-1.5 group">
                     <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 shrink-0" />
                     {link.label}
                   </a>
@@ -613,11 +613,11 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#5C3D2E] text-sm mb-4 uppercase tracking-wider">Categories</h4>
+            <h4 className="font-semibold text-[#3D3558] text-sm mb-4 uppercase tracking-wider">Categories</h4>
             <ul className="space-y-2">
               {footerCategories.map((cat) => (
                 <li key={cat.href}>
-                  <a href={cat.href} className="text-[#5C4A3A] hover:text-[#5C3D2E] text-sm transition-colors flex items-center gap-1.5 group">
+                  <a href={cat.href} className="text-[#52506A] hover:text-[#3D3558] text-sm transition-colors flex items-center gap-1.5 group">
                     <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 shrink-0" />
                     {cat.label}
                   </a>
@@ -627,11 +627,11 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-[#5C3D2E] text-sm mb-4 uppercase tracking-wider">Recent Posts</h4>
+            <h4 className="font-semibold text-[#3D3558] text-sm mb-4 uppercase tracking-wider">Recent Posts</h4>
             <ul className="space-y-4">
               {recentPosts.map((post) => (
                 <li key={post.title}>
-                  <a href={post.href} className="text-[#5C4A3A] hover:text-[#5C3D2E] text-sm transition-colors leading-relaxed block">
+                  <a href={post.href} className="text-[#52506A] hover:text-[#3D3558] text-sm transition-colors leading-relaxed block">
                     {post.title}
                   </a>
                 </li>
@@ -641,9 +641,9 @@ function Footer() {
         </div>
 
         <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[#5C4A3A] text-xs">© 2026 EmpowerQueer Hub. All rights reserved.</p>
+          <p className="text-[#52506A] text-xs">© 2026 EmpowerQueer Hub. All rights reserved.</p>
           <div className="rainbow-bar h-[3px] w-16 rounded-full" />
-          <p className="text-[#5C4A3A] text-xs">Batangas, Philippines · Founded 2018</p>
+          <p className="text-[#52506A] text-xs">Batangas, Philippines · Founded 2018</p>
         </div>
       </div>
     </footer>

@@ -8,11 +8,11 @@ export default function CategoryDiagnosticTestingPage() {
       <RainbowBar />
       <Navbar />
 
-      <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F5F2FA] to-[#E8E2F5] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#C4784C] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
-          <h1 className="font-serif text-5xl font-bold text-[#5C3D2E] mb-4">Diagnostic &amp; Testing</h1>
-          <p className="text-[#5C4A3A] text-xl leading-relaxed">
+          <p className="text-[#7B6E9E] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
+          <h1 className="font-serif text-5xl font-bold text-[#3D3558] mb-4">Diagnostic &amp; Testing</h1>
+          <p className="text-[#52506A] text-xl leading-relaxed">
             HIV testing, STI clinics, and diagnostic services.
           </p>
         </div>
@@ -20,10 +20,10 @@ export default function CategoryDiagnosticTestingPage() {
 
       <section className="py-24 px-4 text-center">
         <div className="max-w-xl mx-auto">
-          <p className="text-[#5C4A3A] text-lg mb-6">No posts in this category yet.</p>
+          <p className="text-[#52506A] text-lg mb-6">No posts in this category yet.</p>
           <a
             href="/directory/"
-            className="inline-flex items-center gap-2 bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-8 py-3 rounded-full hover:bg-[#C4784C] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#C2BED8] text-[#3D3558] font-semibold px-8 py-3 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all"
           >
             Find Testing Services in the Directory
           </a>

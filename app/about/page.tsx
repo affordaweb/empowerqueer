@@ -41,34 +41,34 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F5F2FA] to-[#E8E2F5] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#5C3D2E] mb-6">
+          <h1 className="font-serif text-5xl font-bold text-[#3D3558] mb-6">
             About the Hub
           </h1>
-          <p className="text-[#5C4A3A] text-xl leading-relaxed mb-6">
+          <p className="text-[#52506A] text-xl leading-relaxed mb-6">
             Inspired by Wagayway&rsquo;s Living Advocacy. Powered by Community. Sustained by Expertise.
           </p>
-          <p className="text-[#5C4A3A] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[#52506A] max-w-3xl mx-auto leading-relaxed">
             The EmpowerQueer Hub was born from the heart of Wagayway Equality&rsquo;s community work—years of listening, responding, and standing alongside LGBTQIA+ individuals who needed safe, accessible, and affirming support. What began as the Wagayway EmpowerQueer Project, supported by the Wellspring Philanthropic Fund through Humanis, has grown into a nationwide digital platform designed to uplift queer lives with dignity and care.
           </p>
-          <p className="text-[#5C4A3A] max-w-3xl mx-auto leading-relaxed mt-4">
+          <p className="text-[#52506A] max-w-3xl mx-auto leading-relaxed mt-4">
             Today, the hub continues to expand with the support of Ascend Development Solutions, our expert partner in personal and organizational development, sustainability systems, and transformative learning. Ascend brings forward inclusive training models, human-centered design, and development frameworks that strengthen how this platform serves the LGBTQIA+ community—ensuring that EmpowerQueer remains sustainable, strategic, and community-led.
           </p>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="py-16 px-4 bg-[#FDF3E7]">
+      <section className="py-16 px-4 bg-[#F2EFF8]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-[#5C3D2E] mb-6">Our Mission</h2>
-          <p className="text-[#5C4A3A] text-lg leading-relaxed mb-4">
+          <h2 className="font-serif text-3xl font-bold text-[#3D3558] mb-6">Our Mission</h2>
+          <p className="text-[#52506A] text-lg leading-relaxed mb-4">
             A platform shaped by LGBTQIA+ voices and lived experience. Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ organization based in Batangas and serving Region IV, with growing footprints nationwide. Built on volunteerism and collective action, Wagayway champions LGBTQIA+ rights &amp; inclusion, community-based HIV services, socio-economic empowerment, mental health support, leadership &amp; advocacy training, safe spaces, solidarity networks, and intergenerational learning.
           </p>
-          <p className="text-[#5C4A3A] text-lg leading-relaxed mb-4">
+          <p className="text-[#52506A] text-lg leading-relaxed mb-4">
             From small gatherings to city-wide campaigns, Wagayway has become a trusted anchor for queer voices—responding to real struggles through programs shaped by lived experience, compassion, and evidence-based practice. The EmpowerQueer Hub extends this mission, making Wagayway&rsquo;s spirit of service accessible to anyone in the Philippines, wherever they may be.
           </p>
-          <p className="text-[#5C4A3A] text-lg leading-relaxed">
+          <p className="text-[#52506A] text-lg leading-relaxed">
             Our goal is to ensure that every LGBTQIA+ person in the Philippines can find the help, knowledge, and connection they deserve—no gatekeeping, no judgment, no fear.
           </p>
         </div>
@@ -80,26 +80,26 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#E8D5B0] rounded-xl flex items-center justify-center">
-                  <Heart size={22} className="text-[#5C3D2E]" />
+                <div className="w-12 h-12 bg-[#C2BED8] rounded-xl flex items-center justify-center">
+                  <Heart size={22} className="text-[#3D3558]" />
                 </div>
                 <div>
-                  <h2 className="font-serif text-2xl font-bold text-[#5C3D2E]">Wagayway Equality</h2>
-                  <p className="text-[#5C4A3A] text-sm">Grassroots LGBTQIA+ Organization · Batangas, Region IV</p>
+                  <h2 className="font-serif text-2xl font-bold text-[#3D3558]">Wagayway Equality</h2>
+                  <p className="text-[#52506A] text-sm">Grassroots LGBTQIA+ Organization · Batangas, Region IV</p>
                 </div>
               </div>
-              <p className="text-[#5C4A3A] leading-relaxed mb-6">
+              <p className="text-[#52506A] leading-relaxed mb-6">
                 A grassroots LGBTQIA+ organization based in Batangas, Region IV, Wagayway Equality champions the rights and welfare of LGBTQIA+ communities through lived-experience-based advocacy and community-centered programs.
               </p>
               <div>
-                <p className="text-[#5C3D2E] text-xs uppercase tracking-widest font-semibold mb-3">
+                <p className="text-[#3D3558] text-xs uppercase tracking-widest font-semibold mb-3">
                   What We Champion
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {championed.map((item) => (
                     <span
                       key={item}
-                      className="bg-[#E8D5B0]/30 border border-[#E8D5B0] text-[#5C3D2E] text-xs px-3 py-1.5 rounded-full"
+                      className="bg-[#C2BED8]/30 border border-[#C2BED8] text-[#3D3558] text-xs px-3 py-1.5 rounded-full"
                     >
                       {item}
                     </span>
@@ -108,22 +108,22 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-[#E8D5B0]/10 border border-[#E8D5B0] rounded-2xl p-8">
+            <div className="bg-[#C2BED8]/10 border border-[#C2BED8] rounded-2xl p-8">
               <div className="flex items-center gap-2 mb-4">
-                <MapPin size={18} className="text-[#5C3D2E]" />
-                <h3 className="font-semibold text-[#5C3D2E]">Geographic Reach</h3>
+                <MapPin size={18} className="text-[#3D3558]" />
+                <h3 className="font-semibold text-[#3D3558]">Geographic Reach</h3>
               </div>
-              <p className="text-[#5C4A3A] text-sm mb-4">
+              <p className="text-[#52506A] text-sm mb-4">
                 Primary service area: <strong>Region IV-A &amp; IV-B</strong>
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {regions.map((r) => (
-                  <span key={r} className="bg-white border border-gray-200 text-[#5C4A3A] text-xs px-3 py-1.5 rounded-full">
+                  <span key={r} className="bg-white border border-gray-200 text-[#52506A] text-xs px-3 py-1.5 rounded-full">
                     {r}
                   </span>
                 ))}
               </div>
-              <p className="text-[#5C4A3A] text-sm">
+              <p className="text-[#52506A] text-sm">
                 Also serving <strong>MIMAROPA</strong> region, with nationwide digital access to all programs and resources.
               </p>
             </div>
@@ -132,30 +132,30 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="py-16 px-4 bg-[#FDF3E7]">
+      <section className="py-16 px-4 bg-[#F2EFF8]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-[#5C3D2E] mb-8 text-center">Our Founder</h2>
-          <div className="bg-white border border-[#E8D5B0] rounded-2xl p-8 shadow-sm">
+          <h2 className="font-serif text-3xl font-bold text-[#3D3558] mb-8 text-center">Our Founder</h2>
+          <div className="bg-white border border-[#C2BED8] rounded-2xl p-8 shadow-sm">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <div className="w-20 h-20 rounded-full bg-[#E8D5B0] flex items-center justify-center text-2xl font-bold text-[#5C3D2E] shrink-0">
+              <div className="w-20 h-20 rounded-full bg-[#C2BED8] flex items-center justify-center text-2xl font-bold text-[#3D3558] shrink-0">
                 A
               </div>
               <div>
-                <h3 className="font-serif text-xl font-bold text-[#5C3D2E] mb-1">
+                <h3 className="font-serif text-xl font-bold text-[#3D3558] mb-1">
                   Aivan Castillo Alvarez
                 </h3>
-                <p className="text-[#5C4A3A] text-sm mb-3">
+                <p className="text-[#52506A] text-sm mb-3">
                   Development practitioner · LGBTQIA+ rights advocate · Researcher · Trainer
                 </p>
-                <p className="text-[#5C4A3A] text-sm leading-relaxed mb-3">
+                <p className="text-[#52506A] text-sm leading-relaxed mb-3">
                   Aivan is a development practitioner, LGBTQIA+ rights advocate, researcher, and trainer committed to building community-led solutions for equality. With experience spanning human rights work, SOGIESC advocacy, socio-economic inclusion, and organizational development, Aivan believes in one simple truth:
                 </p>
-                <blockquote className="font-serif text-lg italic text-[#5C3D2E] border-l-4 border-[#E8D5B0] pl-4 mb-4">
+                <blockquote className="font-serif text-lg italic text-[#3D3558] border-l-4 border-[#C2BED8] pl-4 mb-4">
                   &ldquo;The community is the expert. My role is only to amplify what already exists within us.&rdquo;
                 </blockquote>
                 <a
                   href="mailto:contact@empowerqueerhub.com"
-                  className="inline-flex items-center gap-2 text-[#5C4A3A] hover:text-[#5C3D2E] text-sm"
+                  className="inline-flex items-center gap-2 text-[#52506A] hover:text-[#3D3558] text-sm"
                 >
                   <Mail size={14} />
                   contact@empowerqueerhub.com
@@ -169,21 +169,21 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-[#5C3D2E] mb-10 text-center">
+          <h2 className="font-serif text-3xl font-bold text-[#3D3558] mb-10 text-center">
             Board of Directors
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((member) => (
               <div
                 key={member.name}
-                className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#E8D5B0] hover:shadow-sm transition-all"
+                className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#C2BED8] hover:shadow-sm transition-all"
               >
-                <div className="w-12 h-12 rounded-full bg-[#E8D5B0] flex items-center justify-center text-[#5C3D2E] font-bold text-sm mb-3">
+                <div className="w-12 h-12 rounded-full bg-[#C2BED8] flex items-center justify-center text-[#3D3558] font-bold text-sm mb-3">
                   {member.name.charAt(0)}
                 </div>
-                <p className="font-semibold text-[#5C3D2E] text-sm">{member.name}</p>
-                <p className="text-[#5C4A3A] text-xs mt-1 mb-2 font-medium">{member.role}</p>
-                {member.bio && <p className="text-[#5C4A3A] text-xs leading-relaxed">{member.bio}</p>}
+                <p className="font-semibold text-[#3D3558] text-sm">{member.name}</p>
+                <p className="text-[#52506A] text-xs mt-1 mb-2 font-medium">{member.role}</p>
+                {member.bio && <p className="text-[#52506A] text-xs leading-relaxed">{member.bio}</p>}
               </div>
             ))}
           </div>
@@ -191,17 +191,17 @@ export default function AboutPage() {
       </section>
 
       {/* Volunteer */}
-      <section className="py-16 px-4 bg-[#E8D5B0]/10">
+      <section className="py-16 px-4 bg-[#C2BED8]/10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-3xl font-bold text-[#5C3D2E] mb-4">
+          <h2 className="font-serif text-3xl font-bold text-[#3D3558] mb-4">
             Volunteer With Us
           </h2>
-          <p className="text-[#5C4A3A] text-lg leading-relaxed mb-8">
+          <p className="text-[#52506A] text-lg leading-relaxed mb-8">
             Join our community of advocates, educators, and changemakers. Whether you have hours or expertise to spare, there&rsquo;s a place for you here.
           </p>
           <a
             href="/contact/"
-            className="inline-flex items-center gap-2 bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-8 py-3.5 rounded-full hover:bg-[#C4784C] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#C2BED8] text-[#3D3558] font-semibold px-8 py-3.5 rounded-full hover:bg-[#7B6E9E] hover:text-white transition-all"
           >
             Get Involved
           </a>

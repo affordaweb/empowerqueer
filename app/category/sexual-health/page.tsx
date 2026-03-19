@@ -24,11 +24,11 @@ export default function CategorySexualHealthPage() {
       <RainbowBar />
       <Navbar />
 
-      <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F5F2FA] to-[#E8E2F5] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#C4784C] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
-          <h1 className="font-serif text-5xl font-bold text-[#5C3D2E] mb-4">Sexual Health</h1>
-          <p className="text-[#5C4A3A] text-xl leading-relaxed">
+          <p className="text-[#7B6E9E] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
+          <h1 className="font-serif text-5xl font-bold text-[#3D3558] mb-4">Sexual Health</h1>
+          <p className="text-[#52506A] text-xl leading-relaxed">
             Reliable information on HIV, STIs, and sexual wellness.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function CategorySexualHealthPage() {
           {posts.map((post) => (
             <div
               key={post.title}
-              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#E8D5B0] hover:shadow-sm transition-all group"
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#C2BED8] hover:shadow-sm transition-all group"
             >
               <div className="flex flex-col sm:flex-row">
                 {post.img && (
@@ -49,10 +49,10 @@ export default function CategorySexualHealthPage() {
                   </div>
                 )}
                 <div className="flex-1 p-6">
-                  <p className="text-[#5C4A3A] text-xs mb-2">{post.date}</p>
-                  <h3 className="font-serif text-lg font-bold text-[#5C3D2E] mb-2">{post.title}</h3>
-                  <p className="text-[#5C4A3A] text-sm leading-relaxed mb-3">{post.desc}</p>
-                  <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#5C3D2E] text-sm font-semibold hover:gap-2.5 transition-all">
+                  <p className="text-[#52506A] text-xs mb-2">{post.date}</p>
+                  <h3 className="font-serif text-lg font-bold text-[#3D3558] mb-2">{post.title}</h3>
+                  <p className="text-[#52506A] text-sm leading-relaxed mb-3">{post.desc}</p>
+                  <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#3D3558] text-sm font-semibold hover:gap-2.5 transition-all">
                     Read More <ChevronRight size={14} />
                   </a>
                 </div>
