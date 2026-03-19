@@ -2,9 +2,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #5C576E;
-  --heading: #4A3F6B;
-  --accent: #B5C4AE;
+  --foreground: #474747;
+  --heading: #3A3C51;
+  --accent: #A9D6B6;
   --font-dm-sans: "DM Sans", sans-serif;
 }
 
@@ -37,5 +37,5 @@ body {
 }
 
 .hero-gradient {
-  background: linear-gradient(to bottom right, #EDE8F5, #E4EDE0);
+  background: linear-gradient(to bottom right, #F0EBF5, #E8F4EC);
 }

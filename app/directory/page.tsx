@@ -102,13 +102,13 @@ export default function DirectoryPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">Service Directory</h1>
-          <p className="text-[#5C576E] text-xl leading-relaxed mb-4">
+          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Service Directory</h1>
+          <p className="text-[#474747] text-xl leading-relaxed mb-4">
             Trusted LGBTQIA+ affirming services across Batangas Province
           </p>
-          <p className="text-[#5C576E] max-w-2xl mx-auto">
+          <p className="text-[#474747] max-w-2xl mx-auto">
             This directory is built with care—to help you find clinics, support groups, organizations, and services that truly see and respect who you are. Whether you&rsquo;re seeking mental health support, HIV testing, legal guidance, or a safe space to connect, every listing here is selected for its commitment to serving the LGBTQIA+ community with dignity and understanding.
           </p>
         </div>
@@ -120,7 +120,7 @@ export default function DirectoryPage() {
             {/* Sidebar */}
             <aside className="lg:col-span-1">
               <div className="bg-white border border-gray-200 rounded-2xl p-6 sticky top-24">
-                <h3 className="font-semibold text-[#4A3F6B] mb-4 uppercase tracking-wider text-sm">
+                <h3 className="font-semibold text-[#3A3C51] mb-4 uppercase tracking-wider text-sm">
                   Categories
                 </h3>
                 <ul className="space-y-1">
@@ -128,7 +128,7 @@ export default function DirectoryPage() {
                     <li key={cat}>
                       <a
                         href="#"
-                        className="block text-[#5C576E] hover:text-[#4A3F6B] hover:bg-[#B5C4AE]/20 text-sm px-3 py-1.5 rounded-md transition-all"
+                        className="block text-[#474747] hover:text-[#3A3C51] hover:bg-[#A9D6B6]/20 text-sm px-3 py-1.5 rounded-md transition-all"
                       >
                         {cat}
                       </a>
@@ -143,25 +143,25 @@ export default function DirectoryPage() {
               {listings.map((listing) => (
                 <div
                   key={listing.name}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#B5C4AE] hover:shadow-sm transition-all"
+                  className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#A9D6B6] hover:shadow-sm transition-all"
                 >
                   <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-[#B5C4AE]/30 border border-[#B5C4AE] text-[#4A3F6B] text-xs px-3 py-1 rounded-full">
+                    <span className="bg-[#A9D6B6]/30 border border-[#A9D6B6] text-[#3A3C51] text-xs px-3 py-1 rounded-full">
                       {listing.category}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-[#4A3F6B] mb-2">
+                  <h3 className="font-serif text-lg font-bold text-[#3A3C51] mb-2">
                     {listing.name}
                   </h3>
-                  <p className="text-[#5C576E] text-sm leading-relaxed mb-3">
+                  <p className="text-[#474747] text-sm leading-relaxed mb-3">
                     {listing.description}
                   </p>
                   {listing.contact && (
-                    <div className="flex items-center gap-2 text-[#5C576E] text-sm">
+                    <div className="flex items-center gap-2 text-[#474747] text-sm">
                       {listing.type === "phone" || listing.type === "hotline" ? (
-                        <Phone size={14} className="text-[#4A3F6B]" />
+                        <Phone size={14} className="text-[#3A3C51]" />
                       ) : (
-                        <MapPin size={14} className="text-[#4A3F6B]" />
+                        <MapPin size={14} className="text-[#3A3C51]" />
                       )}
                       <span>
                         {listing.type === "hotline" ? "Hotline: " : "Contact: "}
@@ -177,17 +177,17 @@ export default function DirectoryPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-[#B5C4AE]/10">
+      <section className="py-16 px-4 bg-[#A9D6B6]/10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
+          <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
             Know a Service We Should List?
           </h2>
-          <p className="text-[#5C576E] mb-6">
+          <p className="text-[#474747] mb-6">
             Help us grow this directory by submitting LGBTQIA+-friendly services in your area.
           </p>
           <a
             href="mailto:contact@empowerqueerhub.com"
-            className="inline-flex items-center gap-2 bg-[#B5C4AE] text-[#4A3F6B] font-semibold px-8 py-3 rounded-full hover:bg-[#6B8F63] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all"
           >
             Submit a Listing
           </a>

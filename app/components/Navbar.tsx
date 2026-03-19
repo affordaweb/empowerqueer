@@ -34,7 +34,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[#5C576E] hover:text-[#4A3F6B] text-sm px-3 py-2 rounded-md hover:bg-[#B5C4AE]/30 transition-all"
+                  className="text-[#474747] hover:text-[#3A3C51] text-sm px-3 py-2 rounded-md hover:bg-[#A9D6B6]/30 transition-all"
                 >
                   {link.label}
                 </a>
@@ -46,7 +46,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="/donate/"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#6B8F63] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#4E6B47] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#D7C4E3] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#3A3C51] transition-colors"
             >
               <Heart size={14} />
               Donate Now!
@@ -54,7 +54,7 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen(!open)}
-              className="lg:hidden text-[#4A3F6B] hover:text-[#5C576E] p-2"
+              className="lg:hidden text-[#3A3C51] hover:text-[#474747] p-2"
             >
               {open ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -69,7 +69,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="block text-[#5C576E] hover:text-[#4A3F6B] hover:bg-[#B5C4AE]/20 px-5 py-3 text-sm transition-all"
+                    className="block text-[#474747] hover:text-[#3A3C51] hover:bg-[#A9D6B6]/20 px-5 py-3 text-sm transition-all"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -79,7 +79,7 @@ export default function Navbar() {
               <li className="px-4 py-3">
                 <a
                   href="/donate/"
-                  className="block bg-[#6B8F63] text-white text-sm font-semibold px-4 py-2 rounded-full text-center hover:bg-[#4E6B47] transition-colors"
+                  className="block bg-[#D7C4E3] text-white text-sm font-semibold px-4 py-2 rounded-full text-center hover:bg-[#3A3C51] transition-colors"
                 >
                   <Heart size={14} className="inline mr-1.5" />
                   Donate Now!
