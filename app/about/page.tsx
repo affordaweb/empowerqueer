@@ -41,34 +41,34 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-6">
             About the Hub
           </h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed mb-6">
+          <p className="text-[#5C576E] text-xl leading-relaxed mb-6">
             Inspired by Wagayway&rsquo;s Living Advocacy. Powered by Community. Sustained by Expertise.
           </p>
-          <p className="text-[#4E5A4A] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[#5C576E] max-w-3xl mx-auto leading-relaxed">
             The EmpowerQueer Hub was born from the heart of Wagayway Equality&rsquo;s community work—years of listening, responding, and standing alongside LGBTQIA+ individuals who needed safe, accessible, and affirming support. What began as the Wagayway EmpowerQueer Project, supported by the Wellspring Philanthropic Fund through Humanis, has grown into a nationwide digital platform designed to uplift queer lives with dignity and care.
           </p>
-          <p className="text-[#4E5A4A] max-w-3xl mx-auto leading-relaxed mt-4">
+          <p className="text-[#5C576E] max-w-3xl mx-auto leading-relaxed mt-4">
             Today, the hub continues to expand with the support of Ascend Development Solutions, our expert partner in personal and organizational development, sustainability systems, and transformative learning. Ascend brings forward inclusive training models, human-centered design, and development frameworks that strengthen how this platform serves the LGBTQIA+ community—ensuring that EmpowerQueer remains sustainable, strategic, and community-led.
           </p>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="py-16 px-4 bg-[#EFF3EC]">
+      <section className="py-16 px-4 bg-[#EEEAF5]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-3xl font-bold text-[#4A3F6B] mb-6">Our Mission</h2>
-          <p className="text-[#4E5A4A] text-lg leading-relaxed mb-4">
+          <p className="text-[#5C576E] text-lg leading-relaxed mb-4">
             A platform shaped by LGBTQIA+ voices and lived experience. Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ organization based in Batangas and serving Region IV, with growing footprints nationwide. Built on volunteerism and collective action, Wagayway champions LGBTQIA+ rights &amp; inclusion, community-based HIV services, socio-economic empowerment, mental health support, leadership &amp; advocacy training, safe spaces, solidarity networks, and intergenerational learning.
           </p>
-          <p className="text-[#4E5A4A] text-lg leading-relaxed mb-4">
+          <p className="text-[#5C576E] text-lg leading-relaxed mb-4">
             From small gatherings to city-wide campaigns, Wagayway has become a trusted anchor for queer voices—responding to real struggles through programs shaped by lived experience, compassion, and evidence-based practice. The EmpowerQueer Hub extends this mission, making Wagayway&rsquo;s spirit of service accessible to anyone in the Philippines, wherever they may be.
           </p>
-          <p className="text-[#4E5A4A] text-lg leading-relaxed">
+          <p className="text-[#5C576E] text-lg leading-relaxed">
             Our goal is to ensure that every LGBTQIA+ person in the Philippines can find the help, knowledge, and connection they deserve—no gatekeeping, no judgment, no fear.
           </p>
         </div>
@@ -85,10 +85,10 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h2 className="font-serif text-2xl font-bold text-[#4A3F6B]">Wagayway Equality</h2>
-                  <p className="text-[#4E5A4A] text-sm">Grassroots LGBTQIA+ Organization · Batangas, Region IV</p>
+                  <p className="text-[#5C576E] text-sm">Grassroots LGBTQIA+ Organization · Batangas, Region IV</p>
                 </div>
               </div>
-              <p className="text-[#4E5A4A] leading-relaxed mb-6">
+              <p className="text-[#5C576E] leading-relaxed mb-6">
                 A grassroots LGBTQIA+ organization based in Batangas, Region IV, Wagayway Equality champions the rights and welfare of LGBTQIA+ communities through lived-experience-based advocacy and community-centered programs.
               </p>
               <div>
@@ -113,17 +113,17 @@ export default function AboutPage() {
                 <MapPin size={18} className="text-[#4A3F6B]" />
                 <h3 className="font-semibold text-[#4A3F6B]">Geographic Reach</h3>
               </div>
-              <p className="text-[#4E5A4A] text-sm mb-4">
+              <p className="text-[#5C576E] text-sm mb-4">
                 Primary service area: <strong>Region IV-A &amp; IV-B</strong>
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {regions.map((r) => (
-                  <span key={r} className="bg-white border border-gray-200 text-[#4E5A4A] text-xs px-3 py-1.5 rounded-full">
+                  <span key={r} className="bg-white border border-gray-200 text-[#5C576E] text-xs px-3 py-1.5 rounded-full">
                     {r}
                   </span>
                 ))}
               </div>
-              <p className="text-[#4E5A4A] text-sm">
+              <p className="text-[#5C576E] text-sm">
                 Also serving <strong>MIMAROPA</strong> region, with nationwide digital access to all programs and resources.
               </p>
             </div>
@@ -132,7 +132,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="py-16 px-4 bg-[#EFF3EC]">
+      <section className="py-16 px-4 bg-[#EEEAF5]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-3xl font-bold text-[#4A3F6B] mb-8 text-center">Our Founder</h2>
           <div className="bg-white border border-[#B5C4AE] rounded-2xl p-8 shadow-sm">
@@ -144,10 +144,10 @@ export default function AboutPage() {
                 <h3 className="font-serif text-xl font-bold text-[#4A3F6B] mb-1">
                   Aivan Castillo Alvarez
                 </h3>
-                <p className="text-[#4E5A4A] text-sm mb-3">
+                <p className="text-[#5C576E] text-sm mb-3">
                   Development practitioner · LGBTQIA+ rights advocate · Researcher · Trainer
                 </p>
-                <p className="text-[#4E5A4A] text-sm leading-relaxed mb-3">
+                <p className="text-[#5C576E] text-sm leading-relaxed mb-3">
                   Aivan is a development practitioner, LGBTQIA+ rights advocate, researcher, and trainer committed to building community-led solutions for equality. With experience spanning human rights work, SOGIESC advocacy, socio-economic inclusion, and organizational development, Aivan believes in one simple truth:
                 </p>
                 <blockquote className="font-serif text-lg italic text-[#4A3F6B] border-l-4 border-[#B5C4AE] pl-4 mb-4">
@@ -155,7 +155,7 @@ export default function AboutPage() {
                 </blockquote>
                 <a
                   href="mailto:contact@empowerqueerhub.com"
-                  className="inline-flex items-center gap-2 text-[#4E5A4A] hover:text-[#4A3F6B] text-sm"
+                  className="inline-flex items-center gap-2 text-[#5C576E] hover:text-[#4A3F6B] text-sm"
                 >
                   <Mail size={14} />
                   contact@empowerqueerhub.com
@@ -182,8 +182,8 @@ export default function AboutPage() {
                   {member.name.charAt(0)}
                 </div>
                 <p className="font-semibold text-[#4A3F6B] text-sm">{member.name}</p>
-                <p className="text-[#4E5A4A] text-xs mt-1 mb-2 font-medium">{member.role}</p>
-                {member.bio && <p className="text-[#4E5A4A] text-xs leading-relaxed">{member.bio}</p>}
+                <p className="text-[#5C576E] text-xs mt-1 mb-2 font-medium">{member.role}</p>
+                {member.bio && <p className="text-[#5C576E] text-xs leading-relaxed">{member.bio}</p>}
               </div>
             ))}
           </div>
@@ -196,7 +196,7 @@ export default function AboutPage() {
           <h2 className="font-serif text-3xl font-bold text-[#4A3F6B] mb-4">
             Volunteer With Us
           </h2>
-          <p className="text-[#4E5A4A] text-lg leading-relaxed mb-8">
+          <p className="text-[#5C576E] text-lg leading-relaxed mb-8">
             Join our community of advocates, educators, and changemakers. Whether you have hours or expertise to spare, there&rsquo;s a place for you here.
           </p>
           <a

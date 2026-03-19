@@ -52,7 +52,7 @@ function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm px-3 py-2 rounded-md hover:bg-[#B5C4AE]/30 transition-all"
+                  className="text-[#5C576E] hover:text-[#4A3F6B] text-sm px-3 py-2 rounded-md hover:bg-[#B5C4AE]/30 transition-all"
                 >
                   {link.label}
                 </a>
@@ -62,7 +62,7 @@ function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="/donate/"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#6B8F63] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#527049] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#6B8F63] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#4E6B47] transition-colors"
             >
               <Heart size={14} />
               Donate Now!
@@ -83,7 +83,7 @@ function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="block text-[#4E5A4A] hover:text-[#4A3F6B] hover:bg-[#B5C4AE]/20 px-5 py-3 text-sm transition-all"
+                    className="block text-[#5C576E] hover:text-[#4A3F6B] hover:bg-[#B5C4AE]/20 px-5 py-3 text-sm transition-all"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -111,7 +111,7 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-24 px-4">
+    <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-24 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <p className="font-serif text-2xl sm:text-3xl italic text-[#6B8F63] mb-6">
           You Are Seen. You Are Valid. You Are Home.
@@ -119,7 +119,7 @@ function Hero() {
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#4A3F6B] leading-tight mb-6">
           Empower Queer Hub | LGBTQIA+ Support, Events &amp; Inclusive Resources
         </h1>
-        <p className="max-w-2xl mx-auto text-[#4E5A4A] text-lg leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-[#5C576E] text-lg leading-relaxed mb-10">
           EmpowerQueer is your all-in-one LGBTQIA+ support hub. Whether you&rsquo;re
           searching for queer mental health services, legal help, safe spaces, livelihood
           support, or local LGBTQIA+ events—this is where connection starts.
@@ -174,7 +174,7 @@ const features = [
 
 function Features() {
   return (
-    <section className="py-20 bg-[#EFF3EC]">
+    <section className="py-20 bg-[#EEEAF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <p className="text-[#4A3F6B] font-semibold tracking-widest uppercase text-sm mb-3">
@@ -183,7 +183,7 @@ function Features() {
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#4A3F6B] mb-4">
             Everything You Need, In One Hub
           </h2>
-          <p className="text-[#4E5A4A] max-w-xl mx-auto text-lg">
+          <p className="text-[#5C576E] max-w-xl mx-auto text-lg">
             Community-led support across mental health, education, and
             connection.
           </p>
@@ -202,12 +202,12 @@ function Features() {
                 <h3 className="font-serif text-xl font-bold text-[#4A3F6B] mb-3">
                   {feat.title}
                 </h3>
-                <p className="text-[#4E5A4A] text-sm leading-relaxed mb-6">
+                <p className="text-[#5C576E] text-sm leading-relaxed mb-6">
                   {feat.description}
                 </p>
                 <a
                   href={feat.href}
-                  className="inline-flex items-center gap-1.5 text-[#4A3F6B] hover:text-[#527049] text-sm font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#4A3F6B] hover:text-[#4E6B47] text-sm font-semibold transition-colors"
                 >
                   Explore <ChevronRight size={16} />
                 </a>
@@ -235,7 +235,7 @@ function Kopisodes() {
             <h3 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-3">
               Kopisodes
             </h3>
-            <p className="text-[#4E5A4A] text-sm mb-6 leading-relaxed">
+            <p className="text-[#5C576E] text-sm mb-6 leading-relaxed">
               Kopisodes is a podcast that blends real stories, shared experiences, and meaningful dialogue—just like a good conversation over coffee. Each episode creates space for open talks, fresh ideas, and voices that deserve to be heard, making every listen both relatable and thought-provoking.
             </p>
             <a
@@ -254,10 +254,10 @@ function Kopisodes() {
             <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#4A3F6B] mb-6 leading-tight">
               Kopisodes — Honest Conversations Over Coffee
             </h2>
-            <p className="text-[#4E5A4A] text-lg leading-relaxed mb-6">
+            <p className="text-[#5C576E] text-lg leading-relaxed mb-6">
               Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
             </p>
-            <p className="text-[#4E5A4A] text-base leading-relaxed mb-8">
+            <p className="text-[#5C576E] text-base leading-relaxed mb-8">
               Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
             </p>
             <a
@@ -301,7 +301,7 @@ const focusAreas = [
 
 function About() {
   return (
-    <section className="py-20 bg-[#EFF3EC]">
+    <section className="py-20 bg-[#EEEAF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div>
@@ -318,7 +318,7 @@ function About() {
                   className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#B5C4AE] hover:shadow-sm transition-all"
                 >
                   <h4 className="font-semibold text-[#4A3F6B] mb-1">{p.title}</h4>
-                  <p className="text-[#4E5A4A] text-sm leading-relaxed">{p.desc}</p>
+                  <p className="text-[#5C576E] text-sm leading-relaxed">{p.desc}</p>
                 </div>
               ))}
             </div>
@@ -334,12 +334,12 @@ function About() {
                 <h3 className="font-serif text-xl font-bold text-[#4A3F6B]">
                   Wagayway Equality
                 </h3>
-                <p className="text-[#4E5A4A] text-sm">
+                <p className="text-[#5C576E] text-sm">
                   Founded 2018 · Batangas, Philippines
                 </p>
               </div>
             </div>
-            <p className="text-[#4E5A4A] text-sm leading-relaxed mb-6">
+            <p className="text-[#5C576E] text-sm leading-relaxed mb-6">
               Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ human rights and community development organization based in Batangas. Founded in 2018, Wagayway Equality champions gender equality &amp; LGBTQIA+ inclusion, community-based health &amp; HIV services, socio-economic empowerment for LGBTQIA+ families, safe spaces &amp; mental health support, and volunteerism, leadership, and youth engagement.
             </p>
             <div>
@@ -382,14 +382,14 @@ function Founder() {
         </blockquote>
         <div className="mb-8">
           <p className="text-[#4A3F6B] font-bold text-lg">Aivan Castillo Alvarez</p>
-          <p className="text-[#4E5A4A] text-sm">
+          <p className="text-[#5C576E] text-sm">
             Founder / Executive Director — Empower Queer Hub
           </p>
         </div>
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <a
             href="mailto:aivan.c.alvarez@gmail.com"
-            className="flex items-center gap-2 text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors bg-[#B5C4AE]/20 border border-[#B5C4AE] px-4 py-2 rounded-full hover:border-[#6B8F63]"
+            className="flex items-center gap-2 text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors bg-[#B5C4AE]/20 border border-[#B5C4AE] px-4 py-2 rounded-full hover:border-[#6B8F63]"
           >
             <Mail size={15} />
             Email Aivan
@@ -398,7 +398,7 @@ function Founder() {
             href="https://www.linkedin.com/in/aivanalvarez"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors bg-[#B5C4AE]/20 border border-[#B5C4AE] px-4 py-2 rounded-full hover:border-[#6B8F63]"
+            className="flex items-center gap-2 text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors bg-[#B5C4AE]/20 border border-[#B5C4AE] px-4 py-2 rounded-full hover:border-[#6B8F63]"
           >
             <Linkedin size={15} />
             LinkedIn
@@ -420,7 +420,7 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="py-16 bg-[#EFF3EC]">
+    <section className="py-16 bg-[#EEEAF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white border border-[#B5C4AE] rounded-3xl px-8 py-12 shadow-sm">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -434,7 +434,7 @@ function Stats() {
                   <div className="font-serif text-4xl font-bold text-[#4A3F6B] mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[#4E5A4A] text-sm font-medium">
+                  <div className="text-[#5C576E] text-sm font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -507,7 +507,7 @@ const sponsors = [
 
 function Sponsors() {
   return (
-    <section className="py-16 bg-[#EFF3EC]">
+    <section className="py-16 bg-[#EEEAF5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <p className="text-[#4A3F6B] text-sm uppercase tracking-widest font-semibold">
@@ -570,7 +570,7 @@ function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/empower-queer-logo.png" alt="Empower Queer Hub" className="h-10 w-auto" />
             </div>
-            <p className="text-[#4E5A4A] text-sm leading-relaxed mb-5">
+            <p className="text-[#5C576E] text-sm leading-relaxed mb-5">
               A safe, inclusive digital hub for LGBTQIA+ Filipinos — connecting
               communities to mental health, legal aid, and advocacy resources.
             </p>
@@ -592,7 +592,7 @@ function Footer() {
                 </a>
               ))}
             </div>
-            <div className="space-y-1 text-[#4E5A4A] text-xs">
+            <div className="space-y-1 text-[#5C576E] text-xs">
               <div className="flex items-center gap-2"><Phone size={12} /><span>+63.929.741.4738</span></div>
               <div className="flex items-center gap-2"><MapPin size={12} /><span>Batangas, Philippines</span></div>
             </div>
@@ -603,7 +603,7 @@ function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group">
+                  <a href={link.href} className="text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group">
                     <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 shrink-0" />
                     {link.label}
                   </a>
@@ -617,7 +617,7 @@ function Footer() {
             <ul className="space-y-2">
               {footerCategories.map((cat) => (
                 <li key={cat.href}>
-                  <a href={cat.href} className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group">
+                  <a href={cat.href} className="text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group">
                     <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 shrink-0" />
                     {cat.label}
                   </a>
@@ -631,7 +631,7 @@ function Footer() {
             <ul className="space-y-4">
               {recentPosts.map((post) => (
                 <li key={post.title}>
-                  <a href={post.href} className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors leading-relaxed block">
+                  <a href={post.href} className="text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors leading-relaxed block">
                     {post.title}
                   </a>
                 </li>
@@ -641,9 +641,9 @@ function Footer() {
         </div>
 
         <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[#4E5A4A] text-xs">© 2026 EmpowerQueer Hub. All rights reserved.</p>
+          <p className="text-[#5C576E] text-xs">© 2026 EmpowerQueer Hub. All rights reserved.</p>
           <div className="rainbow-bar h-[3px] w-16 rounded-full" />
-          <p className="text-[#4E5A4A] text-xs">Batangas, Philippines · Founded 2018</p>
+          <p className="text-[#5C576E] text-xs">Batangas, Philippines · Founded 2018</p>
         </div>
       </div>
     </footer>

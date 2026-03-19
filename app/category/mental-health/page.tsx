@@ -8,11 +8,11 @@ export default function CategoryMentalHealthPage() {
       <RainbowBar />
       <Navbar />
 
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#6B8F63] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">Mental Health</h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed">
+          <p className="text-[#5C576E] text-xl leading-relaxed">
             Resources and support for LGBTQIA+ mental wellness.
           </p>
         </div>
@@ -20,7 +20,7 @@ export default function CategoryMentalHealthPage() {
 
       <section className="py-24 px-4 text-center">
         <div className="max-w-xl mx-auto">
-          <p className="text-[#4E5A4A] text-lg mb-6">No posts in this category yet.</p>
+          <p className="text-[#5C576E] text-lg mb-6">No posts in this category yet.</p>
           <a
             href="/resources/"
             className="inline-flex items-center gap-2 bg-[#B5C4AE] text-[#4A3F6B] font-semibold px-8 py-3 rounded-full hover:bg-[#6B8F63] hover:text-white transition-all"

@@ -80,12 +80,12 @@ export default function FAQsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed mb-3">
+          <p className="text-[#5C576E] text-xl leading-relaxed mb-3">
             Everything you need to know about using the Hub, contributing, and finding support.
           </p>
           <p className="font-serif text-lg italic text-[#4A3F6B]">
@@ -96,7 +96,7 @@ export default function FAQsPage() {
 
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#4E5A4A] leading-relaxed mb-10">
+          <p className="text-[#5C576E] leading-relaxed mb-10">
             Whether you&rsquo;re here to download resources, submit a story, or just explore what EmpowerQueer Hub offers, this FAQ section covers the most common questions. From privacy concerns to contribution guidelines, we&rsquo;re here to make things clear, simple, and supportive.
           </p>
           <div className="space-y-4">
@@ -106,7 +106,7 @@ export default function FAQsPage() {
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#B5C4AE] transition-all"
               >
                 <h3 className="font-semibold text-[#4A3F6B] mb-2">{faq.q}</h3>
-                <p className="text-[#4E5A4A] text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#5C576E] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

@@ -43,10 +43,10 @@ export default function EventsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">Events</h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed">
+          <p className="text-[#5C576E] text-xl leading-relaxed">
             Community gatherings, workshops, and advocacy events for LGBTQIA+ individuals.
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function EventsPage() {
               <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
                 {event.title}
               </h2>
-              <div className="flex flex-wrap gap-6 mb-4 text-[#4E5A4A] text-sm">
+              <div className="flex flex-wrap gap-6 mb-4 text-[#5C576E] text-sm">
                 <div className="flex items-center gap-2">
                   <Calendar size={15} className="text-[#4A3F6B]" />
                   <span>{event.date}</span>
@@ -90,7 +90,7 @@ export default function EventsPage() {
                   <span>{event.location}</span>
                 </div>
               </div>
-              <p className="text-[#4E5A4A] leading-relaxed mb-6">
+              <p className="text-[#5C576E] leading-relaxed mb-6">
                 {event.description}
               </p>
               <a
@@ -110,7 +110,7 @@ export default function EventsPage() {
           <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
             Want to Submit an Event?
           </h2>
-          <p className="text-[#4E5A4A] mb-6">
+          <p className="text-[#5C576E] mb-6">
             Share your community event, workshop, or advocacy activity with the EmpowerQueer Hub network.
           </p>
           <a

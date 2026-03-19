@@ -20,12 +20,12 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">
             Reach Out Anytime
           </h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed">
+          <p className="text-[#5C576E] text-xl leading-relaxed">
             We&rsquo;re here to listen, support, and collaborate.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#4A3F6B] text-sm mb-1">Address</p>
-                    <p className="text-[#4E5A4A] text-sm leading-relaxed">
+                    <p className="text-[#5C576E] text-sm leading-relaxed">
                       EmpowerQueer Hub at Espasyo by Wagayway Equality<br />
                       National Highway, Alangilan<br />
                       Batangas City, 4200
@@ -61,7 +61,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#4A3F6B] text-sm mb-1">Phone</p>
-                    <a href="tel:+639297414738" className="text-[#4E5A4A] text-sm hover:text-[#4A3F6B] transition-colors">
+                    <a href="tel:+639297414738" className="text-[#5C576E] text-sm hover:text-[#4A3F6B] transition-colors">
                       +63.929.741.4738
                     </a>
                   </div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#4A3F6B] text-sm mb-1">Email</p>
-                    <a href="mailto:contact@empowerqueerhub.com" className="text-[#4E5A4A] text-sm hover:text-[#4A3F6B] transition-colors">
+                    <a href="mailto:contact@empowerqueerhub.com" className="text-[#5C576E] text-sm hover:text-[#4A3F6B] transition-colors">
                       contact@empowerqueerhub.com
                     </a>
                   </div>
@@ -82,14 +82,14 @@ export default function ContactPage() {
 
               <div className="bg-[#B5C4AE]/10 border border-[#B5C4AE] rounded-xl p-6">
                 <h3 className="font-semibold text-[#4A3F6B] mb-3">Support, Trainings &amp; Collaboration Inquiries</h3>
-                <p className="text-[#4E5A4A] text-sm mb-3">EmpowerQueer Hub also welcomes messages related to:</p>
-                <ul className="space-y-2 text-[#4E5A4A] text-sm list-disc pl-4">
+                <p className="text-[#5C576E] text-sm mb-3">EmpowerQueer Hub also welcomes messages related to:</p>
+                <ul className="space-y-2 text-[#5C576E] text-sm list-disc pl-4">
                   <li>Training requests (mental health, SOGIESC, leadership, advocacy, community care)</li>
                   <li>Workshops and learning sessions for schools, LGUs, organizations, and community groups</li>
                   <li>Partnerships and collaborations for events, programs, or advocacy initiatives</li>
                   <li>Resource sharing or co-creation of guides, toolkits, and learning materials</li>
                 </ul>
-                <p className="text-[#4E5A4A] text-xs mt-4 italic">
+                <p className="text-[#5C576E] text-xs mt-4 italic">
                   You don&rsquo;t need to have everything figured out before reaching out. Whether your message is big or small, urgent or exploratory, we&rsquo;ll receive it with respect and care. All messages are handled with care and confidentiality.
                 </p>
               </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   <h3 className="font-serif text-xl font-bold text-[#4A3F6B] mb-2">
                     Message Received
                   </h3>
-                  <p className="text-[#4E5A4A]">
+                  <p className="text-[#5C576E]">
                     Thank you for reaching out. We&rsquo;ll get back to you with care.
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                         type="text"
                         required
                         placeholder="Your name"
-                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
                       />
                     </div>
                     <div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                         type="email"
                         required
                         placeholder="your@email.com"
-                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
                       />
                     </div>
                   </div>
@@ -146,7 +146,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         placeholder="+63 XXX XXX XXXX"
-                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
                       />
                     </div>
                     <div>
@@ -157,7 +157,7 @@ export default function ContactPage() {
                         type="text"
                         required
                         placeholder="How can we help?"
-                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
+                        className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
                       />
                     </div>
                   </div>
@@ -169,7 +169,7 @@ export default function ContactPage() {
                       required
                       rows={6}
                       placeholder="Tell us more..."
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all resize-none"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all resize-none"
                     />
                   </div>
                   <button
@@ -178,7 +178,7 @@ export default function ContactPage() {
                   >
                     Send Message
                   </button>
-                  <p className="text-[#4E5A4A] text-xs text-center">
+                  <p className="text-[#5C576E] text-xs text-center">
                     All messages are handled with care and confidentiality.
                   </p>
                 </form>
@@ -189,11 +189,11 @@ export default function ContactPage() {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 px-4 bg-[#EFF3EC]">
+      <section className="py-16 px-4 bg-[#EEEAF5]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-serif text-3xl font-bold text-[#4A3F6B] mb-3">Frequently Asked Questions</h2>
-            <p className="text-[#4E5A4A]">Quick answers to help you navigate the EmpowerQueer Hub with confidence.</p>
+            <p className="text-[#5C576E]">Quick answers to help you navigate the EmpowerQueer Hub with confidence.</p>
           </div>
           <div className="space-y-4">
             {[
@@ -220,7 +220,7 @@ export default function ContactPage() {
             ].map((faq) => (
               <div key={faq.q} className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#B5C4AE] transition-all">
                 <h3 className="font-semibold text-[#4A3F6B] mb-2">{faq.q}</h3>
-                <p className="text-[#4E5A4A] text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-[#5C576E] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

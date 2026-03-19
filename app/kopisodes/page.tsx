@@ -62,14 +62,14 @@ export default function KopsodesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-16 h-16 bg-[#B5C4AE] rounded-2xl flex items-center justify-center mx-auto mb-6">
             <Mic2 size={30} className="text-[#4A3F6B]" />
           </div>
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">Kopisodes</h1>
-          <p className="text-[#4E5A4A] text-xl font-medium mb-3">Stories That Speak Truth</p>
-          <p className="text-[#4E5A4A] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#5C576E] text-xl font-medium mb-3">Stories That Speak Truth</p>
+          <p className="text-[#5C576E] max-w-2xl mx-auto leading-relaxed">
             A collection of voices shaping visibility, healing, and change. Raw, real, and unapologetic.
           </p>
         </div>
@@ -82,10 +82,10 @@ export default function KopsodesPage() {
             <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
               Honest Conversations Over Coffee
             </h2>
-            <p className="text-[#4E5A4A] leading-relaxed mb-4">
+            <p className="text-[#5C576E] leading-relaxed mb-4">
               The EmpowerQueer Hub Blog brings together personal stories, reflections, and resources from across the LGBTQIA+ spectrum. Each post is a window into lived experience—raw, real, and unapologetic. Whether you&rsquo;re here to learn, relate, or be inspired, this space is yours.
             </p>
-            <p className="text-[#4E5A4A] leading-relaxed mb-6">
+            <p className="text-[#5C576E] leading-relaxed mb-6">
               Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
             </p>
             <a
@@ -134,7 +134,7 @@ export default function KopsodesPage() {
                     <h3 className="font-serif text-lg font-bold text-[#4A3F6B] mb-2">
                       {ep.title}
                     </h3>
-                    <p className="text-[#4E5A4A] text-sm leading-relaxed mb-3">
+                    <p className="text-[#5C576E] text-sm leading-relaxed mb-3">
                       {ep.desc}
                     </p>
                     <a

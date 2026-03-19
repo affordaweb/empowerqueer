@@ -55,15 +55,15 @@ export default function OpportunitiesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">
             Opportunities Desk
           </h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed mb-4">
+          <p className="text-[#5C576E] text-xl leading-relaxed mb-4">
             Training, certifications, opportunities—shared for the community.
           </p>
-          <p className="text-[#4E5A4A] max-w-2xl mx-auto mb-6">
+          <p className="text-[#5C576E] max-w-2xl mx-auto mb-6">
             The Opportunities Desk curates free and accessible learning, certification, and livelihood opportunities available in the Philippines. This space is designed to quietly support LGBTQIA+ individuals and allies who are looking to build skills, gain credentials, or explore new pathways—at their own pace.
           </p>
           <p className="font-serif text-lg italic text-[#4A3F6B]">
@@ -93,14 +93,14 @@ export default function OpportunitiesPage() {
                   </span>
                 ))}
               </div>
-              <div className="flex items-center gap-2 text-[#4E5A4A] text-sm mb-3">
+              <div className="flex items-center gap-2 text-[#5C576E] text-sm mb-3">
                 <Calendar size={14} className="text-[#4A3F6B]" />
                 <span>Posted: {listing.date}</span>
               </div>
               <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
                 {listing.title}
               </h2>
-              <p className="text-[#4E5A4A] leading-relaxed mb-6">
+              <p className="text-[#5C576E] leading-relaxed mb-6">
                 {listing.description}
               </p>
               <a
@@ -116,7 +116,7 @@ export default function OpportunitiesPage() {
       </section>
 
       {/* External Resources */}
-      <section className="py-16 px-4 bg-[#EFF3EC]">
+      <section className="py-16 px-4 bg-[#EEEAF5]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-8">
             Additional Resources
@@ -134,7 +134,7 @@ export default function OpportunitiesPage() {
                   <h3 className="font-semibold text-[#4A3F6B] text-sm">{res.name}</h3>
                   <ExternalLink size={13} className="text-[#4A3F6B] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <p className="text-[#4E5A4A] text-xs">{res.desc}</p>
+                <p className="text-[#5C576E] text-xs">{res.desc}</p>
               </a>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function OpportunitiesPage() {
           <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
             Have an Opportunity to Share?
           </h2>
-          <p className="text-[#4E5A4A] mb-6">
+          <p className="text-[#5C576E] mb-6">
             Submit fellowships, trainings, grants, or job opportunities to be featured on the Opportunities Desk.
           </p>
           <a

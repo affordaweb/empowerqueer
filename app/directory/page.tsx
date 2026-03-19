@@ -102,13 +102,13 @@ export default function DirectoryPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">Service Directory</h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed mb-4">
+          <p className="text-[#5C576E] text-xl leading-relaxed mb-4">
             Trusted LGBTQIA+ affirming services across Batangas Province
           </p>
-          <p className="text-[#4E5A4A] max-w-2xl mx-auto">
+          <p className="text-[#5C576E] max-w-2xl mx-auto">
             This directory is built with care—to help you find clinics, support groups, organizations, and services that truly see and respect who you are. Whether you&rsquo;re seeking mental health support, HIV testing, legal guidance, or a safe space to connect, every listing here is selected for its commitment to serving the LGBTQIA+ community with dignity and understanding.
           </p>
         </div>
@@ -128,7 +128,7 @@ export default function DirectoryPage() {
                     <li key={cat}>
                       <a
                         href="#"
-                        className="block text-[#4E5A4A] hover:text-[#4A3F6B] hover:bg-[#B5C4AE]/20 text-sm px-3 py-1.5 rounded-md transition-all"
+                        className="block text-[#5C576E] hover:text-[#4A3F6B] hover:bg-[#B5C4AE]/20 text-sm px-3 py-1.5 rounded-md transition-all"
                       >
                         {cat}
                       </a>
@@ -153,11 +153,11 @@ export default function DirectoryPage() {
                   <h3 className="font-serif text-lg font-bold text-[#4A3F6B] mb-2">
                     {listing.name}
                   </h3>
-                  <p className="text-[#4E5A4A] text-sm leading-relaxed mb-3">
+                  <p className="text-[#5C576E] text-sm leading-relaxed mb-3">
                     {listing.description}
                   </p>
                   {listing.contact && (
-                    <div className="flex items-center gap-2 text-[#4E5A4A] text-sm">
+                    <div className="flex items-center gap-2 text-[#5C576E] text-sm">
                       {listing.type === "phone" || listing.type === "hotline" ? (
                         <Phone size={14} className="text-[#4A3F6B]" />
                       ) : (
@@ -182,7 +182,7 @@ export default function DirectoryPage() {
           <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
             Know a Service We Should List?
           </h2>
-          <p className="text-[#4E5A4A] mb-6">
+          <p className="text-[#5C576E] mb-6">
             Help us grow this directory by submitting LGBTQIA+-friendly services in your area.
           </p>
           <a

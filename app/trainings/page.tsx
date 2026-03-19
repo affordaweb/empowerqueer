@@ -40,12 +40,12 @@ export default function TrainingsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">
             Trainings &amp; Capacity-Building Programs
           </h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed">
+          <p className="text-[#5C576E] text-xl leading-relaxed">
             Community-Led Learning for Inclusion, Leadership, and Sustainable Growth
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function TrainingsPage() {
                 <h2 className="font-serif text-xl font-bold text-[#4A3F6B] mb-3">
                   {program.org}
                 </h2>
-                <p className="text-[#4E5A4A] text-sm leading-relaxed mb-4">
+                <p className="text-[#5C576E] text-sm leading-relaxed mb-4">
                   {program.tagline}
                 </p>
 
@@ -76,7 +76,7 @@ export default function TrainingsPage() {
                     Featured Program
                   </p>
                   <h3 className="font-semibold text-[#4A3F6B] mb-1">{program.featured.title}</h3>
-                  <p className="text-[#4E5A4A] text-sm">{program.featured.desc}</p>
+                  <p className="text-[#5C576E] text-sm">{program.featured.desc}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -108,7 +108,7 @@ export default function TrainingsPage() {
           <h2 className="font-serif text-2xl font-bold text-[#4A3F6B] mb-4">
             Request a Training or Workshop
           </h2>
-          <p className="text-[#4E5A4A] mb-6">
+          <p className="text-[#5C576E] mb-6">
             We offer customized trainings for schools, LGUs, organizations, and communities. Reach out to discuss your needs.
           </p>
           <a

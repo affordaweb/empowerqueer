@@ -20,13 +20,13 @@ export default function VoicesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F2F5EF] to-[#E2EBE0] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#EDE8F5] to-[#E4EDE0] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-16 h-16 bg-[#B5C4AE] rounded-2xl flex items-center justify-center mx-auto mb-6">
             <Mic2 size={30} className="text-[#4A3F6B]" />
           </div>
           <h1 className="font-serif text-5xl font-bold text-[#4A3F6B] mb-4">Voices Among Us</h1>
-          <p className="text-[#4E5A4A] text-xl leading-relaxed">
+          <p className="text-[#5C576E] text-xl leading-relaxed">
             Share Your Story. Speak Your Truth.
           </p>
         </div>
@@ -34,7 +34,7 @@ export default function VoicesPage() {
 
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#4E5A4A] leading-relaxed mb-10">
+          <p className="text-[#5C576E] leading-relaxed mb-10">
             Got a story to share? Whether it&rsquo;s a moment of joy, a challenge you&rsquo;ve overcome, or a truth that needs to be heard—we want to hear it. Use the form below to submit your story. In the Message section, please mention if you&rsquo;d like to be credited by your full name, a nickname, or remain anonymous.
           </p>
 
@@ -44,7 +44,7 @@ export default function VoicesPage() {
                 <Mic2 size={28} className="text-[#4A3F6B]" />
               </div>
               <h3 className="font-serif text-xl font-bold text-[#4A3F6B] mb-2">Story Received</h3>
-              <p className="text-[#4E5A4A]">
+              <p className="text-[#5C576E]">
                 Thank you for sharing your voice. Your story will be reviewed with care.
               </p>
             </div>
@@ -58,7 +58,7 @@ export default function VoicesPage() {
                   type="text"
                   required
                   placeholder="Your name or nickname"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
                 />
               </div>
               <div>
@@ -69,7 +69,7 @@ export default function VoicesPage() {
                   type="text"
                   required
                   placeholder="Give your story a title"
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all"
                 />
               </div>
               <div>
@@ -80,7 +80,7 @@ export default function VoicesPage() {
                   required
                   rows={10}
                   placeholder="Share your story here..."
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#4E5A4A] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all resize-none"
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#5C576E] text-sm focus:outline-none focus:border-[#B5C4AE] focus:ring-2 focus:ring-[#B5C4AE]/40 transition-all resize-none"
                 />
               </div>
               <div>
@@ -88,7 +88,7 @@ export default function VoicesPage() {
                   Featured Image (Optional)
                 </label>
                 <div className="border-2 border-dashed border-[#B5C4AE] rounded-xl p-6 text-center hover:border-[#6B8F63] transition-colors">
-                  <p className="text-[#4E5A4A] text-sm mb-2">No image selected</p>
+                  <p className="text-[#5C576E] text-sm mb-2">No image selected</p>
                   <input type="file" accept="image/*" className="hidden" id="voice-image" />
                   <label
                     htmlFor="voice-image"
@@ -104,7 +104,7 @@ export default function VoicesPage() {
               >
                 Submit
               </button>
-              <p className="text-[#4E5A4A] text-xs text-center">
+              <p className="text-[#5C576E] text-xs text-center">
                 Your story is handled with care and confidentiality.
               </p>
             </form>

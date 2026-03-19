@@ -48,7 +48,7 @@ export default function Footer() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/empower-queer-logo.png" alt="Empower Queer Hub" className="h-10 w-auto" />
             </div>
-            <p className="text-[#4E5A4A] text-sm leading-relaxed mb-5">
+            <p className="text-[#5C576E] text-sm leading-relaxed mb-5">
               EmpowerQueer Hub is a safe, community-built space offering resources, support, and visibility for LGBTQIA+ individuals across Batangas and beyond.
             </p>
             <div className="flex items-center gap-3 mb-4">
@@ -80,7 +80,7 @@ export default function Footer() {
                 <Youtube size={16} />
               </a>
             </div>
-            <div className="space-y-1 text-[#4E5A4A] text-xs">
+            <div className="space-y-1 text-[#5C576E] text-xs">
               <div className="flex items-center gap-2">
                 <Phone size={12} />
                 <span>+63.929.741.4738</span>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group"
+                    className="text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group"
                   >
                     <ChevronRight
                       size={12}
@@ -125,7 +125,7 @@ export default function Footer() {
                 <li key={cat.href}>
                   <a
                     href={cat.href}
-                    className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group"
+                    className="text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors flex items-center gap-1.5 group"
                   >
                     <ChevronRight
                       size={12}
@@ -148,7 +148,7 @@ export default function Footer() {
                 <li key={post.title}>
                   <a
                     href={post.href}
-                    className="text-[#4E5A4A] hover:text-[#4A3F6B] text-sm transition-colors leading-relaxed block"
+                    className="text-[#5C576E] hover:text-[#4A3F6B] text-sm transition-colors leading-relaxed block"
                   >
                     {post.title}
                   </a>
@@ -160,11 +160,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[#4E5A4A] text-xs text-center sm:text-left">
+          <p className="text-[#5C576E] text-xs text-center sm:text-left">
             © 2026 EmpowerQueer Hub. All rights reserved.
           </p>
           <div className="rainbow-bar h-[3px] w-16 rounded-full" />
-          <p className="text-[#4E5A4A] text-xs">
+          <p className="text-[#5C576E] text-xs">
             Batangas, Philippines · Founded 2018
           </p>
         </div>
