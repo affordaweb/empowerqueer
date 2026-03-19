@@ -80,15 +80,15 @@ export default function FAQsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">
+          <h1 className="font-serif text-5xl font-bold text-[#5C3D2E] mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-[#374151] text-xl leading-relaxed mb-3">
+          <p className="text-[#5C4A3A] text-xl leading-relaxed mb-3">
             Everything you need to know about using the Hub, contributing, and finding support.
           </p>
-          <p className="font-serif text-lg italic text-[#1E3A5F]">
+          <p className="font-serif text-lg italic text-[#5C3D2E]">
             Quick answers, honest guidance, and zero judgment—just what you need, when you need it.
           </p>
         </div>
@@ -96,17 +96,17 @@ export default function FAQsPage() {
 
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-[#374151] leading-relaxed mb-10">
+          <p className="text-[#5C4A3A] leading-relaxed mb-10">
             Whether you&rsquo;re here to download resources, submit a story, or just explore what EmpowerQueer Hub offers, this FAQ section covers the most common questions. From privacy concerns to contribution guidelines, we&rsquo;re here to make things clear, simple, and supportive.
           </p>
           <div className="space-y-4">
             {faqs.map((faq) => (
               <div
                 key={faq.q}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#BFDBFE] transition-all"
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#E8D5B0] transition-all"
               >
-                <h3 className="font-semibold text-[#1E3A5F] mb-2">{faq.q}</h3>
-                <p className="text-[#374151] text-sm leading-relaxed">{faq.a}</p>
+                <h3 className="font-semibold text-[#5C3D2E] mb-2">{faq.q}</h3>
+                <p className="text-[#5C4A3A] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>

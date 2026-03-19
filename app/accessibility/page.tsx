@@ -9,10 +9,10 @@ export default function AccessibilityPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">Accessibility Statement</h1>
-          <p className="text-[#374151] text-xl leading-relaxed">
+          <h1 className="font-serif text-5xl font-bold text-[#5C3D2E] mb-4">Accessibility Statement</h1>
+          <p className="text-[#5C4A3A] text-xl leading-relaxed">
             Creating a space that welcomes every identity, body, and ability.
           </p>
         </div>
@@ -22,18 +22,18 @@ export default function AccessibilityPage() {
         <div className="max-w-3xl mx-auto space-y-10">
 
           <div>
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">EmpowerQueer Hub is for Everyone</h2>
-            <p className="text-[#374151] leading-relaxed">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">EmpowerQueer Hub is for Everyone</h2>
+            <p className="text-[#5C4A3A] leading-relaxed">
               EmpowerQueer Hub is committed to ensuring that all visitors—regardless of ability—can access, use, and benefit from the content, tools, and services we provide. We believe accessibility is a fundamental part of inclusion, and we strive to create an online space where everyone in the LGBTQIA+ community and beyond can navigate with ease, dignity, and independence.
             </p>
           </div>
 
           <div>
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">Accessibility Features We Use</h2>
-            <p className="text-[#374151] leading-relaxed mb-4">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">Accessibility Features We Use</h2>
+            <p className="text-[#5C4A3A] leading-relaxed mb-4">
               To support an inclusive experience, we&rsquo;ve integrated the OneTap – Easy One-Click Accessibility Toolbar into our website. This widget helps users customize their experience quickly with features such as:
             </p>
-            <ul className="space-y-2 text-[#374151] text-sm list-disc pl-5">
+            <ul className="space-y-2 text-[#5C4A3A] text-sm list-disc pl-5">
               <li>Font size adjustment</li>
               <li>High contrast and grayscale modes</li>
               <li>Keyboard navigation support</li>
@@ -42,17 +42,17 @@ export default function AccessibilityPage() {
               <li>Dyslexia-friendly font toggle</li>
               <li>Highlight links and focus areas</li>
             </ul>
-            <p className="text-[#374151] leading-relaxed mt-4">
+            <p className="text-[#5C4A3A] leading-relaxed mt-4">
               You&rsquo;ll find the accessibility icon in the corner of your screen on every page. With just one click, you can choose the adjustments that work best for you.
             </p>
           </div>
 
           <div>
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">Design Considerations</h2>
-            <p className="text-[#374151] leading-relaxed mb-4">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">Design Considerations</h2>
+            <p className="text-[#5C4A3A] leading-relaxed mb-4">
               In addition to using OneTap, we&rsquo;ve built the site using accessible design principles wherever possible, including:
             </p>
-            <ul className="space-y-2 text-[#374151] text-sm list-disc pl-5">
+            <ul className="space-y-2 text-[#5C4A3A] text-sm list-disc pl-5">
               <li>Clear and consistent navigation</li>
               <li>Text alternatives for images (alt tags)</li>
               <li>Mobile responsiveness across all devices</li>
@@ -63,39 +63,39 @@ export default function AccessibilityPage() {
           </div>
 
           <div>
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">Ongoing Improvements</h2>
-            <p className="text-[#374151] leading-relaxed">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">Ongoing Improvements</h2>
+            <p className="text-[#5C4A3A] leading-relaxed">
               We understand that accessibility is an ongoing commitment. As the site continues to grow, we will regularly review pages and features to improve compatibility with assistive technologies, fix any potential issues, and ensure compliance with current accessibility standards.
             </p>
-            <p className="text-[#374151] leading-relaxed mt-3">
+            <p className="text-[#5C4A3A] leading-relaxed mt-3">
               If you&rsquo;re using a screen reader or other assistive device and experience any difficulty on the site, we want to know.
             </p>
           </div>
 
-          <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-8">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">Feedback &amp; Support</h2>
-            <p className="text-[#374151] leading-relaxed mb-3">
+          <div className="bg-[#FDF3E7] border border-[#E8D5B0] rounded-2xl p-8">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">Feedback &amp; Support</h2>
+            <p className="text-[#5C4A3A] leading-relaxed mb-3">
               If you encounter an accessibility issue or have suggestions for improvement, please reach out to us:
             </p>
-            <ul className="space-y-2 text-[#374151] text-sm list-disc pl-5">
-              <li>Email: <a href="mailto:support@empowerqueerhub.org" className="text-[#1E3A5F] hover:underline font-medium">support@empowerqueerhub.org</a></li>
-              <li>Or use our <a href="/contact/" className="text-[#1E3A5F] hover:underline font-medium">Contact Us</a> page to submit your feedback.</li>
+            <ul className="space-y-2 text-[#5C4A3A] text-sm list-disc pl-5">
+              <li>Email: <a href="mailto:support@empowerqueerhub.org" className="text-[#5C3D2E] hover:underline font-medium">support@empowerqueerhub.org</a></li>
+              <li>Or use our <a href="/contact/" className="text-[#5C3D2E] hover:underline font-medium">Contact Us</a> page to submit your feedback.</li>
             </ul>
-            <p className="text-[#374151] text-sm mt-4">
+            <p className="text-[#5C4A3A] text-sm mt-4">
               We aim to respond to all accessibility-related messages within 3–5 business days.
             </p>
           </div>
 
           <div>
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">Third-Party Tools &amp; Content</h2>
-            <p className="text-[#374151] leading-relaxed">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">Third-Party Tools &amp; Content</h2>
+            <p className="text-[#5C4A3A] leading-relaxed">
               While we strive to make all core areas of the website accessible, some third-party tools or external links may not yet meet the same accessibility standards. If you come across something that&rsquo;s difficult to access, please notify us and we will try to provide an alternative solution.
             </p>
           </div>
 
           <div className="border-t border-gray-200 pt-8">
-            <p className="text-[#374151] text-sm mb-4"><strong>Last Updated:</strong> June 2025</p>
-            <p className="text-[#374151] leading-relaxed text-sm italic">
+            <p className="text-[#5C4A3A] text-sm mb-4"><strong>Last Updated:</strong> June 2025</p>
+            <p className="text-[#5C4A3A] leading-relaxed text-sm italic">
               EmpowerQueer Hub is proud to be part of a movement toward a more equitable internet. Accessibility isn&rsquo;t just a feature—it&rsquo;s a necessity. We&rsquo;re listening, learning, and building a better web for everyone.
             </p>
           </div>

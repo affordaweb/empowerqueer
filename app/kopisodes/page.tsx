@@ -62,37 +62,37 @@ export default function KopsodesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#FDF8EE] to-[#F5E6CE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 bg-[#BFDBFE] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Mic2 size={30} className="text-[#1E3A5F]" />
+          <div className="w-16 h-16 bg-[#E8D5B0] rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Mic2 size={30} className="text-[#5C3D2E]" />
           </div>
-          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">Kopisodes</h1>
-          <p className="text-[#374151] text-xl font-medium mb-3">Stories That Speak Truth</p>
-          <p className="text-[#374151] max-w-2xl mx-auto leading-relaxed">
+          <h1 className="font-serif text-5xl font-bold text-[#5C3D2E] mb-4">Kopisodes</h1>
+          <p className="text-[#5C4A3A] text-xl font-medium mb-3">Stories That Speak Truth</p>
+          <p className="text-[#5C4A3A] max-w-2xl mx-auto leading-relaxed">
             A collection of voices shaping visibility, healing, and change. Raw, real, and unapologetic.
           </p>
         </div>
       </section>
 
       {/* About the podcast */}
-      <section className="py-16 px-4 bg-[#BFDBFE]/10">
+      <section className="py-16 px-4 bg-[#E8D5B0]/10">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white border border-[#BFDBFE] rounded-2xl p-8">
-            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">
+          <div className="bg-white border border-[#E8D5B0] rounded-2xl p-8">
+            <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-4">
               Honest Conversations Over Coffee
             </h2>
-            <p className="text-[#374151] leading-relaxed mb-4">
+            <p className="text-[#5C4A3A] leading-relaxed mb-4">
               The EmpowerQueer Hub Blog brings together personal stories, reflections, and resources from across the LGBTQIA+ spectrum. Each post is a window into lived experience—raw, real, and unapologetic. Whether you&rsquo;re here to learn, relate, or be inspired, this space is yours.
             </p>
-            <p className="text-[#374151] leading-relaxed mb-6">
+            <p className="text-[#5C4A3A] leading-relaxed mb-6">
               Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
             </p>
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#BFDBFE] text-[#1E3A5F] font-semibold px-6 py-2.5 rounded-full hover:bg-[#2563EB] hover:text-white transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-[#E8D5B0] text-[#5C3D2E] font-semibold px-6 py-2.5 rounded-full hover:bg-[#C4784C] hover:text-white transition-all text-sm"
             >
               <Facebook size={15} />
               Follow on Facebook
@@ -104,14 +104,14 @@ export default function KopsodesPage() {
       {/* Episodes */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-8">
+          <h2 className="font-serif text-2xl font-bold text-[#5C3D2E] mb-8">
             Episodes &amp; Posts
           </h2>
           <div className="space-y-6">
             {episodes.map((ep) => (
               <div
                 key={ep.title}
-                className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-sm transition-all group"
+                className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#E8D5B0] hover:shadow-sm transition-all group"
               >
                 <div className="flex flex-col sm:flex-row">
                   {ep.img && (
@@ -125,21 +125,21 @@ export default function KopsodesPage() {
                       {ep.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="bg-[#BFDBFE]/30 border border-[#BFDBFE] text-[#1E3A5F] text-xs px-3 py-1 rounded-full"
+                          className="bg-[#E8D5B0]/30 border border-[#E8D5B0] text-[#5C3D2E] text-xs px-3 py-1 rounded-full"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-[#1E3A5F] mb-2">
+                    <h3 className="font-serif text-lg font-bold text-[#5C3D2E] mb-2">
                       {ep.title}
                     </h3>
-                    <p className="text-[#374151] text-sm leading-relaxed mb-3">
+                    <p className="text-[#5C4A3A] text-sm leading-relaxed mb-3">
                       {ep.desc}
                     </p>
                     <a
                       href="/kopisodes/"
-                      className="inline-flex items-center gap-1.5 text-[#1E3A5F] text-sm font-semibold hover:gap-2.5 transition-all"
+                      className="inline-flex items-center gap-1.5 text-[#5C3D2E] text-sm font-semibold hover:gap-2.5 transition-all"
                     >
                       Read More <ChevronRight size={14} />
                     </a>
