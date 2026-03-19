@@ -5,28 +5,53 @@ import { Mic2, Facebook, ChevronRight } from "lucide-react";
 
 const episodes = [
   {
-    title: "2025 HIV & AIDS Surveillance Update",
-    desc: "A deep dive into the latest data, trends, and national response gaps in the Philippines' HIV and AIDS landscape.",
-    tags: ["HIV", "Data", "Health"],
+    title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us",
+    desc: "The latest HIV & AIDS Surveillance of the Philippines (Oct–Dec 2025) report highlights both progress and urgent gaps in our national response. By the end of 2025, an estimated 252,800 Filipinos are living with HIV, yet only 61% have been reached.",
+    tags: ["LGBTQ+ Issues"],
     date: "2025",
+    img: "/images/gallery/HIV-and-Aids-Surveillance.jpg",
   },
   {
     title: "Human Rights 101 by Wagayway Equality",
-    desc: "An accessible introduction to human rights frameworks, equality principles, and legal protections relevant to LGBTQIA+ communities.",
-    tags: ["Human Rights", "Education", "Advocacy"],
+    desc: "Human Rights 101 by Wagayway Equality offered participants a foundational understanding of their rights and freedoms, emphasizing equality, dignity, and protection under the law. The session explored key concepts, legal frameworks, and real-life applications, creating a safe and empowering space for learning.",
+    tags: ["Youth Services"],
     date: "2025",
+    img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg",
   },
   {
     title: "HIV 101 by Wagayway Equality",
-    desc: "Everything you need to know about HIV prevention, testing, treatment, and care — presented with compassion and clarity.",
-    tags: ["HIV", "Prevention", "Education"],
+    desc: "HIV 101 by Wagayway Equality focused on building clear and accurate understanding of HIV, including prevention, testing, treatment, and care. The session addressed common myths and fears, helping participants gain reliable knowledge in a safe and supportive environment.",
+    tags: ["Support Resources"],
     date: "2025",
+    img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg",
   },
   {
-    title: "SOGIESC 101",
-    desc: "Understanding sexual orientation, gender identity, expression, and sex characteristics — and why it matters for equality and inclusion.",
-    tags: ["SOGIESC", "Identity", "Education"],
+    title: "SOGIESC 101 by Wagayway Equality Inc",
+    desc: "SOGIESC 101 by Wagayway Equality Inc. provided a clear and safe space for learning about sexual orientation, gender identity, gender expression, and sex characteristics. The session helped participants better understand diversity through open discussion and affirming education.",
+    tags: ["Support Resources"],
     date: "2025",
+    img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg",
+  },
+  {
+    title: "Wagayway Equality Join Sublian Festival",
+    desc: "Wagayway Equality proudly joined the Sublian Festival, taking part in one of Batangas' most cherished cultural celebrations. Their presence highlighted the importance of inclusion, respect, and equal representation within traditional community events.",
+    tags: ["Advocacy and Rights"],
+    date: "2025",
+    img: "/images/gallery/Wagayway-Equality-Join-in-Sublian-Festival.jpg",
+  },
+  {
+    title: "Batangas Pride Month Celebration 2023",
+    desc: "The Batangas Pride Month Celebration 2023, led by Wagayway Equality, brought together diverse voices from the community in a joyful and welcoming space. During the 8th Batangan Pride Celebration held on June 27, 2023, participants joined in solidarity and celebration.",
+    tags: ["Community Voices"],
+    date: "2023",
+    img: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
+  },
+  {
+    title: "Equality Desk by Wagayway Equality",
+    desc: "The increasing prevalence of HIV in Batangas City is a major concern, especially among young key populations (YKP), Men having Sex with Men (MSM), transgender individuals, and other affected groups. Stigma and discrimination create barriers to accessing health services.",
+    tags: ["LGBTQIA2S+"],
+    date: "2025",
+    img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg",
   },
 ];
 
@@ -37,37 +62,37 @@ export default function KopsodesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-white py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 bg-[#D7C4E3] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Mic2 size={30} className="text-[#3A3C51]" />
+          <div className="w-16 h-16 bg-[#BFDBFE] rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Mic2 size={30} className="text-[#1E3A5F]" />
           </div>
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Kopisodes</h1>
-          <p className="text-[#474747] text-xl font-medium mb-3">Stories That Speak Truth</p>
-          <p className="text-[#474747] max-w-2xl mx-auto leading-relaxed">
+          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">Kopisodes</h1>
+          <p className="text-[#374151] text-xl font-medium mb-3">Stories That Speak Truth</p>
+          <p className="text-[#374151] max-w-2xl mx-auto leading-relaxed">
             A collection of voices shaping visibility, healing, and change. Raw, real, and unapologetic.
           </p>
         </div>
       </section>
 
       {/* About the podcast */}
-      <section className="py-16 px-4 bg-[#D7C4E3]/10">
+      <section className="py-16 px-4 bg-[#BFDBFE]/10">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white border border-[#D7C4E3] rounded-2xl p-8">
-            <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
+          <div className="bg-white border border-[#BFDBFE] rounded-2xl p-8">
+            <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">
               Honest Conversations Over Coffee
             </h2>
-            <p className="text-[#474747] leading-relaxed mb-4">
-              Kopisodes is our audio series dedicated to amplifying LGBTQIA+ voices through honest, unfiltered conversation. We bring together community members, advocates, and experts for dialogues that feel as warm and real as sharing coffee with a friend.
+            <p className="text-[#374151] leading-relaxed mb-4">
+              The EmpowerQueer Hub Blog brings together personal stories, reflections, and resources from across the LGBTQIA+ spectrum. Each post is a window into lived experience—raw, real, and unapologetic. Whether you&rsquo;re here to learn, relate, or be inspired, this space is yours.
             </p>
-            <p className="text-[#474747] leading-relaxed mb-6">
-              Topics range from mental health and identity to advocacy, HIV awareness, and human rights — always grounded in lived experience and community knowledge.
+            <p className="text-[#374151] leading-relaxed mb-6">
+              Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
             </p>
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#D7C4E3] text-[#3A3C51] font-semibold px-6 py-2.5 rounded-full hover:bg-[#3A3C51] hover:text-white transition-all text-sm"
+              className="inline-flex items-center gap-2 bg-[#BFDBFE] text-[#1E3A5F] font-semibold px-6 py-2.5 rounded-full hover:bg-[#2563EB] hover:text-white transition-all text-sm"
             >
               <Facebook size={15} />
               Follow on Facebook
@@ -79,43 +104,44 @@ export default function KopsodesPage() {
       {/* Episodes */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-8">
+          <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-8">
             Episodes &amp; Posts
           </h2>
           <div className="space-y-6">
             {episodes.map((ep) => (
               <div
                 key={ep.title}
-                className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#D7C4E3] hover:shadow-sm transition-all group"
+                className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#BFDBFE] hover:shadow-sm transition-all group"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[#D7C4E3] rounded-xl flex items-center justify-center shrink-0">
-                    <Mic2 size={20} className="text-[#3A3C51]" />
-                  </div>
-                  <div className="flex-1">
+                <div className="flex flex-col sm:flex-row">
+                  {ep.img && (
+                    <div className="sm:w-48 h-40 sm:h-auto shrink-0 overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={ep.img} alt={ep.title} className="w-full h-full object-cover" />
+                    </div>
+                  )}
+                  <div className="flex-1 p-6">
                     <div className="flex flex-wrap gap-2 mb-2">
                       {ep.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="bg-[#D7C4E3]/30 border border-[#D7C4E3] text-[#3A3C51] text-xs px-3 py-1 rounded-full"
+                          className="bg-[#BFDBFE]/30 border border-[#BFDBFE] text-[#1E3A5F] text-xs px-3 py-1 rounded-full"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-[#3A3C51] mb-2">
+                    <h3 className="font-serif text-lg font-bold text-[#1E3A5F] mb-2">
                       {ep.title}
                     </h3>
-                    <p className="text-[#474747] text-sm leading-relaxed mb-3">
+                    <p className="text-[#374151] text-sm leading-relaxed mb-3">
                       {ep.desc}
                     </p>
                     <a
-                      href="https://www.facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[#3A3C51] text-sm font-semibold hover:gap-2.5 transition-all"
+                      href="/kopisodes/"
+                      className="inline-flex items-center gap-1.5 text-[#1E3A5F] text-sm font-semibold hover:gap-2.5 transition-all"
                     >
-                      Listen Now <ChevronRight size={14} />
+                      Read More <ChevronRight size={14} />
                     </a>
                   </div>
                 </div>

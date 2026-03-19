@@ -43,10 +43,10 @@ export default function EventsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-white py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Events</h1>
-          <p className="text-[#474747] text-xl leading-relaxed">
+          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">Events</h1>
+          <p className="text-[#374151] text-xl leading-relaxed">
             Community gatherings, workshops, and advocacy events for LGBTQIA+ individuals.
           </p>
         </div>
@@ -58,13 +58,13 @@ export default function EventsPage() {
           {events.map((event) => (
             <div
               key={event.title}
-              className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#D7C4E3] hover:shadow-md transition-all"
+              className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#BFDBFE] hover:shadow-md transition-all"
             >
               <div className="flex flex-wrap gap-2 mb-4">
                 {event.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-[#D7C4E3]/30 border border-[#D7C4E3] text-[#3A3C51] text-xs px-3 py-1 rounded-full"
+                    className="bg-[#BFDBFE]/30 border border-[#BFDBFE] text-[#1E3A5F] text-xs px-3 py-1 rounded-full"
                   >
                     {tag}
                   </span>
@@ -73,29 +73,29 @@ export default function EventsPage() {
                   {event.price}
                 </span>
               </div>
-              <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
+              <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">
                 {event.title}
               </h2>
-              <div className="flex flex-wrap gap-6 mb-4 text-[#474747] text-sm">
+              <div className="flex flex-wrap gap-6 mb-4 text-[#374151] text-sm">
                 <div className="flex items-center gap-2">
-                  <Calendar size={15} className="text-[#3A3C51]" />
+                  <Calendar size={15} className="text-[#1E3A5F]" />
                   <span>{event.date}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock size={15} className="text-[#3A3C51]" />
+                  <Clock size={15} className="text-[#1E3A5F]" />
                   <span>{event.time}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin size={15} className="text-[#3A3C51]" />
+                  <MapPin size={15} className="text-[#1E3A5F]" />
                   <span>{event.location}</span>
                 </div>
               </div>
-              <p className="text-[#474747] leading-relaxed mb-6">
+              <p className="text-[#374151] leading-relaxed mb-6">
                 {event.description}
               </p>
               <a
                 href="/contact/"
-                className="inline-flex items-center gap-2 bg-[#D7C4E3] text-[#3A3C51] font-semibold px-6 py-2.5 rounded-full hover:bg-[#3A3C51] hover:text-white transition-all text-sm"
+                className="inline-flex items-center gap-2 bg-[#BFDBFE] text-[#1E3A5F] font-semibold px-6 py-2.5 rounded-full hover:bg-[#2563EB] hover:text-white transition-all text-sm"
               >
                 Register / Inquire
               </a>
@@ -105,17 +105,17 @@ export default function EventsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-[#D7C4E3]/10">
+      <section className="py-16 px-4 bg-[#BFDBFE]/10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
+          <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">
             Want to Submit an Event?
           </h2>
-          <p className="text-[#474747] mb-6">
+          <p className="text-[#374151] mb-6">
             Share your community event, workshop, or advocacy activity with the EmpowerQueer Hub network.
           </p>
           <a
             href="mailto:contact@empowerqueerhub.com"
-            className="inline-flex items-center gap-2 bg-[#D7C4E3] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#3A3C51] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#BFDBFE] text-[#1E3A5F] font-semibold px-8 py-3 rounded-full hover:bg-[#2563EB] hover:text-white transition-all"
           >
             Submit an Event
           </a>

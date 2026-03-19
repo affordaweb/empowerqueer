@@ -19,56 +19,56 @@ const listings = [
   {
     name: "Espasyo Community Center by Wagayway Equality",
     category: "Community Center",
-    description: "A vibrant, inclusive LGBTQIA+ community center providing safe spaces, programs, and services.",
+    description: "Espasyo is a vibrant and inclusive LGBTQIA+ community center established by Wagayway Equality to serve the queer community of Batangas.",
     contact: "09671382063",
     type: "phone",
   },
   {
     name: "Equality Desk – Batangas City Government",
     category: "Advocacy and Rights",
-    description: "An in-office support hub within the Batangas City Government offering LGBTQIA+ assistance and services.",
+    description: "The Equality Desk is a dedicated in-office support hub developed by Wagayway Equality to serve LGBTQIA+ individuals within the Batangas City Government.",
     contact: "09763427850",
     type: "phone",
   },
   {
     name: "Batangas Medical Center – Wellness Zone",
     category: "Healthcare Resources",
-    description: "A confidential health service hub offering wellness consultations and referrals.",
+    description: "The Wellness Zone is a confidential and inclusive health service hub designed to cater to the health and wellness needs of the community.",
     contact: "0437408307",
     type: "phone",
   },
   {
     name: "POPMH – Lipa Chapter",
     category: "Mental Health",
-    description: "A youth-driven mental health initiative providing peer support and advocacy in Lipa City.",
+    description: "The Psychological Organization for the Promotion of Mental Health (POPMH) Lipa is a youth-driven initiative providing peer support and advocacy.",
     contact: null,
     type: null,
   },
   {
     name: "Batangas City Health Office – Social Hygiene Clinic",
     category: "HIV Services",
-    description: "Free walk-in HIV/STI testing and confidential health services.",
+    description: "This local government initiative provides free, walk-in testing services for HIV and other sexually transmitted infections.",
     contact: "0437238890",
     type: "phone",
   },
   {
     name: "National Center for Mental Health – Crisis Hotline",
     category: "Mental Health",
-    description: "24/7 mental health crisis hotline providing immediate support and referrals nationwide.",
+    description: "A 24/7 hotline providing immediate support for people experiencing emotional distress or mental health crises.",
     contact: "1553",
     type: "hotline",
   },
   {
     name: "MindNation",
     category: "Mental Health",
-    description: "Online counseling and mental wellness platform connecting individuals to licensed therapists.",
+    description: "Online mental health counseling platform connecting individuals to licensed therapists and mental wellness support.",
     contact: null,
     type: null,
   },
   {
     name: "MentalHealthPH",
     category: "Support Resources",
-    description: "Advocacy organization and peer support network focused on mental health awareness.",
+    description: "Mental health advocacy organization and peer support network focused on raising awareness and reducing stigma.",
     contact: null,
     type: null,
   },
@@ -82,7 +82,14 @@ const listings = [
   {
     name: "GrayMatters Psychological Services",
     category: "Mental Health",
-    description: "Professional psychological services and teleconsultations for mental wellness.",
+    description: "Professional psychological services and teleconsultations for mental wellness and emotional health.",
+    contact: null,
+    type: null,
+  },
+  {
+    name: "Ascend Development Solutions",
+    category: "Professional Development",
+    description: "ESG/SDG-aligned trainings and capacity-building programs supporting governance, compliance, and institutional growth.",
     contact: null,
     type: null,
   },
@@ -95,11 +102,14 @@ export default function DirectoryPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-white py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Directory</h1>
-          <p className="text-[#474747] text-xl leading-relaxed">
-            LGBTQIA+-friendly organizations, clinics, and services across the Philippines.
+          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">Service Directory</h1>
+          <p className="text-[#374151] text-xl leading-relaxed mb-4">
+            Trusted LGBTQIA+ affirming services across Batangas Province
+          </p>
+          <p className="text-[#374151] max-w-2xl mx-auto">
+            This directory is built with care—to help you find clinics, support groups, organizations, and services that truly see and respect who you are. Whether you&rsquo;re seeking mental health support, HIV testing, legal guidance, or a safe space to connect, every listing here is selected for its commitment to serving the LGBTQIA+ community with dignity and understanding.
           </p>
         </div>
       </section>
@@ -110,7 +120,7 @@ export default function DirectoryPage() {
             {/* Sidebar */}
             <aside className="lg:col-span-1">
               <div className="bg-white border border-gray-200 rounded-2xl p-6 sticky top-24">
-                <h3 className="font-semibold text-[#3A3C51] mb-4 uppercase tracking-wider text-sm">
+                <h3 className="font-semibold text-[#1E3A5F] mb-4 uppercase tracking-wider text-sm">
                   Categories
                 </h3>
                 <ul className="space-y-1">
@@ -118,7 +128,7 @@ export default function DirectoryPage() {
                     <li key={cat}>
                       <a
                         href="#"
-                        className="block text-[#474747] hover:text-[#3A3C51] hover:bg-[#D7C4E3]/20 text-sm px-3 py-1.5 rounded-md transition-all"
+                        className="block text-[#374151] hover:text-[#1E3A5F] hover:bg-[#BFDBFE]/20 text-sm px-3 py-1.5 rounded-md transition-all"
                       >
                         {cat}
                       </a>
@@ -133,25 +143,25 @@ export default function DirectoryPage() {
               {listings.map((listing) => (
                 <div
                   key={listing.name}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#D7C4E3] hover:shadow-sm transition-all"
+                  className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#BFDBFE] hover:shadow-sm transition-all"
                 >
                   <div className="flex flex-wrap gap-2 mb-3">
-                    <span className="bg-[#D7C4E3]/30 border border-[#D7C4E3] text-[#3A3C51] text-xs px-3 py-1 rounded-full">
+                    <span className="bg-[#BFDBFE]/30 border border-[#BFDBFE] text-[#1E3A5F] text-xs px-3 py-1 rounded-full">
                       {listing.category}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-[#3A3C51] mb-2">
+                  <h3 className="font-serif text-lg font-bold text-[#1E3A5F] mb-2">
                     {listing.name}
                   </h3>
-                  <p className="text-[#474747] text-sm leading-relaxed mb-3">
+                  <p className="text-[#374151] text-sm leading-relaxed mb-3">
                     {listing.description}
                   </p>
                   {listing.contact && (
-                    <div className="flex items-center gap-2 text-[#474747] text-sm">
+                    <div className="flex items-center gap-2 text-[#374151] text-sm">
                       {listing.type === "phone" || listing.type === "hotline" ? (
-                        <Phone size={14} className="text-[#3A3C51]" />
+                        <Phone size={14} className="text-[#1E3A5F]" />
                       ) : (
-                        <MapPin size={14} className="text-[#3A3C51]" />
+                        <MapPin size={14} className="text-[#1E3A5F]" />
                       )}
                       <span>
                         {listing.type === "hotline" ? "Hotline: " : "Contact: "}
@@ -167,17 +177,17 @@ export default function DirectoryPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-[#D7C4E3]/10">
+      <section className="py-16 px-4 bg-[#BFDBFE]/10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
+          <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">
             Know a Service We Should List?
           </h2>
-          <p className="text-[#474747] mb-6">
+          <p className="text-[#374151] mb-6">
             Help us grow this directory by submitting LGBTQIA+-friendly services in your area.
           </p>
           <a
             href="mailto:contact@empowerqueerhub.com"
-            className="inline-flex items-center gap-2 bg-[#D7C4E3] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#3A3C51] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#BFDBFE] text-[#1E3A5F] font-semibold px-8 py-3 rounded-full hover:bg-[#2563EB] hover:text-white transition-all"
           >
             Submit a Listing
           </a>

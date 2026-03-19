@@ -2,22 +2,22 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #474747;
-  --heading: #3A3C51;
-  --accent: #D7C4E3;
-  --font-inter: "Inter", sans-serif;
+  --foreground: #374151;
+  --heading: #1E3A5F;
+  --accent: #BFDBFE;
+  --font-dm-sans: "DM Sans", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-dm-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter);
+  font-family: var(--font-dm-sans);
 }
 
 .font-serif {
@@ -34,4 +34,8 @@ body {
     #004dff,
     #750787
   );
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom right, #F0F7FF, #DBEAFE);
 }

@@ -23,13 +23,9 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-full bg-[#D7C4E3] flex items-center justify-center text-[#3A3C51] font-bold text-sm shrink-0 group-hover:bg-[#3A3C51] group-hover:text-white transition-colors">
-              EQ
-            </div>
-            <span className="font-bold text-[#3A3C51] text-lg leading-tight hidden sm:block">
-              Empower Queer Hub
-            </span>
+          <a href="/" className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/empower-queer-logo.png" alt="Empower Queer Hub" className="h-10 w-auto" />
           </a>
 
           {/* Desktop nav */}
@@ -38,7 +34,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[#474747] hover:text-[#3A3C51] text-sm px-3 py-2 rounded-md hover:bg-[#D7C4E3]/30 transition-all"
+                  className="text-[#374151] hover:text-[#1E3A5F] text-sm px-3 py-2 rounded-md hover:bg-[#BFDBFE]/30 transition-all"
                 >
                   {link.label}
                 </a>
@@ -50,7 +46,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="/donate/"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#3A3C51] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#2a2c3d] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#2563EB] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#1D4ED8] transition-colors"
             >
               <Heart size={14} />
               Donate Now!
@@ -58,7 +54,7 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen(!open)}
-              className="lg:hidden text-[#3A3C51] hover:text-[#474747] p-2"
+              className="lg:hidden text-[#1E3A5F] hover:text-[#374151] p-2"
             >
               {open ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -73,7 +69,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="block text-[#474747] hover:text-[#3A3C51] hover:bg-[#D7C4E3]/20 px-5 py-3 text-sm transition-all"
+                    className="block text-[#374151] hover:text-[#1E3A5F] hover:bg-[#BFDBFE]/20 px-5 py-3 text-sm transition-all"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}
@@ -83,7 +79,7 @@ export default function Navbar() {
               <li className="px-4 py-3">
                 <a
                   href="/donate/"
-                  className="block bg-[#3A3C51] text-white text-sm font-semibold px-4 py-2 rounded-full text-center hover:bg-[#2a2c3d] transition-colors"
+                  className="block bg-[#2563EB] text-white text-sm font-semibold px-4 py-2 rounded-full text-center hover:bg-[#1D4ED8] transition-colors"
                 >
                   <Heart size={14} className="inline mr-1.5" />
                   Donate Now!

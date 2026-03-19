@@ -40,12 +40,12 @@ export default function TrainingsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-white py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0F7FF] to-[#DBEAFE] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">
+          <h1 className="font-serif text-5xl font-bold text-[#1E3A5F] mb-4">
             Trainings &amp; Capacity-Building Programs
           </h1>
-          <p className="text-[#474747] text-xl leading-relaxed">
+          <p className="text-[#374151] text-xl leading-relaxed">
             Community-Led Learning for Inclusion, Leadership, and Sustainable Growth
           </p>
         </div>
@@ -58,32 +58,32 @@ export default function TrainingsPage() {
             {programs.map((program) => (
               <div
                 key={program.org}
-                className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#D7C4E3] hover:shadow-md transition-all flex flex-col"
+                className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#BFDBFE] hover:shadow-md transition-all flex flex-col"
               >
-                <div className="w-12 h-12 bg-[#D7C4E3] rounded-xl flex items-center justify-center mb-6">
-                  <BookOpen size={22} className="text-[#3A3C51]" />
+                <div className="w-12 h-12 bg-[#BFDBFE] rounded-xl flex items-center justify-center mb-6">
+                  <BookOpen size={22} className="text-[#1E3A5F]" />
                 </div>
-                <h2 className="font-serif text-xl font-bold text-[#3A3C51] mb-3">
+                <h2 className="font-serif text-xl font-bold text-[#1E3A5F] mb-3">
                   {program.org}
                 </h2>
-                <p className="text-[#474747] text-sm leading-relaxed mb-4">
+                <p className="text-[#374151] text-sm leading-relaxed mb-4">
                   {program.tagline}
                 </p>
 
                 {/* Featured program */}
-                <div className="bg-[#D7C4E3]/10 border border-[#D7C4E3] rounded-xl p-4 mb-6 flex-1">
-                  <p className="text-[#3A3C51] text-xs uppercase tracking-widest font-semibold mb-2">
+                <div className="bg-[#BFDBFE]/10 border border-[#BFDBFE] rounded-xl p-4 mb-6 flex-1">
+                  <p className="text-[#1E3A5F] text-xs uppercase tracking-widest font-semibold mb-2">
                     Featured Program
                   </p>
-                  <h3 className="font-semibold text-[#3A3C51] mb-1">{program.featured.title}</h3>
-                  <p className="text-[#474747] text-sm">{program.featured.desc}</p>
+                  <h3 className="font-semibold text-[#1E3A5F] mb-1">{program.featured.title}</h3>
+                  <p className="text-[#374151] text-sm">{program.featured.desc}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {program.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-[#D7C4E3]/30 border border-[#D7C4E3] text-[#3A3C51] text-xs px-3 py-1 rounded-full"
+                      className="bg-[#BFDBFE]/30 border border-[#BFDBFE] text-[#1E3A5F] text-xs px-3 py-1 rounded-full"
                     >
                       {tag}
                     </span>
@@ -92,7 +92,7 @@ export default function TrainingsPage() {
 
                 <a
                   href="/contact/"
-                  className="inline-flex items-center gap-1.5 text-[#3A3C51] text-sm font-semibold hover:gap-2.5 transition-all"
+                  className="inline-flex items-center gap-1.5 text-[#1E3A5F] text-sm font-semibold hover:gap-2.5 transition-all"
                 >
                   Learn More <ChevronRight size={15} />
                 </a>
@@ -103,17 +103,17 @@ export default function TrainingsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 bg-[#D7C4E3]/10">
+      <section className="py-16 px-4 bg-[#BFDBFE]/10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
+          <h2 className="font-serif text-2xl font-bold text-[#1E3A5F] mb-4">
             Request a Training or Workshop
           </h2>
-          <p className="text-[#474747] mb-6">
+          <p className="text-[#374151] mb-6">
             We offer customized trainings for schools, LGUs, organizations, and communities. Reach out to discuss your needs.
           </p>
           <a
             href="/contact/"
-            className="inline-flex items-center gap-2 bg-[#D7C4E3] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#3A3C51] hover:text-white transition-all"
+            className="inline-flex items-center gap-2 bg-[#BFDBFE] text-[#1E3A5F] font-semibold px-8 py-3 rounded-full hover:bg-[#2563EB] hover:text-white transition-all"
           >
             Get in Touch
           </a>
