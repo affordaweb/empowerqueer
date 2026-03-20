@@ -58,10 +58,17 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-4 bg-white relative overflow-hidden">
+      <section className="py-20 px-4 relative overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/gallery/EmpQueer-Image-140.jpg')" }}
+        />
+        {/* Gradient overlay — keeps original purple/pink palette */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-[#F8F0FF]/92 to-[#FFF0F7]/95" />
         {/* Subtle bg glows */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/5 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#EC4899]/5 rounded-full blur-[110px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/8 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#EC4899]/8 rounded-full blur-[110px] pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto">
           {/* Section label */}
