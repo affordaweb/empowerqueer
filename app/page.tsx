@@ -200,6 +200,35 @@ function Features() {
             Community-led support across mental health, education, and
             connection.
           </p>
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-9 h-9 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[#3A3C51] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
+            >
+              <Facebook size={16} />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="w-9 h-9 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[#3A3C51] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
+            >
+              <Twitter size={16} />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="w-9 h-9 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[#3A3C51] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
+            >
+              <Youtube size={16} />
+            </a>
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feat) => {
@@ -290,15 +319,27 @@ function Kopisodes() {
 
 const pillars = [
   {
-    title: "A central access point for support services",
+    num: "01",
+    icon: Users,
+    iconBg: "icon-bg-sky",
+    iconColor: "icon-sky",
+    title: "A Central Access Point",
     desc: "A community hub for learning, empowerment, and events. A referral gateway to mental health, legal aid, HIV services, and livelihood opportunities.",
   },
   {
-    title: "A safe digital space",
+    num: "02",
+    icon: Shield,
+    iconBg: "icon-bg-lavender",
+    iconColor: "icon-lavender",
+    title: "A Safe Digital Space",
     desc: "Where every identity is respected and uplifted. EmpowerQueer brings together the heart of grassroots organizing and the power of community-led solutions — all in one accessible online home.",
   },
   {
-    title: "Born from Urgency, Built with Purpose",
+    num: "03",
+    icon: Heart,
+    iconBg: "icon-bg-rose",
+    iconColor: "icon-rose",
+    title: "Built with Purpose",
     desc: "The EmpowerQueer Hub is an innovation born from the Wagayway EmpowerQueer Project, a community-led initiative funded by the Wellspring Philanthropic Fund and managed by Humanis.",
   },
 ];
@@ -314,64 +355,87 @@ const focusAreas = [
 
 function About() {
   return (
-    <section className="py-20 bg-[#F3F3F3]">
+    <section className="py-24 bg-gradient-to-b from-white to-[#F5F0FF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <p className="text-[#3A3C51] font-semibold tracking-widest uppercase text-sm mb-3">
-              Our Story
-            </p>
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] mb-8 leading-tight">
-              Born from Urgency, Built with Purpose
-            </h2>
-            <div className="space-y-5">
-              {pillars.map((p) => (
-                <div
-                  key={p.title}
-                  className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#A9D6B6] hover:shadow-sm transition-all"
-                >
-                  <h4 className="font-semibold text-[#3A3C51] mb-1">{p.title}</h4>
-                  <p className="text-[#474747] text-sm leading-relaxed">{p.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Wagayway box */}
-          <div className="bg-white border border-[#A9D6B6] rounded-3xl p-8 shadow-sm">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 icon-bg-rose rounded-xl flex items-center justify-center">
-                <Heart size={22} className="icon-rose icon-anim" />
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-bold text-[#3A3C51]">
-                  Wagayway Equality
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <p className="text-[#D7C4E3] font-semibold tracking-widest uppercase text-sm mb-3">Our Story</p>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-4">
+            Born from Urgency,<br className="hidden sm:block" /> Built with Purpose
+          </h2>
+          <p className="text-[#474747] max-w-xl mx-auto text-lg leading-relaxed">
+            What started as a response to silence became a nationwide platform for queer lives.
+          </p>
+          <div className="rainbow-bar h-[3px] w-16 mx-auto rounded-full mt-8" />
+        </div>
+
+        {/* Pillar cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {pillars.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.num}
+                className="bg-white border border-gray-100 rounded-2xl p-8 hover:shadow-xl hover:border-[#E9D5FF] transition-all duration-300 group relative overflow-hidden"
+              >
+                {/* Large decorative number */}
+                <span className="absolute top-4 right-5 font-serif text-7xl font-bold text-gray-100 group-hover:text-[#E9D5FF] transition-colors leading-none select-none">
+                  {p.num}
+                </span>
+                <div className={`w-12 h-12 ${p.iconBg} rounded-xl flex items-center justify-center mb-6 relative z-10`}>
+                  <Icon size={22} className={`${p.iconColor} icon-anim`} />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-[#3A3C51] mb-3 leading-snug relative z-10">
+                  {p.title}
                 </h3>
-                <p className="text-[#474747] text-sm">
-                  Founded 2018 · Batangas, Philippines
-                </p>
+                <p className="text-[#474747] text-sm leading-relaxed relative z-10">{p.desc}</p>
               </div>
-            </div>
-            <p className="text-[#474747] text-sm leading-relaxed mb-6">
-              Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ human rights and community development organization based in Batangas. Founded in 2018, Wagayway Equality champions gender equality &amp; LGBTQIA+ inclusion, community-based health &amp; HIV services, socio-economic empowerment for LGBTQIA+ families, safe spaces &amp; mental health support, and volunteerism, leadership, and youth engagement.
-            </p>
-            <div>
-              <p className="text-[#3A3C51] text-xs uppercase tracking-widest font-semibold mb-3">
-                Focus Areas
+            );
+          })}
+        </div>
+
+        {/* Wagayway full-width dark card */}
+        <div className="bg-[#3A3C51] rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <div className="p-10 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 icon-bg-rose rounded-xl flex items-center justify-center shrink-0">
+                  <Heart size={22} className="icon-rose icon-anim" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl font-bold text-white">Wagayway Equality</h3>
+                  <p className="text-white/50 text-sm">Founded 2018 · Batangas, Philippines</p>
+                </div>
+              </div>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ human rights and community development organization based in Batangas. Founded in 2018, it champions gender equality &amp; LGBTQIA+ inclusion, community-based health &amp; HIV services, socio-economic empowerment, safe spaces, and youth leadership.
               </p>
-              <div className="flex flex-wrap gap-2">
+            </div>
+            <div className="p-10 sm:p-12">
+              <p className="text-white/40 text-xs uppercase tracking-widest font-semibold mb-5">Focus Areas</p>
+              <div className="flex flex-wrap gap-2.5">
                 {focusAreas.map((area) => (
                   <span
                     key={area}
-                    className="bg-[#A9D6B6]/30 border border-[#A9D6B6] text-[#3A3C51] text-xs px-3 py-1.5 rounded-full"
+                    className="bg-white/10 border border-white/20 text-white/80 text-xs px-4 py-2 rounded-full hover:bg-white/20 hover:text-white transition-colors"
                   >
                     {area}
                   </span>
                 ))}
               </div>
+              <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center">
+                {[["2018", "Founded"], ["950+", "Members"], ["100%", "Verified"]].map(([val, label]) => (
+                  <div key={label}>
+                    <p className="font-serif text-2xl font-bold text-white">{val}</p>
+                    <p className="text-white/40 text-xs mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
