@@ -474,41 +474,51 @@ function About() {
 
 function Founder() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="mx-auto w-24 h-24 rounded-full overflow-hidden mb-8 border-4 border-[#A9D6B6]">
+    <section className="bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+        {/* Full image — left */}
+        <div className="relative min-h-[400px] lg:min-h-[600px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/aivan-profile-pic.png" alt="Aivan Castillo Alvarez" className="w-full h-full object-cover" />
+          <img
+            src="/aivan-profile-pic.png"
+            alt="Aivan Castillo Alvarez"
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
         </div>
-        <div className="rainbow-bar h-[3px] w-12 mx-auto rounded-full mb-8" />
-        <blockquote className="font-serif text-lg sm:text-xl text-[#3A3C51] leading-relaxed mb-8 italic text-left max-w-3xl mx-auto">
-          &ldquo;When we started Wagayway Equality, it wasn&rsquo;t built from abundance— it was built from urgency. From stories of discrimination that were never reported. From young LGBTQIA+ people who had nowhere safe to turn. From community members who walked alone with their fears, questions, and pain. From the quiet truth we witnessed every day: our people deserved more than the silence they were left with.&rdquo;
-          <br /><br />
-          &ldquo;As we grow, this platform will evolve with you. Because EmpowerQueer is not mine alone; it belongs to the community it serves. On behalf of Wagayway Equality and everyone who made this possible, I welcome you—with pride, hope, and unwavering purpose. Padayon. The fight continues, and so does our love for one another.&rdquo;
-        </blockquote>
-        <div className="mb-8">
-          <p className="text-[#3A3C51] font-bold text-lg">Aivan Castillo Alvarez</p>
-          <p className="text-[#474747] text-sm">
-            Founder / Executive Director — Empower Queer Hub
-          </p>
-        </div>
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <a
-            href="mailto:aivan.c.alvarez@gmail.com"
-            className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
-          >
-            <Mail size={15} className="icon-yellow icon-anim" />
-            Email Aivan
-          </a>
-          <a
-            href="https://www.linkedin.com/in/aivanalvarez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
-          >
-            <Linkedin size={15} className="icon-yellow icon-anim" />
-            LinkedIn
-          </a>
+
+        {/* Text — right */}
+        <div className="flex flex-col justify-center px-10 py-16 lg:px-16">
+          <div className="rainbow-bar h-[3px] w-12 rounded-full mb-8" />
+          <blockquote className="font-serif text-lg sm:text-xl text-[#3A3C51] leading-relaxed mb-8 italic">
+            &ldquo;When we started Wagayway Equality, it wasn&rsquo;t built from abundance— it was built from urgency. From stories of discrimination that were never reported. From young LGBTQIA+ people who had nowhere safe to turn. From community members who walked alone with their fears, questions, and pain. From the quiet truth we witnessed every day: our people deserved more than the silence they were left with.&rdquo;
+            <br /><br />
+            &ldquo;As we grow, this platform will evolve with you. Because EmpowerQueer is not mine alone; it belongs to the community it serves. On behalf of Wagayway Equality and everyone who made this possible, I welcome you—with pride, hope, and unwavering purpose. Padayon. The fight continues, and so does our love for one another.&rdquo;
+          </blockquote>
+          <div className="mb-8">
+            <p className="text-[#3A3C51] font-bold text-lg">Aivan Castillo Alvarez</p>
+            <p className="text-[#474747] text-sm">
+              Founder / Executive Director — Empower Queer Hub
+            </p>
+          </div>
+          <div className="flex items-center gap-4 flex-wrap">
+            <a
+              href="mailto:aivan.c.alvarez@gmail.com"
+              className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
+            >
+              <Mail size={15} className="icon-yellow icon-anim" />
+              Email Aivan
+            </a>
+            <a
+              href="https://www.linkedin.com/in/aivanalvarez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
+            >
+              <Linkedin size={15} className="icon-yellow icon-anim" />
+              LinkedIn
+            </a>
+          </div>
         </div>
       </div>
     </section>
