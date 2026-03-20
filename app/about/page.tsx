@@ -26,7 +26,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[580px] flex items-center justify-center px-4 pt-[144px] overflow-hidden">
+      <section className="relative min-h-[580px] flex items-center justify-center px-4 pt-[144px] pb-[50px] overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -171,75 +171,55 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="relative py-24 px-4 overflow-hidden bg-[#0F0A1E]">
-        {/* Background decorative blobs */}
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#7C3AED]/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#EC4899]/15 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-[#A78BFA]/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#0F0A1E]">
+        {/* Decorative blobs */}
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#7C3AED]/20 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#EC4899]/15 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto">
+        <div className="rainbow-bar h-[3px] w-full" />
+
+        <div className="relative max-w-6xl mx-auto px-4 py-20">
           {/* Section label */}
-          <div className="flex items-center justify-center gap-3 mb-12">
+          <div className="flex items-center justify-center gap-3 mb-16">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#7C3AED]" />
-            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Our Founder</span>
+            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.3em] font-semibold">Our Founder</span>
             <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#EC4899]" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Photo column */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Glow ring */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA] blur-[20px] opacity-40 scale-105" />
-                {/* Gradient border frame */}
-                <div className="relative p-[2px] rounded-2xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA]">
+          <div className="grid grid-cols-1 lg:grid-cols-[360px_1fr] gap-16 items-start">
+
+            {/* ── Photo column ── */}
+            <div className="flex flex-col items-center lg:items-start gap-7">
+              {/* Photo frame */}
+              <div className="relative self-center">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA] blur-[28px] opacity-50 scale-105" />
+                <div className="relative p-[3px] rounded-3xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/aivan-profile-pic.png"
                     alt="Aivan Castillo Alvarez"
-                    className="w-72 h-80 object-cover object-top rounded-2xl block"
+                    className="w-80 h-96 object-cover object-top rounded-3xl block"
                   />
                 </div>
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-[#7C3AED] to-[#EC4899] text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg">
+                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white text-xs font-semibold px-5 py-2 rounded-full shadow-xl shadow-[#7C3AED]/30">
                   Founder &amp; Executive Director
                 </div>
               </div>
-            </div>
 
-            {/* Content column */}
-            <div className="text-white">
-              {/* Big decorative quote mark */}
-              <div className="font-serif text-[7rem] leading-none text-[#7C3AED]/40 select-none mb-[-1.5rem]">&ldquo;</div>
-
-              {/* Pull quote */}
-              <blockquote className="font-serif text-2xl lg:text-3xl italic leading-snug text-white mb-8">
-                When we started Wagayway Equality, it wasn&rsquo;t built from abundance &mdash; it was built from urgency.
-              </blockquote>
-
-              {/* Name + title */}
-              <div className="mb-6">
-                <h3 className="font-serif text-2xl font-bold bg-gradient-to-r from-[#A78BFA] to-[#EC4899] bg-clip-text text-transparent mb-1">
-                  Aivan Castillo Alvarez
-                </h3>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {["Development Practitioner", "LGBTQIA+ Advocate", "Researcher", "Trainer"].map((tag) => (
-                    <span key={tag} className="text-[10px] uppercase tracking-wider font-semibold text-[#A78BFA] border border-[#A78BFA]/40 px-2.5 py-1 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              {/* Role tags */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2 mt-3">
+                {["Development Practitioner", "LGBTQIA+ Advocate", "Researcher", "Trainer"].map((tag) => (
+                  <span key={tag} className="text-[10px] uppercase tracking-wider font-semibold text-[#A78BFA] border border-[#A78BFA]/30 bg-[#A78BFA]/10 px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                ))}
               </div>
 
-              {/* Bio */}
-              <p className="text-white/70 leading-relaxed mb-8">
-                Aivan is a development practitioner, LGBTQIA+ rights advocate, researcher, and trainer committed to building community-led solutions for equality. With experience spanning human rights work, SOGIESC advocacy, socio-economic inclusion, and organizational development, he believes the community is always the expert — his role is only to amplify what already exists within us.
-              </p>
-
-              {/* CTA links */}
-              <div className="flex flex-wrap gap-3">
+              {/* Contact links */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                 <a
                   href="mailto:aivan.c.alvarez@gmail.com"
-                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm px-4 py-2.5 rounded-full transition-colors"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-sm px-4 py-2.5 rounded-full transition-all"
                 >
                   <Mail size={14} />
                   Email Aivan
@@ -248,32 +228,139 @@ export default function AboutPage() {
                   href="https://www.linkedin.com/in/aivanalvarez"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#7C3AED]/30 hover:bg-[#7C3AED]/50 border border-[#7C3AED]/50 text-white text-sm px-4 py-2.5 rounded-full transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#7C3AED]/20 hover:bg-[#7C3AED]/40 border border-[#7C3AED]/40 text-white text-sm px-4 py-2.5 rounded-full transition-all"
                 >
                   <Linkedin size={14} />
                   LinkedIn
                 </a>
               </div>
             </div>
+
+            {/* ── Content column ── */}
+            <div className="text-white">
+              <h3 className="font-serif text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#A78BFA] via-white to-[#EC4899] bg-clip-text text-transparent mb-2 leading-tight">
+                Aivan Castillo Alvarez
+              </h3>
+              <p className="text-white/40 text-sm uppercase tracking-widest font-medium mb-10">
+                Batangas, Philippines &middot; Founded Wagayway Equality, 2018
+              </p>
+
+              {/* Pull quote */}
+              <div className="relative mb-10">
+                <div className="font-serif text-[6rem] leading-none text-[#7C3AED]/30 select-none absolute -top-6 -left-2">&ldquo;</div>
+                <blockquote className="font-serif text-xl lg:text-2xl italic leading-relaxed text-white/90 pl-6 border-l-2 border-[#7C3AED]/60">
+                  When we started Wagayway Equality, it wasn&rsquo;t built from abundance — it was built from urgency. From stories of discrimination that were never reported. From young LGBTQIA+ people who had nowhere safe to turn.
+                </blockquote>
+              </div>
+
+              {/* Bio */}
+              <p className="text-white/65 leading-relaxed mb-5 text-[15px]">
+                Aivan is a development practitioner, LGBTQIA+ rights advocate, researcher, and trainer committed to building community-led solutions for equality. With experience spanning human rights work, SOGIESC advocacy, socio-economic inclusion, and organizational development, he believes the community is always the expert — his role is only to amplify what already exists within us.
+              </p>
+              <p className="text-white/45 leading-relaxed mb-10 text-[15px] italic">
+                &ldquo;As we grow, this platform will evolve with you. Because EmpowerQueer is not mine alone; it belongs to the community it serves. On behalf of Wagayway Equality and everyone who made this possible, I welcome you — with pride, hope, and unwavering purpose. Padayon.&rdquo;
+              </p>
+
+              {/* Stats row */}
+              <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+                {[
+                  { val: "2018", label: "Founded Wagayway" },
+                  { val: "950+", label: "Community Members" },
+                  { val: "8+", label: "Years of Advocacy" },
+                ].map(({ val, label }) => (
+                  <div key={label}>
+                    <p className="font-serif text-3xl font-bold bg-gradient-to-br from-[#A78BFA] to-[#EC4899] bg-clip-text text-transparent leading-none mb-1">{val}</p>
+                    <p className="text-white/40 text-xs uppercase tracking-wider">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
+
+        <div className="rainbow-bar h-[3px] w-full" />
       </section>
 
       {/* Volunteer */}
-      <section className="py-16 px-4 bg-[#A9D6B6]/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-4">
-            Volunteer With Us
-          </h2>
-          <p className="text-[#474747] text-lg leading-relaxed mb-8">
-            Join our community of advocates, educators, and changemakers. Whether you have hours or expertise to spare, there&rsquo;s a place for you here.
-          </p>
-          <a
-            href="/contact/"
-            className="btn-p btn-p-lavender inline-flex items-center gap-2 px-8 py-3.5"
-          >
-            Get Involved
-          </a>
+      <section className="relative py-24 px-4 overflow-hidden bg-[#0F0A1E]">
+        {/* Decorative blobs */}
+        <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#7C3AED]/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/15 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+        <div className="relative max-w-6xl mx-auto">
+          {/* Section label */}
+          <div className="flex items-center justify-center gap-3 mb-10">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
+            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Get Involved</span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
+          </div>
+
+          <div className="text-center mb-14">
+            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-5">
+              Volunteer With Us
+            </h2>
+            <p className="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto">
+              Whether you have hours or expertise to spare, there&rsquo;s a place for you here. Join 950+ members building a more inclusive Philippines.
+            </p>
+          </div>
+
+          {/* Role cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
+            {[
+              {
+                icon: <BookOpen size={22} />,
+                color: "#A78BFA",
+                bg: "#7C3AED",
+                title: "Educator",
+                desc: "Facilitate workshops, create learning content, and lead SOGIESC training sessions for communities.",
+              },
+              {
+                icon: <Megaphone size={22} />,
+                color: "#F9A8D4",
+                bg: "#EC4899",
+                title: "Advocate",
+                desc: "Amplify queer voices, support policy campaigns, and help shape a more just and inclusive society.",
+              },
+              {
+                icon: <Users size={22} />,
+                color: "#6EE7B7",
+                bg: "#059669",
+                title: "Community Builder",
+                desc: "Organize events, run outreach programs, and create safe spaces for LGBTQIA+ individuals to connect.",
+              },
+            ].map(({ icon, color, bg, title, desc }) => (
+              <div
+                key={title}
+                className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-white/20 transition-all group"
+              >
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                  style={{ backgroundColor: `${bg}22`, color }}
+                >
+                  {icon}
+                </div>
+                <h3 className="font-serif text-lg font-bold text-white mb-3">{title}</h3>
+                <p className="text-white/55 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/contact/"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-semibold px-8 py-3.5 rounded-full transition-opacity shadow-lg shadow-[#7C3AED]/30"
+            >
+              Join the Community
+              <ArrowRight size={16} />
+            </a>
+            <a
+              href="/contact/"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white text-sm px-6 py-3.5 rounded-full transition-colors"
+            >
+              Learn more about volunteering
+            </a>
+          </div>
         </div>
       </section>
 
