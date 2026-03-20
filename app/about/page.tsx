@@ -41,35 +41,40 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-20 px-4 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-6">
+      <section className="relative min-h-[580px] flex items-center justify-center px-4 overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/gallery/EmpQueer-Image-142.jpg')" }}
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F0A1E]/75 via-[#0F0A1E]/60 to-[#0F0A1E]/80" />
+        {/* Purple/pink accent glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#7C3AED]/20 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="relative max-w-6xl mx-auto text-center">
+          {/* Label */}
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
+            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Our Story</span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
+          </div>
+
+          <h1 className="font-serif text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
             About the Hub
           </h1>
-          <p className="text-[#474747] text-xl leading-relaxed mb-6">
+          <p className="text-white/80 text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
             Inspired by Wagayway&rsquo;s Living Advocacy. Powered by Community. Sustained by Expertise.
           </p>
-          <p className="text-[#474747] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/65 max-w-3xl mx-auto leading-relaxed text-base">
             The EmpowerQueer Hub was born from the heart of Wagayway Equality&rsquo;s community work—years of listening, responding, and standing alongside LGBTQIA+ individuals who needed safe, accessible, and affirming support. What began as the Wagayway EmpowerQueer Project, supported by the Wellspring Philanthropic Fund through Humanis, has grown into a nationwide digital platform designed to uplift queer lives with dignity and care.
-          </p>
-          <p className="text-[#474747] max-w-3xl mx-auto leading-relaxed mt-4">
-            Today, the hub continues to expand with the support of Ascend Development Solutions, our expert partner in personal and organizational development, sustainability systems, and transformative learning. Ascend brings forward inclusive training models, human-centered design, and development frameworks that strengthen how this platform serves the LGBTQIA+ community—ensuring that EmpowerQueer remains sustainable, strategic, and community-led.
           </p>
         </div>
       </section>
 
-      {/* About Banner */}
-      <section className="w-full">
-        <img
-          src="/images/gallery/EmpQueer-Image-142.jpg"
-          alt="About the Hub"
-          className="w-full h-72 object-cover object-center"
-        />
-      </section>
-
       {/* Mission */}
       <section className="py-16 px-4 bg-[#F3F3F3]">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-6">Our Mission</h2>
           <p className="text-[#474747] text-lg leading-relaxed mb-4">
             A platform shaped by LGBTQIA+ voices and lived experience. Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ organization based in Batangas and serving Region IV, with growing footprints nationwide. Built on volunteerism and collective action, Wagayway champions LGBTQIA+ rights &amp; inclusion, community-based HIV services, socio-economic empowerment, mental health support, leadership &amp; advocacy training, safe spaces, solidarity networks, and intergenerational learning.
@@ -85,7 +90,7 @@ export default function AboutPage() {
 
       {/* Wagayway Equality */}
       <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">

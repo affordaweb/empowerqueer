@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Heart } from "lucide-react";
 
 const navLinks = [
@@ -17,9 +17,25 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
+          : "bg-white/15 backdrop-blur-sm"
+      }`}
+    >
+      {/* Rainbow bar */}
+      <div className="rainbow-bar h-[5px] w-full" />
+
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -34,7 +50,11 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[#474747] hover:text-[#3A3C51] text-sm px-3 py-2 rounded-md hover:bg-[#A9D6B6]/30 transition-all"
+                  className={`text-sm px-3 py-2 rounded-md transition-all ${
+                    scrolled
+                      ? "text-[#474747] hover:text-[#3A3C51] hover:bg-[#A9D6B6]/30"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -54,7 +74,9 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen(!open)}
-              className="lg:hidden text-[#3A3C51] hover:text-[#474747] p-2"
+              className={`lg:hidden p-2 transition-colors ${
+                scrolled ? "text-[#3A3C51]" : "text-white"
+              }`}
             >
               {open ? <X size={22} /> : <Menu size={22} />}
             </button>
