@@ -208,27 +208,80 @@ function Kopisodes() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Video embed */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Phone mockup with video + suggestions */}
           <div className="flex justify-center">
-            <div className="relative w-full max-w-[320px]">
-              {/* Phone-style frame */}
-              <div className="bg-[#2A2535] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50 p-1">
-                <div className="rounded-[1.7rem] overflow-hidden bg-black" style={{ aspectRatio: "9/16" }}>
-                  <iframe
-                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=320"
-                    width="100%"
-                    height="100%"
-                    style={{ border: "none", overflow: "hidden" }}
-                    scrolling="no"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    allowFullScreen
-                    title="Kopisodes reel"
-                  />
+            <div className="relative w-full max-w-[300px]">
+              {/* Phone frame */}
+              <div className="bg-[#2A2535] border border-white/10 rounded-[2.5rem] shadow-2xl shadow-black/60 p-[5px]">
+                {/* Phone inner screen */}
+                <div className="rounded-[2.2rem] overflow-hidden bg-[#0F0F0F] flex flex-col">
+                  {/* Status bar */}
+                  <div className="flex items-center justify-between px-5 py-2 bg-[#0F0F0F]">
+                    <span className="text-white text-[10px] font-semibold">9:41</span>
+                    <div className="w-16 h-4 bg-[#1A1A1A] rounded-full mx-auto" />
+                    <div className="flex items-center gap-1">
+                      <div className="w-3 h-2 border border-white/60 rounded-[2px]"><div className="w-2 h-full bg-white/60 rounded-[1px]" /></div>
+                    </div>
+                  </div>
+                  {/* Video */}
+                  <div className="bg-black overflow-hidden" style={{ aspectRatio: "9/11" }}>
+                    <iframe
+                      src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=300"
+                      width="100%"
+                      height="100%"
+                      style={{ border: "none", overflow: "hidden" }}
+                      scrolling="no"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      allowFullScreen
+                      title="Kopisodes reel"
+                    />
+                  </div>
+                  {/* Suggestion feed */}
+                  <div className="bg-[#0F0F0F] px-3 pt-3 pb-4">
+                    <p className="text-white/40 text-[9px] uppercase tracking-widest font-semibold mb-2 px-1">Up Next</p>
+                    <div className="space-y-3">
+                      {[
+                        {
+                          img: "/images/gallery/HIV-and-Aids-Surveillance.jpg",
+                          title: "2025 HIV & AIDS Surveillance Update",
+                          meta: "Wagayway Equality · 2025",
+                        },
+                        {
+                          img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg",
+                          title: "SOGIESC 101 by Wagayway Equality",
+                          meta: "Wagayway Equality · 2025",
+                        },
+                        {
+                          img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg",
+                          title: "HIV 101 — Prevention, Testing & Care",
+                          meta: "Wagayway Equality · 2025",
+                        },
+                        {
+                          img: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
+                          title: "Batangas Pride Month Celebration",
+                          meta: "Wagayway Equality · 2023",
+                        },
+                      ].map((s) => (
+                        <div key={s.title} className="flex gap-2 items-start">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={s.img} alt={s.title} className="w-16 h-10 rounded-lg object-cover shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-white text-[10px] font-semibold leading-snug line-clamp-2">{s.title}</p>
+                            <p className="text-white/40 text-[9px] mt-0.5">{s.meta}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Home indicator */}
+                  <div className="bg-[#0F0F0F] flex justify-center pb-2">
+                    <div className="w-20 h-1 bg-white/20 rounded-full" />
+                  </div>
                 </div>
               </div>
               {/* Glow */}
-              <div className="absolute inset-0 rounded-[2rem] bg-[#FED7AA]/10 blur-2xl -z-10 scale-110" />
+              <div className="absolute inset-0 rounded-[2.5rem] bg-[#FED7AA]/10 blur-2xl -z-10 scale-110" />
             </div>
           </div>
 
