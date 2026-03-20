@@ -199,13 +199,13 @@ export default function AboutPage() {
             <div className="flex flex-col items-center lg:items-start gap-7">
               {/* Photo frame */}
               <div className="relative self-center">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA] blur-[28px] opacity-50 scale-105" />
-                <div className="relative p-[3px] rounded-3xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA]">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA] blur-[20px] opacity-40 scale-105" />
+                <div className="relative p-[3px] rounded-2xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA] shadow-[0_20px_60px_rgba(124,58,237,0.4)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/aivan-profile-pic.jpg"
                     alt="Aivan Castillo Alvarez"
-                    className="w-80 h-96 object-cover object-top rounded-3xl block"
+                    className="w-56 h-72 object-cover object-top rounded-2xl block"
                   />
                 </div>
                 <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white text-xs font-semibold px-5 py-2 rounded-full shadow-xl shadow-[#7C3AED]/30">
