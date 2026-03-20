@@ -1,4 +1,3 @@
-import RainbowBar from "../../components/RainbowBar";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { ChevronRight } from "lucide-react";
@@ -21,10 +20,9 @@ const posts = [
 export default function CategoryYouthServicesPage() {
   return (
     <main className="bg-white min-h-screen">
-      <RainbowBar />
       <Navbar />
 
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-20 px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 pt-[89px] px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#D7C4E3] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Youth Services</h1>
