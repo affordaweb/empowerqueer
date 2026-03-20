@@ -637,21 +637,17 @@ function Gallery() {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden bg-[#0F0A1E]">
-      {/* Decorative blobs */}
-      <div className="absolute top-1/4 left-0 w-[350px] h-[350px] bg-[#7C3AED]/10 rounded-full blur-[100px] -translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#EC4899]/10 rounded-full blur-[80px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
-
+    <section className="relative py-24 overflow-hidden bg-white">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
-            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Community in Action</span>
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#D7C4E3]" />
+            <span className="text-[#9B72CF] text-xs uppercase tracking-[0.25em] font-semibold">Community in Action</span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#A9D6B6]" />
           </div>
-          <h2 className="font-serif text-4xl font-bold text-white">Our Moments</h2>
-          <p className="text-white/40 text-sm mt-3 max-w-md mx-auto">
+          <h2 className="font-serif text-4xl font-bold text-[#3A3C51]">Our Moments</h2>
+          <p className="text-[#474747]/60 text-sm mt-3 max-w-md mx-auto">
             Snapshots of the people, events, and energy that make this community real.
           </p>
         </div>
