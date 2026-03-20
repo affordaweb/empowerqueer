@@ -58,14 +58,9 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/gallery/EmpQueer-Image-140.jpg')" }}
-        />
-        {/* Gradient overlay — keeps original purple/pink palette */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-[#F8F0FF]/92 to-[#FFF0F7]/95" />
+      <section className="py-20 px-4 relative overflow-hidden bg-white">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F8F0FF]/60 to-[#FFF0F7]/60" />
         {/* Subtle bg glows */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/8 rounded-full blur-[130px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#EC4899]/8 rounded-full blur-[110px] pointer-events-none" />
@@ -80,7 +75,7 @@ export default function AboutPage() {
 
           {/* Large mission statement */}
           <div className="max-w-4xl mb-16">
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-[#3A3C51] leading-tight mb-6">
+            <h2 className="font-serif text-2xl lg:text-3xl font-bold text-[#3A3C51] leading-tight mb-6">
               Every LGBTQIA+ person in the Philippines deserves help, knowledge, and connection &mdash;{" "}
               <span className="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] bg-clip-text text-transparent">
                 no gatekeeping, no judgment, no fear.
@@ -290,6 +285,13 @@ export default function AboutPage() {
 
       {/* Volunteer */}
       <section className="relative py-24 px-4 overflow-hidden bg-[#0F0A1E]">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/gallery/EmpQueer-Image-140.jpg')" }}
+        />
+        {/* Gradient overlay — soft dark blend */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0F0A1E]/90 via-[#1A0D2E]/85 to-[#0F0A1E]/90" />
         {/* Decorative blobs */}
         <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#7C3AED]/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/15 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
