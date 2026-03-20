@@ -274,47 +274,74 @@ function Features() {
 
 function Kopisodes() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#1A1625] overflow-hidden relative">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#FED7AA]/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#A9D6B6]/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section label */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#FED7AA]/15 border border-[#FED7AA]/30 rounded-full px-5 py-2 mb-5">
+            <Mic2 size={15} className="text-[#FED7AA]" />
+            <span className="text-[#FED7AA] text-xs font-semibold uppercase tracking-widest">Our Podcast</span>
+          </div>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+            Kopisodes — Honest<br className="hidden sm:block" /> Conversations Over Coffee
+          </h2>
+          <p className="text-white/60 max-w-xl mx-auto text-lg leading-relaxed">
+            Real voices. Real stories. Advocacy made human.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Podcast card */}
-          <div className="bg-[#FED7AA]/20 border border-[#FED7AA] rounded-3xl p-10">
-            <div className="w-12 h-12 icon-bg-peach rounded-2xl flex items-center justify-center mb-6">
-              <Mic2 size={22} className="icon-peach icon-anim" />
+          {/* Video embed */}
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-[320px]">
+              {/* Phone-style frame */}
+              <div className="bg-[#2A2535] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl shadow-black/50 p-1">
+                <div className="rounded-[1.7rem] overflow-hidden bg-black" style={{ aspectRatio: "9/16" }}>
+                  <iframe
+                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=320"
+                    width="100%"
+                    height="100%"
+                    style={{ border: "none", overflow: "hidden" }}
+                    scrolling="no"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    allowFullScreen
+                    title="Kopisodes reel"
+                  />
+                </div>
+              </div>
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-[2rem] bg-[#FED7AA]/10 blur-2xl -z-10 scale-110" />
             </div>
-            <h3 className="font-serif text-2xl font-bold text-[#3A3C51] mb-3">
-              Kopisodes
-            </h3>
-            <p className="text-[#474747] text-sm mb-6 leading-relaxed">
-              Kopisodes is a podcast that blends real stories, shared experiences, and meaningful dialogue—just like a good conversation over coffee. Each episode creates space for open talks, fresh ideas, and voices that deserve to be heard, making every listen both relatable and thought-provoking.
-            </p>
-            <a
-              href="/kopisodes/"
-              className="btn-p btn-p-peach inline-flex items-center gap-2 px-6 py-3 text-sm"
-            >
-              Listen Now <ChevronRight size={16} />
-            </a>
           </div>
 
           {/* Text side */}
           <div>
-            <p className="text-[#3A3C51] font-semibold tracking-widest uppercase text-sm mb-3">
-              Our Podcast
-            </p>
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] mb-6 leading-tight">
-              Kopisodes — Honest Conversations Over Coffee
-            </h2>
-            <p className="text-[#474747] text-lg leading-relaxed mb-6">
+            <p className="text-white/80 text-lg leading-relaxed mb-5">
               Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
             </p>
-            <p className="text-[#474747] text-base leading-relaxed mb-8">
-              Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
+            <p className="text-white/50 text-base leading-relaxed mb-8">
+              Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action.
             </p>
+
+            {/* Stats row */}
+            <div className="flex gap-8 mb-10">
+              {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
+                <div key={label}>
+                  <p className="font-serif text-2xl font-bold text-white">{val}</p>
+                  <p className="text-white/40 text-xs mt-1">{label}</p>
+                </div>
+              ))}
+            </div>
+
             <a
               href="/kopisodes/"
-              className="btn-p btn-p-lavender inline-flex items-center gap-2 px-7 py-3"
+              className="inline-flex items-center gap-2 bg-[#FED7AA] text-[#7C2D12] font-semibold px-7 py-3 rounded-xl hover:bg-[#FDE68A] transition-colors text-sm"
             >
-              Explore Kopisodes <ChevronRight size={16} />
+              Explore All Episodes <ChevronRight size={16} />
             </a>
           </div>
         </div>
