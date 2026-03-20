@@ -32,6 +32,8 @@ const resources = [
     category: "Mental Health",
     description:
       "This toolkit, developed by CVS Health and Accenture, aims to provide insights and resources to support LGBTQ+ mental wellness.",
+    cover: "/resources/LGBTQMentalWellnessToolkit-1-pdf.jpg",
+    pdf: "/resources/LGBTQMentalWellnessToolkit-1.pdf",
   },
   {
     title: "LGBTQI+ Mental Health Resource",
@@ -39,6 +41,8 @@ const resources = [
     category: "Mental Health",
     description:
       "Developed by the Anna Freud National Centre for Children and Families, this resource aims to support the mental health of LGBTQI+ individuals.",
+    cover: "/resources/lgbtqi-mh-booklet-final-pdf.jpg",
+    pdf: "/resources/lgbtqi-mh-booklet-final.pdf",
   },
   {
     title: "LGBTQIA2S+ Youth Mental Health and Suicide Prevention Resource Guide",
@@ -46,6 +50,8 @@ const resources = [
     category: "Suicide Prevention",
     description:
       "Developed by the Suicide Prevention Resource Center in partnership with NORC at the University of Chicago, this guide addresses mental health and suicide prevention for LGBTQIA2S+ youth.",
+    cover: "/resources/LGBTQIA2S-Resource-Guide-pdf.jpg",
+    pdf: "/resources/LGBTQIA2S-Resource-Guide.pdf",
   },
   {
     title: "Coming Out Handbook for LGBTQ Young People",
@@ -53,6 +59,17 @@ const resources = [
     category: "Youth Services",
     description:
       '"COMING OUT: A Handbook for LGBTQ Young People," published by The Trevor Project, serves as a supportive guide for LGBTQ young people navigating the coming out process.',
+    cover: "/resources/Coming-Out-Handbook-pdf.jpg",
+    pdf: "/resources/Coming-Out-Handbook.pdf",
+  },
+  {
+    title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us",
+    org: "HIV and AIDS Registry of the Philippines",
+    category: "HIV Services",
+    description:
+      "The Q4 2025 HIV & AIDS Surveillance Report from the Philippines provides updated data on HIV transmission, demographics, and regional trends.",
+    cover: "/resources/2025_Q4-HIV-AIDS-Surveillance-Report-of-the-Philippines-pdf.jpg",
+    pdf: "/resources/2025_Q4-HIV-AIDS-Surveillance-Report-of-the-Philippines.pdf",
   },
 ];
 
@@ -107,13 +124,18 @@ export default function ResourcesPage() {
               {resources.map((res) => (
                 <div
                   key={res.title}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-[#A9D6B6] hover:shadow-sm transition-all"
+                  className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#A9D6B6] hover:shadow-sm transition-all"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#A9D6B6] rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                      <FileText size={18} className="text-[#3A3C51]" />
-                    </div>
-                    <div className="flex-1">
+                  <div className="flex items-start gap-0">
+                    <a href={res.pdf} target="_blank" rel="noopener noreferrer" className="shrink-0">
+                      <img
+                        src={res.cover}
+                        alt={res.title}
+                        className="w-28 h-full object-cover self-stretch"
+                        style={{ minHeight: "140px" }}
+                      />
+                    </a>
+                    <div className="flex-1 p-6">
                       <div className="flex flex-wrap gap-2 mb-2">
                         <span className="bg-[#A9D6B6]/30 border border-[#A9D6B6] text-[#3A3C51] text-xs px-3 py-1 rounded-full">
                           {res.category}
@@ -129,10 +151,12 @@ export default function ResourcesPage() {
                         {res.description}
                       </p>
                       <a
-                        href="#"
+                        href={res.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-[#3A3C51] text-sm font-semibold hover:underline"
                       >
-                        View Resource <ExternalLink size={13} />
+                        <FileText size={13} /> Download PDF <ExternalLink size={13} />
                       </a>
                     </div>
                   </div>

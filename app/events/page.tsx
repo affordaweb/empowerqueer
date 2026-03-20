@@ -13,6 +13,7 @@ const events = [
     description:
       "Learn the basics of gender-affirming care, access pathways, patient rights, and safe provider referrals. Includes an open Q&A with a licensed LGBTQIA+ healthcare advocate.",
     tags: ["Health", "Workshop", "In-Person"],
+    image: "/images/gallery/EmpQueer-Image-217.jpg",
   },
   {
     title: "Queer Youth Speak: A Virtual Storytelling Night",
@@ -23,6 +24,7 @@ const events = [
     description:
       "A safe and empowering space where LGBTQIA+ youth share personal stories of resilience, identity, and connection. Every voice is honored here.",
     tags: ["Youth", "Virtual", "Storytelling"],
+    image: "/images/gallery/DSC_0735.jpg",
   },
   {
     title: "Know Your Rights: Legal Aid for LGBTQIA+ Communities",
@@ -33,6 +35,7 @@ const events = [
     description:
       "An in-person legal training covering SOGIE-based protections, filing discrimination cases, and navigating government services. Free legal kits provided to all attendees.",
     tags: ["Legal", "Advocacy", "In-Person"],
+    image: "/images/gallery/EmpQueer-Image-180.jpg",
   },
 ];
 
@@ -58,8 +61,14 @@ export default function EventsPage() {
           {events.map((event) => (
             <div
               key={event.title}
-              className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#A9D6B6] hover:shadow-md transition-all"
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#A9D6B6] hover:shadow-md transition-all"
             >
+              <img
+                src={event.image}
+                alt={event.title}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {event.tags.map((tag) => (
                   <span
@@ -99,6 +108,7 @@ export default function EventsPage() {
               >
                 Register / Inquire
               </a>
+              </div>
             </div>
           ))}
         </div>

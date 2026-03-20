@@ -4,16 +4,16 @@ import Footer from "../components/Footer";
 import { Heart, MapPin, Mail } from "lucide-react";
 
 const team = [
-  { name: "Aivan Alvarez", role: "Chairman", bio: "Aivan brings over a decade of experience in community organizing and LGBTQIA+ advocacy. His leadership centers on inclusion, compassion, and integrity." },
-  { name: "Dré Santiago", role: "Vice Chair", bio: "Dré is a youth development advocate with roots in education and public health. They champion safe spaces for queer youth and marginalized voices." },
-  { name: "Camille Reyes", role: "Secretary", bio: "Dré is a youth development advocate with roots in education and public health. They champion safe spaces for queer youth and marginalized voices." },
-  { name: "Leo Villanueva", role: "Treasurer", bio: "With a background in nonprofit finance, Leo manages resources with care and accountability. His work supports sustainable and accessible programming." },
-  { name: "Ren Nakamura", role: "Director, Health & Wellness", bio: "Ren is a licensed mental health counselor who advocates for trauma-informed, identity-affirming care across all services the Hub offers." },
-  { name: "Marah Ocampo", role: "Director, Community Engagement", bio: "Marah leads with heart and strategy, ensuring local voices are heard through community events, outreach programs, and lived-experience storytelling." },
-  { name: "Zion Pascual", role: "Director, Education & Training", bio: "Zion designs inclusive learning modules and peer training sessions, with a focus on SOGIE education, allyship, and anti-discrimination practices." },
-  { name: "Khai Lim", role: "Director, Digital & Accessibility", bio: "" },
-  { name: "Dani Estrella", role: "Director, Advocacy & Policy", bio: "" },
-  { name: "Yani Cruz", role: "Director, Arts & Culture", bio: "" },
+  { name: "Aivan Alvarez", role: "Chairman", bio: "Aivan brings over a decade of experience in community organizing and LGBTQIA+ advocacy. His leadership centers on inclusion, compassion, and integrity.", photo: "/images/team/memb09.jpg" },
+  { name: "Dré Santiago", role: "Vice Chair", bio: "Dré is a youth development advocate with roots in education and public health. They champion safe spaces for queer youth and marginalized voices.", photo: null },
+  { name: "Camille Reyes", role: "Secretary", bio: "Dré is a youth development advocate with roots in education and public health. They champion safe spaces for queer youth and marginalized voices.", photo: "/images/team/memb08.jpg" },
+  { name: "Leo Villanueva", role: "Treasurer", bio: "With a background in nonprofit finance, Leo manages resources with care and accountability. His work supports sustainable and accessible programming.", photo: null },
+  { name: "Ren Nakamura", role: "Director, Health & Wellness", bio: "Ren is a licensed mental health counselor who advocates for trauma-informed, identity-affirming care across all services the Hub offers.", photo: null },
+  { name: "Marah Ocampo", role: "Director, Community Engagement", bio: "Marah leads with heart and strategy, ensuring local voices are heard through community events, outreach programs, and lived-experience storytelling.", photo: null },
+  { name: "Zion Pascual", role: "Director, Education & Training", bio: "Zion designs inclusive learning modules and peer training sessions, with a focus on SOGIE education, allyship, and anti-discrimination practices.", photo: null },
+  { name: "Khai Lim", role: "Director, Digital & Accessibility", bio: "", photo: null },
+  { name: "Dani Estrella", role: "Director, Advocacy & Policy", bio: "", photo: null },
+  { name: "Yani Cruz", role: "Director, Arts & Culture", bio: "", photo: null },
 ];
 
 const championed = [
@@ -56,6 +56,15 @@ export default function AboutPage() {
             Today, the hub continues to expand with the support of Ascend Development Solutions, our expert partner in personal and organizational development, sustainability systems, and transformative learning. Ascend brings forward inclusive training models, human-centered design, and development frameworks that strengthen how this platform serves the LGBTQIA+ community—ensuring that EmpowerQueer remains sustainable, strategic, and community-led.
           </p>
         </div>
+      </section>
+
+      {/* About Banner */}
+      <section className="w-full">
+        <img
+          src="/images/gallery/EmpQueer-Image-142.jpg"
+          alt="About the Hub"
+          className="w-full h-72 object-cover object-center"
+        />
       </section>
 
       {/* Mission */}
@@ -137,9 +146,11 @@ export default function AboutPage() {
           <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-8 text-center">Our Founder</h2>
           <div className="bg-white border border-[#A9D6B6] rounded-2xl p-8 shadow-sm">
             <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <div className="w-20 h-20 rounded-full bg-[#A9D6B6] flex items-center justify-center text-2xl font-bold text-[#3A3C51] shrink-0">
-                A
-              </div>
+              <img
+                src="/aivan-profile-pic.png"
+                alt="Aivan Castillo Alvarez"
+                className="w-20 h-20 rounded-full object-cover shrink-0"
+              />
               <div>
                 <h3 className="font-serif text-xl font-bold text-[#3A3C51] mb-1">
                   Aivan Castillo Alvarez
@@ -178,9 +189,17 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#A9D6B6] hover:shadow-sm transition-all"
               >
-                <div className="w-12 h-12 rounded-full bg-[#A9D6B6] flex items-center justify-center text-[#3A3C51] font-bold text-sm mb-3">
-                  {member.name.charAt(0)}
-                </div>
+                {member.photo ? (
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-16 h-16 rounded-full object-cover mb-3"
+                  />
+                ) : (
+                  <div className="w-12 h-12 rounded-full bg-[#A9D6B6] flex items-center justify-center text-[#3A3C51] font-bold text-sm mb-3">
+                    {member.name.charAt(0)}
+                  </div>
+                )}
                 <p className="font-semibold text-[#3A3C51] text-sm">{member.name}</p>
                 <p className="text-[#474747] text-xs mt-1 mb-2 font-medium">{member.role}</p>
                 {member.bio && <p className="text-[#474747] text-xs leading-relaxed">{member.bio}</p>}
