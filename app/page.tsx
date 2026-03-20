@@ -459,7 +459,7 @@ function Founder() {
         <div className="relative min-h-[400px] lg:min-h-[600px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/aivan-profile-pic.png"
+            src="/aivan-profile-pic.jpg"
             alt="Aivan Castillo Alvarez"
             className="absolute inset-0 w-full h-full object-cover object-top"
           />

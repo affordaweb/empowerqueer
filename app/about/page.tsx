@@ -196,7 +196,7 @@ export default function AboutPage() {
                 <div className="relative p-[3px] rounded-3xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/aivan-profile-pic.png"
+                    src="/aivan-profile-pic.jpg"
                     alt="Aivan Castillo Alvarez"
                     className="w-80 h-96 object-cover object-top rounded-3xl block"
                   />
