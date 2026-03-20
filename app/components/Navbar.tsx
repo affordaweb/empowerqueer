@@ -46,9 +46,9 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="/donate/"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#D7C4E3] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#3A3C51] transition-colors"
+              className="btn-p btn-p-pink hidden sm:inline-flex items-center gap-2 text-sm px-4 py-2"
             >
-              <Heart size={14} />
+              <Heart size={14} className="icon-pink icon-anim" />
               Donate Now!
             </a>
             <button
@@ -79,9 +79,9 @@ export default function Navbar() {
               <li className="px-4 py-3">
                 <a
                   href="/donate/"
-                  className="block bg-[#D7C4E3] text-white text-sm font-semibold px-4 py-2 rounded-full text-center hover:bg-[#3A3C51] transition-colors"
+                  className="btn-p btn-p-pink flex w-full items-center justify-center gap-2 text-sm px-4 py-2"
                 >
-                  <Heart size={14} className="inline mr-1.5" />
+                  <Heart size={14} className="icon-pink icon-anim" />
                   Donate Now!
                 </a>
               </li>

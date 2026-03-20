@@ -89,8 +89,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#A9D6B6] rounded-xl flex items-center justify-center">
-                  <Heart size={22} className="text-[#3A3C51]" />
+                <div className="w-12 h-12 icon-bg-rose rounded-xl flex items-center justify-center">
+                  <Heart size={22} className="icon-rose icon-anim" />
                 </div>
                 <div>
                   <h2 className="font-serif text-2xl font-bold text-[#3A3C51]">Wagayway Equality</h2>
@@ -220,7 +220,7 @@ export default function AboutPage() {
           </p>
           <a
             href="/contact/"
-            className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all"
+            className="btn-p btn-p-lavender inline-flex items-center gap-2 px-8 py-3.5"
           >
             Get Involved
           </a>

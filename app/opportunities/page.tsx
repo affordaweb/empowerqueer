@@ -81,7 +81,7 @@ export default function OpportunitiesPage() {
               className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-[#A9D6B6] hover:shadow-md transition-all"
             >
               <div className="flex flex-wrap gap-2 mb-4">
-                <span className="bg-[#A9D6B6] text-[#3A3C51] text-xs px-3 py-1 rounded-full font-semibold">
+                <span className="btn-p-rose bg-[#FECDD3] text-[#9F1239] text-xs px-3 py-1 rounded-full font-semibold">
                   {listing.type}
                 </span>
                 {listing.tags.map((tag) => (
@@ -105,7 +105,7 @@ export default function OpportunitiesPage() {
               </p>
               <a
                 href="mailto:contact@empowerqueerhub.com"
-                className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-6 py-2.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-sm"
+                className="btn-p btn-p-rose inline-flex items-center gap-2 px-6 py-2.5 text-sm"
               >
                 <Briefcase size={14} />
                 Apply / Inquire
@@ -152,7 +152,7 @@ export default function OpportunitiesPage() {
           </p>
           <a
             href="mailto:contact@empowerqueerhub.com"
-            className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all"
+            className="btn-p btn-p-yellow inline-flex items-center gap-2 px-8 py-3"
           >
             Submit via Email
           </a>

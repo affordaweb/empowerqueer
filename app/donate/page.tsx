@@ -12,8 +12,8 @@ export default function DonatePage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 bg-[#A9D6B6] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Heart size={30} className="text-[#3A3C51]" />
+          <div className="w-12 h-12 icon-bg-rose rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Heart size={22} className="icon-rose icon-anim" />
           </div>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Donate</h1>
           <p className="text-[#474747] text-xl leading-relaxed">
@@ -65,7 +65,7 @@ export default function DonatePage() {
               href="https://gogetfunding.com/invest-in-equality-fund-wagayways-advocacy/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all"
+              className="btn-p btn-p-rose inline-flex items-center gap-2 px-8 py-3"
             >
               Donate via GoGetFunding <ExternalLink size={14} />
             </a>

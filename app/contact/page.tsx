@@ -42,8 +42,8 @@ export default function ContactPage() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-4 bg-white border border-gray-200 rounded-xl p-4">
-                  <div className="w-10 h-10 bg-[#A9D6B6] rounded-lg flex items-center justify-center shrink-0">
-                    <MapPin size={18} className="text-[#3A3C51]" />
+                  <div className="w-10 h-10 icon-bg-sky rounded-lg flex items-center justify-center shrink-0">
+                    <MapPin size={22} className="icon-sky icon-anim" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#3A3C51] text-sm mb-1">Address</p>
@@ -56,8 +56,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-4">
-                  <div className="w-10 h-10 bg-[#A9D6B6] rounded-lg flex items-center justify-center shrink-0">
-                    <Phone size={18} className="text-[#3A3C51]" />
+                  <div className="w-10 h-10 icon-bg-mint rounded-lg flex items-center justify-center shrink-0">
+                    <Phone size={22} className="icon-mint icon-anim" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#3A3C51] text-sm mb-1">Phone</p>
@@ -68,8 +68,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-4">
-                  <div className="w-10 h-10 bg-[#A9D6B6] rounded-lg flex items-center justify-center shrink-0">
-                    <Mail size={18} className="text-[#3A3C51]" />
+                  <div className="w-10 h-10 icon-bg-peach rounded-lg flex items-center justify-center shrink-0">
+                    <Mail size={22} className="icon-peach icon-anim" />
                   </div>
                   <div>
                     <p className="font-semibold text-[#3A3C51] text-sm mb-1">Email</p>
@@ -102,8 +102,8 @@ export default function ContactPage() {
               </h2>
               {submitted ? (
                 <div className="bg-[#A9D6B6]/20 border border-[#A9D6B6] rounded-2xl p-10 text-center">
-                  <div className="w-16 h-16 bg-[#A9D6B6] rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Mail size={28} className="text-[#3A3C51]" />
+                  <div className="w-12 h-12 icon-bg-mint rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Mail size={22} className="icon-mint icon-anim" />
                   </div>
                   <h3 className="font-serif text-xl font-bold text-[#3A3C51] mb-2">
                     Message Received
@@ -174,7 +174,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-base"
+                    className="btn-p btn-p-mint flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base"
                   >
                     Send Message
                   </button>

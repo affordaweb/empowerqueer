@@ -23,8 +23,8 @@ export default function SubmitPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 bg-[#A9D6B6] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Upload size={30} className="text-[#3A3C51]" />
+          <div className="w-12 h-12 icon-bg-peach rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Upload size={22} className="icon-peach icon-anim" />
           </div>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">
             Submit a Resource or Event
@@ -43,8 +43,8 @@ export default function SubmitPage() {
 
           {submitted ? (
             <div className="bg-[#A9D6B6]/20 border border-[#A9D6B6] rounded-2xl p-10 text-center">
-              <div className="w-16 h-16 bg-[#A9D6B6] rounded-full flex items-center justify-center mx-auto mb-4">
-                <Upload size={28} className="text-[#3A3C51]" />
+              <div className="w-12 h-12 icon-bg-peach rounded-full flex items-center justify-center mx-auto mb-4">
+                <Upload size={22} className="icon-peach icon-anim" />
               </div>
               <h3 className="font-serif text-xl font-bold text-[#3A3C51] mb-2">Submission Received</h3>
               <p className="text-[#474747]">
@@ -127,12 +127,12 @@ export default function SubmitPage() {
                   Upload File <span className="text-red-400">*</span>
                 </label>
                 <div className="border-2 border-dashed border-[#A9D6B6] rounded-xl p-6 text-center hover:border-[#D7C4E3] transition-colors">
-                  <Upload size={24} className="text-[#3A3C51] mx-auto mb-2" />
+                  <Upload size={22} className="icon-peach icon-anim mx-auto mb-2" />
                   <p className="text-[#474747] text-sm mb-1">DOC or PDF only</p>
                   <input type="file" accept=".doc,.docx,.pdf" className="hidden" id="file-upload" />
                   <label
                     htmlFor="file-upload"
-                    className="inline-block bg-[#A9D6B6] text-[#3A3C51] text-sm font-semibold px-5 py-2 rounded-full cursor-pointer hover:bg-[#D7C4E3] hover:text-white transition-all mt-1"
+                    className="btn-p btn-p-peach inline-flex items-center gap-2 text-sm px-5 py-2 cursor-pointer mt-1"
                   >
                     Choose File
                   </label>
@@ -249,7 +249,7 @@ export default function SubmitPage() {
 
               <button
                 type="submit"
-                className="w-full bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-base"
+                className="btn-p btn-p-peach flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base"
               >
                 Submit
               </button>

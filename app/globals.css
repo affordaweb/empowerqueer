@@ -39,3 +39,81 @@ body {
 .hero-gradient {
   background: linear-gradient(to bottom right, #F0EBF5, #E8F4EC);
 }
+
+/* ── Pastel Buttons ─────────────────────────────────────────── */
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 1;    transform: scale(1.7); }
+}
+
+.btn-p {
+  position: relative;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  cursor: pointer;
+  align-items: center;
+}
+
+.btn-p::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
+  animation: dot-pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.btn-p-pink     { background: #FBCFE8; color: #9D174D; }
+.btn-p-pink:hover { background: #F9A8D4; color: #831843; }
+
+.btn-p-lavender { background: #E9D5FF; color: #5B21B6; }
+.btn-p-lavender:hover { background: #D8B4FE; color: #4C1D95; }
+
+.btn-p-mint     { background: #A7F3D0; color: #065F46; }
+.btn-p-mint:hover { background: #6EE7B7; color: #064E3B; }
+
+.btn-p-peach    { background: #FED7AA; color: #9A3412; }
+.btn-p-peach:hover { background: #FDBA74; color: #7C2D12; }
+
+.btn-p-sky      { background: #BAE6FD; color: #0C4A6E; }
+.btn-p-sky:hover { background: #7DD3FC; color: #082F49; }
+
+.btn-p-yellow   { background: #FDE68A; color: #92400E; }
+.btn-p-yellow:hover { background: #FCD34D; color: #78350F; }
+
+.btn-p-rose     { background: #FECDD3; color: #9F1239; }
+.btn-p-rose:hover { background: #FDA4AF; color: #881337; }
+
+/* ── Icon System ─────────────────────────────────────────────── */
+
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-4px) scale(1.08); }
+}
+
+.icon-anim {
+  animation: icon-float 2.2s ease-in-out infinite;
+}
+
+/* Icon container backgrounds */
+.icon-bg-pink     { background: #FBCFE8; }
+.icon-bg-lavender { background: #E9D5FF; }
+.icon-bg-mint     { background: #A7F3D0; }
+.icon-bg-peach    { background: #FED7AA; }
+.icon-bg-sky      { background: #BAE6FD; }
+.icon-bg-yellow   { background: #FDE68A; }
+.icon-bg-rose     { background: #FECDD3; }
+
+/* Icon colors */
+.icon-pink     { color: #BE185D; }
+.icon-lavender { color: #6D28D9; }
+.icon-mint     { color: #047857; }
+.icon-peach    { color: #C2410C; }
+.icon-sky      { color: #0369A1; }
+.icon-yellow   { color: #B45309; }
+.icon-rose     { color: #BE123C; }

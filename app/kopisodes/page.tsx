@@ -64,8 +64,8 @@ export default function KopsodesPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-20 px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-16 h-16 bg-[#A9D6B6] rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <Mic2 size={30} className="text-[#3A3C51]" />
+          <div className="w-12 h-12 icon-bg-sky rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Mic2 size={22} className="icon-sky icon-anim" />
           </div>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Kopisodes</h1>
           <p className="text-[#474747] text-xl font-medium mb-3">Stories That Speak Truth</p>
@@ -92,7 +92,7 @@ export default function KopsodesPage() {
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-6 py-2.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-sm"
+              className="btn-p btn-p-sky inline-flex items-center gap-2 px-6 py-2.5 text-sm"
             >
               <Facebook size={15} />
               Follow on Facebook

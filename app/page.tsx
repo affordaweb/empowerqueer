@@ -62,9 +62,9 @@ function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="/donate/"
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#D7C4E3] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#3A3C51] transition-colors"
+              className="btn-p btn-p-pink hidden sm:inline-flex items-center gap-2 text-sm px-4 py-2"
             >
-              <Heart size={14} />
+              <Heart size={14} className="icon-pink icon-anim" />
               Donate Now!
             </a>
             <button
@@ -93,9 +93,9 @@ function Navbar() {
               <li className="px-4 py-3">
                 <a
                   href="/donate/"
-                  className="block bg-[#D7C4E3] text-white text-sm font-semibold px-4 py-2 rounded-full text-center"
+                  className="btn-p btn-p-pink flex w-full items-center justify-center gap-2 text-sm px-4 py-2"
                 >
-                  <Heart size={14} className="inline mr-1.5" />
+                  <Heart size={14} className="icon-pink icon-anim" />
                   Donate Now!
                 </a>
               </li>
@@ -111,15 +111,28 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] py-24 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <p className="font-serif text-2xl sm:text-3xl italic text-[#D7C4E3] mb-6">
+    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/empowerqueer-hero.mp4"
+      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#0F0A1A]/60" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 py-24">
+        <p className="font-serif text-2xl sm:text-3xl italic text-[#E9D5FF] mb-6">
           You Are Seen. You Are Valid. You Are Home.
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#3A3C51] leading-tight mb-6">
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
           Empower Queer Hub | LGBTQIA+ Support, Events &amp; Inclusive Resources
         </h1>
-        <p className="max-w-2xl mx-auto text-[#474747] text-lg leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-white/80 text-lg leading-relaxed mb-10">
           EmpowerQueer is your all-in-one LGBTQIA+ support hub. Whether you&rsquo;re
           searching for queer mental health services, legal help, safe spaces, livelihood
           support, or local LGBTQIA+ events—this is where connection starts.
@@ -130,13 +143,13 @@ function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="/about/"
-            className="bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-base"
+            className="btn-p btn-p-mint inline-flex items-center gap-2 px-8 py-3.5 text-base"
           >
             Learn More
           </a>
           <a
             href="/contact/"
-            className="bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3.5 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-base"
+            className="btn-p btn-p-sky inline-flex items-center gap-2 px-8 py-3.5 text-base"
           >
             Contact Us
           </a>
@@ -196,8 +209,8 @@ function Features() {
                 key={feat.title}
                 className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-md hover:border-[#A9D6B6] transition-all duration-300 group"
               >
-                <div className="w-14 h-14 bg-[#A9D6B6] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#D7C4E3] transition-colors">
-                  <Icon size={26} className="text-[#3A3C51] group-hover:text-white transition-colors" />
+                <div className="w-12 h-12 icon-bg-mint rounded-xl flex items-center justify-center mb-6">
+                  <Icon size={22} className="icon-mint icon-anim" />
                 </div>
                 <h3 className="font-serif text-xl font-bold text-[#3A3C51] mb-3">
                   {feat.title}
@@ -228,9 +241,9 @@ function Kopisodes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Podcast card */}
-          <div className="bg-[#A9D6B6]/20 border border-[#A9D6B6] rounded-3xl p-10">
-            <div className="w-16 h-16 bg-[#A9D6B6] rounded-2xl flex items-center justify-center mb-6">
-              <Mic2 size={30} className="text-[#3A3C51]" />
+          <div className="bg-[#FED7AA]/20 border border-[#FED7AA] rounded-3xl p-10">
+            <div className="w-12 h-12 icon-bg-peach rounded-2xl flex items-center justify-center mb-6">
+              <Mic2 size={22} className="icon-peach icon-anim" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-[#3A3C51] mb-3">
               Kopisodes
@@ -240,7 +253,7 @@ function Kopisodes() {
             </p>
             <a
               href="/kopisodes/"
-              className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-6 py-3 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all text-sm"
+              className="btn-p btn-p-peach inline-flex items-center gap-2 px-6 py-3 text-sm"
             >
               Listen Now <ChevronRight size={16} />
             </a>
@@ -262,7 +275,7 @@ function Kopisodes() {
             </p>
             <a
               href="/kopisodes/"
-              className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-7 py-3 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all"
+              className="btn-p btn-p-lavender inline-flex items-center gap-2 px-7 py-3"
             >
               Explore Kopisodes <ChevronRight size={16} />
             </a>
@@ -327,8 +340,8 @@ function About() {
           {/* Wagayway box */}
           <div className="bg-white border border-[#A9D6B6] rounded-3xl p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#A9D6B6] rounded-xl flex items-center justify-center">
-                <Heart size={22} className="text-[#3A3C51]" />
+              <div className="w-12 h-12 icon-bg-rose rounded-xl flex items-center justify-center">
+                <Heart size={22} className="icon-rose icon-anim" />
               </div>
               <div>
                 <h3 className="font-serif text-xl font-bold text-[#3A3C51]">
@@ -389,18 +402,18 @@ function Founder() {
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <a
             href="mailto:aivan.c.alvarez@gmail.com"
-            className="flex items-center gap-2 text-[#474747] hover:text-[#3A3C51] text-sm transition-colors bg-[#A9D6B6]/20 border border-[#A9D6B6] px-4 py-2 rounded-full hover:border-[#D7C4E3]"
+            className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
           >
-            <Mail size={15} />
+            <Mail size={15} className="icon-yellow icon-anim" />
             Email Aivan
           </a>
           <a
             href="https://www.linkedin.com/in/aivanalvarez"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-[#474747] hover:text-[#3A3C51] text-sm transition-colors bg-[#A9D6B6]/20 border border-[#A9D6B6] px-4 py-2 rounded-full hover:border-[#D7C4E3]"
+            className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
           >
-            <Linkedin size={15} />
+            <Linkedin size={15} className="icon-yellow icon-anim" />
             LinkedIn
           </a>
         </div>
@@ -428,8 +441,8 @@ function Stats() {
               const Icon = stat.icon;
               return (
                 <div key={stat.label} className="group">
-                  <div className="w-12 h-12 bg-[#A9D6B6] rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#D7C4E3] transition-colors">
-                    <Icon size={20} className="text-[#3A3C51] group-hover:text-white transition-colors" />
+                  <div className="w-12 h-12 icon-bg-sky rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Icon size={22} className="icon-sky icon-anim" />
                   </div>
                   <div className="font-serif text-4xl font-bold text-[#3A3C51] mb-1">
                     {stat.value}

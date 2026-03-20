@@ -23,7 +23,7 @@ export default function CategoryDiagnosticTestingPage() {
           <p className="text-[#474747] text-lg mb-6">No posts in this category yet.</p>
           <a
             href="/directory/"
-            className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#3A3C51] font-semibold px-8 py-3 rounded-full hover:bg-[#D7C4E3] hover:text-white transition-all"
+            className="btn-p btn-p-sky inline-flex items-center gap-2 px-8 py-3"
           >
             Find Testing Services in the Directory
           </a>
