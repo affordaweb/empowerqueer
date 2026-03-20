@@ -630,32 +630,59 @@ const galleryItems = [
 ];
 
 function Gallery() {
+  const layouts = [
+    "col-span-2 row-span-2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ];
+
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 overflow-hidden bg-[#0F0A1E]">
+      {/* Decorative blobs */}
+      <div className="absolute top-1/4 left-0 w-[350px] h-[350px] bg-[#7C3AED]/10 rounded-full blur-[100px] -translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#EC4899]/10 rounded-full blur-[80px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-[#3A3C51] font-semibold tracking-widest uppercase text-sm mb-3">
-            Community in Action
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
+            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Community in Action</span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
+          </div>
+          <h2 className="font-serif text-4xl font-bold text-white">Our Moments</h2>
+          <p className="text-white/40 text-sm mt-3 max-w-md mx-auto">
+            Snapshots of the people, events, and energy that make this community real.
           </p>
-          <h2 className="font-serif text-4xl font-bold text-[#3A3C51]">
-            Our Moments
-          </h2>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+
+        {/* Bento grid */}
+        <div className="grid grid-cols-3 auto-rows-[220px] gap-3">
           {galleryItems.map((item, i) => (
             <div
               key={i}
-              className={`relative bg-[#A9D6B6]/20 border border-[#A9D6B6] rounded-xl overflow-hidden group hover:border-[#D7C4E3] hover:shadow-sm transition-all ${
-                i === 0 ? "sm:col-span-2 sm:row-span-2" : ""
-              }`}
-              style={{ aspectRatio: i === 0 ? "1/1" : "4/3" }}
+              className={`relative rounded-2xl overflow-hidden group cursor-pointer ${layouts[i]}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={item.src}
                 alt={item.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-4">
+                <span className="text-white text-sm font-medium translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  {item.alt}
+                </span>
+              </div>
+              {/* Subtle always-on bottom gradient */}
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
           ))}
         </div>
