@@ -427,16 +427,15 @@ function About() {
 function Founder() {
   return (
     <section className="bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-        {/* Full image — left */}
-        <div className="relative min-h-[400px] lg:min-h-[600px]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[320px_1fr]">
+        {/* Image — left */}
+        <div className="flex items-center justify-center py-12 px-8 lg:py-16">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/aivan-profile-pic.jpg"
             alt="Aivan Castillo Alvarez"
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            className="w-full max-w-[260px] rounded-2xl object-cover object-top shadow-lg"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
         </div>
 
         {/* Text — right */}
