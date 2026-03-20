@@ -58,18 +58,58 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-16 px-4 bg-[#F3F3F3]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-6">Our Mission</h2>
-          <p className="text-[#474747] text-lg leading-relaxed mb-4">
-            A platform shaped by LGBTQIA+ voices and lived experience. Wagayway Equality, Community of Volunteers, Inc. is a grassroots LGBTQIA+ organization based in Batangas and serving Region IV, with growing footprints nationwide. Built on volunteerism and collective action, Wagayway champions LGBTQIA+ rights &amp; inclusion, community-based HIV services, socio-economic empowerment, mental health support, leadership &amp; advocacy training, safe spaces, solidarity networks, and intergenerational learning.
-          </p>
-          <p className="text-[#474747] text-lg leading-relaxed mb-4">
-            From small gatherings to city-wide campaigns, Wagayway has become a trusted anchor for queer voices—responding to real struggles through programs shaped by lived experience, compassion, and evidence-based practice. The EmpowerQueer Hub extends this mission, making Wagayway&rsquo;s spirit of service accessible to anyone in the Philippines, wherever they may be.
-          </p>
-          <p className="text-[#474747] text-lg leading-relaxed">
-            Our goal is to ensure that every LGBTQIA+ person in the Philippines can find the help, knowledge, and connection they deserve—no gatekeeping, no judgment, no fear.
-          </p>
+      <section className="py-20 px-4 bg-white relative overflow-hidden">
+        {/* Subtle bg glows */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/5 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#EC4899]/5 rounded-full blur-[110px] pointer-events-none" />
+
+        <div className="relative max-w-6xl mx-auto">
+          {/* Section label */}
+          <div className="flex items-center gap-3 mb-12">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
+            <span className="text-[#7C3AED] text-xs uppercase tracking-[0.25em] font-semibold">Our Mission</span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
+          </div>
+
+          {/* Large mission statement */}
+          <div className="max-w-4xl mb-16">
+            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-[#3A3C51] leading-tight mb-6">
+              Every LGBTQIA+ person in the Philippines deserves help, knowledge, and connection &mdash;{" "}
+              <span className="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] bg-clip-text text-transparent">
+                no gatekeeping, no judgment, no fear.
+              </span>
+            </h2>
+            <p className="text-[#474747] text-lg leading-relaxed">
+              A platform shaped by LGBTQIA+ voices and lived experience — born from Wagayway Equality&rsquo;s years of listening, responding, and standing alongside communities who needed safe, accessible, and affirming support.
+            </p>
+          </div>
+
+          {/* Two-column: context + what we champion */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <div className="space-y-5">
+              <p className="text-[#474747] leading-relaxed">
+                Built on volunteerism and collective action, Wagayway Equality, Community of Volunteers, Inc. is a grassroots organization based in Batangas, serving Region IV and growing nationwide. From small gatherings to city-wide campaigns, it has become a trusted anchor for queer voices.
+              </p>
+              <p className="text-[#474747] leading-relaxed">
+                Programs are shaped by lived experience, compassion, and evidence-based practice — responding to real struggles with care and community power. The EmpowerQueer Hub extends this mission digitally, making Wagayway&rsquo;s spirit of service accessible to anyone in the Philippines, wherever they may be.
+              </p>
+            </div>
+
+            {/* What we champion card */}
+            <div className="bg-gradient-to-br from-[#F8F0FF] to-[#FFF0F7] border border-[#E9D5FF] rounded-2xl p-8">
+              <p className="text-[#5B21B6] text-xs uppercase tracking-widest font-semibold mb-5">What We Champion</p>
+              <div className="flex flex-wrap gap-2">
+                {championed.map((item) => (
+                  <span
+                    key={item}
+                    className="bg-white border border-[#E9D5FF] text-[#5B21B6] text-sm px-4 py-2 rounded-full font-medium shadow-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
