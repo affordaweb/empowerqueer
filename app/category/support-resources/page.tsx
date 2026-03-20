@@ -34,7 +34,7 @@ export default function CategorySupportResourcesPage() {
     <main className="bg-white min-h-screen">
       <Navbar />
 
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 pt-[164px] px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 min-h-[500px] pt-[164px] px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#D7C4E3] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Support Resources</h1>

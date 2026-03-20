@@ -19,7 +19,7 @@ export default function SubmitPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-[130px] pt-[164px] px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-[130px] min-h-[500px] pt-[164px] px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <div className="w-12 h-12 icon-bg-peach rounded-2xl flex items-center justify-center mx-auto mb-6">
             <Upload size={22} className="icon-peach icon-anim" />
