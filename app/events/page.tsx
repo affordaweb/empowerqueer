@@ -370,7 +370,7 @@ export default function EventsPage() {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A2E]/85 via-[#1A0A2E]/40 to-transparent" />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 w-full">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-5">
             <Tag size={13} className="text-[#A9D6B6]" />
             <span className="text-white/90 text-xs font-semibold uppercase tracking-widest">Community Events</span>
