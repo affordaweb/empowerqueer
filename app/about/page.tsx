@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Heart, MapPin, Mail, Linkedin } from "lucide-react";
+import { Heart, MapPin, Mail, Linkedin, BookOpen, Megaphone, Users, ArrowRight } from "lucide-react";
 
 const championed = [
   "LGBTQIA+ rights & inclusion",
