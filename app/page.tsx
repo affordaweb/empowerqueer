@@ -187,170 +187,112 @@ function Features() {
 // ─── Kopisodes ────────────────────────────────────────────────────────────────
 
 function Kopisodes() {
+  const episodes = [
+    { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", tag: "LGBTQ+ Issues", title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us", date: "2025" },
+    { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", tag: "Support Resources", title: "SOGIESC 101 by Wagayway Equality Inc.", date: "2025" },
+    { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", tag: "Support Resources", title: "HIV 101 — Prevention, Testing & Care", date: "2025" },
+    { img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", tag: "Youth Services", title: "Human Rights 101 by Wagayway Equality", date: "2025" },
+    { img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", tag: "LGBTQIA2S+", title: "Equality Desk — Know Your Rights", date: "2025" },
+  ];
+
   return (
-    <section className="py-28 bg-[#12101E] overflow-hidden relative">
-      {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,_#FED7AA08_0%,_transparent_60%),radial-gradient(ellipse_at_80%_20%,_#A9D6B608_0%,_transparent_60%)] pointer-events-none" />
+    <section className="bg-[#0F0E17] overflow-hidden">
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* ── PART 1: Centered Hero ── */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 bg-[#FED7AA]/10 border border-[#FED7AA]/25 rounded-full px-4 py-1.5 mb-7">
-            <Mic2 size={13} className="text-[#FED7AA]" />
-            <span className="text-[#FED7AA] text-[11px] font-semibold uppercase tracking-[0.2em]">Our Podcast</span>
+      {/* ── Top band: headline + meta ── */}
+      <div className="border-b border-white/6 py-16 px-4">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-[#FED7AA]/10 border border-[#FED7AA]/20 rounded-full px-4 py-1.5 mb-5">
+              <Mic2 size={12} className="text-[#FED7AA]" />
+              <span className="text-[#FED7AA] text-[10px] font-bold uppercase tracking-[0.2em]">Our Podcast</span>
+            </div>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight max-w-xl">
+              Kopisodes —<br />
+              <span className="text-white/50">Honest Conversations</span>
+            </h2>
           </div>
-          <h2 className="font-serif text-5xl sm:text-6xl font-bold text-white mb-5 leading-[1.1]">
-            Kopisodes —{" "}
-            <span className="bg-gradient-to-r from-[#FED7AA] via-[#FDE68A] to-[#A9D6B6] bg-clip-text text-transparent">
-              Honest Conversations
-            </span>{" "}
-            Over Coffee
-          </h2>
-          <p className="text-white/60 text-xl font-medium mb-5 tracking-wide">
-            Real voices. Real stories. Advocacy made human.
-          </p>
-          <p className="text-white/35 text-base leading-relaxed max-w-xl mx-auto">
-            Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
-          </p>
+          <div className="sm:text-right max-w-xs">
+            <p className="text-white/40 text-sm leading-relaxed mb-4">
+              Real voices. Real stories. Advocacy made human — through coffee-style conversations that inspire healing and collective action.
+            </p>
+            <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#FED7AA] text-sm font-semibold hover:gap-3 transition-all">
+              All Episodes <ChevronRight size={14} />
+            </a>
+          </div>
         </div>
+      </div>
 
-        {/* ── PART 2: Two-column grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6 items-start">
+      {/* ── Main content ── */}
+      <div className="max-w-6xl mx-auto px-4 py-14">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
 
-          {/* Left — Phone mockup */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[270px]">
-              {/* Side buttons */}
-              <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-white/10 rounded-l-sm" />
-              <div className="absolute -left-[3px] top-32 w-[3px] h-12 bg-white/10 rounded-l-sm" />
-              <div className="absolute -left-[3px] top-48 w-[3px] h-12 bg-white/10 rounded-l-sm" />
-              <div className="absolute -right-[3px] top-28 w-[3px] h-16 bg-white/10 rounded-r-sm" />
-
-              <div className="bg-gradient-to-b from-[#2E2840] to-[#1E1B2E] border border-white/8 rounded-[2.8rem] shadow-[0_32px_80px_rgba(0,0,0,0.8)] p-[6px]">
-                <div className="rounded-[2.4rem] overflow-hidden bg-[#080808] flex flex-col">
-                  {/* Status bar */}
-                  <div className="flex items-center justify-between px-5 pt-3 pb-1.5 bg-[#080808]">
-                    <span className="text-white/70 text-[10px] font-semibold">9:41</span>
-                    <div className="w-20 h-[18px] bg-[#111] rounded-full" />
-                    <div className="flex items-center gap-1.5">
-                      <div className="flex gap-[2px] items-end h-3">
-                        {[2, 3, 4, 4].map((h, i) => <div key={i} style={{ height: `${h * 3}px` }} className="w-[2px] bg-white/50 rounded-[1px]" />)}
-                      </div>
-                      <div className="w-[14px] h-[7px] border border-white/50 rounded-[2px] flex items-center px-[1px]">
-                        <div className="w-[8px] h-full bg-white/60 rounded-[1px]" />
-                      </div>
-                    </div>
-                  </div>
-                  {/* Video */}
-                  <div className="bg-black overflow-hidden" style={{ aspectRatio: "9/12" }}>
-                    <iframe
-                      src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=270"
-                      width="100%"
-                      height="100%"
-                      style={{ border: "none", overflow: "hidden" }}
-                      scrolling="no"
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      allowFullScreen
-                      title="Kopisodes reel"
-                    />
-                  </div>
-                  {/* Up Next feed */}
-                  <div className="bg-[#080808] px-3 pt-2.5 pb-2">
-                    <div className="flex items-center gap-2 mb-2 px-0.5">
-                      <span className="text-white/30 text-[9px] uppercase tracking-[0.15em] font-semibold">Up Next</span>
-                      <div className="flex-1 h-px bg-white/8" />
-                    </div>
-                    <div className="space-y-2">
-                      {[
-                        { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", title: "2025 HIV & AIDS Surveillance Update", meta: "Wagayway · 2025" },
-                        { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", title: "SOGIESC 101 by Wagayway Equality", meta: "Wagayway · 2025" },
-                        { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", title: "HIV 101 — Prevention, Testing & Care", meta: "Wagayway · 2025" },
-                        { img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", title: "Human Rights 101 by Wagayway", meta: "Wagayway · 2024" },
-                        { img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", title: "Equality Desk — Know Your Rights", meta: "Wagayway · 2024" },
-                      ].map((s) => (
-                        <div key={s.title} className="flex gap-2 items-center group cursor-pointer">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={s.img} alt={s.title} className="w-[52px] h-[34px] rounded-[6px] object-cover shrink-0 group-hover:brightness-110 transition-all" />
-                          <div className="flex-1 min-w-0">
-                            <p className="text-white/80 text-[10px] font-medium leading-snug line-clamp-2 group-hover:text-white transition-colors">{s.title}</p>
-                            <p className="text-white/30 text-[8.5px] mt-0.5">{s.meta}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  {/* Home indicator */}
-                  <div className="bg-[#080808] flex justify-center py-2">
-                    <div className="w-14 h-[3px] bg-white/10 rounded-full" />
-                  </div>
-                </div>
+          {/* Left — Featured video */}
+          <div className="flex flex-col gap-5">
+            {/* Video embed */}
+            <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/60" style={{ aspectRatio: "9/14" }}>
+              <iframe
+                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=600"
+                width="100%"
+                height="100%"
+                style={{ border: "none", overflow: "hidden" }}
+                scrolling="no"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowFullScreen
+                title="Kopisodes featured reel"
+              />
+              {/* Featured label */}
+              <div className="absolute top-4 left-4">
+                <span className="bg-[#FED7AA] text-[#7C2D12] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                  Featured
+                </span>
               </div>
-              {/* Glow */}
-              <div className="absolute inset-0 rounded-[2.8rem] bg-gradient-to-b from-[#FED7AA]/12 to-[#A9D6B6]/8 blur-3xl -z-10 scale-[1.15]" />
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-3 gap-3">
+              {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
+                <div key={label} className="bg-white/4 border border-white/6 rounded-xl px-4 py-3 text-center">
+                  <p className="font-serif text-xl font-bold text-white">{val}</p>
+                  <p className="text-white/35 text-[11px] mt-0.5">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right — Feature card */}
-          <div className="flex items-start lg:pt-2">
-            <div className="w-full relative overflow-hidden rounded-3xl shadow-2xl">
-              {/* Card background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A2F] via-[#1B4035] to-[#0F2A20]" />
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#A9D6B620_0%,_transparent_60%)]" />
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#A9D6B6]/8 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
-
-              <div className="relative p-10 flex flex-col min-h-[600px]">
-                {/* Top */}
-                <div className="mb-auto">
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="w-11 h-11 bg-[#A9D6B6]/20 border border-[#A9D6B6]/30 rounded-2xl flex items-center justify-center">
-                      <Mic2 size={20} className="text-[#A9D6B6]" />
-                    </div>
-                    <div className="h-px flex-1 bg-gradient-to-r from-[#A9D6B6]/30 to-transparent" />
-                  </div>
-
-                  <h3 className="font-serif text-4xl font-bold text-white mb-5 leading-snug">
-                    Every Voice<br />Deserves a Mic
-                  </h3>
-
-                  <p className="text-white/60 text-base leading-relaxed mb-8">
-                    Kopisodes creates a seat at the table for stories that mainstream media ignores — queer lives, health advocacy, and community-led change from Batangas and beyond.
-                  </p>
-
-                  {/* Pull quote */}
-                  <div className="border-l-2 border-[#A9D6B6]/50 pl-5 mb-10">
-                    <p className="text-white/45 text-sm italic leading-relaxed">
-                      "Through coffee-style conversations, we make advocacy accessible, relatable, and deeply human."
-                    </p>
-                  </div>
-
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-4 mb-10">
-                    {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
-                      <div key={label} className="bg-white/5 border border-white/8 rounded-2xl p-4 text-center">
-                        <p className="font-serif text-2xl font-bold text-white mb-1">{val}</p>
-                        <p className="text-white/40 text-[11px]">{label}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <a
-                    href="/kopisodes/"
-                    className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#0F2A20] font-semibold px-7 py-3.5 rounded-xl hover:bg-[#BDE4CA] transition-colors text-sm"
-                  >
-                    Explore All Episodes <ChevronRight size={16} />
-                  </a>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-white/8">
-                  {["LGBTQIA+ Advocacy", "HIV Awareness", "Community Stories", "Youth Voices", "Mental Health", "Rights Education"].map((tag) => (
-                    <span key={tag} className="bg-white/8 border border-white/10 text-white/60 text-[11px] font-medium px-3 py-1.5 rounded-full">
-                      {tag}
+          {/* Right — Episode list */}
+          <div className="flex flex-col">
+            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4 px-1">All Episodes</p>
+            <div className="flex flex-col divide-y divide-white/5">
+              {episodes.map((ep, i) => (
+                <a
+                  key={ep.title}
+                  href="/kopisodes/"
+                  className="flex gap-3 py-4 group hover:bg-white/3 -mx-3 px-3 rounded-xl transition-colors"
+                >
+                  <div className="relative shrink-0">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={ep.img} alt={ep.title} className="w-20 h-[52px] rounded-lg object-cover group-hover:brightness-110 transition-all" />
+                    <div className="absolute inset-0 rounded-lg bg-black/20 group-hover:bg-black/0 transition-all" />
+                    <span className="absolute bottom-1.5 right-1.5 bg-black/70 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">
+                      {i === 0 ? "NEW" : ep.date}
                     </span>
-                  ))}
-                </div>
-              </div>
+                  </div>
+                  <div className="flex-1 min-w-0 flex flex-col justify-center">
+                    <span className="text-[#FED7AA]/70 text-[9px] font-semibold uppercase tracking-widest mb-1">{ep.tag}</span>
+                    <p className="text-white/80 text-xs font-medium leading-snug line-clamp-2 group-hover:text-white transition-colors">{ep.title}</p>
+                  </div>
+                  <ChevronRight size={14} className="text-white/20 group-hover:text-white/50 shrink-0 self-center transition-colors" />
+                </a>
+              ))}
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 mt-6 pt-6 border-t border-white/6">
+              {["LGBTQIA+", "HIV Awareness", "Community", "Youth", "Mental Health", "Rights"].map((tag) => (
+                <span key={tag} className="bg-white/5 border border-white/8 text-white/40 text-[10px] px-2.5 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 
