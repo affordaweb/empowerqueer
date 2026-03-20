@@ -1,7 +1,7 @@
 import RainbowBar from "../components/RainbowBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Heart, MapPin, Mail } from "lucide-react";
+import { Heart, MapPin, Mail, Linkedin } from "lucide-react";
 
 const team = [
   { name: "Aivan Alvarez", role: "Chairman", bio: "Aivan brings over a decade of experience in community organizing and LGBTQIA+ advocacy. His leadership centers on inclusion, compassion, and integrity.", photo: "/images/team/memb09.jpg" },
@@ -141,35 +141,87 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="py-16 px-4 bg-[#F3F3F3]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-8 text-center">Our Founder</h2>
-          <div className="bg-white border border-[#A9D6B6] rounded-2xl p-8 shadow-sm">
-            <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <img
-                src="/aivan-profile-pic.png"
-                alt="Aivan Castillo Alvarez"
-                className="w-20 h-20 rounded-full object-cover shrink-0"
-              />
-              <div>
-                <h3 className="font-serif text-xl font-bold text-[#3A3C51] mb-1">
+      <section className="relative py-24 px-4 overflow-hidden bg-[#0F0A1E]">
+        {/* Background decorative blobs */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#7C3AED]/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#EC4899]/15 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-[#A78BFA]/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+
+        <div className="relative max-w-6xl mx-auto">
+          {/* Section label */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#7C3AED]" />
+            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Our Founder</span>
+            <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#EC4899]" />
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Photo column */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                {/* Glow ring */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA] blur-[20px] opacity-40 scale-105" />
+                {/* Gradient border frame */}
+                <div className="relative p-[2px] rounded-2xl bg-gradient-to-br from-[#7C3AED] via-[#EC4899] to-[#A78BFA]">
+                  <img
+                    src="/aivan-profile-pic.png"
+                    alt="Aivan Castillo Alvarez"
+                    className="w-72 h-80 object-cover object-top rounded-2xl block"
+                  />
+                </div>
+                {/* Floating badge */}
+                <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-[#7C3AED] to-[#EC4899] text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg">
+                  Founder &amp; Executive Director
+                </div>
+              </div>
+            </div>
+
+            {/* Content column */}
+            <div className="text-white">
+              {/* Big decorative quote mark */}
+              <div className="font-serif text-[7rem] leading-none text-[#7C3AED]/40 select-none mb-[-1.5rem]">&ldquo;</div>
+
+              {/* Pull quote */}
+              <blockquote className="font-serif text-2xl lg:text-3xl italic leading-snug text-white mb-8">
+                When we started Wagayway Equality, it wasn&rsquo;t built from abundance &mdash; it was built from urgency.
+              </blockquote>
+
+              {/* Name + title */}
+              <div className="mb-6">
+                <h3 className="font-serif text-2xl font-bold bg-gradient-to-r from-[#A78BFA] to-[#EC4899] bg-clip-text text-transparent mb-1">
                   Aivan Castillo Alvarez
                 </h3>
-                <p className="text-[#474747] text-sm mb-3">
-                  Development practitioner · LGBTQIA+ rights advocate · Researcher · Trainer
-                </p>
-                <p className="text-[#474747] text-sm leading-relaxed mb-3">
-                  Aivan is a development practitioner, LGBTQIA+ rights advocate, researcher, and trainer committed to building community-led solutions for equality. With experience spanning human rights work, SOGIESC advocacy, socio-economic inclusion, and organizational development, Aivan believes in one simple truth:
-                </p>
-                <blockquote className="font-serif text-lg italic text-[#3A3C51] border-l-4 border-[#A9D6B6] pl-4 mb-4">
-                  &ldquo;The community is the expert. My role is only to amplify what already exists within us.&rdquo;
-                </blockquote>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {["Development Practitioner", "LGBTQIA+ Advocate", "Researcher", "Trainer"].map((tag) => (
+                    <span key={tag} className="text-[10px] uppercase tracking-wider font-semibold text-[#A78BFA] border border-[#A78BFA]/40 px-2.5 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bio */}
+              <p className="text-white/70 leading-relaxed mb-8">
+                Aivan is a development practitioner, LGBTQIA+ rights advocate, researcher, and trainer committed to building community-led solutions for equality. With experience spanning human rights work, SOGIESC advocacy, socio-economic inclusion, and organizational development, he believes the community is always the expert — his role is only to amplify what already exists within us.
+              </p>
+
+              {/* CTA links */}
+              <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:contact@empowerqueerhub.com"
-                  className="inline-flex items-center gap-2 text-[#474747] hover:text-[#3A3C51] text-sm"
+                  href="mailto:aivan.c.alvarez@gmail.com"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm px-4 py-2.5 rounded-full transition-colors"
                 >
                   <Mail size={14} />
-                  contact@empowerqueerhub.com
+                  Email Aivan
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aivanalvarez"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#7C3AED]/30 hover:bg-[#7C3AED]/50 border border-[#7C3AED]/50 text-white text-sm px-4 py-2.5 rounded-full transition-colors"
+                >
+                  <Linkedin size={14} />
+                  LinkedIn
                 </a>
               </div>
             </div>
