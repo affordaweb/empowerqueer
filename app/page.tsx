@@ -229,7 +229,7 @@ function Kopisodes() {
           {/* Left — Featured video */}
           <div className="flex flex-col gap-5">
             {/* Video embed */}
-            <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/60" style={{ aspectRatio: "9/14" }}>
+            <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/60" style={{ aspectRatio: "9/16" }}>
               <iframe
                 src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=600"
                 width="100%"
@@ -240,12 +240,6 @@ function Kopisodes() {
                 allowFullScreen
                 title="Kopisodes featured reel"
               />
-              {/* Featured label */}
-              <div className="absolute top-4 left-4">
-                <span className="bg-[#FED7AA] text-[#7C2D12] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                  Featured
-                </span>
-              </div>
             </div>
 
             {/* Stats row */}
