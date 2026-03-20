@@ -200,7 +200,7 @@ function Kopisodes() {
 
       {/* ── Top band: headline + meta ── */}
       <div className="border-b border-white/6 py-16 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 bg-[#FED7AA]/10 border border-[#FED7AA]/20 rounded-full px-4 py-1.5 mb-5">
               <Mic2 size={12} className="text-[#FED7AA]" />
@@ -208,22 +208,34 @@ function Kopisodes() {
             </div>
             <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight max-w-xl">
               Kopisodes —<br />
-              <span className="text-white/50">Honest Conversations</span>
+              <span className="text-white/50">Honest Conversations</span><br />
+              <span className="text-white/50">Over Coffee</span>
             </h2>
           </div>
           <div className="sm:text-right max-w-xs">
-            <p className="text-white/40 text-sm leading-relaxed mb-4">
+            <p className="text-white/40 text-sm leading-relaxed mb-5">
               Real voices. Real stories. Advocacy made human — through coffee-style conversations that inspire healing and collective action.
             </p>
-            <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#FED7AA] text-sm font-semibold hover:gap-3 transition-all">
-              All Episodes <ChevronRight size={14} />
-            </a>
+            <div className="flex sm:justify-end items-center gap-3 flex-wrap">
+              <a
+                href="https://www.facebook.com/wagayway.equality"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1565C0] text-white text-[11px] font-bold px-4 py-2 rounded-full transition-colors"
+              >
+                <Facebook size={12} />
+                Follow on Facebook
+              </a>
+              <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#FED7AA] text-sm font-semibold hover:gap-3 transition-all">
+                All Episodes <ChevronRight size={14} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       {/* ── Main content ── */}
-      <div className="max-w-6xl mx-auto px-4 py-14">
+      <div className="max-w-7xl mx-auto px-4 py-14">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
 
           {/* Left — Featured video */}
