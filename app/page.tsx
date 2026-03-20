@@ -188,50 +188,64 @@ function Features() {
 
 function Kopisodes() {
   return (
-    <section className="py-24 bg-[#1A1625] overflow-hidden relative">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#FED7AA]/8 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#A9D6B6]/8 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+    <section className="py-28 bg-[#12101E] overflow-hidden relative">
+      {/* Background texture */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,_#FED7AA08_0%,_transparent_60%),radial-gradient(ellipse_at_80%_20%,_#A9D6B608_0%,_transparent_60%)] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── PART 1: Centered Hero ── */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#FED7AA]/15 border border-[#FED7AA]/30 rounded-full px-5 py-2 mb-6">
-            <Mic2 size={14} className="text-[#FED7AA]" />
-            <span className="text-[#FED7AA] text-xs font-semibold uppercase tracking-widest">Our Podcast</span>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="inline-flex items-center gap-2 bg-[#FED7AA]/10 border border-[#FED7AA]/25 rounded-full px-4 py-1.5 mb-7">
+            <Mic2 size={13} className="text-[#FED7AA]" />
+            <span className="text-[#FED7AA] text-[11px] font-semibold uppercase tracking-[0.2em]">Our Podcast</span>
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-            Kopisodes — Honest<br className="hidden sm:block" /> Conversations Over Coffee
+          <h2 className="font-serif text-5xl sm:text-6xl font-bold text-white mb-5 leading-[1.1]">
+            Kopisodes —{" "}
+            <span className="bg-gradient-to-r from-[#FED7AA] via-[#FDE68A] to-[#A9D6B6] bg-clip-text text-transparent">
+              Honest Conversations
+            </span>{" "}
+            Over Coffee
           </h2>
-          <p className="text-white/50 text-lg mb-5">
+          <p className="text-white/60 text-xl font-medium mb-5 tracking-wide">
             Real voices. Real stories. Advocacy made human.
           </p>
-          <p className="text-white/40 text-base leading-relaxed">
+          <p className="text-white/35 text-base leading-relaxed max-w-xl mx-auto">
             Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
           </p>
         </div>
 
         {/* ── PART 2: Two-column grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-6 items-start">
 
           {/* Left — Phone mockup */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[280px]">
-              <div className="bg-[#2A2535] border border-white/10 rounded-[2.5rem] shadow-2xl shadow-black/70 p-[5px]">
-                <div className="rounded-[2.2rem] overflow-hidden bg-[#0F0F0F] flex flex-col">
+            <div className="relative w-full max-w-[270px]">
+              {/* Side buttons */}
+              <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-white/10 rounded-l-sm" />
+              <div className="absolute -left-[3px] top-32 w-[3px] h-12 bg-white/10 rounded-l-sm" />
+              <div className="absolute -left-[3px] top-48 w-[3px] h-12 bg-white/10 rounded-l-sm" />
+              <div className="absolute -right-[3px] top-28 w-[3px] h-16 bg-white/10 rounded-r-sm" />
+
+              <div className="bg-gradient-to-b from-[#2E2840] to-[#1E1B2E] border border-white/8 rounded-[2.8rem] shadow-[0_32px_80px_rgba(0,0,0,0.8)] p-[6px]">
+                <div className="rounded-[2.4rem] overflow-hidden bg-[#080808] flex flex-col">
                   {/* Status bar */}
-                  <div className="flex items-center justify-between px-5 py-2 bg-[#0F0F0F]">
-                    <span className="text-white text-[10px] font-semibold">9:41</span>
-                    <div className="w-14 h-3.5 bg-[#1A1A1A] rounded-full" />
-                    <div className="w-3 h-2 border border-white/50 rounded-[2px] flex items-center px-[1px]">
-                      <div className="w-full h-full bg-white/50 rounded-[1px]" />
+                  <div className="flex items-center justify-between px-5 pt-3 pb-1.5 bg-[#080808]">
+                    <span className="text-white/70 text-[10px] font-semibold">9:41</span>
+                    <div className="w-20 h-[18px] bg-[#111] rounded-full" />
+                    <div className="flex items-center gap-1.5">
+                      <div className="flex gap-[2px] items-end h-3">
+                        {[2, 3, 4, 4].map((h, i) => <div key={i} style={{ height: `${h * 3}px` }} className="w-[2px] bg-white/50 rounded-[1px]" />)}
+                      </div>
+                      <div className="w-[14px] h-[7px] border border-white/50 rounded-[2px] flex items-center px-[1px]">
+                        <div className="w-[8px] h-full bg-white/60 rounded-[1px]" />
+                      </div>
                     </div>
                   </div>
                   {/* Video */}
                   <div className="bg-black overflow-hidden" style={{ aspectRatio: "9/12" }}>
                     <iframe
-                      src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=280"
+                      src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=270"
                       width="100%"
                       height="100%"
                       style={{ border: "none", overflow: "hidden" }}
@@ -242,77 +256,100 @@ function Kopisodes() {
                     />
                   </div>
                   {/* Up Next feed */}
-                  <div className="bg-[#0F0F0F] px-3 pt-2 pb-3">
-                    <p className="text-white/35 text-[9px] uppercase tracking-widest font-semibold mb-2 px-1">Up Next</p>
+                  <div className="bg-[#080808] px-3 pt-2.5 pb-2">
+                    <div className="flex items-center gap-2 mb-2 px-0.5">
+                      <span className="text-white/30 text-[9px] uppercase tracking-[0.15em] font-semibold">Up Next</span>
+                      <div className="flex-1 h-px bg-white/8" />
+                    </div>
                     <div className="space-y-2">
                       {[
-                        { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", title: "2025 HIV & AIDS Surveillance Update", meta: "Wagayway Equality · 2025" },
-                        { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", title: "SOGIESC 101 by Wagayway Equality", meta: "Wagayway Equality · 2025" },
-                        { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", title: "HIV 101 — Prevention, Testing & Care", meta: "Wagayway Equality · 2025" },
-                        { img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", title: "Human Rights 101 by Wagayway Equality", meta: "Wagayway Equality · 2024" },
-                        { img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", title: "Equality Desk — Know Your Rights", meta: "Wagayway Equality · 2024" },
+                        { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", title: "2025 HIV & AIDS Surveillance Update", meta: "Wagayway · 2025" },
+                        { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", title: "SOGIESC 101 by Wagayway Equality", meta: "Wagayway · 2025" },
+                        { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", title: "HIV 101 — Prevention, Testing & Care", meta: "Wagayway · 2025" },
+                        { img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", title: "Human Rights 101 by Wagayway", meta: "Wagayway · 2024" },
+                        { img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", title: "Equality Desk — Know Your Rights", meta: "Wagayway · 2024" },
                       ].map((s) => (
-                        <div key={s.title} className="flex gap-2 items-start">
+                        <div key={s.title} className="flex gap-2 items-center group cursor-pointer">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={s.img} alt={s.title} className="w-14 h-9 rounded-md object-cover shrink-0" />
+                          <img src={s.img} alt={s.title} className="w-[52px] h-[34px] rounded-[6px] object-cover shrink-0 group-hover:brightness-110 transition-all" />
                           <div className="flex-1 min-w-0">
-                            <p className="text-white text-[10px] font-semibold leading-snug line-clamp-2">{s.title}</p>
-                            <p className="text-white/35 text-[9px] mt-0.5">{s.meta}</p>
+                            <p className="text-white/80 text-[10px] font-medium leading-snug line-clamp-2 group-hover:text-white transition-colors">{s.title}</p>
+                            <p className="text-white/30 text-[8.5px] mt-0.5">{s.meta}</p>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
                   {/* Home indicator */}
-                  <div className="bg-[#0F0F0F] flex justify-center pb-2 pt-1">
-                    <div className="w-16 h-[3px] bg-white/15 rounded-full" />
+                  <div className="bg-[#080808] flex justify-center py-2">
+                    <div className="w-14 h-[3px] bg-white/10 rounded-full" />
                   </div>
                 </div>
               </div>
-              {/* Glow behind phone */}
-              <div className="absolute inset-0 rounded-[2.5rem] bg-[#FED7AA]/10 blur-3xl -z-10 scale-110" />
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-[2.8rem] bg-gradient-to-b from-[#FED7AA]/12 to-[#A9D6B6]/8 blur-3xl -z-10 scale-[1.15]" />
             </div>
           </div>
 
           {/* Right — Feature card */}
-          <div className="flex items-start">
-            <div className="w-full bg-gradient-to-br from-[#A9D6B6] via-[#7EC8A0] to-[#5BAD84] rounded-3xl p-10 shadow-xl shadow-[#A9D6B6]/20 flex flex-col justify-between min-h-[580px]">
-              <div>
-                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-7">
-                  <Mic2 size={22} className="text-white" />
-                </div>
-                <h3 className="font-serif text-3xl font-bold text-white mb-4 leading-snug">
-                  Every Voice<br />Deserves a Mic
-                </h3>
-                <p className="text-white/80 text-base leading-relaxed mb-8">
-                  Kopisodes creates a seat at the table for stories that mainstream media ignores — queer lives, health advocacy, and community-led change from Batangas and beyond. Through coffee-style conversations, we make advocacy accessible, relatable, and deeply human.
-                </p>
+          <div className="flex items-start lg:pt-2">
+            <div className="w-full relative overflow-hidden rounded-3xl shadow-2xl">
+              {/* Card background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A2F] via-[#1B4035] to-[#0F2A20]" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#A9D6B620_0%,_transparent_60%)]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#A9D6B6]/8 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
 
-                {/* Stats */}
-                <div className="flex gap-8 mb-10">
-                  {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
-                    <div key={label}>
-                      <p className="font-serif text-3xl font-bold text-white">{val}</p>
-                      <p className="text-white/60 text-xs mt-1">{label}</p>
+              <div className="relative p-10 flex flex-col min-h-[600px]">
+                {/* Top */}
+                <div className="mb-auto">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-11 h-11 bg-[#A9D6B6]/20 border border-[#A9D6B6]/30 rounded-2xl flex items-center justify-center">
+                      <Mic2 size={20} className="text-[#A9D6B6]" />
                     </div>
+                    <div className="h-px flex-1 bg-gradient-to-r from-[#A9D6B6]/30 to-transparent" />
+                  </div>
+
+                  <h3 className="font-serif text-4xl font-bold text-white mb-5 leading-snug">
+                    Every Voice<br />Deserves a Mic
+                  </h3>
+
+                  <p className="text-white/60 text-base leading-relaxed mb-8">
+                    Kopisodes creates a seat at the table for stories that mainstream media ignores — queer lives, health advocacy, and community-led change from Batangas and beyond.
+                  </p>
+
+                  {/* Pull quote */}
+                  <div className="border-l-2 border-[#A9D6B6]/50 pl-5 mb-10">
+                    <p className="text-white/45 text-sm italic leading-relaxed">
+                      "Through coffee-style conversations, we make advocacy accessible, relatable, and deeply human."
+                    </p>
+                  </div>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-4 mb-10">
+                    {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
+                      <div key={label} className="bg-white/5 border border-white/8 rounded-2xl p-4 text-center">
+                        <p className="font-serif text-2xl font-bold text-white mb-1">{val}</p>
+                        <p className="text-white/40 text-[11px]">{label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <a
+                    href="/kopisodes/"
+                    className="inline-flex items-center gap-2 bg-[#A9D6B6] text-[#0F2A20] font-semibold px-7 py-3.5 rounded-xl hover:bg-[#BDE4CA] transition-colors text-sm"
+                  >
+                    Explore All Episodes <ChevronRight size={16} />
+                  </a>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-white/8">
+                  {["LGBTQIA+ Advocacy", "HIV Awareness", "Community Stories", "Youth Voices", "Mental Health", "Rights Education"].map((tag) => (
+                    <span key={tag} className="bg-white/8 border border-white/10 text-white/60 text-[11px] font-medium px-3 py-1.5 rounded-full">
+                      {tag}
+                    </span>
                   ))}
                 </div>
-
-                <a
-                  href="/kopisodes/"
-                  className="inline-flex items-center gap-2 bg-white text-[#3A7A5A] font-semibold px-7 py-3 rounded-xl hover:bg-white/90 transition-colors text-sm"
-                >
-                  Explore All Episodes <ChevronRight size={16} />
-                </a>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-10">
-                {["LGBTQIA+ Advocacy", "HIV Awareness", "Community Stories", "Youth Voices", "Mental Health", "Rights Education"].map((tag) => (
-                  <span key={tag} className="bg-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                    {tag}
-                  </span>
-                ))}
               </div>
             </div>
           </div>
