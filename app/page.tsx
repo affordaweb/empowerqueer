@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Shield,
   BookOpen,
@@ -110,12 +110,20 @@ function Navbar() {
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 
 function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <section className="relative overflow-hidden min-h-[85vh] flex items-center">
-      {/* Background video */}
+      {/* Background video — muted set via ref to avoid SSR hydration mismatch */}
       <video
+        ref={videoRef}
         autoPlay
-        muted
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
