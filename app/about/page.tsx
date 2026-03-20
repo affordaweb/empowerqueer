@@ -1,20 +1,6 @@
-import RainbowBar from "../components/RainbowBar";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Heart, MapPin, Mail, Linkedin } from "lucide-react";
-
-const team = [
-  { name: "Aivan Alvarez", role: "Chairman", bio: "Aivan brings over a decade of experience in community organizing and LGBTQIA+ advocacy. His leadership centers on inclusion, compassion, and integrity.", photo: "/images/team/memb09.jpg" },
-  { name: "Dré Santiago", role: "Vice Chair", bio: "Dré is a youth development advocate with roots in education and public health. They champion safe spaces for queer youth and marginalized voices.", photo: null },
-  { name: "Camille Reyes", role: "Secretary", bio: "Dré is a youth development advocate with roots in education and public health. They champion safe spaces for queer youth and marginalized voices.", photo: "/images/team/memb08.jpg" },
-  { name: "Leo Villanueva", role: "Treasurer", bio: "With a background in nonprofit finance, Leo manages resources with care and accountability. His work supports sustainable and accessible programming.", photo: null },
-  { name: "Ren Nakamura", role: "Director, Health & Wellness", bio: "Ren is a licensed mental health counselor who advocates for trauma-informed, identity-affirming care across all services the Hub offers.", photo: null },
-  { name: "Marah Ocampo", role: "Director, Community Engagement", bio: "Marah leads with heart and strategy, ensuring local voices are heard through community events, outreach programs, and lived-experience storytelling.", photo: null },
-  { name: "Zion Pascual", role: "Director, Education & Training", bio: "Zion designs inclusive learning modules and peer training sessions, with a focus on SOGIE education, allyship, and anti-discrimination practices.", photo: null },
-  { name: "Khai Lim", role: "Director, Digital & Accessibility", bio: "", photo: null },
-  { name: "Dani Estrella", role: "Director, Advocacy & Policy", bio: "", photo: null },
-  { name: "Yani Cruz", role: "Director, Arts & Culture", bio: "", photo: null },
-];
 
 const championed = [
   "LGBTQIA+ rights & inclusion",
@@ -37,7 +23,6 @@ const regions = [
 export default function AboutPage() {
   return (
     <main className="bg-white min-h-screen">
-      <RainbowBar />
       <Navbar />
 
       {/* Hero */}
@@ -234,41 +219,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-10 text-center">
-            Board of Directors
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#A9D6B6] hover:shadow-sm transition-all"
-              >
-                {member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-16 h-16 rounded-full object-cover mb-3"
-                  />
-                ) : (
-                  <div className="w-12 h-12 rounded-full bg-[#A9D6B6] flex items-center justify-center text-[#3A3C51] font-bold text-sm mb-3">
-                    {member.name.charAt(0)}
-                  </div>
-                )}
-                <p className="font-semibold text-[#3A3C51] text-sm">{member.name}</p>
-                <p className="text-[#474747] text-xs mt-1 mb-2 font-medium">{member.role}</p>
-                {member.bio && <p className="text-[#474747] text-xs leading-relaxed">{member.bio}</p>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Volunteer */}
       <section className="py-16 px-4 bg-[#A9D6B6]/10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-4">
             Volunteer With Us
           </h2>
