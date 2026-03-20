@@ -68,6 +68,10 @@ body {
   flex-shrink: 0;
 }
 
+.btn-p:has(svg)::before {
+  display: none;
+}
+
 .btn-p-pink     { background: #FBCFE8; color: #9D174D; }
 .btn-p-pink:hover { background: #F9A8D4; color: #831843; }
 
@@ -117,3 +121,21 @@ body {
 .icon-sky      { color: #0369A1; }
 .icon-yellow   { color: #B45309; }
 .icon-rose     { color: #BE123C; }
+
+/* ── Marquee ─────────────────────────────────────────────────── */
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+

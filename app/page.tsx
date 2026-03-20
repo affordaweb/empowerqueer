@@ -489,35 +489,91 @@ function Founder() {
 // ─── Stats ────────────────────────────────────────────────────────────────────
 
 const stats = [
-  { icon: Users, value: "950+", label: "Members" },
-  { icon: Shield, value: "100%", label: "Verified Resources" },
-  { icon: Calendar, value: "50+", label: "Events" },
-  { icon: FileText, value: "100s", label: "Stories" },
+  {
+    icon: Users,
+    value: "950+",
+    label: "Community Members",
+    description: "Active members across the Philippines who call this hub home",
+    gradient: "from-[#A78BFA] to-[#7C3AED]",
+  },
+  {
+    icon: Shield,
+    value: "100%",
+    label: "Verified Resources",
+    description: "Every resource is vetted and community-reviewed before it goes live",
+    gradient: "from-[#EC4899] to-[#BE185D]",
+  },
+  {
+    icon: Calendar,
+    value: "50+",
+    label: "Events Hosted",
+    description: "Workshops, trainings, and advocacy gatherings organized since 2018",
+    gradient: "from-[#A78BFA] to-[#EC4899]",
+  },
+  {
+    icon: FileText,
+    value: "100s",
+    label: "Voices Shared",
+    description: "Real lived experiences published through Voices Among Us",
+    gradient: "from-[#7C3AED] to-[#A78BFA]",
+  },
+  {
+    icon: Heart,
+    value: "8",
+    label: "Years of Advocacy",
+    description: "Grassroots LGBTQIA+ advocacy since Wagayway Equality was founded in 2018",
+    gradient: "from-[#EC4899] to-[#A78BFA]",
+  },
 ];
 
 function Stats() {
   return (
-    <section className="py-16 bg-[#F3F3F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-[#A9D6B6] rounded-3xl px-8 py-12 shadow-sm">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <div key={stat.label} className="group">
-                  <div className="w-12 h-12 icon-bg-sky rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Icon size={22} className="icon-sky icon-anim" />
-                  </div>
-                  <div className="font-serif text-4xl font-bold text-[#3A3C51] mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-[#474747] text-sm font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              );
-            })}
+    <section className="relative py-24 overflow-hidden bg-[#0F0A1E]">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#7C3AED]/15 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/10 rounded-full blur-[90px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
+            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Impact By The Numbers</span>
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
           </div>
+          <h2 className="font-serif text-4xl font-bold text-white mb-3">
+            Built From Community,<br />
+            <span className="bg-gradient-to-r from-[#A78BFA] to-[#EC4899] bg-clip-text text-transparent">Measured In Lives</span>
+          </h2>
+          <p className="text-white/50 max-w-xl mx-auto text-sm leading-relaxed">
+            Every number here represents a real person, a real need met, and a community that showed up for one another.
+          </p>
+        </div>
+
+        {/* Stats grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="group relative bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-6 text-center transition-all duration-300"
+              >
+                {/* Icon */}
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mx-auto mb-4 opacity-90`}>
+                  <Icon size={18} className="text-white" />
+                </div>
+                {/* Value */}
+                <div className={`font-serif text-5xl font-bold bg-gradient-to-br ${stat.gradient} bg-clip-text text-transparent mb-1 leading-none`}>
+                  {stat.value}
+                </div>
+                {/* Label */}
+                <p className="text-white font-semibold text-sm mt-2 mb-2">{stat.label}</p>
+                {/* Description */}
+                <p className="text-white/40 text-xs leading-relaxed">{stat.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -535,6 +591,7 @@ const galleryItems = [
   { src: "/images/gallery/EmpQueer-Image-133.jpg", alt: "Advocacy march" },
   { src: "/images/gallery/EmpQueer-Image-135.jpg", alt: "Safe space" },
   { src: "/images/gallery/EmpQueer-Image-140.jpg", alt: "Resource fair" },
+  { src: "/images/gallery/EmpQueer-Image-113.jpg", alt: "Community event" },
 ];
 
 function Gallery() {
@@ -580,25 +637,26 @@ const sponsors = [
   { name: "Wagayway Equality", logo: "/images/sponsors/wagayway-equality-logo.png" },
   { name: "Wellspring Philanthropic Fund", logo: "/images/sponsors/wellspring-philanthropic-fund-logo.png" },
   { name: "Building Opportunities Summit", logo: "/images/sponsors/building-summit-logo.png" },
+  { name: "AffordaWeb Solutions", logo: "/images/sponsors/affordaweb-solutions-logo.webp" },
 ];
 
 function Sponsors() {
   return (
-    <section className="py-16 bg-[#F3F3F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <p className="text-[#3A3C51] text-sm uppercase tracking-widest font-semibold">
-            We are grateful to our awesome sponsors. Thank you!
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-          {sponsors.map((s) => (
+    <section className="py-16">
+      <div className="text-center mb-10 px-4">
+        <p className="text-[#3A3C51] text-sm uppercase tracking-widest font-semibold">
+          We are grateful to our awesome sponsors. Thank you!
+        </p>
+      </div>
+      <div className="overflow-hidden">
+        <div className="marquee-track">
+          {[...sponsors, ...sponsors].map((s, i) => (
             <div
-              key={s.name}
-              className="bg-white border border-gray-200 rounded-xl px-6 py-4 hover:border-[#A9D6B6] hover:bg-[#A9D6B6]/10 transition-all shadow-sm flex items-center justify-center"
+              key={i}
+              className="flex items-center justify-center mx-8 shrink-0"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={s.logo} alt={s.name} className="h-12 w-auto object-contain" />
+              <img src={s.logo} alt={s.name} className="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>
