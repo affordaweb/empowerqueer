@@ -75,7 +75,7 @@ export default function KopsodesPage() {
 
       {/* About the podcast */}
       <section className="py-16 px-4 bg-[#A9D6B6]/10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="bg-white border border-[#A9D6B6] rounded-2xl p-8">
             <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">
               Honest Conversations Over Coffee
@@ -101,7 +101,7 @@ export default function KopsodesPage() {
 
       {/* Episodes */}
       <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-8">
             Episodes &amp; Posts
           </h2>

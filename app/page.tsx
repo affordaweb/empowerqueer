@@ -239,7 +239,7 @@ function Kopisodes() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
 
           {/* Left — Featured video */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             {/* Video embed */}
             <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/60" style={{ aspectRatio: "9/16" }}>
               <iframe
@@ -252,7 +252,23 @@ function Kopisodes() {
                 allowFullScreen
                 title="Kopisodes featured reel"
               />
+              <div className="absolute top-4 left-4">
+                <span className="bg-[#FED7AA] text-[#7C2D12] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                  Featured
+                </span>
+              </div>
             </div>
+
+            {/* Watch on Facebook CTA */}
+            <a
+              href="https://www.facebook.com/reel/4236780889893025/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/25 hover:border-[#1877F2]/50 text-[#74AADF] hover:text-[#93C5FD] rounded-xl py-3 text-sm font-semibold transition-all"
+            >
+              <Facebook size={15} />
+              Watch on Facebook
+            </a>
 
             {/* Stats row */}
             <div className="grid grid-cols-3 gap-3">
@@ -265,9 +281,26 @@ function Kopisodes() {
             </div>
           </div>
 
-          {/* Right — Episode list */}
+          {/* Right — Episode list + about */}
           <div className="flex flex-col">
-            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4 px-1">All Episodes</p>
+            {/* About blurb */}
+            <div className="bg-white/3 border border-white/8 rounded-xl p-5 mb-6">
+              <p className="text-white/60 text-xs leading-relaxed">
+                Kopisodes is the flagship podcast and video advocacy platform of{" "}
+                <span className="text-white/80 font-semibold">Wagayway Equality Inc.</span> — amplifying LGBTQIA+ voices through relaxed, coffee-style conversations that inspire healing, solidarity, and collective action.
+              </p>
+              <a
+                href="https://www.facebook.com/wagayway.equality"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-3 text-[#74AADF] hover:text-[#93C5FD] text-[11px] font-semibold transition-colors"
+              >
+                <Facebook size={11} />
+                Follow Kopisodes on Facebook
+              </a>
+            </div>
+
+            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4 px-1">Latest Episodes</p>
             <div className="flex flex-col divide-y divide-white/5">
               {episodes.map((ep, i) => (
                 <a
