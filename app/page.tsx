@@ -190,154 +190,133 @@ function Kopisodes() {
   return (
     <section className="py-24 bg-[#1A1625] overflow-hidden relative">
       {/* Decorative blobs */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#FED7AA]/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#A9D6B6]/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#FED7AA]/8 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#A9D6B6]/8 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section label */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-[#FED7AA]/15 border border-[#FED7AA]/30 rounded-full px-5 py-2 mb-5">
-            <Mic2 size={15} className="text-[#FED7AA]" />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── PART 1: Centered Hero ── */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 bg-[#FED7AA]/15 border border-[#FED7AA]/30 rounded-full px-5 py-2 mb-6">
+            <Mic2 size={14} className="text-[#FED7AA]" />
             <span className="text-[#FED7AA] text-xs font-semibold uppercase tracking-widest">Our Podcast</span>
           </div>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
             Kopisodes — Honest<br className="hidden sm:block" /> Conversations Over Coffee
           </h2>
-          <p className="text-white/60 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="text-white/50 text-lg mb-5">
             Real voices. Real stories. Advocacy made human.
+          </p>
+          <p className="text-white/40 text-base leading-relaxed">
+            Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr_1fr] gap-8 items-start">
-          {/* Phone mockup — left */}
-          <div className="relative">
-            <div className="bg-[#2A2535] border border-white/10 rounded-[2.5rem] shadow-2xl shadow-black/60 p-[5px]">
-              <div className="rounded-[2.2rem] overflow-hidden bg-[#0F0F0F] flex flex-col">
-                {/* Status bar */}
-                <div className="flex items-center justify-between px-5 py-2 bg-[#0F0F0F]">
-                  <span className="text-white text-[10px] font-semibold">9:41</span>
-                  <div className="w-16 h-4 bg-[#1A1A1A] rounded-full mx-auto" />
-                  <div className="flex items-center gap-1">
-                    <div className="w-3 h-2 border border-white/60 rounded-[2px]"><div className="w-2 h-full bg-white/60 rounded-[1px]" /></div>
+        {/* ── PART 2: Two-column grid ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+          {/* Left — Phone mockup */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[280px]">
+              <div className="bg-[#2A2535] border border-white/10 rounded-[2.5rem] shadow-2xl shadow-black/70 p-[5px]">
+                <div className="rounded-[2.2rem] overflow-hidden bg-[#0F0F0F] flex flex-col">
+                  {/* Status bar */}
+                  <div className="flex items-center justify-between px-5 py-2 bg-[#0F0F0F]">
+                    <span className="text-white text-[10px] font-semibold">9:41</span>
+                    <div className="w-14 h-3.5 bg-[#1A1A1A] rounded-full" />
+                    <div className="w-3 h-2 border border-white/50 rounded-[2px] flex items-center px-[1px]">
+                      <div className="w-full h-full bg-white/50 rounded-[1px]" />
+                    </div>
                   </div>
-                </div>
-                {/* Video */}
-                <div className="bg-black overflow-hidden" style={{ aspectRatio: "9/11" }}>
-                  <iframe
-                    src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=300"
-                    width="100%"
-                    height="100%"
-                    style={{ border: "none", overflow: "hidden" }}
-                    scrolling="no"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    allowFullScreen
-                    title="Kopisodes reel"
-                  />
-                </div>
-                {/* Suggestion feed */}
-                <div className="bg-[#0F0F0F] px-3 pt-1.5 pb-4">
-                  <p className="text-white/40 text-[9px] uppercase tracking-widest font-semibold mb-1.5 px-1">Up Next</p>
-                  <div className="space-y-2">
-                    {[
-                      {
-                        img: "/images/gallery/HIV-and-Aids-Surveillance.jpg",
-                        title: "2025 HIV & AIDS Surveillance Update",
-                        meta: "Wagayway Equality · 2025",
-                      },
-                      {
-                        img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg",
-                        title: "SOGIESC 101 by Wagayway Equality",
-                        meta: "Wagayway Equality · 2025",
-                      },
-                      {
-                        img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg",
-                        title: "HIV 101 — Prevention, Testing & Care",
-                        meta: "Wagayway Equality · 2025",
-                      },
-                      {
-                        img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg",
-                        title: "Human Rights 101 by Wagayway Equality",
-                        meta: "Wagayway Equality · 2024",
-                      },
-                      {
-                        img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg",
-                        title: "Equality Desk — Know Your Rights",
-                        meta: "Wagayway Equality · 2024",
-                      },
-                      {
-                        img: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
-                        title: "Batangas Pride Month Celebration",
-                        meta: "Wagayway Equality · 2023",
-                      },
-                    ].map((s) => (
-                      <div key={s.title} className="flex gap-2 items-start">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={s.img} alt={s.title} className="w-14 h-9 rounded-lg object-cover shrink-0" />
-                        <div className="flex-1 min-w-0">
-                          <p className="text-white text-[10px] font-semibold leading-snug line-clamp-2">{s.title}</p>
-                          <p className="text-white/40 text-[9px] mt-0.5">{s.meta}</p>
+                  {/* Video */}
+                  <div className="bg-black overflow-hidden" style={{ aspectRatio: "9/12" }}>
+                    <iframe
+                      src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F4236780889893025%2F&show_text=false&width=280"
+                      width="100%"
+                      height="100%"
+                      style={{ border: "none", overflow: "hidden" }}
+                      scrolling="no"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      allowFullScreen
+                      title="Kopisodes reel"
+                    />
+                  </div>
+                  {/* Up Next feed */}
+                  <div className="bg-[#0F0F0F] px-3 pt-2 pb-3">
+                    <p className="text-white/35 text-[9px] uppercase tracking-widest font-semibold mb-2 px-1">Up Next</p>
+                    <div className="space-y-2">
+                      {[
+                        { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", title: "2025 HIV & AIDS Surveillance Update", meta: "Wagayway Equality · 2025" },
+                        { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", title: "SOGIESC 101 by Wagayway Equality", meta: "Wagayway Equality · 2025" },
+                        { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", title: "HIV 101 — Prevention, Testing & Care", meta: "Wagayway Equality · 2025" },
+                        { img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", title: "Human Rights 101 by Wagayway Equality", meta: "Wagayway Equality · 2024" },
+                        { img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", title: "Equality Desk — Know Your Rights", meta: "Wagayway Equality · 2024" },
+                      ].map((s) => (
+                        <div key={s.title} className="flex gap-2 items-start">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={s.img} alt={s.title} className="w-14 h-9 rounded-md object-cover shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-white text-[10px] font-semibold leading-snug line-clamp-2">{s.title}</p>
+                            <p className="text-white/35 text-[9px] mt-0.5">{s.meta}</p>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                  </div>
+                  {/* Home indicator */}
+                  <div className="bg-[#0F0F0F] flex justify-center pb-2 pt-1">
+                    <div className="w-16 h-[3px] bg-white/15 rounded-full" />
                   </div>
                 </div>
-                {/* Home indicator */}
-                <div className="bg-[#0F0F0F] flex justify-center pb-2">
-                  <div className="w-20 h-1 bg-white/20 rounded-full" />
+              </div>
+              {/* Glow behind phone */}
+              <div className="absolute inset-0 rounded-[2.5rem] bg-[#FED7AA]/10 blur-3xl -z-10 scale-110" />
+            </div>
+          </div>
+
+          {/* Right — Feature card */}
+          <div className="flex items-start">
+            <div className="w-full bg-gradient-to-br from-[#A9D6B6] via-[#7EC8A0] to-[#5BAD84] rounded-3xl p-10 shadow-xl shadow-[#A9D6B6]/20 flex flex-col justify-between min-h-[580px]">
+              <div>
+                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-7">
+                  <Mic2 size={22} className="text-white" />
                 </div>
+                <h3 className="font-serif text-3xl font-bold text-white mb-4 leading-snug">
+                  Every Voice<br />Deserves a Mic
+                </h3>
+                <p className="text-white/80 text-base leading-relaxed mb-8">
+                  Kopisodes creates a seat at the table for stories that mainstream media ignores — queer lives, health advocacy, and community-led change from Batangas and beyond. Through coffee-style conversations, we make advocacy accessible, relatable, and deeply human.
+                </p>
+
+                {/* Stats */}
+                <div className="flex gap-8 mb-10">
+                  {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
+                    <div key={label}>
+                      <p className="font-serif text-3xl font-bold text-white">{val}</p>
+                      <p className="text-white/60 text-xs mt-1">{label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href="/kopisodes/"
+                  className="inline-flex items-center gap-2 bg-white text-[#3A7A5A] font-semibold px-7 py-3 rounded-xl hover:bg-white/90 transition-colors text-sm"
+                >
+                  Explore All Episodes <ChevronRight size={16} />
+                </a>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mt-10">
+                {["LGBTQIA+ Advocacy", "HIV Awareness", "Community Stories", "Youth Voices", "Mental Health", "Rights Education"].map((tag) => (
+                  <span key={tag} className="bg-white/20 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
-            <div className="absolute inset-0 rounded-[2.5rem] bg-[#FED7AA]/10 blur-2xl -z-10 scale-110" />
           </div>
 
-          {/* Text side */}
-          <div className="flex flex-col justify-center">
-            <p className="text-white/80 text-lg leading-relaxed mb-5">
-              Listen in as we unpack real experiences, spark needed conversations, and celebrate the courage of youth who choose to lead, uplift, and inspire. Sip with us, learn with us, grow with us.
-            </p>
-            <p className="text-white/50 text-base leading-relaxed mb-8">
-              Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action.
-            </p>
-
-            {/* Stats row */}
-            <div className="flex gap-8 mb-10">
-              {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
-                <div key={label}>
-                  <p className="font-serif text-2xl font-bold text-white">{val}</p>
-                  <p className="text-white/40 text-xs mt-1">{label}</p>
-                </div>
-              ))}
-            </div>
-
-            <a
-              href="/kopisodes/"
-              className="inline-flex items-center gap-2 bg-[#FED7AA] text-[#7C2D12] font-semibold px-7 py-3 rounded-xl hover:bg-[#FDE68A] transition-colors text-sm w-fit"
-            >
-              Explore All Episodes <ChevronRight size={16} />
-            </a>
-          </div>
-
-          {/* Accent card */}
-          <div className="bg-gradient-to-br from-[#A9D6B6] to-[#6BBF8E] rounded-3xl p-8 flex flex-col justify-between min-h-[340px]">
-            <div>
-              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-5">
-                <Mic2 size={18} className="text-white" />
-              </div>
-              <h3 className="font-serif text-2xl font-bold text-white mb-3 leading-snug">
-                Every Voice<br />Deserves a Mic
-              </h3>
-              <p className="text-white/80 text-sm leading-relaxed mb-6">
-                Kopisodes creates a seat at the table for stories that mainstream media ignores — queer lives, health advocacy, and community-led change from Batangas and beyond.
-              </p>
-            </div>
-            <div className="space-y-2">
-              {["LGBTQIA+ Advocacy", "HIV Awareness", "Community Stories", "Youth Voices"].map((tag) => (
-                <span key={tag} className="inline-block bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full mr-2">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
