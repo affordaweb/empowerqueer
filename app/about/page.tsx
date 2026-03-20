@@ -26,7 +26,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-[580px] flex items-center justify-center px-4 pt-[69px] overflow-hidden">
+      <section className="relative min-h-[580px] flex items-center justify-center px-4 pt-[144px] overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

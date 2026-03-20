@@ -100,7 +100,7 @@ export default function DirectoryPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 pt-[89px] px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 pt-[164px] px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Service Directory</h1>
           <p className="text-[#474747] text-xl leading-relaxed mb-4">

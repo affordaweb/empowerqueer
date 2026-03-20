@@ -33,7 +33,7 @@ function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+    <section className="relative overflow-hidden min-h-[85vh] flex items-center pt-[75px]">
       {/* Background video — muted set via ref to avoid SSR hydration mismatch */}
       <video
         ref={videoRef}

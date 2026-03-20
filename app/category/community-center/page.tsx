@@ -6,7 +6,7 @@ export default function CategoryCommunityCenterPage() {
     <main className="bg-white min-h-screen">
       <Navbar />
 
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 pt-[89px] px-4 border-b border-gray-100">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-20 pt-[164px] px-4 border-b border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[#D7C4E3] font-semibold text-sm uppercase tracking-widest mb-3">Category</p>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Community Center</h1>
