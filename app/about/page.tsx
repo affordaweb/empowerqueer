@@ -173,7 +173,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="relative overflow-hidden bg-[#0F0A1E]">
+      <section className="relative overflow-hidden bg-[#292733]">
         {/* Decorative blobs */}
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#7C3AED]/20 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/3 pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#EC4899]/15 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
@@ -284,7 +284,7 @@ export default function AboutPage() {
       </section>
 
       {/* Volunteer */}
-      <section className="relative py-24 px-4 overflow-hidden bg-[#0F0A1E]">
+      <section className="relative py-24 px-4 overflow-hidden bg-[#292733]">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

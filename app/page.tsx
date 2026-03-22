@@ -196,7 +196,7 @@ function Kopisodes() {
   ];
 
   return (
-    <section className="bg-[#0F0E17] overflow-hidden">
+    <section className="bg-[#292733] overflow-hidden">
 
       {/* ── Top band: headline + meta ── */}
       <div className="border-b border-white/6 py-16 px-4">
@@ -563,7 +563,7 @@ const stats = [
 
 function Stats() {
   return (
-    <section className="relative py-24 overflow-hidden bg-[#0F0A1E]">
+    <section className="relative py-24 overflow-hidden bg-[#292733]">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#7C3AED]/15 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/10 rounded-full blur-[90px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
