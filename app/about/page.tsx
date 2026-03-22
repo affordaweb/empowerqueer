@@ -58,14 +58,14 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-4 relative overflow-hidden bg-white">
+      <section className="py-20 relative overflow-hidden bg-white">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-[#F8F0FF]/60 to-[#FFF0F7]/60" />
         {/* Subtle bg glows */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#7C3AED]/8 rounded-full blur-[130px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#EC4899]/8 rounded-full blur-[110px] pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section label */}
           <div className="flex items-center gap-3 mb-12">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
@@ -116,8 +116,8 @@ export default function AboutPage() {
       </section>
 
       {/* Wagayway Equality */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">
@@ -180,7 +180,7 @@ export default function AboutPage() {
 
         <div className="rainbow-bar h-[3px] w-full" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           {/* Section label */}
           <div className="flex items-center justify-center gap-3 mb-16">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#7C3AED]" />
@@ -284,7 +284,7 @@ export default function AboutPage() {
       </section>
 
       {/* Volunteer */}
-      <section className="relative py-24 px-4 overflow-hidden bg-[#292733]">
+      <section className="relative py-24 overflow-hidden bg-[#292733]">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -296,7 +296,7 @@ export default function AboutPage() {
         <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#7C3AED]/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/15 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section label */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />

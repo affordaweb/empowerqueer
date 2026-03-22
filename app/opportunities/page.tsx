@@ -71,8 +71,8 @@ export default function OpportunitiesPage() {
       </section>
 
       {/* Listings */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           {listings.map((listing) => (
             <div
               key={listing.title}
@@ -114,8 +114,8 @@ export default function OpportunitiesPage() {
       </section>
 
       {/* External Resources */}
-      <section className="py-16 px-4 bg-[#F3F3F3]">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 bg-[#F3F3F3]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-8">
             Additional Resources
           </h2>

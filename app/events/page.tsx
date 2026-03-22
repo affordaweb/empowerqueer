@@ -611,8 +611,8 @@ export default function EventsPage() {
       </section>
 
       {/* ── Category Filter + Grid ─────────────────────────────────────────── */}
-      <section className="py-14 px-4">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Filter tabs */}
           <div className="flex flex-wrap gap-2 mb-10">
