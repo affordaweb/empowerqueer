@@ -361,7 +361,19 @@ function EventSubmitForm() {
     organizerEmail: "",
     organizerPhone: "",
   });
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string>("");
+  const [flyerFile, setFlyerFile] = useState<File | null>(null);
+  const [flyerPreview, setFlyerPreview] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>, type: "image" | "flyer") {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    if (type === "image") { setImageFile(file); setImagePreview(url); }
+    else { setFlyerFile(file); setFlyerPreview(url); }
+  }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -382,6 +394,9 @@ function EventSubmitForm() {
         `Category: ${form.category}`,
         `Tags: ${form.tags}`,
         `Image URL: ${form.imageUrl || "Not provided"}`,
+        `Image File: ${imageFile ? imageFile.name : "Not uploaded"}`,
+        `Flyer File: ${flyerFile ? flyerFile.name : "Not uploaded"}`,
+        flyerFile || imageFile ? `\nNote: Files were selected. Please reply to this email to receive the uploaded files.` : "",
         `Event Link: ${form.eventLink || "Not provided"}`,
         ``,
         `Description:`,
@@ -452,7 +467,7 @@ function EventSubmitForm() {
                   Thank you for sharing with the community. We&rsquo;ll review your submission and get back to you within 24–48 hours.
                 </p>
                 <button
-                  onClick={() => { setStatus("idle"); setForm({ eventTitle: "", eventDate: "", eventTime: "", location: "", category: "", description: "", tags: "", imageUrl: "", eventLink: "", organizerName: "", organizerEmail: "", organizerPhone: "" }); }}
+                  onClick={() => { setStatus("idle"); setForm({ eventTitle: "", eventDate: "", eventTime: "", location: "", category: "", description: "", tags: "", imageUrl: "", eventLink: "", organizerName: "", organizerEmail: "", organizerPhone: "" }); setImageFile(null); setImagePreview(""); setFlyerFile(null); setFlyerPreview(""); }}
                   className="mt-6 text-[#7C3AED] text-sm font-semibold hover:underline"
                 >
                   Submit another event
@@ -511,11 +526,66 @@ function EventSubmitForm() {
                   <p className="text-gray-400 text-xs mt-1">Separate tags with commas. These help members discover your event.</p>
                 </div>
 
-                {/* Image URL */}
+                {/* Event Image */}
                 <div>
-                  <label className={labelCls}>Event Image URL</label>
-                  <input type="url" name="imageUrl" value={form.imageUrl} onChange={handleChange} placeholder="https://example.com/event-image.jpg" className={inputCls} />
-                  <p className="text-gray-400 text-xs mt-1">Optional. Paste a direct link to an event banner or photo.</p>
+                  <label className={labelCls}>Event Image</label>
+                  <div className="space-y-3">
+                    {/* Upload */}
+                    <label className="flex items-center justify-center gap-3 w-full border-2 border-dashed border-gray-200 hover:border-[#7C3AED] rounded-xl px-4 py-4 cursor-pointer transition-colors group">
+                      <input type="file" accept="image/*" className="hidden" onChange={(e) => handleFileChange(e, "image")} />
+                      <span className="text-2xl">🖼️</span>
+                      <div>
+                        <p className="text-sm font-medium text-[#3A3C51] group-hover:text-[#7C3AED] transition-colors">
+                          {imageFile ? imageFile.name : "Upload an event image"}
+                        </p>
+                        <p className="text-xs text-gray-400">JPG, PNG, WEBP up to 10MB</p>
+                      </div>
+                    </label>
+                    {imagePreview && (
+                      <div className="relative rounded-xl overflow-hidden h-40">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
+                        <button type="button" onClick={() => { setImageFile(null); setImagePreview(""); }} className="absolute top-2 right-2 bg-black/60 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-black/80">✕</button>
+                      </div>
+                    )}
+                    {/* Or URL */}
+                    <div className="flex items-center gap-2">
+                      <span className="h-px flex-1 bg-gray-100" />
+                      <span className="text-gray-300 text-xs">or paste a URL</span>
+                      <span className="h-px flex-1 bg-gray-100" />
+                    </div>
+                    <input type="url" name="imageUrl" value={form.imageUrl} onChange={handleChange} placeholder="https://example.com/event-image.jpg" className={inputCls} />
+                  </div>
+                </div>
+
+                {/* Event Flyer */}
+                <div>
+                  <label className={labelCls}>Event Flyer / Poster</label>
+                  <label className="flex items-center justify-center gap-3 w-full border-2 border-dashed border-gray-200 hover:border-[#EC4899] rounded-xl px-4 py-4 cursor-pointer transition-colors group">
+                    <input type="file" accept="image/*,.pdf" className="hidden" onChange={(e) => handleFileChange(e, "flyer")} />
+                    <span className="text-2xl">📄</span>
+                    <div>
+                      <p className="text-sm font-medium text-[#3A3C51] group-hover:text-[#EC4899] transition-colors">
+                        {flyerFile ? flyerFile.name : "Upload your event flyer or poster"}
+                      </p>
+                      <p className="text-xs text-gray-400">JPG, PNG, PDF up to 10MB</p>
+                    </div>
+                  </label>
+                  {flyerPreview && flyerFile?.type.startsWith("image/") && (
+                    <div className="relative rounded-xl overflow-hidden h-40 mt-3">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={flyerPreview} alt="Flyer preview" className="w-full h-full object-contain bg-gray-50" />
+                      <button type="button" onClick={() => { setFlyerFile(null); setFlyerPreview(""); }} className="absolute top-2 right-2 bg-black/60 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-black/80">✕</button>
+                    </div>
+                  )}
+                  {flyerFile && !flyerFile.type.startsWith("image/") && (
+                    <div className="mt-2 flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
+                      <span>📎</span>
+                      <span className="text-sm text-[#3A3C51] truncate">{flyerFile.name}</span>
+                      <button type="button" onClick={() => { setFlyerFile(null); setFlyerPreview(""); }} className="ml-auto text-gray-400 hover:text-gray-600 text-xs">✕</button>
+                    </div>
+                  )}
+                  <p className="text-gray-400 text-xs mt-1.5">We&rsquo;ll follow up to collect your files after submission.</p>
                 </div>
 
                 {/* Event Link */}
@@ -588,7 +658,7 @@ export default function EventsPage() {
       <Navbar />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[400px] flex items-end pt-[75px]">
+      <section className="relative overflow-hidden min-h-[500px] flex items-end pt-[75px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg"

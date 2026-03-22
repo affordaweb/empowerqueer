@@ -284,55 +284,44 @@ export default function AboutPage() {
       </section>
 
       {/* Volunteer */}
-      <section className="relative py-24 overflow-hidden bg-[#292733]">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/gallery/EmpQueer-Image-140.jpg')" }}
-        />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#292733]/95 via-[#292733]/88 to-[#292733]/95" />
-        {/* Decorative blobs */}
-        <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#7C3AED]/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/15 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section label */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#7C3AED]" />
-            <span className="text-[#A78BFA] text-xs uppercase tracking-[0.25em] font-semibold">Get Involved</span>
+            <span className="text-[#7C3AED] text-xs uppercase tracking-[0.25em] font-semibold">Get Involved</span>
             <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16 items-start mb-16">
             <div>
-              <h2 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-5">
+              <h2 className="font-serif text-4xl lg:text-5xl font-bold text-[#3A3C51] mb-5">
                 Volunteer With Us
               </h2>
-              <p className="text-white/65 text-lg leading-relaxed mb-6">
+              <p className="text-[#474747] text-lg leading-relaxed mb-6">
                 Whether you have hours or expertise to spare, there&rsquo;s a place for you here. Join 950+ members building a more inclusive Philippines — one community at a time.
               </p>
-              <p className="text-white/50 text-base leading-relaxed mb-8">
+              <p className="text-[#474747]/70 text-base leading-relaxed mb-8">
                 Volunteers at EmpowerQueer don&rsquo;t just show up — they shape the movement. From running training sessions to amplifying community voices, every role makes a real difference in the lives of LGBTQIA+ Filipinos.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { val: "950+", label: "Community Members" },
-                  { val: "50+", label: "Events Organized" },
-                  { val: "8yrs", label: "Of Grassroots Work" },
-                  { val: "100%", label: "Community-Led" },
-                ].map(({ val, label }) => (
-                  <div key={label} className="bg-white/5 border border-white/10 rounded-xl px-5 py-4">
-                    <p className="font-serif text-2xl font-bold text-white">{val}</p>
-                    <p className="text-white/40 text-xs mt-1">{label}</p>
+                  { val: "950+", label: "Community Members", bg: "bg-[#F5F0FF]", border: "border-[#E9D5FF]", text: "text-[#7C3AED]" },
+                  { val: "50+", label: "Events Organized", bg: "bg-[#FDF2F8]", border: "border-[#FBCFE8]", text: "text-[#EC4899]" },
+                  { val: "8yrs", label: "Of Grassroots Work", bg: "bg-[#F0FDF4]", border: "border-[#BBF7D0]", text: "text-[#059669]" },
+                  { val: "100%", label: "Community-Led", bg: "bg-[#FFF7ED]", border: "border-[#FED7AA]", text: "text-[#D97706]" },
+                ].map(({ val, label, bg, border, text }) => (
+                  <div key={label} className={`${bg} border ${border} rounded-xl px-5 py-4`}>
+                    <p className={`font-serif text-2xl font-bold ${text}`}>{val}</p>
+                    <p className="text-[#474747]/60 text-xs mt-1">{label}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* What volunteers do */}
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
-              <p className="text-white/40 text-xs uppercase tracking-widest font-semibold mb-6">What Volunteers Do</p>
+            <div className="bg-[#F5F0FF] border border-[#E9D5FF] rounded-3xl p-8">
+              <p className="text-[#7C3AED] text-xs uppercase tracking-widest font-semibold mb-6">What Volunteers Do</p>
               <ul className="space-y-4">
                 {[
                   "Facilitate SOGIESC, HIV 101, and Human Rights workshops",
@@ -346,20 +335,24 @@ export default function AboutPage() {
                     <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center shrink-0 mt-0.5">
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </span>
-                    <span className="text-white/70 text-sm leading-relaxed">{item}</span>
+                    <span className="text-[#474747] text-sm leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          {/* Role cards */}
+          {/* Role cards — pastel */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
             {[
               {
                 icon: <BookOpen size={22} />,
-                color: "#A78BFA",
-                bg: "#7C3AED",
+                iconColor: "text-[#7C3AED]",
+                iconBg: "bg-[#EDE9FE]",
+                cardBg: "bg-[#F5F0FF]",
+                border: "border-[#DDD6FE]",
+                commitBg: "bg-[#EDE9FE] text-[#5B21B6]",
+                skillBg: "bg-[#EDE9FE] border-[#DDD6FE] text-[#5B21B6]",
                 title: "Educator",
                 commitment: "4–8 hrs/month",
                 desc: "Facilitate workshops, create learning content, and lead SOGIESC, HIV 101, and Human Rights training sessions for communities and allies.",
@@ -367,8 +360,12 @@ export default function AboutPage() {
               },
               {
                 icon: <Megaphone size={22} />,
-                color: "#F9A8D4",
-                bg: "#EC4899",
+                iconColor: "text-[#EC4899]",
+                iconBg: "bg-[#FCE7F3]",
+                cardBg: "bg-[#FDF2F8]",
+                border: "border-[#FBCFE8]",
+                commitBg: "bg-[#FCE7F3] text-[#9D174D]",
+                skillBg: "bg-[#FCE7F3] border-[#FBCFE8] text-[#9D174D]",
                 title: "Advocate",
                 commitment: "Flexible",
                 desc: "Amplify queer voices, support policy campaigns, assist in documentation, and help shape a more just and inclusive Philippine society.",
@@ -376,32 +373,33 @@ export default function AboutPage() {
               },
               {
                 icon: <Users size={22} />,
-                color: "#6EE7B7",
-                bg: "#059669",
+                iconColor: "text-[#059669]",
+                iconBg: "bg-[#D1FAE5]",
+                cardBg: "bg-[#F0FDF4]",
+                border: "border-[#BBF7D0]",
+                commitBg: "bg-[#D1FAE5] text-[#065F46]",
+                skillBg: "bg-[#D1FAE5] border-[#BBF7D0] text-[#065F46]",
                 title: "Community Builder",
                 commitment: "6–10 hrs/month",
                 desc: "Organize events, run outreach programs, and create safe spaces for LGBTQIA+ individuals to connect, heal, and grow together.",
                 skills: ["Event planning", "Peer support", "Outreach"],
               },
-            ].map(({ icon, color, bg, title, commitment, desc, skills }) => (
+            ].map(({ icon, iconColor, iconBg, cardBg, border, commitBg, skillBg, title, commitment, desc, skills }) => (
               <div
                 key={title}
-                className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-white/20 transition-all group flex flex-col"
+                className={`${cardBg} border ${border} rounded-2xl p-7 hover:shadow-md transition-all flex flex-col`}
               >
                 <div className="flex items-start justify-between mb-5">
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: `${bg}22`, color }}
-                  >
+                  <div className={`w-11 h-11 ${iconBg} rounded-xl flex items-center justify-center ${iconColor}`}>
                     {icon}
                   </div>
-                  <span className="text-white/30 text-xs border border-white/10 px-2.5 py-1 rounded-full">{commitment}</span>
+                  <span className={`${commitBg} text-xs px-2.5 py-1 rounded-full font-medium`}>{commitment}</span>
                 </div>
-                <h3 className="font-serif text-lg font-bold text-white mb-3">{title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed mb-5 flex-1">{desc}</p>
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/8">
+                <h3 className="font-serif text-lg font-bold text-[#3A3C51] mb-3">{title}</h3>
+                <p className="text-[#474747] text-sm leading-relaxed mb-5 flex-1">{desc}</p>
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-black/5">
                   {skills.map((s) => (
-                    <span key={s} className="text-white/40 text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">{s}</span>
+                    <span key={s} className={`${skillBg} border text-[10px] px-2.5 py-1 rounded-full`}>{s}</span>
                   ))}
                 </div>
               </div>
@@ -409,22 +407,22 @@ export default function AboutPage() {
           </div>
 
           {/* CTA */}
-          <div className="bg-gradient-to-r from-[#7C3AED]/20 to-[#EC4899]/20 border border-white/10 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="bg-gradient-to-r from-[#F5F0FF] to-[#FDF2F8] border border-[#E9D5FF] rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <p className="text-white font-semibold text-lg mb-1">Ready to make an impact?</p>
-              <p className="text-white/50 text-sm">Send us a message and we&rsquo;ll match you with the right volunteer opportunity.</p>
+              <p className="text-[#3A3C51] font-semibold text-lg mb-1">Ready to make an impact?</p>
+              <p className="text-[#474747]/60 text-sm">Send us a message and we&rsquo;ll match you with the right volunteer opportunity.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <a
                 href="/contact/"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-semibold px-8 py-3.5 rounded-full transition-opacity shadow-lg shadow-[#7C3AED]/30 whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-semibold px-8 py-3.5 rounded-full transition-opacity shadow-lg shadow-[#7C3AED]/20 whitespace-nowrap"
               >
                 Join the Community
                 <ArrowRight size={16} />
               </a>
               <a
                 href="/opportunities/"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white text-sm px-6 py-3.5 rounded-full transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 border border-gray-200 text-[#3A3C51] text-sm px-6 py-3.5 rounded-full transition-colors whitespace-nowrap"
               >
                 View Opportunities
               </a>
