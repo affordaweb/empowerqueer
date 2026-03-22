@@ -715,11 +715,14 @@ export default function ResourcesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] min-h-[600px] pt-[164px] border-b border-gray-100 flex flex-col justify-end">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <span className="inline-block bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Resource Library</span>
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Resources</h1>
-          <p className="text-[#474747] text-xl leading-relaxed max-w-2xl">
+      <section className="relative overflow-hidden min-h-[600px] flex flex-col justify-end border-b border-white/10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/gallery/EmpQueer-Image-218.jpg" alt="Resources" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A2E]/90 via-[#1A0A2E]/55 to-[#1A0A2E]/25" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+          <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Resource Library</span>
+          <h1 className="font-serif text-5xl font-bold text-white mb-4">Resources</h1>
+          <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
             Guides, toolkits, and research for LGBTQIA+ wellbeing, safety, and advocacy — curated for LGBTQIA+ Filipinos and their allies.
           </p>
         </div>

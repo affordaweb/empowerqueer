@@ -18,14 +18,12 @@ export default function VoicesPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] min-h-[600px] pt-[164px] border-b border-gray-100 flex flex-col justify-end">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <div className="w-12 h-12 icon-bg-lavender rounded-2xl flex items-center justify-center mb-6">
-            <Mic2 size={22} className="icon-lavender icon-anim" />
-          </div>
-          <span className="inline-block bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Community Stories</span>
-          <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Voices Among Us</h1>
-          <p className="text-[#474747] text-xl leading-relaxed max-w-2xl">
+      <section className="relative bg-gradient-to-br from-[#1A0A2E] to-[#292733] min-h-[600px] pt-[164px] border-b border-white/10 flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 bg-[#EC4899]/10 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+          <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Community Stories</span>
+          <h1 className="font-serif text-5xl font-bold text-white mb-4">Voices Among Us</h1>
+          <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
             Share your story. Speak your truth. Your voice matters here.
           </p>
         </div>
