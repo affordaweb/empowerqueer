@@ -14,7 +14,6 @@ import {
   Users,
   FileText,
   Calendar,
-  Clock,
   Heart,
   Facebook,
   Twitter,
@@ -511,150 +510,6 @@ function Kopisodes() {
   );
 }
 
-// ─── Upcoming Events ──────────────────────────────────────────────────────────
-
-const upcomingEvents = [
-  {
-    id: "batangas-city-pride-2026",
-    title: "Batangas City Pride Month 2026",
-    dateDisplay: "June 11, 2026",
-    time: "8:00 AM onwards",
-    location: "Batangas City Convention Center, Batangas City",
-    description:
-      "Annual Pride Month celebration featuring the \"Rampa Na, Kahit Ano Ka, Love Ka!\" Pride Walk, Bahaghari Awards honoring LGBTQ+ champions, fashion design competitions, and free services for KALIPI members.",
-    category: "Pride",
-    tags: ["Batangas City", "Pride Walk", "Annual"],
-    image: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
-    link: "https://www.batangascity.gov.ph",
-    cardBg: "bg-pink-50",
-    border: "border-pink-200",
-    dot: "bg-pink-400",
-    pill: "bg-pink-100 border-pink-300 text-pink-700",
-  },
-  {
-    id: "batangas-province-lgbtqia-2026",
-    title: "11th LGBTQIA+ Celebration — Province of Batangas",
-    dateDisplay: "November 5, 2026",
-    time: "All Day",
-    location: "Provincial DREAM Zone, Capitol Site, Batangas City",
-    description:
-      "Province-wide LGBTQIA+ celebration with a Grand Pride Parade, mental health presentations, Festival Queen & King Costume Competition, LGBTQIA+ Got Talent showcase, and community recognition ceremonies.",
-    category: "Advocacy",
-    tags: ["Batangas Province", "Grand Parade", "Annual"],
-    image: "/images/gallery/EmpQueer-Image-116.jpg",
-    link: "https://portal.batangas.gov.ph",
-    cardBg: "bg-violet-50",
-    border: "border-violet-200",
-    dot: "bg-violet-400",
-    pill: "bg-violet-100 border-violet-300 text-violet-700",
-  },
-  {
-    id: "metro-manila-pride-2026",
-    title: "Metro Manila Pride 2026",
-    dateDisplay: "June 27, 2026",
-    time: "All Day",
-    location: "Metro Manila, Philippines (Multiple Venues)",
-    description:
-      "Asia's first and largest Pride event attracting 100,000+ participants — concerts, film screenings, art exhibitions, a massive Pride March, and discussions on LGBTQ+ rights, mental health, and HIV/AIDS awareness.",
-    category: "Pride",
-    tags: ["National", "Metro Manila", "Pride March"],
-    image: "/images/gallery/EmpQueer-Image-118.jpg",
-    link: "https://mmpride.org/",
-    cardBg: "bg-pink-50",
-    border: "border-pink-200",
-    dot: "bg-pink-400",
-    pill: "bg-pink-100 border-pink-300 text-pink-700",
-  },
-];
-
-function UpcomingEvents() {
-  return (
-    <section className="py-24 bg-[#F3F3F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Get Involved</p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] mb-4">
-            Upcoming Events
-          </h2>
-          <p className="text-[#474747] max-w-xl mx-auto text-lg">
-            Stay connected with LGBTQIA+ events across Batangas and the Philippines. From Pride celebrations to advocacy workshops—every gathering matters.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {upcomingEvents.map((event) => (
-            <a
-              key={event.id}
-              href={event.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-left rounded-2xl border overflow-hidden hover:shadow-lg transition-all duration-300 group ${event.cardBg} ${event.border}`}
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden h-44">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute top-2.5 right-2.5">
-                  <span className={`inline-flex items-center gap-1.5 border text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-sm backdrop-blur-sm ${event.pill}`}>
-                    <span className={`w-2 h-2 rounded-full ${event.dot} animate-pulse shrink-0`} />
-                    {event.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Body */}
-              <div className="p-5">
-                <h3 className="font-serif text-base font-bold text-[#3A3C51] mb-3 leading-snug line-clamp-2 group-hover:text-[#5A4B8A] transition-colors">
-                  {event.title}
-                </h3>
-                <div className="space-y-1.5 text-xs text-[#474747] mb-3">
-                  <div className="flex items-center gap-1.5">
-                    <Calendar size={12} className="shrink-0 text-[#3A3C51]" />
-                    <span>{event.dateDisplay}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Clock size={12} className="shrink-0 text-[#3A3C51]" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-start gap-1.5">
-                    <MapPin size={12} className="shrink-0 text-[#3A3C51] mt-0.5" />
-                    <span className="line-clamp-1">{event.location}</span>
-                  </div>
-                </div>
-                <p className="text-xs text-[#474747] leading-relaxed line-clamp-2 mb-4">
-                  {event.description}
-                </p>
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex gap-1 flex-wrap">
-                    {event.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="bg-white/70 border border-gray-200 text-gray-400 text-[10px] px-2 py-0.5 rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <span className="text-xs font-semibold text-[#5A4B8A] whitespace-nowrap shrink-0">
-                    Learn more →
-                  </span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <a href="/events/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-8 py-3.5 text-base">
-            View All Events <ArrowRight size={16} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ─── About ────────────────────────────────────────────────────────────────────
 
 const pillars = [
@@ -785,50 +640,75 @@ function About() {
 
 function Founder() {
   return (
-    <section className="bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[320px_1fr]">
-        {/* Image — left */}
-        <div className="flex items-center justify-center py-12 px-8 lg:py-16">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/aivan-profile-pic.jpg"
-            alt="Aivan Castillo Alvarez"
-            className="w-full max-w-[260px] rounded-2xl object-cover object-top shadow-lg"
-          />
-        </div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] py-20 lg:py-28">
+      {/* Decorative background blobs */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#7C3AED]/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#EC4899]/15 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-        {/* Text — right */}
-        <div className="flex flex-col justify-center px-10 py-16 lg:px-16">
-          <div className="rainbow-bar h-[3px] w-12 rounded-full mb-8" />
-          <blockquote className="font-serif text-lg sm:text-xl text-[#3A3C51] leading-relaxed mb-8 italic">
-            &ldquo;When we started Wagayway Equality, it wasn&rsquo;t built from abundance— it was built from urgency. From stories of discrimination that were never reported. From young LGBTQIA+ people who had nowhere safe to turn. From community members who walked alone with their fears, questions, and pain. From the quiet truth we witnessed every day: our people deserved more than the silence they were left with.&rdquo;
-            <br /><br />
-            &ldquo;As we grow, this platform will evolve with you. Because EmpowerQueer is not mine alone; it belongs to the community it serves. On behalf of Wagayway Equality and everyone who made this possible, I welcome you—with pride, hope, and unwavering purpose. Padayon. The fight continues, and so does our love for one another.&rdquo;
-          </blockquote>
-          <div className="mb-8">
-            <p className="text-[#3A3C51] font-bold text-lg">Aivan Castillo Alvarez</p>
-            <p className="text-[#474747] text-sm">
-              Founder / Executive Director — Empower Queer Hub
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-center">
+
+          {/* Left — Quote */}
+          <div>
+            <span className="inline-block bg-white/10 border border-white/20 text-white/70 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-8">A Word from Our Founder</span>
+
+            {/* Giant decorative quote */}
+            <div className="relative">
+              <span className="absolute -top-6 -left-2 font-serif text-[120px] leading-none text-[#7C3AED]/30 select-none pointer-events-none">&ldquo;</span>
+              <blockquote className="font-serif text-xl sm:text-2xl text-white/90 leading-relaxed italic pl-6 mb-6">
+                When we started Wagayway Equality, it wasn&rsquo;t built from abundance&mdash;it was built from urgency. From stories of discrimination that were never reported. From young LGBTQIA+ people who had nowhere safe to turn.
+              </blockquote>
+            </div>
+            <p className="text-white/60 text-base leading-relaxed pl-6 mb-10">
+              As we grow, this platform will evolve with you. Because EmpowerQueer is not mine alone; it belongs to the community it serves. Padayon. The fight continues, and so does our love for one another.
             </p>
+
+            {/* Name + title */}
+            <div className="pl-6 mb-8 border-l-2 border-[#7C3AED]">
+              <p className="text-white font-bold text-xl tracking-tight">Aivan Castillo Alvarez</p>
+              <p className="text-[#A78BFA] text-sm mt-1">Founder &amp; Executive Director — EmpowerQueer Hub</p>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex items-center gap-3 pl-6 flex-wrap">
+              <a
+                href="mailto:aivan.c.alvarez@gmail.com"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all"
+              >
+                <Mail size={15} />
+                Email Aivan
+              </a>
+              <a
+                href="https://www.linkedin.com/in/aivanalvarez"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#7C3AED]/30 hover:bg-[#7C3AED]/50 border border-[#7C3AED]/50 hover:border-[#7C3AED] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all"
+              >
+                <Linkedin size={15} />
+                LinkedIn
+              </a>
+            </div>
           </div>
-          <div className="flex items-center gap-4 flex-wrap">
-            <a
-              href="mailto:aivan.c.alvarez@gmail.com"
-              className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
-            >
-              <Mail size={15} className="icon-yellow icon-anim" />
-              Email Aivan
-            </a>
-            <a
-              href="https://www.linkedin.com/in/aivanalvarez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-p btn-p-yellow inline-flex items-center gap-2 text-sm px-4 py-2"
-            >
-              <Linkedin size={15} className="icon-yellow icon-anim" />
-              LinkedIn
-            </a>
+
+          {/* Right — Photo */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Rainbow ring */}
+              <div className="absolute -inset-1.5 rounded-3xl rainbow-bar opacity-80 blur-[2px]" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/aivan-profile-pic.jpg"
+                alt="Aivan Castillo Alvarez"
+                className="relative w-full max-w-[380px] rounded-3xl object-cover object-top shadow-2xl"
+              />
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-xl px-5 py-3">
+                <p className="text-[#7C3AED] font-bold text-sm">Wagayway Equality</p>
+                <p className="text-gray-400 text-xs">Founded 2018 · Batangas</p>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -837,42 +717,91 @@ function Founder() {
 
 // ─── Mission CTA ─────────────────────────────────────────────────────────────
 
+const purposeItems = [
+  {
+    icon: "🌈",
+    title: "Radical Belonging",
+    desc: "Every identity — queer, trans, intersex, nonbinary — is welcome, honored, and celebrated without condition.",
+    accent: "bg-[#F5F0FF] border-[#DDD6FE]",
+    label: "text-[#7C3AED]",
+  },
+  {
+    icon: "🛡️",
+    title: "Safe by Design",
+    desc: "We build spaces where people aren't just tolerated — they're protected. Physically, digitally, emotionally.",
+    accent: "bg-[#FDF2F8] border-[#FBCFE8]",
+    label: "text-[#EC4899]",
+  },
+  {
+    icon: "📚",
+    title: "Access for All",
+    desc: "Free resources, verified directories, and community-powered tools — available to everyone, regardless of means.",
+    accent: "bg-[#F0FDF4] border-[#BBF7D0]",
+    label: "text-[#059669]",
+  },
+  {
+    icon: "✊",
+    title: "Community-Led",
+    desc: "This Hub belongs to the people it serves. Every feature, story, and resource is shaped by lived LGBTQIA+ experience.",
+    accent: "bg-[#FFF7ED] border-[#FDE68A]",
+    label: "text-[#D97706]",
+  },
+];
+
 function Mission() {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#F5F0FF] to-[#FDF2F8]">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+
+        {/* Header */}
+        <div className="max-w-2xl mb-16">
           <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Our Purpose</p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-6">
-            Every LGBTQIA+ action at Empower Queer Hub starts with community
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-5">
+            Every action starts with community
           </h2>
-          <p className="text-[#474747] text-lg leading-relaxed mb-4">
-            We believe that everything we build is a living response to inequality, exclusion, and invisibility. Every tool we offer, every story we uplift, and every event we host is designed to foster belonging, healing, and empowerment.
-          </p>
-          <p className="text-[#474747] text-base leading-relaxed">
-            We stand with the LGBTQIA+ community by creating accessible, people-first spaces—both online and offline—that spark real change in emotional, mental, and social well-being.
+          <p className="text-[#474747] text-lg leading-relaxed">
+            EmpowerQueer Hub is a living response to inequality, exclusion, and invisibility. Everything we build is designed to foster belonging, healing, and empowerment for LGBTQIA+ Filipinos.
           </p>
         </div>
-        <div className="bg-gradient-to-br from-[#7C3AED] to-[#EC4899] rounded-3xl p-12 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10 rounded-3xl" />
-          <div className="relative">
-            <p className="text-white/80 text-sm uppercase tracking-widest font-semibold mb-4">Be Part of the Movement</p>
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
-              Your voice, your action, your presence—it matters here.
-            </h3>
-            <p className="text-white/80 text-base leading-relaxed max-w-xl mx-auto mb-8">
-              Whether you&rsquo;re ready to share your story, suggest a resource, or simply explore, EmpowerQueer Hub is open to you. Take a step forward—start with connection.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/contact/" className="bg-white text-[#7C3AED] hover:bg-white/90 font-bold px-8 py-3.5 rounded-xl transition-colors inline-flex items-center gap-2">
+
+        {/* Purpose grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          {purposeItems.map((item) => (
+            <div
+              key={item.title}
+              className={`rounded-2xl border p-6 ${item.accent}`}
+            >
+              <span className="text-3xl mb-4 block">{item.icon}</span>
+              <h3 className={`font-serif text-lg font-bold mb-2 ${item.label}`}>{item.title}</h3>
+              <p className="text-[#474747] text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA banner */}
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1A0A2E] to-[#292733]">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#7C3AED]/30 to-[#EC4899]/20 pointer-events-none" />
+          <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center p-10 sm:p-12">
+            <div>
+              <p className="text-white/50 text-xs uppercase tracking-widest font-semibold mb-3">Be Part of the Movement</p>
+              <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-3">
+                Your voice, your action, your presence matters here.
+              </h3>
+              <p className="text-white/60 text-base leading-relaxed max-w-xl">
+                EmpowerQueer Hub is open to every LGBTQIA+ Filipino who needs support, connection, or a place to be seen.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
+              <a href="/contact/" className="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-bold px-8 py-3.5 rounded-xl transition-opacity hover:opacity-90 inline-flex items-center justify-center gap-2 whitespace-nowrap">
                 Contact Us <ArrowRight size={16} />
               </a>
-              <a href="/submit/" className="border border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-xl transition-colors inline-flex items-center gap-2">
+              <a href="/submit/" className="border border-white/30 hover:border-white text-white font-semibold px-8 py-3.5 rounded-xl transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap">
                 Share Your Story
               </a>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -1300,7 +1229,6 @@ export default function Home() {
       <HubIntro />
       <EventsSection />
       <Collaboration />
-      <UpcomingEvents />
       <About />
       <Founder />
       <Mission />

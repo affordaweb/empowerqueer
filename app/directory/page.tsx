@@ -683,7 +683,7 @@ export default function DirectoryPage() {
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[600px] flex flex-col justify-end border-b border-white/10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/gallery/EmpQueer-Image-151.jpg" alt="Directory" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <img src="/images/gallery/EmpQueer-Image-151.jpg" alt="Directory" className="absolute inset-0 w-full h-full object-cover object-bottom" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A2E]/90 via-[#1A0A2E]/55 to-[#1A0A2E]/25" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Service Directory</span>
@@ -778,15 +778,20 @@ export default function DirectoryPage() {
       {/* Submit Form */}
       <section id="submit-listing" className="py-20 bg-gradient-to-br from-[#F5F0FF] to-[#FDF2F8] border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="inline-block bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Community Directory</span>
-              <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-3">Submit a Service Listing</h2>
-              <p className="text-[#474747] text-lg leading-relaxed">
-                Know an LGBTQIA+-affirming clinic, support group, or organization that isn&apos;t listed here? Help us grow this directory.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-12 items-start">
+            {/* Left */}
+            <div className="lg:sticky lg:top-28">
+              <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Community Directory</p>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-4">Submit a Service Listing</h2>
+              <p className="text-[#474747] text-lg leading-relaxed mb-8">Know an LGBTQIA+-affirming clinic, support group, hotline, or organization that should be listed here? Help us grow this directory.</p>
+              <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://images.pexels.com/photos/12633781/pexels-photo-12633781.jpeg" alt="Community directory listing" className="w-full h-72 object-cover" />
+              </div>
+              <p className="text-[#474747] text-sm leading-relaxed">All listings are verified before being added. We list healthcare providers, community centers, support organizations, hotlines, and advocacy groups that affirm LGBTQIA+ dignity.</p>
             </div>
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
+            {/* Right */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
               <DirectorySubmitForm />
             </div>
           </div>

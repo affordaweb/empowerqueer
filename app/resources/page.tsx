@@ -814,15 +814,20 @@ export default function ResourcesPage() {
       {/* ── Submit Resource Form ── */}
       <section id="submit-resource" className="py-20 bg-gradient-to-br from-[#F5F0FF] to-[#FDF2F8] border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="inline-block bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Community Library</span>
-              <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-3">Submit a Resource</h2>
-              <p className="text-[#474747] text-lg leading-relaxed">
-                Know a free-copyright guide, article, or toolkit that would help our community? Share it here and help us grow this library.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-12 items-start">
+            {/* Left */}
+            <div className="lg:sticky lg:top-28">
+              <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Community Library</p>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-4">Submit a Resource</h2>
+              <p className="text-[#474747] text-lg leading-relaxed mb-8">Know a free-copyright guide, article, or toolkit that would help our community? Share it here and help us grow this library.</p>
+              <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="https://images.pexels.com/photos/4219312/pexels-photo-4219312.jpeg" alt="Community library resources" className="w-full h-72 object-cover" />
+              </div>
+              <p className="text-[#474747] text-sm leading-relaxed">All submissions are reviewed for copyright compliance before being added to the library.</p>
             </div>
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
+            {/* Right */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
               <ResourceSubmitForm />
             </div>
           </div>

@@ -9,6 +9,7 @@ const quickLinks = [
   { label: "FAQs", href: "/faqs/" },
   { label: "Voices Among Us", href: "/voices/" },
   { label: "Share Your Story", href: "/stories/" },
+  { label: "Photo Gallery", href: "/gallery/" },
 ];
 
 const categories = [
