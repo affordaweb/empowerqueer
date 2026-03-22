@@ -28,7 +28,7 @@ function StoryModal({ onClose }: { onClose: () => void }) {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl shadow-2xl flex flex-col lg:flex-row"
+        className="relative w-full max-w-4xl max-h-[92vh] rounded-3xl shadow-2xl flex flex-col lg:flex-row"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close */}
@@ -41,7 +41,7 @@ function StoryModal({ onClose }: { onClose: () => void }) {
         </button>
 
         {/* Left — branding panel */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] lg:w-[42%] shrink-0 p-10 flex flex-col justify-between">
+        <div className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] lg:w-[42%] shrink-0 p-10 flex flex-col justify-between lg:sticky lg:top-0 lg:self-start lg:max-h-[92vh]">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#EC4899]/20 rounded-full blur-[80px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#7C3AED]/25 rounded-full blur-[60px] pointer-events-none" />
 
@@ -73,7 +73,7 @@ function StoryModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Right — form */}
-        <div className="bg-white lg:flex-1 p-8 lg:p-10">
+        <div className="bg-white lg:flex-1 p-8 lg:p-10 overflow-y-auto max-h-[92vh]">
           {submitted ? (
             <div className="flex flex-col items-center justify-center h-full py-16 text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-[#7C3AED] to-[#EC4899] rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg">
