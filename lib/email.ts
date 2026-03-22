@@ -1,6 +1,9 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY || "placeholder");
+}
+
 const FROM = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "aivan.c.alvarez@gmail.com";
 const APP_URL =
@@ -24,7 +27,7 @@ export async function sendApprovalRequestEmail({
   const approveUrl = `${APP_URL}/api/admin/approve?token=${approveToken}`;
   const rejectUrl = `${APP_URL}/api/admin/reject?token=${rejectToken}`;
 
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: ADMIN_EMAIL,
     subject: `New Registration Request — ${name}`,
@@ -68,7 +71,7 @@ export async function sendWelcomeEmail({
   email: string;
 }) {
   const loginUrl = `${APP_URL}/login`;
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "You've been approved! — Empower Queer Hub",
@@ -106,7 +109,7 @@ export async function sendRejectionEmail({
   name: string;
   email: string;
 }) {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM,
     to: email,
     subject: "Update on your registration — Empower Queer Hub",
