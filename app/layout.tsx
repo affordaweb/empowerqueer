@@ -1,6 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AccessibilityWidget from "./components/AccessibilityWidget";
+
+export const viewport: Viewport = {
+  themeColor: "#7C3AED",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: "Empower Queer Hub — You Are Seen. You Are Valid. You Are Home.",
@@ -16,6 +22,22 @@ export const metadata: Metadata = {
     "queer",
     "advocacy",
   ],
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "EmpowerQueer",
+  },
+  icons: {
+    icon: [
+      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/icons/icon-192x192.png",
+  },
   openGraph: {
     title: "Empower Queer Hub",
     description: "You Are Seen. You Are Valid. You Are Home.",
