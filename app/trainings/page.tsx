@@ -816,7 +816,7 @@ export default function TrainingsPage() {
       {/* Hero */}
       <section className="relative overflow-hidden min-h-[600px] flex flex-col justify-end border-b border-white/10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/gallery/EmpQueer-Image-214.jpg" alt="Trainings" className="absolute inset-0 w-full h-full object-cover object-bottom" />
+        <img src="/images/gallery/EmpQueer-Image-214.jpg" alt="Trainings" className="absolute inset-0 w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A2E]/90 via-[#1A0A2E]/55 to-[#1A0A2E]/25" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Trainings & Workshops</span>
