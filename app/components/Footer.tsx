@@ -200,14 +200,12 @@ const quickLinks = [
   { label: "Photo Gallery", href: "/gallery/" },
 ];
 
-const categories = [
-  { label: "Community Center", href: "/directory/" },
-  { label: "Community Voices", href: "/kopisodes/" },
-  { label: "Diagnostic & Testing", href: "/directory/" },
-  { label: "Mental Health", href: "/resources/" },
-  { label: "Support Resources", href: "/resources/" },
-  { label: "Sexual Health", href: "/resources/" },
-  { label: "Youth Services", href: "/resources/" },
+const supportLines = [
+  { label: "NCMH Crisis Hotline", value: "1553", href: "tel:1553" },
+  { label: "LoveYourself Support", value: "+63 922 536 6462", href: "tel:+639225366462" },
+  { label: "Wagayway Equality", value: "+63 929 741 4738", href: "tel:+639297414738" },
+  { label: "DOH Health Line", value: "1800-10-0800-3", href: "tel:180010008003" },
+  { label: "In Crisis? Find Help", value: "View Directory →", href: "/directory/" },
 ];
 
 const recentPosts = [
@@ -283,15 +281,16 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Categories */}
+            {/* Get Help Now */}
             <div>
-              <h4 className="font-semibold text-white text-sm mb-4 uppercase tracking-wider">Categories</h4>
-              <ul className="space-y-2">
-                {categories.map((cat) => (
-                  <li key={cat.href}>
-                    <a href={cat.href} className="text-[#7A7A7A] hover:text-white text-sm transition-colors flex items-center gap-1.5 group">
-                      <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 shrink-0 text-white" />
-                      {cat.label}
+              <h4 className="font-semibold text-white text-sm mb-1 uppercase tracking-wider">Get Help Now</h4>
+              <p className="text-[#7A7A7A] text-xs mb-4 leading-relaxed">You are not alone. Reach out anytime.</p>
+              <ul className="space-y-3">
+                {supportLines.map((line) => (
+                  <li key={line.label}>
+                    <a href={line.href} className="group block">
+                      <p className="text-[#7A7A7A] text-xs group-hover:text-white transition-colors">{line.label}</p>
+                      <p className="text-white font-semibold text-sm group-hover:text-[#A9D6B6] transition-colors">{line.value}</p>
                     </a>
                   </li>
                 ))}
