@@ -873,18 +873,6 @@ function Mission() {
             </div>
           </div>
         </div>
-        <div className="mt-16 bg-white rounded-3xl border border-[#E9D5FF] p-10 text-center">
-          <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Join Us</p>
-          <h3 className="font-serif text-3xl font-bold text-[#3A3C51] mb-4">
-            Share, Connect &amp; Grow with the Empower Queer Family
-          </h3>
-          <p className="text-[#474747] text-base leading-relaxed max-w-2xl mx-auto mb-8">
-            Joining Empower Queer means becoming part of something bigger. Whether you&rsquo;re sharing your story, attending a workshop, or looking for support—we grow stronger when we grow together. Every new member, every voice, adds to this living LGBTQIA+ support hub.
-          </p>
-          <a href="/contact/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-8 py-3.5 text-base">
-            Contact Us <ArrowRight size={16} />
-          </a>
-        </div>
       </div>
     </section>
   );
@@ -1307,11 +1295,11 @@ export default function Home() {
     <main className="bg-white min-h-screen">
       <Navbar />
       <Hero />
+      <Kopisodes />
       <Features />
       <HubIntro />
       <EventsSection />
       <Collaboration />
-      <Kopisodes />
       <UpcomingEvents />
       <About />
       <Founder />
