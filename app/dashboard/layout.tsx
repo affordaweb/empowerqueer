@@ -29,6 +29,7 @@ import {
   X,
   ChevronRight,
   User,
+  Rss,
 } from "lucide-react";
 import ChatPanel from "./components/ChatPanel";
 
@@ -62,6 +63,7 @@ export function useDashboard() {
 // ─── Nav Items ───────────────────────────────────────────────
 const NAV_ITEMS = [
   { label: "Dashboard", icon: LayoutDashboard, href: "/dashboard", key: null, adminOnly: false },
+  { label: "Activity Feed", icon: Rss, href: "/dashboard/feed", key: null, adminOnly: false },
   { label: "Events", icon: Calendar, href: "/dashboard/events", key: "EVENT", adminOnly: false },
   { label: "Trainings", icon: GraduationCap, href: "/dashboard/trainings", key: "TRAINING", adminOnly: false },
   { label: "Resources", icon: BookOpen, href: "/dashboard/resources", key: "RESOURCE", adminOnly: false },
@@ -77,6 +79,7 @@ const NAV_ITEMS = [
 function getPageTitle(pathname: string): string {
   const map: Record<string, string> = {
     "/dashboard": "Dashboard",
+    "/dashboard/feed": "Activity Feed",
     "/dashboard/events": "Events",
     "/dashboard/trainings": "Trainings",
     "/dashboard/resources": "Resources",

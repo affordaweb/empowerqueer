@@ -48,7 +48,10 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const updateData: Record<string, unknown> = {};
   if (status) {
     updateData.status = status;
-    if (status === "APPROVED") updateData.publishedAt = new Date();
+    if (status === "APPROVED") {
+      updateData.publishedAt = new Date();
+      updateData.approvedBy = session!.userId;
+    }
   }
   if (data) updateData.data = data;
 
