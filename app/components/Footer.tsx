@@ -201,13 +201,13 @@ const quickLinks = [
 ];
 
 const categories = [
-  { label: "Community Center", href: "/directory/#community-center" },
-  { label: "Community Voices", href: "/kopisodes/#community-voices" },
-  { label: "Diagnostic & Testing", href: "/directory/#diagnostic" },
-  { label: "Mental Health", href: "/directory/#mental-health" },
-  { label: "Support Resources", href: "/resources/#support-resources" },
-  { label: "Sexual Health", href: "/resources/#sexual-health" },
-  { label: "Youth Services", href: "/resources/#youth-services" },
+  { label: "Community Center", href: "/directory/" },
+  { label: "Community Voices", href: "/kopisodes/" },
+  { label: "Diagnostic & Testing", href: "/directory/" },
+  { label: "Mental Health", href: "/resources/" },
+  { label: "Support Resources", href: "/resources/" },
+  { label: "Sexual Health", href: "/resources/" },
+  { label: "Youth Services", href: "/resources/" },
 ];
 
 const recentPosts = [
@@ -272,6 +272,7 @@ export default function Footer() {
                 ))}
                 <li>
                   <button
+                    data-footer-story-btn
                     onClick={() => setStoryOpen(true)}
                     className="text-[#7A7A7A] hover:text-white text-sm transition-colors flex items-center gap-1.5 group w-full text-left"
                   >

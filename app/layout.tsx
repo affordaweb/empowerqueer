@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AccessibilityWidget from "./components/AccessibilityWidget";
 
 export const metadata: Metadata = {
   title: "Empower Queer Hub — You Are Seen. You Are Valid. You Are Home.",
@@ -46,6 +47,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-white text-[#5C576E]">
         {children}
+        <AccessibilityWidget />
       </body>
     </html>
   );
