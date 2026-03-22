@@ -661,7 +661,7 @@ export default function EventsPage() {
       <section className="relative overflow-hidden min-h-[600px] flex items-end pt-[75px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg"
+          src="/images/gallery/EmpQueer-Image-150.jpg"
           alt="Events"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
