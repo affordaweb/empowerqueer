@@ -20,8 +20,8 @@ export default function AccessibilityPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto space-y-10">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
           <div>
             <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">EmpowerQueer Hub is for Everyone</h2>
