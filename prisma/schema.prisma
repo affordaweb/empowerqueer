@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  photoUrl     String?
+  role         Role     @default(USER)
+  status       Status   @default(PENDING)
+  note         String?  @db.VarChar(200)
+  lastSeen     DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  submissions       Submission[]
+  activityLogs      ActivityLog[]
+  chatMessages      ChatMessage[]
+  viewedSubmissions SubmissionView[]
+}
+
+model Submission {
+  id          String           @id @default(cuid())
+  type        SubmissionType
+  data        Json
+  status      SubmissionStatus @default(PENDING)
+  submittedBy String?
+  userId      String?
+  publishedAt DateTime?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  user         User?            @relation(fields: [userId], references: [id])
+  views        SubmissionView[]
+  activityLogs ActivityLog[]
+}
+
+model SubmissionView {
+  id           String     @id @default(cuid())
+  submissionId String
+  userId       String
+  viewedAt     DateTime   @default(now())
+
+  submission Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id])
+
+  @@unique([submissionId, userId])
+}
+
+model ActivityLog {
+  id           String     @id @default(cuid())
+  userId       String
+  action       String
+  targetType   String?
+  targetId     String?
+  details      Json?
+  createdAt    DateTime   @default(now())
+
+  user       User        @relation(fields: [userId], references: [id])
+  submission Submission? @relation(fields: [targetId], references: [id])
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  userId    String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Status {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum SubmissionType {
+  EVENT
+  TRAINING
+  RESOURCE
+  OPPORTUNITY
+  DIRECTORY
+  STORY
+  CONTACT
+}
+
+enum SubmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}

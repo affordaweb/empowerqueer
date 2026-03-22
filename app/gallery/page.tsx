@@ -9,7 +9,6 @@ import { X, ZoomIn } from "lucide-react";
 
 const images = [
   { src: "/images/gallery/EmpQueer-Image-220.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-221.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-217.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-216.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-210.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
@@ -23,14 +22,11 @@ const images = [
   { src: "/images/gallery/EmpQueer-Image-189.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-187.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-184.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-180.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-177.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-176.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-175.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-173.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-170.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/EmpQueer-Image-165.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-164.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-162.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-160.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-149.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
@@ -39,11 +35,9 @@ const images = [
   { src: "/images/gallery/EmpQueer-Image-146.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-142.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-141.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-140.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-139.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-138.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-136.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
-  { src: "/images/gallery/EmpQueer-Image-135.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
   { src: "/images/gallery/EmpQueer-Image-134.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
   { src: "/images/gallery/EmpQueer-Image-133.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
   { src: "/images/gallery/EmpQueer-Image-132.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
@@ -66,12 +60,7 @@ const images = [
   { src: "/images/gallery/DSC_0096.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/DSC_0028.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg", alt: "Batangas Pride Month Celebration 2023", tags: ["Pride"] },
-  { src: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", alt: "Equality Desk by Wagayway Equality", tags: ["Advocacy"] },
   { src: "/images/gallery/Equality-Desk-Hero.jpg", alt: "Equality Desk", tags: ["Advocacy"] },
-  { src: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", alt: "HIV 101 by Wagayway Equality", tags: ["Training"] },
-  { src: "/images/gallery/HIV-and-Aids-Surveillance.jpg", alt: "HIV and AIDS Surveillance", tags: ["Training"] },
-  { src: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", alt: "Human Rights 101 by Wagayway Equality", tags: ["Training"] },
-  { src: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", alt: "SOGIESC 101 by Wagayway Equality Inc", tags: ["Training"] },
 ];
 
 const FILTER_TAGS = ["All", "Community", "Events", "Pride", "Advocacy", "Training"];
