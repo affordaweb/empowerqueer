@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Shield,
   BookOpen,
@@ -14,10 +14,13 @@ import {
   Users,
   FileText,
   Calendar,
+  Clock,
   Heart,
   Facebook,
   Twitter,
   Youtube,
+  Send,
+  ArrowRight,
 } from "lucide-react";
 import Navbar from "./components/Navbar";
 
@@ -184,6 +187,173 @@ function Features() {
   );
 }
 
+// ─── Hub Intro ────────────────────────────────────────────────────────────────
+
+function HubIntro() {
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">About the Hub</p>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-6">
+              Empower Queer Online Hub:<br className="hidden sm:block" />
+              <span className="text-[#EC4899]"> A Home for LGBTQIA+ Empowerment</span>
+            </h2>
+            <p className="text-[#474747] text-lg leading-relaxed mb-6">
+              The Empower Queer Online Hub is a community-driven platform designed to meet the real needs of LGBTQIA+ individuals. Born from the Wagayway EmpowerQueer Project, this hub offers a safe digital space for learning, events, and empowerment.
+            </p>
+            <p className="text-[#474747] text-base leading-relaxed mb-8">
+              From mental health and legal support to livelihood opportunities and community connections, EmpowerQueer unites grassroots solutions and online accessibility to create a welcoming home for every queer identity.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="/about/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-6 py-3 text-sm">
+                Learn More <ArrowRight size={15} />
+              </a>
+              <a href="/contact/" className="btn-p btn-p-sky inline-flex items-center gap-2 px-6 py-3 text-sm">
+                Contact Us
+              </a>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { title: "Mental Health & Legal Support", desc: "Queer-safe care referrals, legal assistance, and HIV support resources all in one place." },
+              { title: "Livelihood & Opportunities", desc: "Shelter, livelihood programs, and community-grounded tools for everyday life." },
+              { title: "Learning & Education", desc: "SOGIESC 101, HIV 101, Human Rights 101 — free modules for all." },
+              { title: "Safe Digital Space", desc: "A permanent, accessible, and trustworthy online home where every identity is respected." },
+            ].map((item) => (
+              <div key={item.title} className="bg-gradient-to-br from-[#F5F0FF] to-white border border-[#E9D5FF] rounded-2xl p-5 hover:shadow-md transition-all">
+                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] mb-3" />
+                <h4 className="font-serif text-sm font-bold text-[#3A3C51] mb-2 leading-snug">{item.title}</h4>
+                <p className="text-[#474747] text-xs leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Events & Trainings ───────────────────────────────────────────────────────
+
+function EventsSection() {
+  return (
+    <section className="py-24 bg-gradient-to-br from-[#F5F0FF] to-[#FDF2F8]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="text-[#EC4899] font-semibold tracking-widest uppercase text-sm mb-3">Get Involved</p>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-6">
+              Upcoming Events<br />&amp; Trainings
+            </h2>
+            <p className="text-[#474747] text-lg leading-relaxed mb-4">
+              Stay informed and get involved with events that center LGBTQIA+ voices, needs, and experiences. From workshops to story nights and advocacy sessions, each gathering is built to connect, educate, and empower—one moment at a time.
+            </p>
+            <p className="text-[#474747] text-base leading-relaxed mb-8">
+              Stay in the loop with the latest happenings at EmpowerQueer! Visit our Facebook page to catch updates on upcoming events, trainings, and community programs designed to inspire, empower, and connect. Don&rsquo;t miss out—your next opportunity to learn, engage, and grow with the LGBTQIA+ community is just a click away, or you can even submit an event to share with the community.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="/submit/" className="btn-p btn-p-rose inline-flex items-center gap-2 px-6 py-3 text-sm">
+                Submit an Event <ArrowRight size={15} />
+              </a>
+              <a
+                href="https://www.facebook.com/wagayway.equality"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1565C0] text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors"
+              >
+                <Facebook size={15} />
+                Visit our Facebook Page
+              </a>
+            </div>
+          </div>
+          <div className="space-y-4">
+            {[
+              { tag: "Workshop", title: "SOGIESC 101 — Understanding Gender & Sexuality", date: "Ongoing", color: "bg-[#F5F0FF] border-[#E9D5FF]" },
+              { tag: "Training", title: "HIV 101 — Prevention, Testing & Community Care", date: "Ongoing", color: "bg-[#FDF2F8] border-[#FBCFE8]" },
+              { tag: "Advocacy", title: "Human Rights 101 by Wagayway Equality", date: "Ongoing", color: "bg-[#F0FDF4] border-[#BBF7D0]" },
+              { tag: "Community", title: "Equality Desk — Know Your Rights", date: "Ongoing", color: "bg-[#FFF7ED] border-[#FED7AA]" },
+            ].map((ev) => (
+              <div key={ev.title} className={`${ev.color} border rounded-2xl p-5 flex items-center gap-4 hover:shadow-md transition-all`}>
+                <div className="shrink-0">
+                  <span className="bg-white border border-gray-200 text-[#3A3C51] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                    {ev.tag}
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[#3A3C51] text-sm font-semibold leading-snug line-clamp-2">{ev.title}</p>
+                  <p className="text-[#474747]/50 text-xs mt-1">{ev.date}</p>
+                </div>
+                <ChevronRight size={16} className="text-[#3A3C51]/30 shrink-0" />
+              </div>
+            ))}
+            <a href="/events/" className="flex items-center justify-center gap-2 text-[#7C3AED] hover:text-[#EC4899] text-sm font-semibold pt-2 transition-colors">
+              View all events <ArrowRight size={15} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Collaboration Hub ────────────────────────────────────────────────────────
+
+function Collaboration() {
+  return (
+    <section className="py-24 bg-[#292733] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#7C3AED]/10 rounded-full blur-[120px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#EC4899]/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16 items-center">
+          <div>
+            <p className="text-[#A78BFA] font-semibold tracking-widest uppercase text-sm mb-3">Community First</p>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              Built by the Community,<br />
+              <span className="text-white/50">for the Community</span>
+            </h2>
+            <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-4">Your Collaboration Hub for Events, Trainings &amp; Partnerships</p>
+            <p className="text-white/70 text-lg leading-relaxed mb-5">
+              The Empower Queer Community Resource Hub is more than a directory—it&rsquo;s a shared space where LGBTQIA+ individuals, advocates, groups, and allies can co-create events, trainings, and collaborative projects that uplift our community.
+            </p>
+            <p className="text-white/60 text-base leading-relaxed mb-5">
+              Whether you&rsquo;re organizing a workshop, launching a support circle, hosting a Pride event, or looking for partners to strengthen your advocacy, this hub offers a safe and inclusive environment to connect, share, and build together.
+            </p>
+            <p className="text-white/60 text-base leading-relaxed mb-5">
+              Independent from any single organization, EmpowerQueer thrives on collaboration, transparency, and community leadership. Here, every posted event, training, partnership request, or shared experience becomes part of a growing network of care shaped by the people it serves.
+            </p>
+            <p className="text-white/80 text-base font-semibold italic mb-8">
+              This is where collective growth begins. This is where healing, learning, and collaboration meet.
+            </p>
+            <a href="/about/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-6 py-3 text-sm">
+              Learn More <ArrowRight size={15} />
+            </a>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-10 text-center w-full">
+              <div className="font-serif text-7xl font-bold bg-gradient-to-br from-[#A78BFA] to-[#EC4899] bg-clip-text text-transparent mb-3">950+</div>
+              <p className="text-white font-semibold text-lg mb-2">Happy Members</p>
+              <p className="text-white/50 text-sm leading-relaxed mb-8">
+                Active members across the Philippines who call this hub home.
+              </p>
+              <div className="rainbow-bar h-[3px] w-16 mx-auto rounded-full mb-8" />
+              <div className="grid grid-cols-3 gap-4 text-center">
+                {[["50+", "Events"], ["100%", "Verified"], ["8yrs", "Advocacy"]].map(([val, label]) => (
+                  <div key={label}>
+                    <p className="font-serif text-2xl font-bold text-white">{val}</p>
+                    <p className="text-white/40 text-xs mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Kopisodes ────────────────────────────────────────────────────────────────
 
 function Kopisodes() {
@@ -335,6 +505,150 @@ function Kopisodes() {
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Upcoming Events ──────────────────────────────────────────────────────────
+
+const upcomingEvents = [
+  {
+    id: "batangas-city-pride-2026",
+    title: "Batangas City Pride Month 2026",
+    dateDisplay: "June 11, 2026",
+    time: "8:00 AM onwards",
+    location: "Batangas City Convention Center, Batangas City",
+    description:
+      "Annual Pride Month celebration featuring the \"Rampa Na, Kahit Ano Ka, Love Ka!\" Pride Walk, Bahaghari Awards honoring LGBTQ+ champions, fashion design competitions, and free services for KALIPI members.",
+    category: "Pride",
+    tags: ["Batangas City", "Pride Walk", "Annual"],
+    image: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
+    link: "https://www.batangascity.gov.ph",
+    cardBg: "bg-pink-50",
+    border: "border-pink-200",
+    dot: "bg-pink-400",
+    pill: "bg-pink-100 border-pink-300 text-pink-700",
+  },
+  {
+    id: "batangas-province-lgbtqia-2026",
+    title: "11th LGBTQIA+ Celebration — Province of Batangas",
+    dateDisplay: "November 5, 2026",
+    time: "All Day",
+    location: "Provincial DREAM Zone, Capitol Site, Batangas City",
+    description:
+      "Province-wide LGBTQIA+ celebration with a Grand Pride Parade, mental health presentations, Festival Queen & King Costume Competition, LGBTQIA+ Got Talent showcase, and community recognition ceremonies.",
+    category: "Advocacy",
+    tags: ["Batangas Province", "Grand Parade", "Annual"],
+    image: "/images/gallery/EmpQueer-Image-116.jpg",
+    link: "https://portal.batangas.gov.ph",
+    cardBg: "bg-violet-50",
+    border: "border-violet-200",
+    dot: "bg-violet-400",
+    pill: "bg-violet-100 border-violet-300 text-violet-700",
+  },
+  {
+    id: "metro-manila-pride-2026",
+    title: "Metro Manila Pride 2026",
+    dateDisplay: "June 27, 2026",
+    time: "All Day",
+    location: "Metro Manila, Philippines (Multiple Venues)",
+    description:
+      "Asia's first and largest Pride event attracting 100,000+ participants — concerts, film screenings, art exhibitions, a massive Pride March, and discussions on LGBTQ+ rights, mental health, and HIV/AIDS awareness.",
+    category: "Pride",
+    tags: ["National", "Metro Manila", "Pride March"],
+    image: "/images/gallery/EmpQueer-Image-118.jpg",
+    link: "https://mmpride.org/",
+    cardBg: "bg-pink-50",
+    border: "border-pink-200",
+    dot: "bg-pink-400",
+    pill: "bg-pink-100 border-pink-300 text-pink-700",
+  },
+];
+
+function UpcomingEvents() {
+  return (
+    <section className="py-24 bg-[#F3F3F3]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Get Involved</p>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] mb-4">
+            Upcoming Events
+          </h2>
+          <p className="text-[#474747] max-w-xl mx-auto text-lg">
+            Stay connected with LGBTQIA+ events across Batangas and the Philippines. From Pride celebrations to advocacy workshops—every gathering matters.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {upcomingEvents.map((event) => (
+            <a
+              key={event.id}
+              href={event.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-left rounded-2xl border overflow-hidden hover:shadow-lg transition-all duration-300 group ${event.cardBg} ${event.border}`}
+            >
+              {/* Image */}
+              <div className="relative overflow-hidden h-44">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute top-2.5 right-2.5">
+                  <span className={`inline-flex items-center gap-1.5 border text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-sm backdrop-blur-sm ${event.pill}`}>
+                    <span className={`w-2 h-2 rounded-full ${event.dot} animate-pulse shrink-0`} />
+                    {event.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="p-5">
+                <h3 className="font-serif text-base font-bold text-[#3A3C51] mb-3 leading-snug line-clamp-2 group-hover:text-[#5A4B8A] transition-colors">
+                  {event.title}
+                </h3>
+                <div className="space-y-1.5 text-xs text-[#474747] mb-3">
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={12} className="shrink-0 text-[#3A3C51]" />
+                    <span>{event.dateDisplay}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Clock size={12} className="shrink-0 text-[#3A3C51]" />
+                    <span>{event.time}</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <MapPin size={12} className="shrink-0 text-[#3A3C51] mt-0.5" />
+                    <span className="line-clamp-1">{event.location}</span>
+                  </div>
+                </div>
+                <p className="text-xs text-[#474747] leading-relaxed line-clamp-2 mb-4">
+                  {event.description}
+                </p>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex gap-1 flex-wrap">
+                    {event.tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className="bg-white/70 border border-gray-200 text-gray-400 text-[10px] px-2 py-0.5 rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-xs font-semibold text-[#5A4B8A] whitespace-nowrap shrink-0">
+                    Learn more →
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <a href="/events/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-8 py-3.5 text-base">
+            View All Events <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </section>
@@ -521,6 +835,61 @@ function Founder() {
   );
 }
 
+// ─── Mission CTA ─────────────────────────────────────────────────────────────
+
+function Mission() {
+  return (
+    <section className="py-24 bg-gradient-to-br from-[#F5F0FF] to-[#FDF2F8]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Our Purpose</p>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#3A3C51] leading-tight mb-6">
+            Every LGBTQIA+ action at Empower Queer Hub starts with community
+          </h2>
+          <p className="text-[#474747] text-lg leading-relaxed mb-4">
+            We believe that everything we build is a living response to inequality, exclusion, and invisibility. Every tool we offer, every story we uplift, and every event we host is designed to foster belonging, healing, and empowerment.
+          </p>
+          <p className="text-[#474747] text-base leading-relaxed">
+            We stand with the LGBTQIA+ community by creating accessible, people-first spaces—both online and offline—that spark real change in emotional, mental, and social well-being.
+          </p>
+        </div>
+        <div className="bg-gradient-to-br from-[#7C3AED] to-[#EC4899] rounded-3xl p-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-black/10 rounded-3xl" />
+          <div className="relative">
+            <p className="text-white/80 text-sm uppercase tracking-widest font-semibold mb-4">Be Part of the Movement</p>
+            <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+              Your voice, your action, your presence—it matters here.
+            </h3>
+            <p className="text-white/80 text-base leading-relaxed max-w-xl mx-auto mb-8">
+              Whether you&rsquo;re ready to share your story, suggest a resource, or simply explore, EmpowerQueer Hub is open to you. Take a step forward—start with connection.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="/contact/" className="bg-white text-[#7C3AED] hover:bg-white/90 font-bold px-8 py-3.5 rounded-xl transition-colors inline-flex items-center gap-2">
+                Contact Us <ArrowRight size={16} />
+              </a>
+              <a href="/submit/" className="border border-white/40 hover:border-white text-white font-semibold px-8 py-3.5 rounded-xl transition-colors inline-flex items-center gap-2">
+                Share Your Story
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="mt-16 bg-white rounded-3xl border border-[#E9D5FF] p-10 text-center">
+          <p className="text-[#7C3AED] font-semibold tracking-widest uppercase text-sm mb-3">Join Us</p>
+          <h3 className="font-serif text-3xl font-bold text-[#3A3C51] mb-4">
+            Share, Connect &amp; Grow with the Empower Queer Family
+          </h3>
+          <p className="text-[#474747] text-base leading-relaxed max-w-2xl mx-auto mb-8">
+            Joining Empower Queer means becoming part of something bigger. Whether you&rsquo;re sharing your story, attending a workshop, or looking for support—we grow stronger when we grow together. Every new member, every voice, adds to this living LGBTQIA+ support hub.
+          </p>
+          <a href="/contact/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-8 py-3.5 text-base">
+            Contact Us <ArrowRight size={16} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Stats ────────────────────────────────────────────────────────────────────
 
 const stats = [
@@ -682,6 +1051,84 @@ function Gallery() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Newsletter ───────────────────────────────────────────────────────────────
+
+function Newsletter() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL ?? "https://contact-form-gamma-seven.vercel.app";
+      const res = await fetch(`${apiUrl}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: email,
+          email,
+          message: `Newsletter signup from empowerqueerhub.com\n\nEmail: ${email}`,
+          website: "empowerqueerhub.com",
+        }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <section className="py-20 bg-[#292733] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-[#7C3AED]/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#EC4899]/10 rounded-full blur-[90px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="rainbow-bar h-[3px] w-16 mx-auto rounded-full mb-8" />
+        <p className="text-[#A78BFA] font-semibold tracking-widest uppercase text-sm mb-3">Stay Connected</p>
+        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Stay connected with the community.
+        </h2>
+        <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto mb-2">
+          Join the EmpowerQueer Hub mailing list and never miss a story, guide, or upcoming event. We&rsquo;ll only send meaningful updates—no spam, just support.
+        </p>
+        <p className="text-white/30 text-sm mb-8">Don&rsquo;t worry! We won&rsquo;t spam you!</p>
+        {status === "success" ? (
+          <p className="text-[#A9D6B6] font-semibold text-base">
+            You&rsquo;re in! We&rsquo;ll keep you updated.
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              required
+              className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/30 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
+            />
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl transition-opacity inline-flex items-center gap-2 shrink-0"
+            >
+              <Send size={15} />
+              {status === "loading" ? "Signing up..." : "Sign Up"}
+            </button>
+          </form>
+        )}
+        {status === "error" && (
+          <p className="text-red-400 text-sm mt-3">Something went wrong. Please try again.</p>
+        )}
       </div>
     </section>
   );
@@ -861,11 +1308,17 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
+      <HubIntro />
+      <EventsSection />
+      <Collaboration />
       <Kopisodes />
+      <UpcomingEvents />
       <About />
       <Founder />
+      <Mission />
       <Stats />
       <Gallery />
+      <Newsletter />
       <Sponsors />
       <Footer />
     </main>

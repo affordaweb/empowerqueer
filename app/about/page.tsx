@@ -290,8 +290,8 @@ export default function AboutPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/images/gallery/EmpQueer-Image-140.jpg')" }}
         />
-        {/* Gradient overlay — soft dark blend */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F0A1E]/90 via-[#1A0D2E]/85 to-[#0F0A1E]/90" />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#292733]/95 via-[#292733]/88 to-[#292733]/95" />
         {/* Decorative blobs */}
         <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-[#7C3AED]/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-[#EC4899]/15 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
@@ -304,13 +304,53 @@ export default function AboutPage() {
             <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#EC4899]" />
           </div>
 
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-5">
-              Volunteer With Us
-            </h2>
-            <p className="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto">
-              Whether you have hours or expertise to spare, there&rsquo;s a place for you here. Join 950+ members building a more inclusive Philippines.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-16 items-start mb-16">
+            <div>
+              <h2 className="font-serif text-4xl lg:text-5xl font-bold text-white mb-5">
+                Volunteer With Us
+              </h2>
+              <p className="text-white/65 text-lg leading-relaxed mb-6">
+                Whether you have hours or expertise to spare, there&rsquo;s a place for you here. Join 950+ members building a more inclusive Philippines — one community at a time.
+              </p>
+              <p className="text-white/50 text-base leading-relaxed mb-8">
+                Volunteers at EmpowerQueer don&rsquo;t just show up — they shape the movement. From running training sessions to amplifying community voices, every role makes a real difference in the lives of LGBTQIA+ Filipinos.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { val: "950+", label: "Community Members" },
+                  { val: "50+", label: "Events Organized" },
+                  { val: "8yrs", label: "Of Grassroots Work" },
+                  { val: "100%", label: "Community-Led" },
+                ].map(({ val, label }) => (
+                  <div key={label} className="bg-white/5 border border-white/10 rounded-xl px-5 py-4">
+                    <p className="font-serif text-2xl font-bold text-white">{val}</p>
+                    <p className="text-white/40 text-xs mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* What volunteers do */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
+              <p className="text-white/40 text-xs uppercase tracking-widest font-semibold mb-6">What Volunteers Do</p>
+              <ul className="space-y-4">
+                {[
+                  "Facilitate SOGIESC, HIV 101, and Human Rights workshops",
+                  "Support community events and advocacy campaigns",
+                  "Create and curate educational content and resources",
+                  "Run outreach to marginalized LGBTQIA+ communities",
+                  "Provide peer support and safe space facilitation",
+                  "Help document and amplify lived LGBTQIA+ stories",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center shrink-0 mt-0.5">
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    </span>
+                    <span className="text-white/70 text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Role cards */}
@@ -321,54 +361,74 @@ export default function AboutPage() {
                 color: "#A78BFA",
                 bg: "#7C3AED",
                 title: "Educator",
-                desc: "Facilitate workshops, create learning content, and lead SOGIESC training sessions for communities.",
+                commitment: "4–8 hrs/month",
+                desc: "Facilitate workshops, create learning content, and lead SOGIESC, HIV 101, and Human Rights training sessions for communities and allies.",
+                skills: ["Public speaking", "Content creation", "Community education"],
               },
               {
                 icon: <Megaphone size={22} />,
                 color: "#F9A8D4",
                 bg: "#EC4899",
                 title: "Advocate",
-                desc: "Amplify queer voices, support policy campaigns, and help shape a more just and inclusive society.",
+                commitment: "Flexible",
+                desc: "Amplify queer voices, support policy campaigns, assist in documentation, and help shape a more just and inclusive Philippine society.",
+                skills: ["Advocacy", "Social media", "Campaigning"],
               },
               {
                 icon: <Users size={22} />,
                 color: "#6EE7B7",
                 bg: "#059669",
                 title: "Community Builder",
-                desc: "Organize events, run outreach programs, and create safe spaces for LGBTQIA+ individuals to connect.",
+                commitment: "6–10 hrs/month",
+                desc: "Organize events, run outreach programs, and create safe spaces for LGBTQIA+ individuals to connect, heal, and grow together.",
+                skills: ["Event planning", "Peer support", "Outreach"],
               },
-            ].map(({ icon, color, bg, title, desc }) => (
+            ].map(({ icon, color, bg, title, commitment, desc, skills }) => (
               <div
                 key={title}
-                className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-white/20 transition-all group"
+                className="bg-white/5 border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-white/20 transition-all group flex flex-col"
               >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
-                  style={{ backgroundColor: `${bg}22`, color }}
-                >
-                  {icon}
+                <div className="flex items-start justify-between mb-5">
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${bg}22`, color }}
+                  >
+                    {icon}
+                  </div>
+                  <span className="text-white/30 text-xs border border-white/10 px-2.5 py-1 rounded-full">{commitment}</span>
                 </div>
                 <h3 className="font-serif text-lg font-bold text-white mb-3">{title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{desc}</p>
+                <p className="text-white/55 text-sm leading-relaxed mb-5 flex-1">{desc}</p>
+                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/8">
+                  {skills.map((s) => (
+                    <span key={s} className="text-white/40 text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">{s}</span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/contact/"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-semibold px-8 py-3.5 rounded-full transition-opacity shadow-lg shadow-[#7C3AED]/30"
-            >
-              Join the Community
-              <ArrowRight size={16} />
-            </a>
-            <a
-              href="/contact/"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white text-sm px-6 py-3.5 rounded-full transition-colors"
-            >
-              Learn more about volunteering
-            </a>
+          <div className="bg-gradient-to-r from-[#7C3AED]/20 to-[#EC4899]/20 border border-white/10 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <p className="text-white font-semibold text-lg mb-1">Ready to make an impact?</p>
+              <p className="text-white/50 text-sm">Send us a message and we&rsquo;ll match you with the right volunteer opportunity.</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <a
+                href="/contact/"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-semibold px-8 py-3.5 rounded-full transition-opacity shadow-lg shadow-[#7C3AED]/30 whitespace-nowrap"
+              >
+                Join the Community
+                <ArrowRight size={16} />
+              </a>
+              <a
+                href="/opportunities/"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/20 text-white text-sm px-6 py-3.5 rounded-full transition-colors whitespace-nowrap"
+              >
+                View Opportunities
+              </a>
+            </div>
           </div>
         </div>
       </section>
