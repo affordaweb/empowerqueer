@@ -7,8 +7,10 @@ export default function AccessibilityPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#1A0A2E] to-[#292733] min-h-[600px] pt-[164px] border-b border-white/10 flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#7C3AED]/15 pointer-events-none" />
+      <section className="relative overflow-hidden min-h-[600px] flex flex-col justify-end border-b border-white/10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="https://images.pexels.com/photos/8304566/pexels-photo-8304566.jpeg" alt="Accessibility" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A2E]/90 via-[#1A0A2E]/55 to-[#1A0A2E]/25" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Accessibility</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Accessibility Statement</h1>
@@ -19,7 +21,7 @@ export default function AccessibilityPage() {
       </section>
 
       <section className="py-16 px-4">
-        <div className="max-w-3xl mx-auto space-y-10">
+        <div className="max-w-7xl mx-auto space-y-10">
 
           <div>
             <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-4">EmpowerQueer Hub is for Everyone</h2>
