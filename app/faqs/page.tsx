@@ -78,16 +78,14 @@ export default function FAQsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-[130px] min-h-[500px] pt-[164px] px-4 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] min-h-[600px] pt-[164px] border-b border-gray-100 flex flex-col justify-end">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+          <span className="inline-block bg-[#7C3AED]/10 text-[#7C3AED] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Help & FAQs</span>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-[#474747] text-xl leading-relaxed mb-3">
-            Everything you need to know about using the Hub, contributing, and finding support.
-          </p>
-          <p className="font-serif text-lg italic text-[#3A3C51]">
-            Quick answers, honest guidance, and zero judgment—just what you need, when you need it.
+          <p className="text-[#474747] text-xl leading-relaxed max-w-2xl">
+            Quick answers, honest guidance, and zero judgment — just what you need, when you need it.
           </p>
         </div>
       </section>

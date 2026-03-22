@@ -12,13 +12,13 @@ const quickLinks = [
 ];
 
 const categories = [
-  { label: "Community Center", href: "/category/community-center/" },
-  { label: "Community Voices", href: "/category/community-voices/" },
-  { label: "Diagnostic & Testing", href: "/category/diagnostic-testing/" },
-  { label: "Mental Health", href: "/category/mental-health/" },
-  { label: "Support Resources", href: "/category/support-resources/" },
-  { label: "Sexual Health", href: "/category/sexual-health/" },
-  { label: "Youth Services", href: "/category/youth-services/" },
+  { label: "Community Center", href: "/directory/#community-center" },
+  { label: "Community Voices", href: "/kopisodes/#community-voices" },
+  { label: "Diagnostic & Testing", href: "/directory/#diagnostic" },
+  { label: "Mental Health", href: "/directory/#mental-health" },
+  { label: "Support Resources", href: "/resources/#support-resources" },
+  { label: "Sexual Health", href: "/resources/#sexual-health" },
+  { label: "Youth Services", href: "/resources/#youth-services" },
 ];
 
 const recentPosts = [

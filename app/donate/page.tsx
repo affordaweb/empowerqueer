@@ -8,13 +8,14 @@ export default function DonatePage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] pb-[130px] min-h-[500px] pt-[164px] px-4 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="w-12 h-12 icon-bg-rose rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <section className="bg-gradient-to-br from-[#F0EBF5] to-[#E8F4EC] min-h-[600px] pt-[164px] border-b border-gray-100 flex flex-col justify-end">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+          <div className="w-12 h-12 icon-bg-rose rounded-2xl flex items-center justify-center mb-6">
             <Heart size={22} className="icon-rose icon-anim" />
           </div>
+          <span className="inline-block bg-[#EC4899]/10 text-[#EC4899] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Support the Hub</span>
           <h1 className="font-serif text-5xl font-bold text-[#3A3C51] mb-4">Donate</h1>
-          <p className="text-[#474747] text-xl leading-relaxed">
+          <p className="text-[#474747] text-xl leading-relaxed max-w-2xl">
             Your help keeps this space free, safe, and community-led.
           </p>
         </div>

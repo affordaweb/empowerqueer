@@ -658,7 +658,7 @@ export default function EventsPage() {
       <Navbar />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-[500px] flex items-end pt-[75px]">
+      <section className="relative overflow-hidden min-h-[600px] flex items-end pt-[75px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg"
