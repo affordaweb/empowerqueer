@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 
 interface Prefs {
@@ -22,8 +23,13 @@ const DEFAULT: Prefs = {
 };
 
 export default function AccessibilityWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [prefs, setPrefs] = useState<Prefs>(DEFAULT);
+
+  if (pathname?.startsWith("/dashboard") || pathname === "/login" || pathname === "/register") {
+    return null;
+  }
 
   /* Apply preferences to <html> element */
   useEffect(() => {
