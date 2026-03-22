@@ -3,10 +3,34 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+
+const contactFaqs = [
+  {
+    q: "Who can use EmpowerQueer Hub?",
+    a: "Anyone can access the Hub — whether you're part of the LGBTQIA+ community, an ally, educator, peer leader, or just seeking reliable information. The platform is free and open to all, especially those looking for safe, inclusive support.",
+  },
+  {
+    q: "Can I submit a resource or event to be featured?",
+    a: "Yes. Use the Submit a Resource or Event page to upload PDFs, flyers, or event details. You can add tags, choose categories, and submit supporting materials. All entries are reviewed by our team before being published.",
+  },
+  {
+    q: "I want to share my story — can I remain anonymous?",
+    a: "Absolutely. When submitting a story, you can choose to be credited by your full name, nickname, or remain completely anonymous. Just let us know your preference in the Message section of the submission form.",
+  },
+  {
+    q: "How do I find LGBTQIA+-affirming services in my area?",
+    a: "Visit the Service Directory page. You'll find a filterable list of clinics, shelters, legal aid providers, and more — tagged for specific services like gender-affirming care or free HIV testing.",
+  },
+  {
+    q: "Is the Hub mobile-friendly and accessible?",
+    a: "Yes. EmpowerQueer Hub is designed to be mobile-first, screen-reader friendly, and compliant with accessibility standards. Text resizing, alt tags, and clean navigation help make the site usable for everyone.",
+  },
+];
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -191,38 +215,44 @@ export default function ContactPage() {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 px-4 bg-[#F3F3F3]">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl font-bold text-[#3A3C51] mb-3">Frequently Asked Questions</h2>
-            <p className="text-[#474747]">Quick answers to help you navigate the EmpowerQueer Hub with confidence.</p>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] py-20">
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#EC4899]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#7C3AED]/15 rounded-full blur-[80px] pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="inline-block bg-white/10 border border-white/20 text-white/70 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-5">FAQs</span>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4">
+              Got questions?<br />We&rsquo;ve got answers.
+            </h2>
+            <p className="text-white/50 text-lg">
+              Quick answers to help you navigate EmpowerQueer Hub with confidence.
+            </p>
           </div>
-          <div className="space-y-4">
-            {[
-              {
-                q: "Who can use EmpowerQueer Hub?",
-                a: "Anyone can access the Hub—whether you're part of the LGBTQIA+ community, an ally, educator, peer leader, or just seeking reliable information. The platform is free and open to all, especially those looking for safe, inclusive support.",
-              },
-              {
-                q: "Can I submit a resource or event to be featured?",
-                a: "Yes. Use the Submit a Resource or Event page to upload PDFs, flyers, or event details. You can add tags, choose categories, and submit supporting materials. All entries are reviewed by our team before being published.",
-              },
-              {
-                q: "I want to share my story—can I remain anonymous?",
-                a: "Absolutely. When submitting a story, you can choose to be credited by your full name, nickname, or remain completely anonymous. Just let us know your preference in the Message section of the submission form.",
-              },
-              {
-                q: "How do I find LGBTQIA+ affirming services in my area?",
-                a: "Visit the Service Directory page. You'll find a searchable map and filterable list of clinics, shelters, legal aid providers, and more—tagged for specific services like gender-affirming care or free HIV testing.",
-              },
-              {
-                q: "Is the Hub mobile-friendly and accessible?",
-                a: "Yes. EmpowerQueer Hub is designed to be mobile-first, screen-reader friendly, and compliant with accessibility standards. Text resizing, alt tags, and clean navigation help make the site usable for everyone.",
-              },
-            ].map((faq) => (
-              <div key={faq.q} className="bg-white border border-gray-200 rounded-xl p-6 hover:border-[#A9D6B6] transition-all">
-                <h3 className="font-semibold text-[#3A3C51] mb-2">{faq.q}</h3>
-                <p className="text-[#474747] text-sm leading-relaxed">{faq.a}</p>
+          <div className="space-y-3">
+            {contactFaqs.map((faq, i) => (
+              <div
+                key={i}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  openFaq === i
+                    ? "bg-white/10 border-white/20"
+                    : "bg-white/5 border-white/10 hover:bg-white/8 hover:border-white/15"
+                }`}
+              >
+                <button
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span className="font-semibold text-white text-base leading-snug">{faq.q}</span>
+                  <ChevronDown
+                    size={18}
+                    className={`shrink-0 text-white/50 transition-transform duration-300 ${openFaq === i ? "rotate-180 text-[#A78BFA]" : ""}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 pb-6">
+                    <p className="text-white/65 text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

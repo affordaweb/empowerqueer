@@ -41,7 +41,6 @@ const images = [
   { src: "/images/gallery/EmpQueer-Image-141.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-140.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-139.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-138-1.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-138.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
   { src: "/images/gallery/EmpQueer-Image-136.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
   { src: "/images/gallery/EmpQueer-Image-135.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
@@ -67,8 +66,6 @@ const images = [
   { src: "/images/gallery/DSC_0096.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/DSC_0028.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
   { src: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg", alt: "Batangas Pride Month Celebration 2023", tags: ["Pride"] },
-  { src: "/images/gallery/Wagayway-Equality-Join-in-Sublian-Festival.jpg", alt: "Wagayway Equality — Sublian Festival", tags: ["Events"] },
-  { src: "/images/gallery/Wagayway-Equality-Sublian-Festival.jpg", alt: "Wagayway Equality — Sublian Festival", tags: ["Events"] },
   { src: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", alt: "Equality Desk by Wagayway Equality", tags: ["Advocacy"] },
   { src: "/images/gallery/Equality-Desk-Hero.jpg", alt: "Equality Desk", tags: ["Advocacy"] },
   { src: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", alt: "HIV 101 by Wagayway Equality", tags: ["Training"] },
@@ -97,7 +94,7 @@ export default function GalleryPage() {
         <img
           src="/images/gallery/EmpQueer-Image-120.jpg"
           alt="Gallery"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A0A2E]/90 via-[#1A0A2E]/55 to-[#1A0A2E]/25" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
