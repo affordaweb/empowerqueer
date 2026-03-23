@@ -7,6 +7,7 @@ import React, {
   useState,
   useCallback,
   useRef,
+  useMemo,
 } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
@@ -253,6 +254,122 @@ function Sidebar({
   );
 }
 
+// ─── Notification sound (Messenger-style) ────────────────────
+function playNotificationSound() {
+  try {
+    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    const ctx = new AudioCtx();
+
+    function tone(freq: number, start: number, dur: number, vol: number) {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, ctx.currentTime + start);
+      gain.gain.setValueAtTime(0, ctx.currentTime + start);
+      gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + start + 0.01);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
+      osc.start(ctx.currentTime + start);
+      osc.stop(ctx.currentTime + start + dur);
+    }
+
+    // Two-note Messenger "pop" — E5 then G5
+    tone(659, 0, 0.18, 0.28);
+    tone(784, 0.12, 0.22, 0.22);
+  } catch {
+    // AudioContext not available (e.g. SSR or blocked)
+  }
+}
+
+// ─── Notification dropdown ────────────────────────────────────
+const NOTIF_LABELS: Record<string, string> = {
+  EVENT: "Events",
+  TRAINING: "Trainings",
+  RESOURCE: "Resources",
+  OPPORTUNITY: "Opportunities",
+  DIRECTORY: "Directory",
+  STORY: "Stories",
+  CONTACT: "Contact",
+  VISITOR_CHAT: "Visitor Chat",
+};
+const NOTIF_HREFS: Record<string, string> = {
+  EVENT: "/dashboard/events",
+  TRAINING: "/dashboard/trainings",
+  RESOURCE: "/dashboard/resources",
+  OPPORTUNITY: "/dashboard/opportunities",
+  DIRECTORY: "/dashboard/directory",
+  STORY: "/dashboard/stories",
+  CONTACT: "/dashboard/contact",
+  VISITOR_CHAT: "/dashboard/chat",
+};
+
+function NotificationDropdown({
+  unread,
+  onClose,
+}: {
+  unread: Record<string, number>;
+  onClose: () => void;
+}) {
+  const items = Object.entries(unread).filter(([, v]) => v > 0);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -8, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -8, scale: 0.95 }}
+      transition={{ duration: 0.15 }}
+      className="absolute right-0 top-11 w-80 bg-[#1A1035] border border-[rgba(124,58,237,0.3)] rounded-2xl shadow-2xl overflow-hidden z-50"
+    >
+      {/* Header */}
+      <div className="px-4 py-3 border-b border-[rgba(124,58,237,0.15)] flex items-center justify-between">
+        <span className="text-white font-bold text-base">Notifications</span>
+        {items.length > 0 && (
+          <span className="text-xs text-[#A78BFA] font-medium">{items.reduce((s, [, v]) => s + v, 0)} new</span>
+        )}
+      </div>
+
+      {/* Items */}
+      <div className="max-h-80 overflow-y-auto">
+        {items.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-10 gap-2">
+            <Bell size={28} className="text-[#4B5563]" />
+            <p className="text-[#6B7280] text-sm">You&apos;re all caught up!</p>
+          </div>
+        ) : (
+          items.map(([key, count]) => (
+            <Link key={key} href={NOTIF_HREFS[key] ?? "/dashboard"} onClick={onClose}>
+              <div className="flex items-center gap-3 px-4 py-3 hover:bg-[rgba(124,58,237,0.1)] transition cursor-pointer group">
+                {/* Blue dot (unread indicator) */}
+                <div className="w-2.5 h-2.5 rounded-full bg-[#0084FF] flex-shrink-0" />
+                {/* Avatar circle with initial */}
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center flex-shrink-0">
+                  <span className="text-white text-xs font-bold">{(NOTIF_LABELS[key] ?? key).charAt(0)}</span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-sm font-semibold leading-tight">{NOTIF_LABELS[key] ?? key}</p>
+                  <p className="text-[#A78BFA] text-xs mt-0.5">
+                    {count} new submission{count > 1 ? "s" : ""} pending review
+                  </p>
+                </div>
+                <span className="flex-shrink-0 bg-[#0084FF] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                  {count > 99 ? "99+" : count}
+                </span>
+              </div>
+            </Link>
+          ))
+        )}
+      </div>
+
+      {/* Footer */}
+      <div className="border-t border-[rgba(124,58,237,0.15)] px-4 py-2.5">
+        <Link href="/dashboard" onClick={onClose} className="block text-center text-[#0084FF] text-sm font-semibold hover:underline">
+          See all in Dashboard
+        </Link>
+      </div>
+    </motion.div>
+  );
+}
+
 // ─── Layout ───────────────────────────────────────────────────
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -261,7 +378,24 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [unread, setUnread] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [notifOpen, setNotifOpen] = useState(false);
   const unreadTimer = useRef<NodeJS.Timeout | null>(null);
+  const prevUnreadTotalRef = useRef<number>(0);
+  const notifRef = useRef<HTMLDivElement>(null);
+  const isFirstFetch = useRef(true);
+
+  // Close notification dropdown on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (notifRef.current && !notifRef.current.contains(e.target as Node)) {
+        setNotifOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const totalUnread = useMemo(() => Object.values(unread).reduce((s, v) => s + v, 0), [unread]);
 
   // Fetch current user
   useEffect(() => {
@@ -295,7 +429,14 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         0
       );
       if (submissions && typeof submissions === "object") {
-        setUnread({ ...submissions, VISITOR_CHAT: unreadChat });
+        const next = { ...submissions, VISITOR_CHAT: unreadChat };
+        const nextTotal = Object.values(next).reduce((s: number, v) => s + (v as number), 0);
+        if (!isFirstFetch.current && nextTotal > prevUnreadTotalRef.current) {
+          playNotificationSound();
+        }
+        prevUnreadTotalRef.current = nextTotal;
+        isFirstFetch.current = false;
+        setUnread(next);
       }
     });
   }, []);
@@ -378,13 +519,26 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
             <div className="flex items-center gap-3">
               {/* Notification Bell */}
-              <div className="relative">
-                <button className="w-9 h-9 rounded-xl bg-[#1A1035] border border-[rgba(124,58,237,0.3)] flex items-center justify-center text-[#A78BFA] hover:border-[#7C3AED] transition">
-                  <Bell size={16} />
+              <div className="relative" ref={notifRef}>
+                <button
+                  onClick={() => setNotifOpen((o) => !o)}
+                  className={`w-9 h-9 rounded-xl bg-[#1A1035] border flex items-center justify-center text-[#A78BFA] hover:border-[#7C3AED] transition ${notifOpen ? "border-[#7C3AED]" : "border-[rgba(124,58,237,0.3)]"}`}
+                >
+                  <Bell size={16} className={totalUnread > 0 ? "animate-[wiggle_0.5s_ease-in-out]" : ""} />
                 </button>
-                {Object.values(unread).some((v) => v > 0) && (
-                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-[#0F0A1E]" />
+                {totalUnread > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] px-1 bg-[#0084FF] text-white text-[9px] font-bold rounded-full flex items-center justify-center border-2 border-[#0F0A1E]">
+                    {totalUnread > 99 ? "99+" : totalUnread}
+                  </span>
                 )}
+                <AnimatePresence>
+                  {notifOpen && (
+                    <NotificationDropdown
+                      unread={unread}
+                      onClose={() => setNotifOpen(false)}
+                    />
+                  )}
+                </AnimatePresence>
               </div>
               {/* User name (desktop) */}
               <div className="hidden sm:flex items-center gap-2 text-sm text-[#C4B5FD]">

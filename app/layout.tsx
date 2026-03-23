@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import AccessibilityWidget from "./components/AccessibilityWidget";
 import VisitorChat from "./components/VisitorChat";
@@ -72,6 +73,13 @@ export default function RootLayout({
         {children}
         <AccessibilityWidget />
         <VisitorChat />
+        <Script
+          id="sw-register"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }`,
+          }}
+        />
       </body>
     </html>
   );

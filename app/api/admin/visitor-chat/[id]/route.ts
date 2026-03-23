@@ -37,6 +37,23 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ id:
   }
 }
 
+// DELETE conversation + all messages
+export async function DELETE(_req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const session = await getSession();
+  const err = requireAdmin(session);
+  if (err) return err;
+
+  const { id } = await params;
+
+  try {
+    await prisma.visitorMessage.deleteMany({ where: { conversationId: id } });
+    await prisma.visitorConversation.delete({ where: { id } });
+    return NextResponse.json({ ok: true });
+  } catch {
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
+}
+
 // POST admin reply
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const session = await getSession();

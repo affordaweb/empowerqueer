@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { MessagesSquare, Send, User, Clock, Circle } from "lucide-react";
+import { MessagesSquare, Send, User, Clock, Circle, Trash2 } from "lucide-react";
 import { useDashboard } from "../layout";
 
 interface VisitorMessage {
@@ -39,6 +39,7 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<VisitorMessage[]>([]);
   const [reply, setReply] = useState("");
   const [sending, setSending] = useState(false);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
   const pollRef = useRef<NodeJS.Timeout | null>(null);
@@ -102,6 +103,18 @@ export default function ChatPage() {
     }
   }
 
+  async function handleDelete(id: string) {
+    if (!confirm("Delete this conversation and all messages? This cannot be undone.")) return;
+    setDeleting(id);
+    try {
+      await fetch(`/api/admin/visitor-chat/${id}`, { method: "DELETE" });
+      setConversations((prev) => prev.filter((c) => c.id !== id));
+      if (activeId === id) { setActiveId(null); setMessages([]); }
+    } finally {
+      setDeleting(null);
+    }
+  }
+
   const activeConvo = conversations.find((c) => c.id === activeId);
 
   return (
@@ -129,35 +142,47 @@ export default function ChatPage() {
               const lastMsg = c.messages[0];
               const isActive = c.id === activeId;
               return (
-                <button
+                <div
                   key={c.id}
-                  onClick={() => setActiveId(c.id)}
-                  className={`w-full text-left px-4 py-3 border-b border-[rgba(124,58,237,0.1)] transition-all ${
+                  className={`relative group border-b border-[rgba(124,58,237,0.1)] transition-all ${
                     isActive
                       ? "bg-[rgba(124,58,237,0.2)] border-l-2 border-l-[#7C3AED]"
                       : "hover:bg-[rgba(124,58,237,0.08)]"
                   }`}
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center flex-shrink-0">
-                      <User size={13} className="text-white" />
+                  <button
+                    onClick={() => setActiveId(c.id)}
+                    className="w-full text-left px-4 py-3 pr-10"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center flex-shrink-0">
+                        <User size={13} className="text-white" />
+                      </div>
+                      <span className="text-white text-sm font-medium truncate flex-1">{c.visitorName}</span>
+                      {c._count.messages > 0 && (
+                        <span className="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                          {c._count.messages}
+                        </span>
+                      )}
                     </div>
-                    <span className="text-white text-sm font-medium truncate flex-1">{c.visitorName}</span>
-                    {c._count.messages > 0 && (
-                      <span className="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                        {c._count.messages}
-                      </span>
+                    {lastMsg && (
+                      <p className="text-[#6B7280] text-xs truncate pl-9">
+                        {lastMsg.senderType === "ADMIN" ? "You: " : ""}{lastMsg.message}
+                      </p>
                     )}
-                  </div>
-                  {lastMsg && (
-                    <p className="text-[#6B7280] text-xs truncate pl-9">
-                      {lastMsg.senderType === "ADMIN" ? "You: " : ""}{lastMsg.message}
+                    <p className="text-[#4B5563] text-[10px] pl-9 mt-0.5 flex items-center gap-1">
+                      <Clock size={9} /> {timeAgo(c.updatedAt)}
                     </p>
-                  )}
-                  <p className="text-[#4B5563] text-[10px] pl-9 mt-0.5 flex items-center gap-1">
-                    <Clock size={9} /> {timeAgo(c.updatedAt)}
-                  </p>
-                </button>
+                  </button>
+                  <button
+                    onClick={() => handleDelete(c.id)}
+                    disabled={deleting === c.id}
+                    title="Delete conversation"
+                    className="absolute top-3 right-2 w-6 h-6 rounded-lg bg-red-500/0 hover:bg-red-500/20 text-[#6B7280] hover:text-red-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition disabled:opacity-40"
+                  >
+                    <Trash2 size={12} />
+                  </button>
+                </div>
               );
             })
           )}
@@ -181,12 +206,20 @@ export default function ChatPage() {
               <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center">
                 <User size={16} className="text-white" />
               </div>
-              <div>
+              <div className="flex-1">
                 <p className="text-white font-semibold text-sm">{activeConvo?.visitorName ?? "Guest"}</p>
                 <p className="text-[#6B7280] text-xs flex items-center gap-1">
                   <Circle size={7} className="fill-green-400 text-green-400" /> Active visitor
                 </p>
               </div>
+              <button
+                onClick={() => handleDelete(activeId!)}
+                disabled={deleting === activeId}
+                title="Delete conversation"
+                className="w-8 h-8 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500/20 flex items-center justify-center transition disabled:opacity-40"
+              >
+                <Trash2 size={15} />
+              </button>
             </div>
 
             {/* Messages */}

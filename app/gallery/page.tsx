@@ -1,67 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { X, ZoomIn } from "lucide-react";
 
-/* ─── Image data ─────────────────────────────────────────────────────────── */
-
-const images = [
-  { src: "/images/gallery/EmpQueer-Image-220.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-217.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-216.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-210.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-208.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-206.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-202.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-194.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-193.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-192.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-190.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-189.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-187.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-184.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-177.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-176.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-173.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-170.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/EmpQueer-Image-165.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-162.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-160.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-149.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-148.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-147.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-146.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-142.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-141.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-139.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-138.jpg", alt: "EmpowerQueer Community Moment", tags: ["Events"] },
-  { src: "/images/gallery/EmpQueer-Image-136.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
-  { src: "/images/gallery/EmpQueer-Image-134.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
-  { src: "/images/gallery/EmpQueer-Image-133.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
-  { src: "/images/gallery/EmpQueer-Image-132.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
-  { src: "/images/gallery/EmpQueer-Image-130.jpg", alt: "EmpowerQueer Community Moment", tags: ["Advocacy"] },
-  { src: "/images/gallery/EmpQueer-Image-120.jpg", alt: "EmpowerQueer Community Moment", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-118.jpg", alt: "Metro Manila Pride", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-117.jpg", alt: "EmpowerQueer Community Moment", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-116.jpg", alt: "EmpowerQueer Community Moment", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-115.jpg", alt: "EmpowerQueer Community Moment", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-113.jpg", alt: "EmpowerQueer Community Moment", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-109.jpg", alt: "EmpowerQueer Community Moment", tags: ["Pride"] },
-  { src: "/images/gallery/EmpQueer-Image-102.jpg", alt: "EmpowerQueer Community Moment", tags: ["Training"] },
-  { src: "/images/gallery/EmpQueer-Image-101.jpg", alt: "EmpowerQueer Community Moment", tags: ["Training"] },
-  { src: "/images/gallery/DSC_0800.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0735.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0664.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0639.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0136.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0101.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0096.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/DSC_0028.jpg", alt: "EmpowerQueer Community Moment", tags: ["Community"] },
-  { src: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg", alt: "Batangas Pride Month Celebration 2023", tags: ["Pride"] },
-  { src: "/images/gallery/Equality-Desk-Hero.jpg", alt: "Equality Desk", tags: ["Advocacy"] },
-];
+interface GalleryImage {
+  id: string;
+  src: string;
+  alt: string;
+  tags: string[];
+}
 
 const FILTER_TAGS = ["All", "Community", "Events", "Pride", "Advocacy", "Training"];
 
@@ -69,7 +18,15 @@ const FILTER_TAGS = ["All", "Community", "Events", "Pride", "Advocacy", "Trainin
 
 export default function GalleryPage() {
   const [activeTag, setActiveTag] = useState("All");
-  const [lightbox, setLightbox] = useState<(typeof images)[0] | null>(null);
+  const [images, setImages] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [lightbox, setLightbox] = useState<GalleryImage | null>(null);
+
+  useEffect(() => {
+    fetch("/api/gallery")
+      .then((r) => r.json())
+      .then((d) => { setImages(d.images ?? []); setLoading(false); });
+  }, []);
 
   const filtered = activeTag === "All" ? images : images.filter((img) => img.tags.includes(activeTag));
 
@@ -127,7 +84,9 @@ export default function GalleryPage() {
       {/* Masonry Grid */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          {filtered.length === 0 ? (
+          {loading ? (
+            <div className="flex justify-center py-24"><div className="w-8 h-8 border-2 border-[#7C3AED] border-t-transparent rounded-full animate-spin" /></div>
+          ) : filtered.length === 0 ? (
             <div className="text-center py-24 text-[#474747]">No photos in this category yet.</div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">

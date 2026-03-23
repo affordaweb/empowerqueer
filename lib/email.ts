@@ -102,6 +102,53 @@ export async function sendWelcomeEmail({
   });
 }
 
+export async function sendNewSubmissionEmail({
+  type,
+  submittedBy,
+  data,
+}: {
+  type: string;
+  submittedBy?: string | null;
+  data: Record<string, unknown>;
+}) {
+  const label = type.charAt(0) + type.slice(1).toLowerCase();
+  const dashboardUrl = `${APP_URL}/dashboard/${type.toLowerCase()}s`;
+
+  const dataRows = Object.entries(data)
+    .filter(([k]) => !["id", "createdAt", "updatedAt", "userId"].includes(k))
+    .slice(0, 8)
+    .map(
+      ([k, v]) =>
+        `<tr><td style="color:#A78BFA;font-size:13px;font-weight:600;width:140px;padding:8px 12px;">${k.replace(/([A-Z])/g, " $1").trim()}</td><td style="color:#fff;padding:8px 12px;">${String(v ?? "—").slice(0, 200)}</td></tr>`
+    )
+    .join("");
+
+  await getResend().emails.send({
+    from: FROM,
+    to: ADMIN_EMAIL,
+    subject: `New ${label} Submission — Empower Queer Hub`,
+    html: `
+<!DOCTYPE html><html><body style="margin:0;padding:0;background:#0F0A1E;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0F0A1E;padding:40px 20px;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#1A1035;border-radius:16px;overflow:hidden;border:1px solid rgba(124,58,237,0.3);">
+<tr><td style="background:linear-gradient(135deg,#7C3AED,#EC4899);padding:28px 32px;text-align:center;">
+<h1 style="color:#fff;margin:0;font-size:22px;">New ${label} Submission</h1>
+<p style="color:rgba(255,255,255,0.8);margin:6px 0 0;font-size:13px;">Empower Queer Hub</p>
+</td></tr>
+<tr><td style="padding:28px 32px;">
+<p style="color:#C4B5FD;font-size:15px;margin:0 0 20px;">Submitted by <strong style="color:#fff;">${submittedBy ?? "Anonymous"}</strong> · ${new Date().toLocaleString("en-PH", { timeZone: "Asia/Manila" })}</p>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#0F0A1E;border-radius:12px;border:1px solid rgba(124,58,237,0.2);margin-bottom:24px;">${dataRows}</table>
+<a href="${dashboardUrl}" style="display:block;text-align:center;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;padding:14px;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;">Review in Dashboard →</a>
+</td></tr>
+<tr><td style="padding:16px 32px;border-top:1px solid rgba(124,58,237,0.2);text-align:center;">
+<p style="color:#6B7280;font-size:12px;margin:0;">Empower Queer Hub · <a href="${APP_URL}" style="color:#7C3AED;">empowerqueerhub.com</a></p>
+</td></tr>
+</table></td></tr></table>
+</body></html>`,
+  });
+}
+
 export async function sendRejectionEmail({
   name,
   email,

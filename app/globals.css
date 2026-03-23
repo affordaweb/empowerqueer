@@ -47,6 +47,14 @@ body {
   50%       { opacity: 1;    transform: scale(1.7); }
 }
 
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(-15deg); }
+  40%       { transform: rotate(15deg); }
+  60%       { transform: rotate(-10deg); }
+  80%       { transform: rotate(10deg); }
+}
+
 .btn-p {
   position: relative;
   font-weight: 600;

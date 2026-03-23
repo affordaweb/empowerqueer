@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { sendNewSubmissionEmail } from "@/lib/email";
 
 const VALID_TYPES = [
   "EVENT", "TRAINING", "RESOURCE", "OPPORTUNITY",
@@ -108,6 +109,13 @@ export async function POST(req: NextRequest) {
         status: "PENDING",
       },
     });
+
+    // Notify admin via email (fire-and-forget)
+    sendNewSubmissionEmail({
+      type,
+      submittedBy: submittedBy || null,
+      data: (data || body) as Record<string, unknown>,
+    }).catch(console.error);
 
     return NextResponse.json({ submission }, { status: 201 });
   } catch (err) {
