@@ -63,18 +63,6 @@ export default function VisitorChat() {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
-  useEffect(() => {
-    const check = () => {
-      if (window.location.hash === "#openchat") {
-        setOpen(true);
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }
-    };
-    check();
-    window.addEventListener("hashchange", check);
-    return () => window.removeEventListener("hashchange", check);
-  }, []);
-
   function handleStartChat(e: React.FormEvent) {
     e.preventDefault();
     const n = nameInput.trim() || "Guest";
@@ -101,11 +89,22 @@ export default function VisitorChat() {
     }
   }
 
-  if (!open) return null;
-
   return (
-    <div className="fixed bottom-6 right-20 z-[100]">
-      <div className="mb-4 w-[340px] rounded-2xl shadow-2xl overflow-hidden border border-[rgba(124,58,237,0.4)] bg-[#1A0A2E] flex flex-col" style={{ height: "460px" }}>
+    <div className="fixed bottom-6 right-6 z-[100]">
+      {/* Floating bubble trigger */}
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          className="w-14 h-14 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] rounded-full shadow-xl flex items-center justify-center text-white hover:scale-110 transition-transform"
+          aria-label="Open chat"
+        >
+          <MessageCircle size={24} />
+        </button>
+      )}
+
+      {/* Chat popup */}
+      {open && (
+        <div className="mb-4 w-[340px] rounded-2xl shadow-2xl overflow-hidden border border-[rgba(124,58,237,0.4)] bg-[#1A0A2E] flex flex-col" style={{ height: "460px" }}>
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899]">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
@@ -190,6 +189,7 @@ export default function VisitorChat() {
             </>
           )}
         </div>
+      )}
     </div>
   );
 }
