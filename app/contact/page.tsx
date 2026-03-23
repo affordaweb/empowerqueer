@@ -30,10 +30,29 @@ const contactFaqs = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitting(true);
+    const fd = new FormData(e.currentTarget);
+    await fetch("/api/submissions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "CONTACT",
+        data: {
+          name: fd.get("name"),
+          email: fd.get("email"),
+          phone: fd.get("phone"),
+          subject: fd.get("subject"),
+          message: fd.get("message"),
+        },
+        submittedBy: fd.get("email"),
+      }),
+    });
+    setSubmitting(false);
     setSubmitted(true);
   }
 
@@ -147,6 +166,7 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
+                        name="name"
                         required
                         placeholder="Your name"
                         className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#A9D6B6] focus:ring-2 focus:ring-[#A9D6B6]/40 transition-all"
@@ -158,6 +178,7 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="email"
+                        name="email"
                         required
                         placeholder="your@email.com"
                         className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#A9D6B6] focus:ring-2 focus:ring-[#A9D6B6]/40 transition-all"
@@ -171,6 +192,7 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
                         placeholder="+63 XXX XXX XXXX"
                         className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#A9D6B6] focus:ring-2 focus:ring-[#A9D6B6]/40 transition-all"
                       />
@@ -181,6 +203,7 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
+                        name="subject"
                         required
                         placeholder="How can we help?"
                         className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#A9D6B6] focus:ring-2 focus:ring-[#A9D6B6]/40 transition-all"
@@ -193,6 +216,7 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       required
+                      name="message"
                       rows={6}
                       placeholder="Tell us more..."
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#A9D6B6] focus:ring-2 focus:ring-[#A9D6B6]/40 transition-all resize-none"
@@ -200,9 +224,10 @@ export default function ContactPage() {
                   </div>
                   <button
                     type="submit"
-                    className="btn-p btn-p-mint flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base"
+                    disabled={submitting}
+                    className="btn-p btn-p-mint flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {submitting ? "Sending..." : "Send Message"}
                   </button>
                   <p className="text-[#474747] text-xs text-center">
                     All messages are handled with care and confidentiality.

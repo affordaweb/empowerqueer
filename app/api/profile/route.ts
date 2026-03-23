@@ -87,5 +87,18 @@ export async function PATCH(req: NextRequest) {
     action: "UPDATED_PROFILE",
   }).catch(console.error);
 
+  // Post to activity feed when note changes and is non-empty
+  if (note && note.trim() && note.trim() !== user.note?.trim()) {
+    logActivity({
+      userId: session.userId,
+      action: "POSTED_STATUS",
+      details: {
+        note: note.trim(),
+        userName: updated.name,
+        photoUrl: updated.photoUrl ?? null,
+      },
+    }).catch(console.error);
+  }
+
   return NextResponse.json({ user: updated });
 }

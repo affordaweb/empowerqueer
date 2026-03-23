@@ -406,14 +406,27 @@ function EventSubmitForm() {
         `Phone: ${form.organizerPhone || "Not provided"}`,
       ].join("\n");
 
-      const res = await fetch(`${apiUrl}/api/contact`, {
+      const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: form.organizerName,
-          email: form.organizerEmail,
-          message,
-          website: "empowerqueerhub.com — Event Submission",
+          type: "EVENT",
+          data: {
+            eventTitle: form.eventTitle,
+            eventDate: form.eventDate,
+            eventTime: form.eventTime,
+            location: form.location,
+            category: form.category,
+            tags: form.tags,
+            imageUrl: form.imageUrl || null,
+            imageFile: imageFile ? imageFile.name : null,
+            flyerFile: flyerFile ? flyerFile.name : null,
+            eventLink: form.eventLink || null,
+            description: form.description,
+            organizerName: form.organizerName,
+            organizerPhone: form.organizerPhone || null,
+          },
+          submittedBy: form.organizerEmail,
         }),
       });
       setStatus(res.ok ? "success" : "error");

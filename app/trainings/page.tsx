@@ -624,10 +624,25 @@ Attachment: ${attachFile ? attachFile.name : "None"}
 Submitted by: ${form.submitterName} (${form.submitterEmail})
         `.trim(),
       };
-      const res = await fetch(`${CONTACT_API}/api/contact`, {
+      const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify({
+          type: "TRAINING",
+          data: {
+            title: form.title,
+            org: form.org,
+            category: form.category,
+            format: form.format,
+            duration: form.duration,
+            cost: form.cost,
+            description: form.description,
+            link: form.link || null,
+            coverFile: coverFile ? coverFile.name : null,
+            submitterName: form.submitterName,
+          },
+          submittedBy: form.submitterEmail,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       setSent(true);

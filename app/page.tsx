@@ -22,6 +22,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Navbar from "./components/Navbar";
+import { StoryModal } from "./components/Footer";
 
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 
@@ -1097,7 +1098,6 @@ const quickLinks = [
   { label: "Submit Resource or Event", href: "/submit/" },
   { label: "FAQs", href: "/faqs/" },
   { label: "Voices Among Us", href: "/voices/" },
-  { label: "Share Your Story", href: "/stories/" },
 ];
 
 const footerCategories = [
@@ -1118,7 +1118,10 @@ const recentPosts = [
 ];
 
 function Footer() {
+  const [storyOpen, setStoryOpen] = useState(false);
   return (
+    <>
+      {storyOpen && <StoryModal onClose={() => setStoryOpen(false)} />}
     <footer className="bg-[#292733] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -1166,6 +1169,15 @@ function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => setStoryOpen(true)}
+                  className="text-[#7A7A7A] hover:text-white text-sm transition-colors flex items-center gap-1.5 group w-full text-left"
+                >
+                  <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity -ml-2 shrink-0" />
+                  Share Your Story
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -1214,6 +1226,7 @@ function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
 

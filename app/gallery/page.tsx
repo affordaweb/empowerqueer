@@ -121,12 +121,12 @@ export default function GalleryPage() {
       {/* Masonry Grid */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 space-y-3">
+          <div className="columns-2 sm:columns-3 lg:columns-4 gap-3">
             {filtered.map((img, i) => (
               <button
                 key={i}
                 onClick={() => setLightbox(img)}
-                className="group relative w-full break-inside-avoid block overflow-hidden rounded-xl bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED]"
+                className="group relative w-full break-inside-avoid block overflow-hidden rounded-xl bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] mb-3"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

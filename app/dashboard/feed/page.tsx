@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Heart, MessageCircle, ChevronLeft, ChevronRight,
   Send, Trash2, Calendar, GraduationCap, BookOpen,
-  Briefcase, MapPin, BookHeart, MessageSquare, Rss,
+  Briefcase, MapPin, BookHeart, MessageSquare, Rss, Users,
 } from "lucide-react";
 import { useDashboard } from "../layout";
 
@@ -26,6 +26,7 @@ interface FeedItem {
   likedByMe: boolean;
   commentCount: number;
   comments: Comment[];
+  postedBy?: { id: string; name: string; photoUrl: string | null };
 }
 
 const TYPE_META: Record<string, { label: string; icon: React.ElementType; color: string; bg: string }> = {
@@ -36,6 +37,7 @@ const TYPE_META: Record<string, { label: string; icon: React.ElementType; color:
   DIRECTORY:   { label: "Directory",   icon: MapPin,        color: "text-emerald-400", bg: "bg-emerald-500/15" },
   STORY:       { label: "Story",       icon: BookHeart,     color: "text-rose-400",    bg: "bg-rose-500/15" },
   CONTACT:     { label: "Contact",     icon: MessageSquare, color: "text-cyan-400",    bg: "bg-cyan-500/15" },
+  STATUS:      { label: "Status",      icon: Users,         color: "text-fuchsia-400", bg: "bg-fuchsia-500/15" },
 };
 
 function getTitle(item: FeedItem): string {
@@ -60,6 +62,36 @@ function timeAgo(iso: string) {
   const h = Math.floor(m / 60);
   if (h < 24) return `${h}h ago`;
   return `${Math.floor(h / 24)}d ago`;
+}
+
+function StatusCard({ item }: { item: FeedItem }) {
+  const poster = item.postedBy;
+  const note = item.data.note as string;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-[#1A1035] border border-[rgba(236,72,153,0.25)] rounded-2xl overflow-hidden"
+    >
+      <div className="flex items-start gap-3 px-5 py-4">
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7C3AED] to-[#EC4899] flex items-center justify-center overflow-hidden flex-shrink-0">
+          {poster?.photoUrl ? (
+            <img src={poster.photoUrl} alt={poster.name} className="w-full h-full object-cover" />
+          ) : (
+            <span className="text-white text-sm font-bold">{initials(poster?.name ?? "U")}</span>
+          )}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <p className="text-white font-semibold text-sm">{poster?.name ?? "Team Member"}</p>
+            <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-fuchsia-500/15 text-fuchsia-400">Status</span>
+            <span className="text-[#6B7280] text-[11px]">{timeAgo(item.publishedAt)}</span>
+          </div>
+          <p className="text-[#C4B5FD] text-sm leading-relaxed">{note}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
 }
 
 function FeedCard({ item, currentUserId, onLike, onComment, onDeleteComment }: {
@@ -212,6 +244,7 @@ function FeedCard({ item, currentUserId, onLike, onComment, onDeleteComment }: {
 export default function FeedPage() {
   const { user } = useDashboard();
   const [feed, setFeed] = useState<FeedItem[]>([]);
+  const [statusPosts, setStatusPosts] = useState<FeedItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
@@ -223,6 +256,7 @@ export default function FeedPage() {
       const res = await fetch(`/api/feed?page=${p}`);
       const data = await res.json();
       setFeed(data.feed || []);
+      setStatusPosts(data.statusPosts || []);
       setPages(data.pagination?.pages || 1);
       setTotal(data.pagination?.total || 0);
     } catch { /* ignore */ }
@@ -309,7 +343,7 @@ export default function FeedPage() {
             </div>
           ))}
         </div>
-      ) : feed.length === 0 ? (
+      ) : feed.length === 0 && statusPosts.length === 0 ? (
         <div className="bg-[#1A1035] border border-[rgba(124,58,237,0.2)] rounded-2xl p-12 text-center">
           <Rss size={40} className="text-[#4B4568] mx-auto mb-3" />
           <p className="text-[#C4B5FD] font-semibold">No approved content yet</p>
@@ -317,16 +351,22 @@ export default function FeedPage() {
         </div>
       ) : (
         <div className="space-y-4">
-          {feed.map((item) => (
-            <FeedCard
-              key={item.id}
-              item={item}
-              currentUserId={user?.id || ""}
-              onLike={handleLike}
-              onComment={handleComment}
-              onDeleteComment={handleDeleteComment}
-            />
-          ))}
+          {[...feed, ...statusPosts]
+            .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+            .map((item) =>
+              item.type === "STATUS" ? (
+                <StatusCard key={item.id} item={item} />
+              ) : (
+                <FeedCard
+                  key={item.id}
+                  item={item}
+                  currentUserId={user?.id || ""}
+                  onLike={handleLike}
+                  onComment={handleComment}
+                  onDeleteComment={handleDeleteComment}
+                />
+              )
+            )}
         </div>
       )}
 

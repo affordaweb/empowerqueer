@@ -517,10 +517,23 @@ PDF / File: ${pdfFile ? pdfFile.name : "None"}
 Submitted by: ${form.submitterName} (${form.submitterEmail})
         `.trim(),
       };
-      const res = await fetch(`${CONTACT_API}/api/contact`, {
+      const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify({
+          type: "RESOURCE",
+          data: {
+            title: form.title,
+            org: form.org,
+            category: form.category,
+            description: form.description,
+            link: form.link || null,
+            coverFile: coverFile ? coverFile.name : null,
+            pdfFile: pdfFile ? pdfFile.name : null,
+            submitterName: form.submitterName,
+          },
+          submittedBy: form.submitterEmail,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       setSent(true);
