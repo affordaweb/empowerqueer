@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 const contactFaqs = [
   {
@@ -36,12 +37,14 @@ export default function ContactPage() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
+    const recaptchaToken = await getRecaptchaToken("contact");
     const fd = new FormData(e.currentTarget);
     await fetch("/api/submissions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         type: "CONTACT",
+        recaptchaToken,
         data: {
           name: fd.get("name"),
           email: fd.get("email"),
@@ -231,6 +234,12 @@ export default function ContactPage() {
                   </button>
                   <p className="text-[#474747] text-xs text-center">
                     All messages are handled with care and confidentiality.
+                  </p>
+                  <p className="text-gray-400 text-[11px] text-center">
+                    Protected by reCAPTCHA —{" "}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">Privacy</a>{" "}
+                    &amp;{" "}
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">Terms</a> apply.
                   </p>
                 </form>
               )}

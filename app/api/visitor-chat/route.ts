@@ -1,12 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { verifyRecaptcha } from "@/lib/verifyRecaptcha";
 
 // Visitor sends message or starts conversation
 export async function POST(req: NextRequest) {
   try {
-    const { sessionId, visitorName, message } = await req.json();
+    const { sessionId, visitorName, message, recaptchaToken } = await req.json();
     if (!sessionId || !message?.trim()) {
       return NextResponse.json({ error: "sessionId and message required" }, { status: 422 });
+    }
+
+    if (recaptchaToken) {
+      const ok = await verifyRecaptcha(recaptchaToken);
+      if (!ok) {
+        return NextResponse.json({ error: "reCAPTCHA verification failed." }, { status: 400 });
+      }
     }
 
     const conversation = await prisma.visitorConversation.upsert({

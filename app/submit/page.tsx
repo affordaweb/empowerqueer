@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Upload } from "lucide-react";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 export default function SubmitPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,6 +12,7 @@ export default function SubmitPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const recaptchaToken = await getRecaptchaToken("submit");
     const fd = new FormData(e.currentTarget);
     const typeMap: Record<string, string> = {
       resource: "RESOURCE",
@@ -25,6 +27,7 @@ export default function SubmitPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         type: apiType,
+        recaptchaToken,
         data: {
           title: fd.get("title"),
           submissionType,
@@ -323,6 +326,12 @@ export default function SubmitPage() {
               </button>
               <p className="text-[#474747] text-xs text-center">
                 All submissions are reviewed with care before publishing.
+              </p>
+              <p className="text-gray-400 text-[11px] text-center">
+                Protected by reCAPTCHA —{" "}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">Privacy</a>{" "}
+                &amp;{" "}
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">Terms</a> apply.
               </p>
             </form>
           )}

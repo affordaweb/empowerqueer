@@ -106,7 +106,7 @@ export default function AccessibilityWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label="Open accessibility toolbar"
-        className="fixed bottom-6 left-6 z-[55] w-13 h-13 bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#7C3AED]/40"
+        className="fixed bottom-6 right-6 z-[55] w-13 h-13 bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#7C3AED]/40"
         style={{ width: 52, height: 52 }}
       >
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -121,7 +121,7 @@ export default function AccessibilityWidget() {
         <div
           role="dialog"
           aria-label="Accessibility toolbar"
-          className="fixed bottom-20 left-6 z-[55] w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+          className="fixed bottom-20 right-6 z-[55] w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
         >
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-[#7C3AED]">

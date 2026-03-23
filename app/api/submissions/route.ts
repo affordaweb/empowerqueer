@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendNewSubmissionEmail } from "@/lib/email";
+import { verifyRecaptcha } from "@/lib/verifyRecaptcha";
 
 const VALID_TYPES = [
   "EVENT", "TRAINING", "RESOURCE", "OPPORTUNITY",
@@ -90,11 +91,20 @@ export async function POST(req: NextRequest) {
       body = await req.json();
     }
 
-    const { type, data, submittedBy } = body as {
+    const { type, data, submittedBy, recaptchaToken } = body as {
       type: string;
       data: Record<string, unknown>;
       submittedBy?: string;
+      recaptchaToken?: string;
     };
+
+    // Skip reCAPTCHA for logged-in dashboard users
+    if (!session && recaptchaToken) {
+      const ok = await verifyRecaptcha(recaptchaToken);
+      if (!ok) {
+        return NextResponse.json({ error: "reCAPTCHA verification failed." }, { status: 400 });
+      }
+    }
 
     if (!type || !VALID_TYPES.includes(type as SubmissionType)) {
       return NextResponse.json({ error: "Invalid submission type." }, { status: 400 });

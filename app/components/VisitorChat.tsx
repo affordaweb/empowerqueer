@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import { MessageCircle, X, Send, Loader2 } from "lucide-react"; // MessageCircle still used inside popup
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 interface Message {
   id: string;
@@ -62,6 +63,12 @@ export default function VisitorChat() {
     if (open) bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
+  useEffect(() => {
+    function openChat() { setOpen(true); }
+    window.addEventListener("eqOpenChat", openChat);
+    return () => window.removeEventListener("eqOpenChat", openChat);
+  }, []);
+
   function handleStartChat(e: React.FormEvent) {
     e.preventDefault();
     const n = nameInput.trim() || "Guest";
@@ -75,10 +82,11 @@ export default function VisitorChat() {
     if (!input.trim() || sending) return;
     setSending(true);
     try {
+      const recaptchaToken = await getRecaptchaToken("chat").catch(() => "");
       await fetch("/api/visitor-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId, visitorName: name, message: input.trim() }),
+        body: JSON.stringify({ sessionId, visitorName: name, message: input.trim(), recaptchaToken }),
       });
       setInput("");
       fetchMessages();
@@ -87,10 +95,12 @@ export default function VisitorChat() {
     }
   }
 
+  if (!open) return null;
+
   return (
-    <div className="fixed bottom-6 right-6 z-[100]">
+    <div className="fixed bottom-6 right-20 z-[100]">
       {/* Chat Widget */}
-      {open && (
+      {(
         <div className="mb-4 w-[340px] rounded-2xl shadow-2xl overflow-hidden border border-[rgba(124,58,237,0.4)] bg-[#1A0A2E] flex flex-col" style={{ height: "460px" }}>
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899]">
@@ -177,15 +187,6 @@ export default function VisitorChat() {
           )}
         </div>
       )}
-
-      {/* Floating button */}
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-14 h-14 bg-gradient-to-br from-[#7C3AED] to-[#EC4899] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform"
-        aria-label="Chat with us"
-      >
-        {open ? <X size={22} /> : <MessageCircle size={22} />}
-      </button>
     </div>
   );
 }

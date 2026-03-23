@@ -68,6 +68,42 @@ export const metadata: Metadata = {
     siteName: "Empower Queer Hub",
     locale: "en_PH",
     type: "website",
+    images: [
+      {
+        url: "/empower-queer-logo.png",
+        width: 512,
+        height: 512,
+        alt: "Empower Queer Hub Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Empower Queer Hub",
+    description: "You Are Seen. You Are Valid. You Are Home.",
+    images: ["/empower-queer-logo.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Empower Queer Hub",
+  alternateName: "Wagayway Equality Inc.",
+  url: "https://www.empowerqueerhub.com",
+  logo: "https://www.empowerqueerhub.com/empower-queer-logo.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "contact@empowerqueerhub.com",
+    contactType: "customer support",
+    areaServed: "PH",
+    availableLanguage: ["English", "Filipino"],
+  },
+  sameAs: ["https://www.facebook.com/wagaywayequality"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Batangas",
+    addressCountry: "PH",
   },
 };
 
@@ -78,6 +114,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${playfair.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-white text-[#5C576E]">
         {/* Google Tag (GT-PBGJWC99) */}
         <Script
@@ -118,6 +160,10 @@ export default function RootLayout({
         {children}
         <AccessibilityWidget />
         <VisitorChat />
+        <Script
+          src="https://www.google.com/recaptcha/api.js?render=6LevTZQsAAAAAG6Yp6SRnJQnNp-PAdY4J4ECTNEF"
+          strategy="afterInteractive"
+        />
         <Script
           id="sw-register"
           strategy="afterInteractive"

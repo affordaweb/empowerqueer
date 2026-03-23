@@ -5,7 +5,8 @@ function getResend() {
 }
 
 const FROM = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "aivan.c.alvarez@gmail.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "contact@empowerqueerhub.com";
+const ADMIN_CC = ["aivan.c.alvarez@gmail.com"];
 const APP_URL =
   process.env.NEXT_PUBLIC_APP_URL || "https://empowerqueer.vercel.app";
 
@@ -30,6 +31,7 @@ export async function sendApprovalRequestEmail({
   await getResend().emails.send({
     from: FROM,
     to: ADMIN_EMAIL,
+    cc: ADMIN_CC,
     subject: `New Registration Request — ${name}`,
     html: `
 <!DOCTYPE html><html><body style="margin:0;padding:0;background:#0F0A1E;font-family:Arial,sans-serif;">
@@ -126,6 +128,7 @@ export async function sendNewSubmissionEmail({
   await getResend().emails.send({
     from: FROM,
     to: ADMIN_EMAIL,
+    cc: ADMIN_CC,
     subject: `New ${label} Submission — Empower Queer Hub`,
     html: `
 <!DOCTYPE html><html><body style="margin:0;padding:0;background:#0F0A1E;font-family:Arial,sans-serif;">

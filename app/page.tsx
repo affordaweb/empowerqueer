@@ -18,7 +18,7 @@ import {
   Facebook,
   Twitter,
   Youtube,
-  Send,
+  MessageCircle,
   ArrowRight,
 } from "lucide-react";
 import Navbar from "./components/Navbar";
@@ -978,79 +978,29 @@ function Gallery() {
   );
 }
 
-// ─── Newsletter ───────────────────────────────────────────────────────────────
+// ─── Chat CTA ─────────────────────────────────────────────────────────────────
 
-function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL ?? "https://contact-form-gamma-seven.vercel.app";
-      const res = await fetch(`${apiUrl}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: email,
-          email,
-          message: `Newsletter signup from empowerqueerhub.com\n\nEmail: ${email}`,
-          website: "empowerqueerhub.com",
-        }),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  }
-
+function ChatCTA() {
   return (
     <section className="py-20 bg-[#292733] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-[#7C3AED]/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#EC4899]/10 rounded-full blur-[90px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="rainbow-bar h-[3px] w-16 mx-auto rounded-full mb-8" />
-        <p className="text-[#A78BFA] font-semibold tracking-widest uppercase text-sm mb-3">Stay Connected</p>
+        <p className="text-[#A78BFA] font-semibold tracking-widest uppercase text-sm mb-3">We&rsquo;re Here for You</p>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
-          Stay connected with the community.
+          Talk to Us Directly
         </h2>
-        <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto mb-2">
-          Join the EmpowerQueer Hub mailing list and never miss a story, guide, or upcoming event. We&rsquo;ll only send meaningful updates—no spam, just support.
+        <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto mb-8">
+          Have a question, need guidance, or just want to connect? Our team is here to listen. Start a live chat and we&rsquo;ll get back to you with care.
         </p>
-        <p className="text-white/30 text-sm mb-8">Don&rsquo;t worry! We won&rsquo;t spam you!</p>
-        {status === "success" ? (
-          <p className="text-[#A9D6B6] font-semibold text-base">
-            You&rsquo;re in! We&rsquo;ll keep you updated.
-          </p>
-        ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              required
-              className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/30 rounded-xl px-5 py-3 text-sm focus:outline-none focus:border-[#A78BFA] transition-colors"
-            />
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 disabled:opacity-60 text-white font-semibold px-6 py-3 rounded-xl transition-opacity inline-flex items-center gap-2 shrink-0"
-            >
-              <Send size={15} />
-              {status === "loading" ? "Signing up..." : "Sign Up"}
-            </button>
-          </form>
-        )}
-        {status === "error" && (
-          <p className="text-red-400 text-sm mt-3">Something went wrong. Please try again.</p>
-        )}
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent("eqOpenChat"))}
+          className="inline-flex items-center gap-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-bold px-8 py-4 rounded-2xl transition-opacity text-base shadow-lg shadow-[#7C3AED]/30"
+        >
+          <MessageCircle size={20} />
+          Chat Now
+        </button>
       </div>
     </section>
   );
@@ -1251,7 +1201,7 @@ export default function Home() {
       <Mission />
       <Stats />
       <Gallery />
-      <Newsletter />
+      <ChatCTA />
       <Sponsors />
       <Footer />
     </main>

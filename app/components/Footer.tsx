@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Facebook, Twitter, Youtube, ChevronRight, Phone, MapPin, X, Mic2, Upload, ImageIcon } from "lucide-react";
+import { Facebook, ChevronRight, Phone, MapPin, X, Mic2, Upload, ImageIcon } from "lucide-react";
 
 /* ─── Story Modal ─────────────────────────────────────────────────────────── */
 
@@ -237,17 +237,9 @@ export default function Footer() {
                 EmpowerQueer Hub is a safe, community-built space offering resources, support, and visibility for LGBTQIA+ individuals across Batangas and beyond.
               </p>
               <div className="flex items-center gap-3 mb-4">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                <a href="https://www.facebook.com/wagaywayequality" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                   className="w-9 h-9 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center text-[#7A7A7A] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all">
                   <Facebook size={16} />
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-                  className="w-9 h-9 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center text-[#7A7A7A] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all">
-                  <Twitter size={16} />
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
-                  className="w-9 h-9 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center text-[#7A7A7A] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all">
-                  <Youtube size={16} />
                 </a>
               </div>
               <div className="space-y-1 text-[#7A7A7A] text-xs">
