@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { getRecaptchaToken } from "@/lib/recaptcha";
-import { chatStore } from "@/lib/chatStore";
 
 interface Message {
   id: string;
@@ -65,7 +64,15 @@ export default function VisitorChat() {
   }, [messages, open]);
 
   useEffect(() => {
-    chatStore.register(() => setOpen(true));
+    const check = () => {
+      if (window.location.hash === "#openchat") {
+        setOpen(true);
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    };
+    check();
+    window.addEventListener("hashchange", check);
+    return () => window.removeEventListener("hashchange", check);
   }, []);
 
   function handleStartChat(e: React.FormEvent) {
