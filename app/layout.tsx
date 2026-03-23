@@ -3,7 +3,6 @@ import Script from "next/script";
 import { DM_Sans } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import "./globals.css";
-import AccessibilityWidget from "./components/AccessibilityWidget";
 import VisitorChat from "./components/VisitorChat";
 import IOSInstallBanner from "./components/IOSInstallBanner";
 
@@ -159,7 +158,6 @@ export default function RootLayout({
           }}
         />
         {children}
-        <AccessibilityWidget />
         <VisitorChat />
         <IOSInstallBanner />
         <Script
