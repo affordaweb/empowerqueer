@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AccessibilityWidget from "./components/AccessibilityWidget";
+import VisitorChat from "./components/VisitorChat";
 
 export const viewport: Viewport = {
   themeColor: "#7C3AED",
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-white text-[#5C576E]">
         {children}
         <AccessibilityWidget />
+        <VisitorChat />
       </body>
     </html>
   );

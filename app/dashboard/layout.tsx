@@ -30,6 +30,8 @@ import {
   ChevronRight,
   User,
   Rss,
+  MessagesSquare,
+  FileEdit,
 } from "lucide-react";
 import ChatPanel from "./components/ChatPanel";
 
@@ -71,6 +73,8 @@ const NAV_ITEMS = [
   { label: "Directory", icon: MapPin, href: "/dashboard/directory", key: "DIRECTORY", adminOnly: false },
   { label: "Stories", icon: BookHeart, href: "/dashboard/stories", key: "STORY", adminOnly: false },
   { label: "Contact", icon: MessageSquare, href: "/dashboard/contact", key: "CONTACT", adminOnly: false },
+  { label: "Chat", icon: MessagesSquare, href: "/dashboard/chat", key: "VISITOR_CHAT", adminOnly: true },
+  { label: "Content Manager", icon: FileEdit, href: "/dashboard/content", key: null, adminOnly: true },
   { label: "Users", icon: Users, href: "/dashboard/users", key: null, adminOnly: true },
   { label: "Activity", icon: Activity, href: "/dashboard/activity", key: null, adminOnly: true },
 ];
@@ -87,6 +91,8 @@ function getPageTitle(pathname: string): string {
     "/dashboard/directory": "Directory",
     "/dashboard/stories": "Stories",
     "/dashboard/contact": "Contact",
+    "/dashboard/chat": "Chat",
+    "/dashboard/content": "Content Manager",
     "/dashboard/users": "Users Management",
     "/dashboard/activity": "Activity Log",
     "/dashboard/profile": "My Profile",
@@ -280,12 +286,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   // Fetch unread counts
   const fetchUnread = useCallback(() => {
-    fetch("/api/submissions/unread")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data && typeof data === "object") setUnread(data);
-      })
-      .catch(() => {});
+    Promise.all([
+      fetch("/api/submissions/unread").then((r) => r.json()).catch(() => ({})),
+      fetch("/api/admin/visitor-chat").then((r) => r.json()).catch(() => ({ conversations: [] })),
+    ]).then(([submissions, chatData]) => {
+      const unreadChat = (chatData.conversations ?? []).reduce(
+        (sum: number, c: { _count: { messages: number } }) => sum + (c._count?.messages ?? 0),
+        0
+      );
+      if (submissions && typeof submissions === "object") {
+        setUnread({ ...submissions, VISITOR_CHAT: unreadChat });
+      }
+    });
   }, []);
 
   useEffect(() => {
