@@ -5,6 +5,7 @@ import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import AccessibilityWidget from "./components/AccessibilityWidget";
 import VisitorChat from "./components/VisitorChat";
+import IOSInstallBanner from "./components/IOSInstallBanner";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -160,6 +161,7 @@ export default function RootLayout({
         {children}
         <AccessibilityWidget />
         <VisitorChat />
+        <IOSInstallBanner />
         <Script
           src="https://www.google.com/recaptcha/api.js?render=6LevTZQsAAAAAG6Yp6SRnJQnNp-PAdY4J4ECTNEF"
           strategy="afterInteractive"
