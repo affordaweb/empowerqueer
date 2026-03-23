@@ -29,6 +29,7 @@ model User {
   createdGroups     ChatGroup[]         @relation("GroupCreator")
   groupMemberships  ChatGroupMember[]
   groupMessages     GroupMessage[]
+  adminReplies      VisitorMessage[]    @relation("AdminReplies")
 }
 
 model Submission {
@@ -108,6 +109,52 @@ model ChatMessage {
   user User @relation(fields: [userId], references: [id])
 }
 
+model VisitorConversation {
+  id          String   @id @default(cuid())
+  sessionId   String   @unique
+  visitorName String   @default("Guest")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  messages VisitorMessage[]
+}
+
+model VisitorMessage {
+  id             String     @id @default(cuid())
+  conversationId String
+  senderType     SenderType
+  adminId        String?
+  message        String     @db.Text
+  isRead         Boolean    @default(false)
+  createdAt      DateTime   @default(now())
+
+  conversation VisitorConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  admin        User?               @relation("AdminReplies", fields: [adminId], references: [id])
+}
+
+model Kopisode {
+  id          String   @id @default(cuid())
+  title       String
+  desc        String   @db.Text
+  tags        String[]
+  categoryIds String[]
+  date        String
+  img         String?
+  order       Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  src       String
+  alt       String   @default("EmpowerQueer Community Moment")
+  tags      String[]
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
 model ChatGroup {
   id        String   @id @default(cuid())
   name      String
@@ -167,4 +214,9 @@ enum SubmissionStatus {
   PENDING
   APPROVED
   REJECTED
+}
+
+enum SenderType {
+  VISITOR
+  ADMIN
 }
