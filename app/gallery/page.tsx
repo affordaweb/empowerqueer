@@ -73,6 +73,12 @@ export default function GalleryPage() {
 
   const filtered = activeTag === "All" ? images : images.filter((img) => img.tags.includes(activeTag));
 
+  // Distribute images into columns evenly (round-robin) so all columns are filled
+  const numCols = 4;
+  const cols = Array.from({ length: numCols }, (_, c) =>
+    filtered.filter((_, idx) => idx % numCols === c)
+  );
+
   return (
     <main className="bg-white min-h-screen">
       <Navbar />
@@ -121,33 +127,36 @@ export default function GalleryPage() {
       {/* Masonry Grid */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="columns-2 sm:columns-3 lg:columns-4 gap-3">
-            {filtered.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setLightbox(img)}
-                className="group relative w-full break-inside-avoid block overflow-hidden rounded-xl bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED] mb-3"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-[#1A0A2E]/0 group-hover:bg-[#1A0A2E]/40 transition-all duration-300 flex items-center justify-center">
-                  <ZoomIn size={28} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                {/* Tag pill */}
-                <span className="absolute top-2 left-2 bg-white/80 backdrop-blur-sm text-[#3A3C51] text-[10px] font-semibold px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                  {img.tags[0]}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {filtered.length === 0 && (
+          {filtered.length === 0 ? (
             <div className="text-center py-24 text-[#474747]">No photos in this category yet.</div>
+          ) : (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {cols.map((col, colIdx) => (
+                <div key={colIdx} className="flex flex-col gap-3">
+                  {col.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setLightbox(img)}
+                      className="group relative w-full block overflow-hidden rounded-xl bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7C3AED]"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-[#1A0A2E]/0 group-hover:bg-[#1A0A2E]/40 transition-all duration-300 flex items-center justify-center">
+                        <ZoomIn size={28} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <span className="absolute top-2 left-2 bg-white/80 backdrop-blur-sm text-[#3A3C51] text-[10px] font-semibold px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                        {img.tags[0]}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </section>
