@@ -249,46 +249,72 @@ export default function ContactPage() {
       </section>
 
       {/* FAQs */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] py-20">
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#EC4899]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#7C3AED]/15 rounded-full blur-[80px] pointer-events-none" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <span className="inline-block bg-white/10 border border-white/20 text-white/70 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-5">FAQs</span>
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-4">
-              Got questions?<br />We&rsquo;ve got answers.
-            </h2>
-            <p className="text-white/50 text-lg">
-              Quick answers to help you navigate EmpowerQueer Hub with confidence.
-            </p>
-          </div>
-          <div className="space-y-3">
-            {contactFaqs.map((faq, i) => (
-              <div
-                key={i}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  openFaq === i
-                    ? "bg-white/10 border-white/20"
-                    : "bg-white/5 border-white/10 hover:bg-white/8 hover:border-white/15"
-                }`}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] py-24">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#EC4899]/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#7C3AED]/15 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+
+            {/* Left — heading col */}
+            <div className="lg:col-span-2 lg:sticky lg:top-28">
+              <span className="inline-block bg-white/10 border border-white/20 text-white/70 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6">FAQs</span>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-5 leading-tight">
+                Got questions?<br />We&rsquo;ve got<br />answers.
+              </h2>
+              <p className="text-white/50 text-base leading-relaxed mb-8">
+                Quick answers to help you navigate EmpowerQueer Hub with confidence.
+              </p>
+              <a
+                href="/faqs"
+                className="inline-flex items-center gap-2 text-[#A78BFA] text-sm font-semibold hover:text-white transition-colors group"
               >
-                <button
-                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                View all FAQs
+                <ChevronDown size={15} className="-rotate-90 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+
+            {/* Right — accordion */}
+            <div className="lg:col-span-3 space-y-3">
+              {contactFaqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                    openFaq === i
+                      ? "bg-white/10 border-white/25"
+                      : "bg-white/5 border-white/10 hover:bg-white/[0.08] hover:border-white/20"
+                  }`}
                 >
-                  <span className="font-semibold text-white text-base leading-snug">{faq.q}</span>
-                  <ChevronDown
-                    size={18}
-                    className={`shrink-0 text-white/50 transition-transform duration-300 ${openFaq === i ? "rotate-180 text-[#A78BFA]" : ""}`}
-                  />
-                </button>
-                {openFaq === i && (
-                  <div className="px-6 pb-6">
-                    <p className="text-white/65 text-sm leading-relaxed">{faq.a}</p>
+                  <button
+                    className="w-full flex items-center gap-5 px-6 py-5 text-left"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
+                      openFaq === i ? "bg-[#7C3AED] text-white" : "bg-white/10 text-white/40"
+                    }`}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="flex-1 font-semibold text-white text-base leading-snug">{faq.q}</span>
+                    <ChevronDown
+                      size={18}
+                      className={`shrink-0 transition-transform duration-300 ${
+                        openFaq === i ? "rotate-180 text-[#A78BFA]" : "text-white/30"
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`grid transition-all duration-300 ${
+                      openFaq === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="px-6 pb-6 pl-[4.5rem] text-white/60 text-sm leading-relaxed">{faq.a}</p>
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
