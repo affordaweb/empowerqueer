@@ -4,7 +4,7 @@ import { getSessionFromRequest } from "./lib/auth";
 const DASHBOARD_PATHS = ["/dashboard"];
 const AUTH_PATHS = ["/login", "/register"];
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   const isDashboard = DASHBOARD_PATHS.some((p) => pathname.startsWith(p));
