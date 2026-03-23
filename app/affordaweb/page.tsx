@@ -1,28 +1,6 @@
 import Link from "next/link";
 import { CheckCircle, Globe, Search, ShieldCheck, Mail, RefreshCw } from "lucide-react";
 
-const plans = [
-  {
-    name: "Basic",
-    price: "$69",
-    desc: "Perfect for getting online fast.",
-    features: ["1–5 pages", "Mobile-first design", "SSL included", "1 monthly update"],
-  },
-  {
-    name: "Standard",
-    price: "$99",
-    desc: "Most popular for growing businesses.",
-    features: ["Up to 10 pages", "Full SEO optimization", "Unlimited updates", "Business email"],
-    highlight: true,
-  },
-  {
-    name: "Premium",
-    price: "$149",
-    desc: "For businesses ready to sell online.",
-    features: ["Unlimited pages", "E-commerce (up to 30 products)", "Priority support", "Everything in Standard"],
-  },
-];
-
 const services = [
   { icon: Globe, label: "Custom Website Design" },
   { icon: Search, label: "SEO Optimization" },
@@ -99,40 +77,6 @@ export default function AffordaWebPage() {
         </ul>
       </section>
 
-      {/* Pricing */}
-      <section className="px-6 py-16 max-w-5xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-2">Simple, Transparent Pricing</h2>
-        <p className="text-center text-white/50 mb-10 text-sm">Month-to-month. Cancel anytime with 30 days notice.</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className="rounded-2xl p-7 flex flex-col gap-4"
-              style={{
-                background: plan.highlight ? "linear-gradient(135deg, #5636D1 0%, #3b1fa8 100%)" : "#1A1A2E",
-                border: plan.highlight ? "none" : "1px solid rgba(255,255,255,0.07)",
-              }}
-            >
-              <div>
-                <h3 className="text-lg font-bold">{plan.name}</h3>
-                <p className="text-white/60 text-sm mt-1">{plan.desc}</p>
-              </div>
-              <p className="text-4xl font-bold">
-                {plan.price}
-                <span className="text-base font-normal text-white/50">/mo</span>
-              </p>
-              <ul className="flex flex-col gap-2">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-white/80">
-                    <CheckCircle size={15} style={{ color: "#06B6D4", flexShrink: 0 }} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="px-6 py-20 text-center max-w-2xl mx-auto">
