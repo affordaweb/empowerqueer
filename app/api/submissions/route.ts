@@ -91,11 +91,12 @@ export async function POST(req: NextRequest) {
       body = await req.json();
     }
 
-    const { type, data, submittedBy, recaptchaToken } = body as {
+    const { type, data, submittedBy, recaptchaToken, status: requestedStatus } = body as {
       type: string;
       data: Record<string, unknown>;
       submittedBy?: string;
       recaptchaToken?: string;
+      status?: string;
     };
 
     // Skip reCAPTCHA for logged-in dashboard users
@@ -110,13 +111,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid submission type." }, { status: 400 });
     }
 
+    // Allow approved/admin users to set status directly (e.g. manual entry from dashboard)
+    const isPrivileged = session && (session.status === "APPROVED" || session.role === "ADMIN");
+    const finalStatus = isPrivileged && requestedStatus === "APPROVED" ? "APPROVED" : "PENDING";
+
     const submission = await prisma.submission.create({
       data: {
         type: type as SubmissionType,
         data: (data || body) as object,
         submittedBy: submittedBy || null,
         userId: session?.userId || null,
-        status: "PENDING",
+        status: finalStatus,
       },
     });
 

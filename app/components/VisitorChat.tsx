@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react"; // MessageCircle still used inside popup
+import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { getRecaptchaToken } from "@/lib/recaptcha";
+import { chatStore } from "@/lib/chatStore";
 
 interface Message {
   id: string;
@@ -64,12 +65,7 @@ export default function VisitorChat() {
   }, [messages, open]);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (window as any).__eqOpenChat = () => setOpen(true);
-    return () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      delete (window as any).__eqOpenChat;
-    };
+    chatStore.register(() => setOpen(true));
   }, []);
 
   function handleStartChat(e: React.FormEvent) {

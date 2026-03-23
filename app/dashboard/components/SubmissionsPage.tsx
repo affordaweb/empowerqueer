@@ -18,6 +18,7 @@ import {
   Calendar,
   User,
   Info,
+  Plus,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────
@@ -259,6 +260,164 @@ function SubmissionModal({
   );
 }
 
+// ─── Field configs per type ───────────────────────────────────
+type FieldDef = { key: string; label: string; type: "text" | "textarea" | "date" | "time" | "url"; required?: boolean };
+
+const FIELDS: Record<string, FieldDef[]> = {
+  EVENT: [
+    { key: "title", label: "Event Title", type: "text", required: true },
+    { key: "description", label: "Description", type: "textarea", required: true },
+    { key: "eventDate", label: "Date", type: "date" },
+    { key: "eventTime", label: "Time", type: "time" },
+    { key: "eventLocation", label: "Location / Venue", type: "text" },
+    { key: "organization", label: "Organizer / Organization", type: "text" },
+    { key: "link", label: "Registration / Info Link", type: "url" },
+    { key: "tags", label: "Tags (comma-separated)", type: "text" },
+  ],
+  TRAINING: [
+    { key: "title", label: "Training Title", type: "text", required: true },
+    { key: "description", label: "Description", type: "textarea", required: true },
+    { key: "eventDate", label: "Date", type: "date" },
+    { key: "eventTime", label: "Time", type: "time" },
+    { key: "eventLocation", label: "Location / Platform", type: "text" },
+    { key: "organization", label: "Organizer", type: "text" },
+    { key: "link", label: "Registration Link", type: "url" },
+    { key: "tags", label: "Tags (comma-separated)", type: "text" },
+  ],
+  RESOURCE: [
+    { key: "title", label: "Resource Title", type: "text", required: true },
+    { key: "description", label: "Description", type: "textarea", required: true },
+    { key: "link", label: "Resource Link / URL", type: "url" },
+    { key: "organization", label: "Source / Organization", type: "text" },
+    { key: "tags", label: "Tags (comma-separated)", type: "text" },
+  ],
+  OPPORTUNITY: [
+    { key: "title", label: "Opportunity Title", type: "text", required: true },
+    { key: "description", label: "Description", type: "textarea", required: true },
+    { key: "organization", label: "Organization", type: "text" },
+    { key: "eventLocation", label: "Location", type: "text" },
+    { key: "eventDate", label: "Deadline", type: "date" },
+    { key: "link", label: "Apply / Info Link", type: "url" },
+    { key: "tags", label: "Tags (comma-separated)", type: "text" },
+  ],
+  DIRECTORY: [
+    { key: "title", label: "Organization / Service Name", type: "text", required: true },
+    { key: "description", label: "About / Services Offered", type: "textarea", required: true },
+    { key: "eventLocation", label: "Address", type: "text" },
+    { key: "organization", label: "Category (e.g. Clinic, Legal Aid, Shelter)", type: "text" },
+    { key: "link", label: "Website / Facebook", type: "url" },
+    { key: "tags", label: "Tags (comma-separated)", type: "text" },
+  ],
+};
+
+// ─── Add Entry Modal ──────────────────────────────────────────
+function AddEntryModal({
+  type,
+  onClose,
+  onCreated,
+}: {
+  type: string;
+  onClose: () => void;
+  onCreated: () => void;
+}) {
+  const fields = FIELDS[type] ?? FIELDS.RESOURCE;
+  const [form, setForm] = useState<Record<string, string>>({});
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+
+  function set(key: string, val: string) {
+    setForm((f) => ({ ...f, [key]: val }));
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSaving(true);
+    setError("");
+    try {
+      const data: Record<string, unknown> = { ...form };
+      // Convert comma-separated tags to array
+      if (typeof data.tags === "string" && data.tags) {
+        data.tags = data.tags.split(",").map((t: string) => t.trim()).filter(Boolean);
+      }
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type, data, status: "APPROVED" }),
+      });
+      if (!res.ok) throw new Error("Failed to create entry");
+      onCreated();
+      onClose();
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <motion.div
+        initial={{ scale: 0.92, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.92, opacity: 0 }}
+        className="bg-[#1A1035] border border-[rgba(124,58,237,0.4)] rounded-2xl w-full max-w-xl max-h-[90vh] overflow-hidden flex flex-col"
+      >
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[rgba(124,58,237,0.2)]">
+          <h2 className="text-white font-semibold text-lg">Add New Entry</h2>
+          <button onClick={onClose} className="w-8 h-8 rounded-lg bg-[rgba(124,58,237,0.1)] flex items-center justify-center text-[#A78BFA] hover:text-white hover:bg-[rgba(124,58,237,0.3)] transition">
+            <X size={16} />
+          </button>
+        </div>
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-4">
+          {fields.map((f) => (
+            <div key={f.key}>
+              <label className="block text-[#A78BFA] text-xs font-semibold mb-1.5 uppercase tracking-wider">
+                {f.label}{f.required && <span className="text-red-400 ml-1">*</span>}
+              </label>
+              {f.type === "textarea" ? (
+                <textarea
+                  rows={4}
+                  required={f.required}
+                  value={form[f.key] ?? ""}
+                  onChange={(e) => set(f.key, e.target.value)}
+                  className="w-full bg-[#0F0A1E] border border-[rgba(124,58,237,0.3)] text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#7C3AED] resize-none"
+                />
+              ) : (
+                <input
+                  type={f.type}
+                  required={f.required}
+                  value={form[f.key] ?? ""}
+                  onChange={(e) => set(f.key, e.target.value)}
+                  className="w-full bg-[#0F0A1E] border border-[rgba(124,58,237,0.3)] text-white rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#7C3AED]"
+                />
+              )}
+            </div>
+          ))}
+          {error && <p className="text-red-400 text-sm">{error}</p>}
+        </form>
+        <div className="px-6 py-4 border-t border-[rgba(124,58,237,0.2)] flex gap-3 justify-end">
+          <button onClick={onClose} className="px-4 py-2 rounded-xl text-sm text-[#A78BFA] hover:text-white border border-[rgba(124,58,237,0.3)] hover:border-[#7C3AED] transition">
+            Cancel
+          </button>
+          <button
+            onClick={(e) => { e.preventDefault(); handleSubmit(e as unknown as React.FormEvent); }}
+            disabled={saving}
+            className="px-5 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white hover:opacity-90 transition disabled:opacity-50 flex items-center gap-2"
+          >
+            {saving ? <><Clock size={14} className="animate-spin" /> Saving…</> : <><Plus size={14} /> Add & Publish</>}
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 // ─── Main Component ───────────────────────────────────────────
 export default function SubmissionsPage({ type, title, description, icon: Icon }: Props) {
   const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -270,6 +429,7 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
   const [selected, setSelected] = useState<Submission | null>(null);
   const [actioning, setActioning] = useState<string | null>(null);
   const [toast, setToast] = useState<{ type: "success" | "error"; msg: string } | null>(null);
+  const [addOpen, setAddOpen] = useState(false);
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
   // Fetch submissions
@@ -439,9 +599,17 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
           <h1 className="text-2xl font-bold text-white">{title}</h1>
           <p className="text-[#A78BFA] text-sm mt-0.5">{description}</p>
         </div>
-        <div className="ml-auto bg-[#1A1035] border border-[rgba(124,58,237,0.3)] rounded-xl px-4 py-2 text-center min-w-[80px]">
-          <p className="text-2xl font-bold text-white">{meta.total}</p>
-          <p className="text-[#6B7280] text-xs">total</p>
+        <div className="ml-auto flex items-center gap-3">
+          <button
+            onClick={() => setAddOpen(true)}
+            className="flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold px-4 py-2 rounded-xl text-sm hover:opacity-90 transition"
+          >
+            <Plus size={16} /> Add Entry
+          </button>
+          <div className="bg-[#1A1035] border border-[rgba(124,58,237,0.3)] rounded-xl px-4 py-2 text-center min-w-[80px]">
+            <p className="text-2xl font-bold text-white">{meta.total}</p>
+            <p className="text-[#6B7280] text-xs">total</p>
+          </div>
         </div>
       </div>
 
@@ -716,6 +884,20 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
             onReject={handleReject}
             onDelete={handleDelete}
             actioning={actioning}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Add Entry Modal */}
+      <AnimatePresence>
+        {addOpen && (
+          <AddEntryModal
+            type={type}
+            onClose={() => setAddOpen(false)}
+            onCreated={() => {
+              showToast("success", "Entry added and published!");
+              fetchSubmissions(1, search, statusFilter);
+            }}
           />
         )}
       </AnimatePresence>
