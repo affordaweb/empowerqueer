@@ -74,6 +74,42 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-white text-[#5C576E]">
+        {/* Google Tag (GT-PBGJWC99) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=GT-PBGJWC99"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-gt"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag("set","linker",{"domains":["www.empowerqueerhub.com"]});
+              gtag("js", new Date());
+              gtag("set", "developer_id.dZTNiMT", true);
+              gtag("config", "GT-PBGJWC99");
+            `,
+          }}
+        />
+        {/* Google Analytics 4 (G-8LK6D5R0RX) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-8LK6D5R0RX"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-ga4"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag("js", new Date());
+              gtag("config", "G-8LK6D5R0RX", { "anonymize_ip": true });
+            `,
+          }}
+        />
         {children}
         <AccessibilityWidget />
         <VisitorChat />
