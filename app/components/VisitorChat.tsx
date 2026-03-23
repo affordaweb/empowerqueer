@@ -99,9 +99,7 @@ export default function VisitorChat() {
 
   return (
     <div className="fixed bottom-6 right-20 z-[100]">
-      {/* Chat Widget */}
-      {(
-        <div className="mb-4 w-[340px] rounded-2xl shadow-2xl overflow-hidden border border-[rgba(124,58,237,0.4)] bg-[#1A0A2E] flex flex-col" style={{ height: "460px" }}>
+      <div className="mb-4 w-[340px] rounded-2xl shadow-2xl overflow-hidden border border-[rgba(124,58,237,0.4)] bg-[#1A0A2E] flex flex-col" style={{ height: "460px" }}>
           {/* Header */}
           <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899]">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
@@ -186,7 +184,6 @@ export default function VisitorChat() {
             </>
           )}
         </div>
-      )}
     </div>
   );
 }
