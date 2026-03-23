@@ -480,7 +480,7 @@ function Kopisodes() {
                 >
                   <div className="relative shrink-0">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={ep.img} alt={ep.title} className="w-20 h-[52px] rounded-lg object-cover group-hover:brightness-110 transition-all" />
+                    <img src={ep.img} alt={ep.title} width={80} height={52} loading="lazy" decoding="async" className="w-20 h-[52px] rounded-lg object-cover group-hover:brightness-110 transition-all" />
                     <div className="absolute inset-0 rounded-lg bg-black/20 group-hover:bg-black/0 transition-all" />
                     <span className="absolute bottom-1.5 right-1.5 bg-black/70 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">
                       {i === 0 ? "NEW" : ep.date}
@@ -700,6 +700,8 @@ function Founder() {
               <img
                 src="/aivan-profile-pic.jpg"
                 alt="Aivan Castillo Alvarez"
+                width={380}
+                height={500}
                 className="relative w-full max-w-[380px] rounded-3xl object-cover object-top shadow-2xl"
               />
               {/* Floating badge */}
@@ -956,6 +958,8 @@ function Gallery() {
               <img
                 src={item.src}
                 alt={item.alt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Hover overlay */}

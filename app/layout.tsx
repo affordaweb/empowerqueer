@@ -1,8 +1,24 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { DM_Sans } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import AccessibilityWidget from "./components/AccessibilityWidget";
 import VisitorChat from "./components/VisitorChat";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#7C3AED",
@@ -56,19 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${dmSans.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased bg-white text-[#5C576E]">
         {children}
         <AccessibilityWidget />

@@ -319,10 +319,10 @@ export default function Footer() {
             </p>
             <div className="rainbow-bar h-[3px] w-16 rounded-full" />
             <p className="text-[#9A9A9A] text-xs">
-              Batangas, Philippines · Founded 2018 · Web Design by{" "}
-              <a href="https://affordawebsolutions.com" target="_blank" rel="noopener noreferrer"
+              Batangas, Philippines · Founded 2018 · Crafted by:{" "}
+              <a href="https://affordawebsolutions.com/" target="_blank" rel="noopener noreferrer"
                 className="text-[#A9D6B6] hover:text-white transition-colors">
-                AffordaWeb
+                AffordaWeb Solutions
               </a>
             </p>
           </div>
