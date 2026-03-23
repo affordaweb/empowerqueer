@@ -91,18 +91,7 @@ export default function VisitorChat() {
 
   return (
     <div className="fixed bottom-6 right-6 z-[100]">
-      {/* Floating bubble trigger */}
-      {!open && (
-        <button
-          onClick={() => setOpen(true)}
-          className="w-14 h-14 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] rounded-full shadow-xl flex items-center justify-center text-white hover:scale-110 transition-transform"
-          aria-label="Open chat"
-        >
-          <MessageCircle size={24} />
-        </button>
-      )}
-
-      {/* Chat popup */}
+      {/* Chat popup — renders above the button */}
       {open && (
         <div className="mb-4 w-[340px] rounded-2xl shadow-2xl overflow-hidden border border-[rgba(124,58,237,0.4)] bg-[#1A0A2E] flex flex-col" style={{ height: "460px" }}>
           {/* Header */}
@@ -114,14 +103,10 @@ export default function VisitorChat() {
               <p className="text-white font-semibold text-sm">Chat with Us</p>
               <p className="text-white/70 text-xs">EmpowerQueer Hub Support</p>
             </div>
-            <button onClick={() => setOpen(false)} className="text-white/70 hover:text-white transition">
-              <X size={18} />
-            </button>
           </div>
 
           {/* Body */}
           {!started ? (
-            /* Name prompt */
             <div className="flex-1 flex flex-col items-center justify-center p-6 gap-4">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#7C3AED]/30 to-[#EC4899]/30 flex items-center justify-center">
                 <MessageCircle size={26} className="text-[#A78BFA]" />
@@ -190,6 +175,15 @@ export default function VisitorChat() {
           )}
         </div>
       )}
+
+      {/* Floating button — always visible, toggles open/close */}
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-14 h-14 bg-gradient-to-br from-[#7C3AED] to-[#EC4899] rounded-full shadow-lg flex items-center justify-center text-white hover:scale-110 transition-transform"
+        aria-label="Chat with us"
+      >
+        {open ? <X size={22} /> : <MessageCircle size={22} />}
+      </button>
     </div>
   );
 }
