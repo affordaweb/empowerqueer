@@ -651,12 +651,62 @@ function EventSubmitForm() {
   );
 }
 
+/* ─── Community Submission Card ─────────────────────────────────────────── */
+
+interface CommunityEvent {
+  id: string;
+  data: Record<string, unknown>;
+  submittedBy?: string;
+  publishedAt?: string;
+}
+
+function CommunityEventCard({ sub }: { sub: CommunityEvent }) {
+  const d = sub.data;
+  const title = (d.eventTitle ?? d.title ?? "Untitled Event") as string;
+  const date = (d.eventDate ?? "") as string;
+  const time = (d.eventTime ?? "") as string;
+  const location = (d.location ?? d.eventLocation ?? "") as string;
+  const description = (d.description ?? "") as string;
+  const link = (d.eventLink ?? d.link ?? "") as string;
+  const org = (d.organizerName ?? sub.submittedBy ?? "") as string;
+  return (
+    <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <div className="p-5">
+        <span className="inline-block bg-[#F5F0FF] text-[#7C3AED] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-3">Community</span>
+        <h3 className="font-serif text-base font-bold text-[#3A3C51] mb-2 leading-snug line-clamp-2">{title}</h3>
+        {(date || time || location) && (
+          <div className="space-y-1 text-xs text-[#474747] mb-3">
+            {date && <div className="flex items-center gap-1.5"><Calendar size={12} className="shrink-0 text-[#3A3C51]" /><span>{date}</span></div>}
+            {time && <div className="flex items-center gap-1.5"><Clock size={12} className="shrink-0 text-[#3A3C51]" /><span>{time}</span></div>}
+            {location && <div className="flex items-start gap-1.5"><MapPin size={12} className="shrink-0 text-[#3A3C51] mt-0.5" /><span className="line-clamp-1">{location}</span></div>}
+          </div>
+        )}
+        {description && <p className="text-xs text-[#474747] leading-relaxed line-clamp-3 mb-3">{description}</p>}
+        {org && <p className="text-[10px] text-gray-400 mb-3">By {org}</p>}
+        {link && (
+          <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-[#7C3AED] hover:underline">
+            <ExternalLink size={11} /> View details
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Page ───────────────────────────────────────────────────────────────── */
 
 export default function EventsPage() {
   const [filter, setFilter] = useState<FilterKey>("All");
   const [selected, setSelected] = useState<Event | null>(null);
   const closeModal = useCallback(() => setSelected(null), []);
+  const [communityEvents, setCommunityEvents] = useState<CommunityEvent[]>([]);
+
+  useEffect(() => {
+    fetch("/api/public/submissions?type=EVENT")
+      .then((r) => r.ok ? r.json() : { submissions: [] })
+      .then((d) => setCommunityEvents(d.submissions ?? []))
+      .catch(() => {});
+  }, []);
 
   const upcoming = ALL_EVENTS.filter((e) => isUpcoming(e.dateISO)).sort((a, b) => {
     if (a.featured && !b.featured) return -1;
@@ -738,6 +788,21 @@ export default function EventsPage() {
           )}
         </div>
       </section>
+
+      {/* ── Community Submissions ─────────────────────────────────────────── */}
+      {communityEvents.length > 0 && (
+        <section className="py-14 bg-[#F8F5FF]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-2">Community-Submitted Events</h2>
+            <p className="text-[#474747] text-sm mb-8">Events shared by our community members and approved by the team.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {communityEvents.map((sub) => (
+                <CommunityEventCard key={sub.id} sub={sub} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Submit Event Form ──────────────────────────────────────────────── */}
       <EventSubmitForm />

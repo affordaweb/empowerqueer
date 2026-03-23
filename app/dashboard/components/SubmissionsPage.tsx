@@ -360,7 +360,7 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
       setSubmissions((prev) =>
         prev.map((s) => (s.id === id ? { ...s, status: "APPROVED" } : s))
       );
-      if (selected?.id === id) setSelected((s) => s ? { ...s, status: "APPROVED" } : null);
+      setSelected(null);
       showToast("success", "Submission approved");
     } catch {
       showToast("error", "Failed to approve");
@@ -381,7 +381,7 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
       setSubmissions((prev) =>
         prev.map((s) => (s.id === id ? { ...s, status: "REJECTED" } : s))
       );
-      if (selected?.id === id) setSelected((s) => s ? { ...s, status: "REJECTED" } : null);
+      setSelected(null);
       showToast("success", "Submission rejected");
     } catch {
       showToast("error", "Failed to reject");

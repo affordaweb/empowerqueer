@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
@@ -819,6 +819,14 @@ Submitted by: ${form.submitterName} (${form.submitterEmail})
 export default function TrainingsPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeTraining, setActiveTraining] = useState<Training | null>(null);
+  const [communityTrainings, setCommunityTrainings] = useState<Array<{ id: string; data: Record<string, unknown>; submittedBy?: string }>>([]);
+
+  useEffect(() => {
+    fetch("/api/public/submissions?type=TRAINING")
+      .then((r) => r.ok ? r.json() : { submissions: [] })
+      .then((d) => setCommunityTrainings(d.submissions ?? []))
+      .catch(() => {});
+  }, []);
 
   const visibleCategories = activeCategory
     ? CATEGORIES.filter(c => c.id === activeCategory)
@@ -922,6 +930,46 @@ export default function TrainingsPage() {
           </div>
         </div>
       </section>
+
+      {/* Community Submissions */}
+      {communityTrainings.length > 0 && (
+        <section className="py-14 bg-[#F8F5FF]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-2">Community-Submitted Trainings</h2>
+            <p className="text-[#474747] text-sm mb-8">Trainings and workshops shared by our community members and approved by the team.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {communityTrainings.map((sub) => {
+                const d = sub.data;
+                const title = (d.title ?? "Untitled Training") as string;
+                const org = (d.organization ?? d.org ?? sub.submittedBy ?? "") as string;
+                const description = (d.description ?? "") as string;
+                const link = (d.link ?? "") as string;
+                const format = (d.format ?? "") as string;
+                const cost = (d.cost ?? "") as string;
+                return (
+                  <div key={sub.id} className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                    <span className="inline-block bg-[#F5F0FF] text-[#7C3AED] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-3">Community</span>
+                    <h3 className="font-serif text-base font-bold text-[#3A3C51] mb-1 leading-snug line-clamp-2">{title}</h3>
+                    {org && <p className="text-xs text-[#7C3AED] font-medium mb-2">{org}</p>}
+                    {(format || cost) && (
+                      <div className="flex gap-2 mb-2">
+                        {format && <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{format}</span>}
+                        {cost && <span className="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded-full">{cost}</span>}
+                      </div>
+                    )}
+                    {description && <p className="text-xs text-[#474747] leading-relaxed line-clamp-3 mb-3">{description}</p>}
+                    {link && (
+                      <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-[#7C3AED] hover:underline">
+                        <ExternalLink size={11} /> Learn more
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Submit Form */}
       <section id="submit-training" className="py-20 bg-gradient-to-br from-[#ECFEFF] to-[#F5F0FF] border-t border-gray-100">
