@@ -64,9 +64,12 @@ export default function VisitorChat() {
   }, [messages, open]);
 
   useEffect(() => {
-    function openChat() { setOpen(true); }
-    window.addEventListener("eqOpenChat", openChat);
-    return () => window.removeEventListener("eqOpenChat", openChat);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).__eqOpenChat = () => setOpen(true);
+    return () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      delete (window as any).__eqOpenChat;
+    };
   }, []);
 
   function handleStartChat(e: React.FormEvent) {

@@ -49,6 +49,21 @@ const CAT: Record<CategoryKey, { cardBg: string; border: string; dot: string; pi
 const ALL_EVENTS: Event[] = [
   // ── FEATURED — BATANGAS PRIORITY ──────────────────────────────────────────
   {
+    id: "voyage-2026-volunteers",
+    title: "Volunteers Signup & Orientation — Voyage 2026",
+    dateISO: "2026-04-04",
+    dateDisplay: "April 2026 (Saturday, Date TBD)",
+    time: "TBD",
+    location: "Sinsayan Lounge, Batangas City Sports Center",
+    description:
+      "Step into a space where purpose meets people — where voices are heard, stories are shared, and individuals grow into advocates of equality. Through learning, connection, and collective action, this journey marks the beginning of something meaningful. Voyage 2026 is the Volunteers' Signup & Orientation for the Volunteers' Academy, the structured volunteering flagship program of Wagayway Equality, supported by Ascend Development Solutions (SDG Advocacy Partner), in partnership with Batangas City Government and Batangas City Student and Youth Network for Equality (SY4E Network). Pre-register at bit.ly/WEvolunteer2026.",
+    category: "Advocacy",
+    tags: ["Batangas City", "Volunteers Academy", "Wagayway Equality", "SY4E Network"],
+    image: "/images/events/voyage-2026-volunteers.jpg",
+    link: "https://bit.ly/WEvolunteer2026",
+    featured: true,
+  },
+  {
     id: "batangas-city-pride-2026",
     title: "Batangas City Pride Month 2026",
     dateISO: "2026-06-11",

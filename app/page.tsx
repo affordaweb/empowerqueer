@@ -995,7 +995,8 @@ function ChatCTA() {
           Have a question, need guidance, or just want to connect? Our team is here to listen. Start a live chat and we&rsquo;ll get back to you with care.
         </p>
         <button
-          onClick={() => window.dispatchEvent(new CustomEvent("eqOpenChat"))}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onClick={() => (window as any).__eqOpenChat?.()}
           className="inline-flex items-center gap-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-bold px-8 py-4 rounded-2xl transition-opacity text-base shadow-lg shadow-[#7C3AED]/30"
         >
           <MessageCircle size={20} />
