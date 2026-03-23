@@ -41,7 +41,7 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
         </button>
 
         {/* Left — branding panel */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] lg:w-[42%] shrink-0 p-10 flex flex-col lg:sticky lg:top-0 lg:self-start lg:max-h-[92vh]">
+        <div className="relative overflow-hidden bg-gradient-to-br from-[#0F0520] via-[#1A0A2E] to-[#1E0D38] lg:w-[42%] shrink-0 p-10 flex flex-col">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#EC4899]/20 rounded-full blur-[80px] pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#7C3AED]/25 rounded-full blur-[60px] pointer-events-none" />
 
