@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
-import { getRecaptchaToken } from "@/lib/recaptcha";
 
 interface Message {
   id: string;
@@ -76,11 +75,10 @@ export default function VisitorChat() {
     if (!input.trim() || sending) return;
     setSending(true);
     try {
-      const recaptchaToken = await getRecaptchaToken("chat").catch(() => "");
       await fetch("/api/visitor-chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId, visitorName: name, message: input.trim(), recaptchaToken }),
+        body: JSON.stringify({ sessionId, visitorName: name, message: input.trim() }),
       });
       setInput("");
       fetchMessages();
