@@ -27,7 +27,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Empower Queer Hub — You Are Seen. You Are Valid. You Are Home.",
+  title: {
+    default: "Empower Queer Hub — You Are Seen. You Are Valid. You Are Home.",
+    template: "%s — Empower Queer Hub",
+  },
   description:
     "Empower Queer Hub helps LGBTQIA+ individuals in the Philippines access mental health services, legal aid, safe spaces, livelihood support, and community events through one inclusive digital hub.",
   keywords: [
@@ -40,6 +43,8 @@ export const metadata: Metadata = {
     "queer",
     "advocacy",
   ],
+  metadataBase: new URL("https://www.empowerqueerhub.com"),
+  alternates: { canonical: "https://www.empowerqueerhub.com" },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
