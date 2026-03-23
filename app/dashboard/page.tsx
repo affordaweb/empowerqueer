@@ -183,8 +183,21 @@ export default function DashboardPage() {
       fetch("/api/activity").then((r) => r.json()),
     ])
       .then(([statsData, actData]) => {
-        setStats(statsData);
-        setActivity(Array.isArray(actData?.activities) ? actData.activities.slice(0, 5) : []);
+        setStats({
+          totalSubmissions: statsData?.submissions?.total ?? 0,
+          pendingSubmissions: statsData?.submissions?.pending ?? 0,
+          approvedSubmissions: statsData?.submissions?.approved ?? 0,
+          totalUsers: statsData?.users?.total ?? 0,
+          byType: statsData?.submissions?.byType
+            ? Object.fromEntries(
+                Object.entries(statsData.submissions.byType).map(
+                  ([k, v]) => [k, (v as { pending: number }).pending]
+                )
+              )
+            : {},
+          recentSubmissions: statsData?.recentSubmissions ?? [],
+        });
+        setActivity(Array.isArray(actData?.logs) ? actData.logs.slice(0, 5) : []);
       })
       .catch(console.error)
       .finally(() => setLoading(false));

@@ -7,7 +7,7 @@ import { z } from "zod";
 
 const schema = z.object({
   name: z.string().min(2).optional(),
-  photoUrl: z.string().url().nullable().optional(),
+  photoUrl: z.string().nullable().optional(),
   note: z.string().max(200).nullable().optional(),
   currentPassword: z.string().optional(),
   newPassword: z

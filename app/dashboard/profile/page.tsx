@@ -106,8 +106,8 @@ export default function ProfilePage() {
   function handlePhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) {
-      showProfileToast({ type: "error", msg: "Photo must be under 5MB" });
+    if (file.size > 2 * 1024 * 1024) {
+      showProfileToast({ type: "error", msg: "Photo must be under 2MB" });
       return;
     }
     setPhotoFile(file);
@@ -139,7 +139,7 @@ export default function ProfilePage() {
       const res = await fetch("/api/profile", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), note, photo: photoUrl }),
+        body: JSON.stringify({ name: name.trim(), note, photoUrl }),
       });
       if (!res.ok) {
         const err = await res.json();

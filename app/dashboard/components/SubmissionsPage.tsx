@@ -284,9 +284,17 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
           ...(s && { search: s }),
         });
         const res = await fetch(`/api/submissions?${params}`);
+        if (!res.ok) throw new Error(`${res.status}`);
         const data = await res.json();
         setSubmissions(data.submissions ?? []);
-        setMeta(data.meta ?? { page: 1, totalPages: 1, total: 0, perPage: 10 });
+        setMeta(
+          data.meta ?? {
+            page: data.pagination?.page ?? 1,
+            totalPages: data.pagination?.pages ?? 1,
+            total: data.pagination?.total ?? 0,
+            perPage: data.pagination?.limit ?? 20,
+          }
+        );
       } catch {
         showToast("error", "Failed to load submissions");
       } finally {

@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
-import { createClient } from "@supabase/supabase-js";
 
 const ALLOWED_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
-const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-const BUCKET = process.env.SUPABASE_STORAGE_BUCKET || "uploads";
+const MAX_SIZE = 2 * 1024 * 1024; // 2MB
 
 export async function POST(req: NextRequest) {
   const session = await getSession();
@@ -26,30 +24,14 @@ export async function POST(req: NextRequest) {
   }
   if (file.size > MAX_SIZE) {
     return NextResponse.json(
-      { error: "File size must be under 5MB." },
+      { error: "File size must be under 2MB." },
       { status: 400 }
     );
   }
 
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
-
-  const ext = file.name.split(".").pop() || "jpg";
-  const path = `${session.userId}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
   const buffer = Buffer.from(await file.arrayBuffer());
+  const base64 = buffer.toString("base64");
+  const url = `data:${file.type};base64,${base64}`;
 
-  const { data, error } = await supabase.storage
-    .from(BUCKET)
-    .upload(path, buffer, { contentType: file.type, upsert: false });
-
-  if (error || !data) {
-    console.error("Upload error:", error);
-    return NextResponse.json({ error: "Upload failed." }, { status: 500 });
-  }
-
-  const { data: urlData } = supabase.storage.from(BUCKET).getPublicUrl(data.path);
-
-  return NextResponse.json({ url: urlData.publicUrl });
+  return NextResponse.json({ url });
 }
