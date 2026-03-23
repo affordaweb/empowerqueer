@@ -42,7 +42,7 @@ export default async function KopsodesPage() {
               Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, community stories, and rights-based conversations that inspire healing, solidarity, and collective action. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
             </p>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/wagaywayequality"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-p btn-p-sky inline-flex items-center gap-2 px-6 py-2.5 text-sm"

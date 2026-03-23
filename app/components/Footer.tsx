@@ -7,6 +7,8 @@ import { Facebook, ChevronRight, Phone, MapPin, X, Mic2, Upload, ImageIcon } fro
 
 export function StoryModal({ onClose }: { onClose: () => void }) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageName, setImageName] = useState("");
 
@@ -17,9 +19,32 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
     setImagePreview(URL.createObjectURL(file));
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+    const fd = new FormData(e.currentTarget);
+    try {
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "STORY",
+          data: {
+            name: fd.get("storyName"),
+            title: fd.get("title"),
+            content: fd.get("content"),
+          },
+          submittedBy: null,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to submit");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -102,6 +127,7 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
                   </label>
                   <input
                     type="text"
+                    name="storyName"
                     required
                     placeholder="Your name or nickname"
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 transition-all"
@@ -114,6 +140,7 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
                   </label>
                   <input
                     type="text"
+                    name="title"
                     required
                     placeholder="Give your story a title"
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 transition-all"
@@ -126,6 +153,7 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
                   </label>
                   <textarea
                     required
+                    name="content"
                     rows={6}
                     placeholder="Share your story here..."
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#7C3AED] focus:ring-2 focus:ring-[#7C3AED]/20 transition-all resize-none"
@@ -169,11 +197,13 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
                   )}
                 </div>
 
+                {error && <p className="text-red-500 text-xs text-center">{error}</p>}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-bold py-3.5 rounded-xl hover:opacity-90 transition-opacity text-sm"
+                  disabled={submitting}
+                  className="w-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-bold py-3.5 rounded-xl hover:opacity-90 transition-opacity text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Submit My Story
+                  {submitting ? "Submitting…" : "Submit My Story"}
                 </button>
                 <p className="text-[#9CA3AF] text-xs text-center">
                   Your story is handled with care and confidentiality.
@@ -209,10 +239,10 @@ const supportLines = [
 ];
 
 const recentPosts = [
-  { title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us", href: "/kopisodes/" },
-  { title: "Human Rights 101 by Wagayway Equality", href: "/kopisodes/" },
-  { title: "HIV 101 by Wagayway Equality", href: "/kopisodes/" },
-  { title: "SOGIESC 101 by Wagayway Equality Inc", href: "/kopisodes/" },
+  { title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us", href: "/kopisodes/2025-hiv-aids-surveillance-update-what-the-data-tells-us" },
+  { title: "Human Rights 101 by Wagayway Equality", href: "/kopisodes/human-rights-101-by-wagayway-equality" },
+  { title: "HIV 101 by Wagayway Equality", href: "/kopisodes/hiv-101-by-wagayway-equality" },
+  { title: "SOGIESC 101 by Wagayway Equality Inc", href: "/kopisodes/sogiesc-101-by-wagayway-equality-inc" },
 ];
 
 /* ─── Footer ──────────────────────────────────────────────────────────────── */

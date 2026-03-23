@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Heart, MessageCircle, Share2, X, Mic2, MoreHorizontal, Pencil } from "lucide-react";
@@ -90,6 +90,8 @@ const stories: Story[] = [
   },
 ];
 
+const AVATAR_PALETTE = ["bg-[#7C3AED]", "bg-[#EC4899]", "bg-[#059669]", "bg-[#D97706]", "bg-[#0EA5E9]", "bg-[#6366F1]"];
+
 const avatarColors: Record<string, string> = {
   "1": "bg-[#7C3AED]",
   "2": "bg-[#EC4899]",
@@ -99,7 +101,25 @@ const avatarColors: Record<string, string> = {
   "6": "bg-[#7C3AED]",
 };
 
-const allTags = Array.from(new Set(stories.flatMap((s) => s.tags)));
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapSubmissionToStory(sub: any, index: number): Story {
+  const d = sub.data ?? {};
+  const name = d.name || "Anonymous";
+  const initials = name === "Anonymous" ? "AN" : name.split(" ").map((w: string) => w[0]).join("").slice(0, 2).toUpperCase();
+  const date = sub.publishedAt ? new Date(sub.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : "";
+  return {
+    id: sub.id,
+    name,
+    avatar: initials,
+    date,
+    title: d.title || "Untitled",
+    content: d.content || "",
+    image: d.image || undefined,
+    likes: 0,
+    tags: Array.isArray(d.tags) ? d.tags : [],
+    _color: AVATAR_PALETTE[index % AVATAR_PALETTE.length],
+  } as Story & { _color: string };
+}
 
 /* ─── Read Modal ─────────────────────────────────────────────────────────── */
 
@@ -241,8 +261,20 @@ function StoryCard({ story, onOpen }: { story: Story; onOpen: (s: Story) => void
 export default function VoicesPage() {
   const [active, setActive] = useState<Story | null>(null);
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [allStories, setAllStories] = useState<Story[]>(stories);
 
-  const filtered = activeTag ? stories.filter((s) => s.tags.includes(activeTag)) : stories;
+  useEffect(() => {
+    fetch("/api/public/submissions?type=STORY")
+      .then((r) => r.ok ? r.json() : { submissions: [] })
+      .then((d) => {
+        const dbStories = (d.submissions ?? []).map(mapSubmissionToStory);
+        if (dbStories.length > 0) setAllStories((prev) => [...prev, ...dbStories]);
+      })
+      .catch(() => {});
+  }, []);
+
+  const allTags = Array.from(new Set(allStories.flatMap((s) => s.tags)));
+  const filtered = activeTag ? allStories.filter((s) => s.tags.includes(activeTag)) : allStories;
 
   return (
     <main className="bg-[#F3F3F3] min-h-screen">
@@ -301,8 +333,8 @@ export default function VoicesPage() {
                 <h4 className="font-semibold text-[#3A3C51] text-sm mb-4 uppercase tracking-wider">Community Stats</h4>
                 <div className="space-y-3">
                   {[
-                    { label: "Stories Published", value: stories.length.toString() },
-                    { label: "Total Likes", value: stories.reduce((a, s) => a + s.likes, 0).toLocaleString() },
+                    { label: "Stories Published", value: allStories.length.toString() },
+                    { label: "Total Likes", value: allStories.reduce((a, s) => a + s.likes, 0).toLocaleString() },
                     { label: "Unique Tags", value: allTags.length.toString() },
                     { label: "Voices Heard", value: "Growing" },
                   ].map((stat) => (

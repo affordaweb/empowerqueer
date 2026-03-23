@@ -8,45 +8,56 @@ import { getRecaptchaToken } from "@/lib/recaptcha";
 
 export default function SubmitPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [submissionType, setSubmissionType] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const recaptchaToken = await getRecaptchaToken("submit");
-    const fd = new FormData(e.currentTarget);
-    const typeMap: Record<string, string> = {
-      resource: "RESOURCE",
-      event: "EVENT",
-      publication: "RESOURCE",
-      research: "RESOURCE",
-      other: "RESOURCE",
-    };
-    const apiType = typeMap[submissionType] || "RESOURCE";
-    await fetch("/api/submissions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: apiType,
-        recaptchaToken,
-        data: {
-          title: fd.get("title"),
-          submissionType,
-          submissionTypeOther: fd.get("typeOther") || null,
-          description: fd.get("description"),
-          tags: Array.from(e.currentTarget.querySelectorAll<HTMLInputElement>("input[type=checkbox]:checked")).map((cb) => cb.value),
-          link: fd.get("link") || null,
-          eventDate: fd.get("eventDate") || null,
-          eventTime: fd.get("eventTime") || null,
-          eventLocation: fd.get("eventLocation") || null,
-          eventRegLink: fd.get("eventRegLink") || null,
-          organization: fd.get("organization") || null,
-          credit: fd.get("credit") || null,
-          notes: fd.get("notes") || null,
-        },
-        submittedBy: fd.get("email") as string,
-      }),
-    });
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const recaptchaToken = await getRecaptchaToken("submit");
+      const fd = new FormData(e.currentTarget);
+      const typeMap: Record<string, string> = {
+        resource: "RESOURCE",
+        event: "EVENT",
+        publication: "RESOURCE",
+        research: "RESOURCE",
+        other: "RESOURCE",
+      };
+      const apiType = typeMap[submissionType] || "RESOURCE";
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: apiType,
+          recaptchaToken,
+          data: {
+            title: fd.get("title"),
+            submissionType,
+            submissionTypeOther: fd.get("typeOther") || null,
+            description: fd.get("description"),
+            tags: Array.from(e.currentTarget.querySelectorAll<HTMLInputElement>("input[type=checkbox]:checked")).map((cb) => cb.value),
+            link: fd.get("link") || null,
+            eventDate: fd.get("eventDate") || null,
+            eventTime: fd.get("eventTime") || null,
+            eventLocation: fd.get("eventLocation") || null,
+            eventRegLink: fd.get("eventRegLink") || null,
+            organization: fd.get("organization") || null,
+            credit: fd.get("credit") || null,
+            notes: fd.get("notes") || null,
+          },
+          submittedBy: fd.get("email") as string,
+        }),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -190,12 +201,12 @@ export default function SubmitPage() {
 
               <div>
                 <label className="block text-[#3A3C51] text-sm font-medium mb-1.5">
-                  Upload File <span className="text-red-400">*</span>
+                  Upload File <span className="text-[#9CA3AF] font-normal">(Optional — attach link below if available)</span>
                 </label>
                 <div className="border-2 border-dashed border-[#A9D6B6] rounded-xl p-6 text-center hover:border-[#D7C4E3] transition-colors">
                   <Upload size={22} className="icon-peach icon-anim mx-auto mb-2" />
                   <p className="text-[#474747] text-sm mb-1">DOC or PDF only</p>
-                  <input type="file" accept=".doc,.docx,.pdf" className="hidden" id="file-upload" />
+                  <input type="file" accept=".doc,.docx,.pdf" className="hidden" id="file-upload" name="file" />
                   <label
                     htmlFor="file-upload"
                     className="btn-p btn-p-peach inline-flex items-center gap-2 text-sm px-5 py-2 cursor-pointer mt-1"
@@ -318,11 +329,13 @@ export default function SubmitPage() {
                 </label>
               </div>
 
+              {submitError && <p className="text-red-500 text-xs text-center">{submitError}</p>}
               <button
                 type="submit"
-                className="btn-p btn-p-peach flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base"
+                disabled={submitting}
+                className="btn-p btn-p-peach flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Submit
+                {submitting ? "Submitting…" : "Submit"}
               </button>
               <p className="text-[#474747] text-xs text-center">
                 All submissions are reviewed with care before publishing.

@@ -32,31 +32,39 @@ const contactFaqs = [
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [contactError, setContactError] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    const recaptchaToken = await getRecaptchaToken("contact");
-    const fd = new FormData(e.currentTarget);
-    await fetch("/api/submissions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type: "CONTACT",
-        recaptchaToken,
-        data: {
-          name: fd.get("name"),
-          email: fd.get("email"),
-          phone: fd.get("phone"),
-          subject: fd.get("subject"),
-          message: fd.get("message"),
-        },
-        submittedBy: fd.get("email"),
-      }),
-    });
-    setSubmitting(false);
-    setSubmitted(true);
+    setContactError("");
+    try {
+      const recaptchaToken = await getRecaptchaToken("contact");
+      const fd = new FormData(e.currentTarget);
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "CONTACT",
+          recaptchaToken,
+          data: {
+            name: fd.get("name"),
+            email: fd.get("email"),
+            phone: fd.get("phone"),
+            subject: fd.get("subject"),
+            message: fd.get("message"),
+          },
+          submittedBy: fd.get("email"),
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setContactError("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -225,6 +233,7 @@ export default function ContactPage() {
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[#474747] text-sm focus:outline-none focus:border-[#A9D6B6] focus:ring-2 focus:ring-[#A9D6B6]/40 transition-all resize-none"
                     />
                   </div>
+                  {contactError && <p className="text-red-500 text-xs text-center">{contactError}</p>}
                   <button
                     type="submit"
                     disabled={submitting}

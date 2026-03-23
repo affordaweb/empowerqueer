@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
@@ -671,6 +671,14 @@ Submitted by: ${form.submitterName} (${form.submitterEmail})
 export default function DirectoryPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [activeListing, setActiveListing] = useState<Listing | null>(null);
+  const [communityListings, setCommunityListings] = useState<Array<{ id: string; data: Record<string, unknown>; submittedBy?: string }>>([]);
+
+  useEffect(() => {
+    fetch("/api/public/submissions?type=DIRECTORY")
+      .then((r) => r.ok ? r.json() : { submissions: [] })
+      .then((d) => setCommunityListings(d.submissions ?? []))
+      .catch(() => {});
+  }, []);
 
   const visibleCategories = activeCategory
     ? CATEGORIES.filter(c => c.id === activeCategory)
@@ -797,6 +805,53 @@ export default function DirectoryPage() {
           </div>
         </div>
       </section>
+
+      {communityListings.length > 0 && (
+        <section className="py-14 bg-[#F8F5FF]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-2xl font-bold text-[#3A3C51] mb-2">Community-Submitted Listings</h2>
+            <p className="text-[#474747] text-sm mb-8">Service listings shared by community members and approved by the team.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {communityListings.map((sub) => {
+                const d = sub.data;
+                const name = (d.name ?? d.title ?? "Unnamed Service") as string;
+                const org = (d.org ?? d.organization ?? sub.submittedBy ?? "") as string;
+                const description = (d.description ?? "") as string;
+                const phone = (d.phone ?? "") as string;
+                const website = (d.website ?? d.link ?? "") as string;
+                const tags = Array.isArray(d.tags) ? (d.tags as string[]) : typeof d.tags === "string" ? [d.tags] : [];
+                return (
+                  <div key={sub.id} className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                    <span className="inline-block bg-[#F5F0FF] text-[#7C3AED] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-3">Community</span>
+                    <h3 className="font-serif text-base font-bold text-[#3A3C51] mb-1 leading-snug line-clamp-2">{name}</h3>
+                    {org && <p className="text-xs text-[#7C3AED] font-medium mb-2">{org}</p>}
+                    {description && <p className="text-xs text-[#474747] leading-relaxed line-clamp-3 mb-3">{description}</p>}
+                    {tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {tags.slice(0, 3).map((t) => (
+                          <span key={t} className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{t}</span>
+                        ))}
+                      </div>
+                    )}
+                    <div className="flex flex-wrap gap-3">
+                      {phone && (
+                        <a href={`tel:${phone}`} className="inline-flex items-center gap-1 text-xs font-semibold text-[#059669] hover:underline">
+                          <Phone size={11} /> {phone}
+                        </a>
+                      )}
+                      {website && (
+                        <a href={website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-[#7C3AED] hover:underline">
+                          <ExternalLink size={11} /> Visit website
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
 
