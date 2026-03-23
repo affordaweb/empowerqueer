@@ -323,6 +323,15 @@ export default function SubmissionsPage({ type, title, description, icon: Icon }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, statusFilter]);
 
+  // Poll every 10 seconds for new submissions
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchSubmissions(page, search, statusFilter);
+    }, 10_000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, search, statusFilter]);
+
   function showToast(type: "success" | "error", msg: string) {
     setToast({ type, msg });
     setTimeout(() => setToast(null), 3500);

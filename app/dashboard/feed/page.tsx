@@ -265,6 +265,12 @@ export default function FeedPage() {
 
   useEffect(() => { fetchFeed(page); }, [page, fetchFeed]);
 
+  // Poll every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => fetchFeed(page), 10_000);
+    return () => clearInterval(interval);
+  }, [page, fetchFeed]);
+
   const handleLike = async (id: string) => {
     const res = await fetch("/api/feed/like", {
       method: "POST",

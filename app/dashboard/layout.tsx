@@ -290,7 +290,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   useEffect(() => {
     fetchUnread();
-    unreadTimer.current = setInterval(fetchUnread, 30_000);
+    unreadTimer.current = setInterval(fetchUnread, 10_000);
     return () => {
       if (unreadTimer.current) clearInterval(unreadTimer.current);
     };

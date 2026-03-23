@@ -24,7 +24,7 @@ export async function GET() {
     prisma.submission.count({ where: { status: "REJECTED" } }),
     prisma.user.count(),
     prisma.user.count({ where: { status: "PENDING" } }),
-    prisma.user.count({ where: { status: "APPROVED", role: "USER" } }),
+    prisma.user.count({ where: { status: "APPROVED" } }),
     prisma.user.count({ where: { status: "REJECTED" } }),
     prisma.submission.findMany({
       take: 5,

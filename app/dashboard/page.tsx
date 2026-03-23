@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -177,17 +177,22 @@ export default function DashboardPage() {
   const [activity, setActivity] = useState<ActivityEntry[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    Promise.all([
-      fetch("/api/stats").then((r) => r.json()),
-      fetch("/api/activity").then((r) => r.json()),
-    ])
-      .then(([statsData, actData]) => {
+  const loadStats = useCallback(async () => {
+    try {
+      const [statsRes, actRes] = await Promise.all([
+        fetch("/api/stats"),
+        fetch("/api/activity"),
+      ]);
+
+      const statsData = statsRes.ok ? await statsRes.json() : null;
+      const actData = actRes.ok ? await actRes.json() : null;
+
+      if (statsData) {
         setStats({
           totalSubmissions: statsData?.submissions?.total ?? 0,
           pendingSubmissions: statsData?.submissions?.pending ?? 0,
           approvedSubmissions: statsData?.submissions?.approved ?? 0,
-          totalUsers: statsData?.users?.total ?? 0,
+          totalUsers: statsData?.users?.approved ?? 0,
           byType: statsData?.submissions?.byType
             ? Object.fromEntries(
                 Object.entries(statsData.submissions.byType).map(
@@ -197,11 +202,21 @@ export default function DashboardPage() {
             : {},
           recentSubmissions: statsData?.recentSubmissions ?? [],
         });
-        setActivity(Array.isArray(actData?.logs) ? actData.logs.slice(0, 5) : []);
-      })
-      .catch(console.error)
-      .finally(() => setLoading(false));
+      }
+      setActivity(Array.isArray(actData?.logs) ? actData.logs.slice(0, 5) : []);
+    } catch {
+      // non-critical, keep showing last loaded data
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  // Initial load + poll every 15 seconds
+  useEffect(() => {
+    loadStats();
+    const interval = setInterval(loadStats, 15_000);
+    return () => clearInterval(interval);
+  }, [loadStats]);
 
   const pendingByType = stats?.byType ?? {};
 
