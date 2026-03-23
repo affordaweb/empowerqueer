@@ -980,27 +980,38 @@ function Gallery() {
 
 // ─── Chat CTA ─────────────────────────────────────────────────────────────────
 
-function ChatCTA() {
+function ConnectCTA() {
   return (
     <section className="py-20 bg-[#292733] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[350px] h-[350px] bg-[#7C3AED]/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#EC4899]/10 rounded-full blur-[90px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="rainbow-bar h-[3px] w-16 mx-auto rounded-full mb-8" />
-        <p className="text-[#A78BFA] font-semibold tracking-widest uppercase text-sm mb-3">We&rsquo;re Here for You</p>
+        <p className="text-[#A78BFA] font-semibold tracking-widest uppercase text-sm mb-3">Join the Community</p>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
-          Talk to Us Directly
+          You Don&rsquo;t Have to Navigate This Alone
         </h2>
-        <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto mb-8">
-          Have a question, need guidance, or just want to connect? Our team is here to listen. Start a live chat and we&rsquo;ll get back to you with care.
+        <p className="text-white/60 text-base leading-relaxed max-w-lg mx-auto mb-10">
+          Whether you have a question, want to share your story, or are looking for support — we&rsquo;re here. Reach out to our team or connect with our growing community on Facebook.
         </p>
-        <button
-          onClick={() => { window.location.hash = "openchat"; }}
-          className="inline-flex items-center gap-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-bold px-8 py-4 rounded-2xl transition-opacity text-base shadow-lg shadow-[#7C3AED]/30"
-        >
-          <MessageCircle size={20} />
-          Chat Now
-        </button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/contact/"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 text-white font-bold px-8 py-4 rounded-2xl transition-opacity text-base shadow-lg shadow-[#7C3AED]/30"
+          >
+            <Mail size={20} />
+            Contact Us
+          </a>
+          <a
+            href="https://www.facebook.com/wagaywayequality"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-2xl transition-colors text-base border border-white/20"
+          >
+            <Facebook size={20} />
+            Follow on Facebook
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -1201,7 +1212,7 @@ export default function Home() {
       <Mission />
       <Stats />
       <Gallery />
-      <ChatCTA />
+      <ConnectCTA />
       <Sponsors />
       <Footer />
     </main>
