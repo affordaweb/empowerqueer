@@ -134,6 +134,7 @@ model VisitorMessage {
 
 model Kopisode {
   id          String   @id @default(cuid())
+  slug        String   @unique @default("")
   title       String
   desc        String   @db.Text
   tags        String[]

@@ -73,8 +73,13 @@ const GALLERY_IMAGES = [
   { src: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", alt: "SOGIESC 101 by Wagayway Equality Inc", tags: ["Training"], order: 66 },
 ];
 
+function toSlug(title: string) {
+  return title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+}
+
 const KOPISODES = [
   {
+    slug: "2025-hiv-aids-surveillance-update-what-the-data-tells-us",
     title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us",
     desc: "The latest HIV & AIDS Surveillance of the Philippines (Oct–Dec 2025) report highlights both progress and urgent gaps in our national response. By the end of 2025, an estimated 252,800 Filipinos are living with HIV, yet only 61% have been reached.",
     tags: ["LGBTQ+ Issues", "HIV & AIDS"],
@@ -85,6 +90,7 @@ const KOPISODES = [
     published: true,
   },
   {
+    slug: "human-rights-101-by-wagayway-equality",
     title: "Human Rights 101 by Wagayway Equality",
     desc: "Human Rights 101 by Wagayway Equality offered participants a foundational understanding of their rights and freedoms, emphasizing equality, dignity, and protection under the law. The session explored key concepts, legal frameworks, and real-life applications, creating a safe and empowering space for learning.",
     tags: ["Youth Services", "Advocacy & Rights"],
@@ -95,6 +101,7 @@ const KOPISODES = [
     published: true,
   },
   {
+    slug: "hiv-101-by-wagayway-equality",
     title: "HIV 101 by Wagayway Equality",
     desc: "HIV 101 by Wagayway Equality focused on building clear and accurate understanding of HIV, including prevention, testing, treatment, and care. The session addressed common myths and fears, helping participants gain reliable knowledge in a safe and supportive environment.",
     tags: ["Support Resources", "HIV & AIDS"],
@@ -105,6 +112,7 @@ const KOPISODES = [
     published: true,
   },
   {
+    slug: "sogiesc-101-by-wagayway-equality-inc",
     title: "SOGIESC 101 by Wagayway Equality Inc",
     desc: "SOGIESC 101 by Wagayway Equality Inc. provided a clear and safe space for learning about sexual orientation, gender identity, gender expression, and sex characteristics. The session helped participants better understand diversity through open discussion and affirming education.",
     tags: ["Support Resources", "Education"],
@@ -115,6 +123,7 @@ const KOPISODES = [
     published: true,
   },
   {
+    slug: "wagayway-equality-join-sublian-festival",
     title: "Wagayway Equality Join Sublian Festival",
     desc: "Wagayway Equality proudly joined the Sublian Festival, taking part in one of Batangas' most cherished cultural celebrations. Their presence highlighted the importance of inclusion, respect, and equal representation within traditional community events.",
     tags: ["Advocacy & Rights", "Community Voices"],
@@ -125,6 +134,7 @@ const KOPISODES = [
     published: true,
   },
   {
+    slug: "batangas-pride-month-celebration-2023",
     title: "Batangas Pride Month Celebration 2023",
     desc: "The Batangas Pride Month Celebration 2023, led by Wagayway Equality, brought together diverse voices from the community in a joyful and welcoming space. During the 8th Batangan Pride Celebration held on June 27, 2023, participants joined in solidarity and celebration.",
     tags: ["Community Voices", "LGBTQ+ Issues"],
@@ -135,6 +145,7 @@ const KOPISODES = [
     published: true,
   },
   {
+    slug: "equality-desk-by-wagayway-equality",
     title: "Equality Desk by Wagayway Equality",
     desc: "The increasing prevalence of HIV in Batangas City is a major concern, especially among young key populations (YKP), Men having Sex with Men (MSM), transgender individuals, and other affected groups. Stigma and discrimination create barriers to accessing health services.",
     tags: ["LGBTQ+ Issues", "Advocacy & Rights"],

@@ -28,9 +28,15 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "title and desc required" }, { status: 422 });
   }
 
+  const baseSlug = title.trim().toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+  // ensure uniqueness by appending a timestamp if needed
+  const existing = await prisma.kopisode.findUnique({ where: { slug: baseSlug } });
+  const slug = existing ? `${baseSlug}-${Date.now()}` : baseSlug;
+
   const count = await prisma.kopisode.count();
   const kopisode = await prisma.kopisode.create({
     data: {
+      slug,
       title: title.trim(),
       desc: desc.trim(),
       tags: Array.isArray(tags) ? tags : [],

@@ -18,6 +18,7 @@ const CATEGORY_MAP: Record<string, { label: string; icon: React.ElementType; col
 
 interface Episode {
   id: string;
+  slug: string;
   title: string;
   desc: string;
   tags: string[];
@@ -28,7 +29,7 @@ interface Episode {
 }
 
 export default function KopisodeArticlePage() {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const router = useRouter();
   const [episode, setEpisode] = useState<Episode | null>(null);
   const [related, setRelated] = useState<Episode[]>([]);
@@ -36,11 +37,11 @@ export default function KopisodeArticlePage() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/kopisodes/${id}`)
+    fetch(`/api/kopisodes/${slug}`)
       .then((r) => { if (!r.ok) { setNotFound(true); setLoading(false); return null; } return r.json(); })
       .then((d) => { if (!d) return; setEpisode(d.kopisode); setLoading(false); })
       .catch(() => { setNotFound(true); setLoading(false); });
-  }, [id]);
+  }, [slug]);
 
   useEffect(() => {
     if (!episode) return;
@@ -167,7 +168,7 @@ export default function KopisodeArticlePage() {
               {related.map((ep) => (
                 <button
                   key={ep.id}
-                  onClick={() => router.push(`/kopisodes/${ep.id}`)}
+                  onClick={() => router.push(`/kopisodes/${ep.slug}`)}
                   className="text-left bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-[#7C3AED]/40 hover:shadow-sm transition-all"
                 >
                   {ep.img && (
