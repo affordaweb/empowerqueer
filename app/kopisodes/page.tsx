@@ -167,7 +167,7 @@ export default function KopsodesPage() {
                           </div>
                           <h3 className="font-serif text-lg font-bold text-[#3A3C51] mb-2">{ep.title}</h3>
                           <p className="text-[#474747] text-sm leading-relaxed mb-3">{ep.desc}</p>
-                          <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#3A3C51] text-sm font-semibold hover:gap-2.5 transition-all">
+                          <a href={`/kopisodes/${ep.id}`} className="inline-flex items-center gap-1.5 text-[#3A3C51] text-sm font-semibold hover:gap-2.5 transition-all">
                             Read More <ChevronRight size={14} />
                           </a>
                         </div>
