@@ -1,8 +1,10 @@
 declare global {
   interface Window {
     grecaptcha: {
-      ready: (cb: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      enterprise: {
+        ready: (cb: () => void) => void;
+        execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      };
     };
   }
 }
@@ -15,11 +17,11 @@ export { SITE_KEY };
 
 export function getRecaptchaToken(action: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    if (typeof window === "undefined" || !window.grecaptcha) {
+    if (typeof window === "undefined" || !window.grecaptcha?.enterprise) {
       return reject(new Error("reCAPTCHA not loaded"));
     }
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
+    window.grecaptcha.enterprise.ready(() => {
+      window.grecaptcha.enterprise
         .execute(SITE_KEY, { action })
         .then(resolve)
         .catch(reject);

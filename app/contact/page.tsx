@@ -40,9 +40,10 @@ export default function ContactPage() {
     setSubmitting(true);
     setContactError("");
     try {
+      const form = e.currentTarget;
       let recaptchaToken: string | undefined;
       try { recaptchaToken = await getRecaptchaToken("contact"); } catch { /* proceed without token */ }
-      const fd = new FormData(e.currentTarget);
+      const fd = new FormData(form);
       const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
