@@ -697,7 +697,7 @@ export default function DirectoryPage() {
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Service Directory</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Find LGBTQIA+ Services Near You</h1>
           <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
-            Trusted LGBTQIA+-affirming clinics, hotlines, community centers, and support organizations across Batangas Province and the Philippines.
+            Trusted LGBTQIA+-affirming clinics, hotlines, community centers, and support organizations across Batangas Province and the Philippines. Also explore <a href="/resources" className="underline hover:text-white transition-colors">our resource library</a> or <a href="/submit" className="underline hover:text-white transition-colors">submit a new listing</a>. For global HIV data, see <a href="https://www.unaids.org/en/resources/fact-sheet" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">UNAIDS</a>.
           </p>
         </div>
       </section>

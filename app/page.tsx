@@ -59,8 +59,8 @@ function Hero() {
         </h1>
         <p className="max-w-2xl mx-auto text-white/80 text-lg leading-relaxed mb-10">
           EmpowerQueer is your all-in-one LGBTQIA+ support hub. Whether you&rsquo;re
-          searching for queer mental health services, legal help, safe spaces, livelihood
-          support, or local LGBTQIA+ events—this is where connection starts.
+          searching for <a href="/directory" className="underline hover:text-white transition-colors">queer mental health services</a>, legal help, safe spaces, <a href="/opportunities" className="underline hover:text-white transition-colors">livelihood
+          support</a>, or <a href="/events" className="underline hover:text-white transition-colors">local LGBTQIA+ events</a>—this is where connection starts.
           <br /><br />
           No more scattered info, no more closed doors. We built this for every queer
           story that deserves to be seen, heard, and supported.
@@ -204,7 +204,7 @@ function HubIntro() {
               The Empower Queer Online Hub is a community-driven platform designed to meet the real needs of LGBTQIA+ individuals. Born from the Wagayway EmpowerQueer Project, this hub offers a safe digital space for learning, events, and empowerment.
             </p>
             <p className="text-[#474747] text-base leading-relaxed mb-8">
-              From mental health and legal support to livelihood opportunities and community connections, EmpowerQueer unites grassroots solutions and online accessibility to create a welcoming home for every queer identity.
+              From <a href="/directory" className="text-[#7C3AED] hover:underline">mental health and legal support</a> to <a href="/opportunities" className="text-[#7C3AED] hover:underline">livelihood opportunities</a> and <a href="/events" className="text-[#7C3AED] hover:underline">community connections</a>, EmpowerQueer unites grassroots solutions and online accessibility to create a welcoming home for every queer identity.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="/about/" className="btn-p btn-p-mint inline-flex items-center gap-2 px-6 py-3 text-sm">

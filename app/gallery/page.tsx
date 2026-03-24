@@ -53,7 +53,7 @@ export default function GalleryPage() {
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Photo Gallery</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Our Community in Photos</h1>
           <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
-            Moments of pride, advocacy, community, and love — captured and shared.
+            Moments of <a href="/events" className="underline hover:text-white transition-colors">pride, advocacy, community</a>, and love — captured and shared. <a href="/voices" className="underline hover:text-white transition-colors">Read the stories</a> behind the faces.
           </p>
         </div>
       </section>

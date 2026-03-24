@@ -33,7 +33,7 @@ export default function DonatePage() {
                 Fuel the Change You Believe In
               </h2>
               <p className="text-[#474747] text-lg leading-relaxed mb-8">
-                EmpowerQueer Hub runs entirely on heart and community support. Every contribution — big or small — goes directly toward maintaining free resources, expanding services, and uplifting LGBTQIA+ voices across Batangas and beyond.
+                EmpowerQueer Hub runs entirely on heart and community support. Every contribution — big or small — goes directly toward maintaining <a href="/resources" className="text-[#7C3AED] hover:underline">free resources</a>, expanding <a href="/directory" className="text-[#7C3AED] hover:underline">services</a>, and uplifting <a href="/voices" className="text-[#7C3AED] hover:underline">LGBTQIA+ voices</a> across Batangas and beyond.
               </p>
 
               <div className="rounded-2xl overflow-hidden shadow-lg mb-8">
@@ -46,7 +46,7 @@ export default function DonatePage() {
               </div>
 
               <p className="text-[#474747] text-sm leading-relaxed">
-                Every peso makes a difference in keeping this hub alive, accessible, and truly ours. Whether you give once or regularly, you become part of a community that believes every LGBTQIA+ Filipino deserves to be seen, supported, and celebrated.
+                Every peso makes a difference in keeping this hub alive, accessible, and truly ours. Whether you give once or regularly, you become part of a <a href="/about" className="text-[#7C3AED] hover:underline">community</a> that believes every LGBTQIA+ Filipino deserves to be seen, <a href="/directory" className="text-[#7C3AED] hover:underline">supported</a>, and celebrated.
               </p>
             </div>
 

@@ -845,7 +845,7 @@ export default function TrainingsPage() {
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Trainings & Workshops</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Learn, Grow & Lead</h1>
           <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
-            Free LGBTQIA+ trainings, workshops, and capacity-building programs — for advocates, educators, healthcare workers, and community members.
+            Free LGBTQIA+ trainings, workshops, and capacity-building programs — for advocates, educators, healthcare workers, and community members. Browse <a href="/resources" className="underline hover:text-white transition-colors">our resource library</a>, find <a href="/opportunities" className="underline hover:text-white transition-colors">livelihood opportunities</a>, or learn more through <a href="https://www.unfe.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">UN Free &amp; Equal</a>.
           </p>
         </div>
       </section>

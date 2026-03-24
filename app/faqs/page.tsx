@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ChevronDown, HelpCircle, BookOpen, FolderOpen, MapPin, Calendar, Lock, Users } from "lucide-react";
@@ -16,7 +16,7 @@ const categories = [
   { id: "community",   label: "Community",        icon: Users,      color: "text-[#7C3AED]", bg: "bg-[#F5F0FF]", border: "border-[#DDD6FE]", activeBg: "bg-[#7C3AED]" },
 ];
 
-const faqs = [
+const faqs: Array<{ category: string; q: string; a: ReactNode }> = [
   {
     category: "general",
     q: "What is EmpowerQueer Hub?",
@@ -40,12 +40,12 @@ const faqs = [
   {
     category: "general",
     q: "Is the site accessible for users with disabilities?",
-    a: "We are committed to accessibility and aim to follow best practices, including screen reader compatibility, keyboard navigation, and clear contrast design. Let us know if you experience any issues—we'll do our best to improve.",
+    a: <>We are committed to accessibility and aim to follow best practices, including screen reader compatibility, keyboard navigation, and clear contrast design. Learn more about <a href="/accessibility" className="text-[#7C3AED] hover:underline font-medium">our accessibility statement</a>. Let us know if you experience any issues—we&rsquo;ll do our best to improve.</>,
   },
   {
     category: "submissions",
     q: "Can I submit a resource, event, or story?",
-    a: "Absolutely! Anyone can contribute a file, event, or personal story through the Submit a Resource or Event page. All submissions are reviewed by our team before being published.",
+    a: <>Absolutely! Anyone can contribute a file, event, or personal story through the <a href="/submit" className="text-[#7C3AED] hover:underline font-medium">Submit a Resource or Event page</a>. All submissions are reviewed by our team before being published.</>,
   },
   {
     category: "submissions",
@@ -70,7 +70,7 @@ const faqs = [
   {
     category: "directory",
     q: "Can I suggest a clinic, group, or organization to be added to the directory?",
-    a: "Yes, you can recommend new listings through our Contact page or submission form. Please include as much detail as possible, such as location, contact info, and services offered.",
+    a: <>Yes, you can recommend new listings through our <a href="/contact" className="text-[#7C3AED] hover:underline font-medium">Contact page</a> or <a href="/submit" className="text-[#7C3AED] hover:underline font-medium">submission form</a>. Please include as much detail as possible, such as location, contact info, and services offered.</>,
   },
   {
     category: "directory",
@@ -80,27 +80,27 @@ const faqs = [
   {
     category: "events",
     q: "Where can I find upcoming LGBTQIA+ events?",
-    a: "Visit the Events & Trainings page to see upcoming workshops, webinars, pride events, and trainings. You can also view past events and community photos.",
+    a: <>Visit the <a href="/events" className="text-[#7C3AED] hover:underline font-medium">Events page</a> and <a href="/trainings" className="text-[#7C3AED] hover:underline font-medium">Trainings page</a> to see upcoming workshops, webinars, pride events, and trainings. You can also view past events and community photos.</>,
   },
   {
     category: "events",
     q: "Can I host or promote an event through the Hub?",
-    a: "Yes, if your event is LGBTQIA+ inclusive and relevant to the community, you can submit the details through the event submission form.",
+    a: <>Yes, if your event is LGBTQIA+ inclusive and relevant to the community, you can submit the details through the <a href="/submit" className="text-[#7C3AED] hover:underline font-medium">event submission form</a>.</>,
   },
   {
     category: "privacy",
     q: "How is my information used?",
-    a: "Any information you provide through forms is used solely to contact you regarding your submission. We do not share or sell your personal details. Read our full Privacy Policy for more.",
+    a: <>Any information you provide through forms is used solely to contact you regarding your submission. We do not share or sell your personal details. Read our full <a href="/privacy-policy" className="text-[#7C3AED] hover:underline font-medium">Privacy Policy</a> for more.</>,
   },
   {
     category: "community",
     q: "I want to help — how can I get involved?",
-    a: "You can contribute by submitting content, sharing the site with your networks, or offering your time as a volunteer. We're always looking for community contributors, writers, and outreach supporters.",
+    a: <>You can contribute by <a href="/submit" className="text-[#7C3AED] hover:underline font-medium">submitting content</a>, sharing the site with your networks, or offering your time as a volunteer. We&rsquo;re always looking for community contributors, writers, and outreach supporters.</>,
   },
   {
     category: "community",
     q: "Can organizations partner with EmpowerQueer Hub?",
-    a: "Yes, we welcome partnerships with organizations that share our values. Use the Contact Us form to start a conversation with our team.",
+    a: <>Yes, we welcome partnerships with organizations that share our values. Use the <a href="/contact" className="text-[#7C3AED] hover:underline font-medium">Contact Us form</a> to start a conversation with our team.</>,
   },
 ];
 

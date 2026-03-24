@@ -73,7 +73,7 @@ export default function AboutPage() {
               </span>
             </h2>
             <p className="text-[#474747] text-lg leading-relaxed">
-              A platform shaped by LGBTQIA+ voices and lived experience — born from Wagayway Equality&rsquo;s years of listening, responding, and standing alongside communities who needed safe, accessible, and affirming support.
+              A platform shaped by LGBTQIA+ voices and lived experience — born from Wagayway Equality&rsquo;s years of listening, responding, and standing alongside communities who needed safe, accessible, and <a href="/resources" className="text-[#7C3AED] hover:underline">affirming support</a>.
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
                 Built on volunteerism and collective action, Wagayway Equality, Community of Volunteers, Inc. is a grassroots organization based in Batangas, serving Region IV and growing nationwide. From small gatherings to city-wide campaigns, it has become a trusted anchor for queer voices.
               </p>
               <p className="text-[#474747] leading-relaxed">
-                Programs are shaped by lived experience, compassion, and evidence-based practice — responding to real struggles with care and community power. The EmpowerQueer Hub extends this mission digitally, making Wagayway&rsquo;s spirit of service accessible to anyone in the Philippines, wherever they may be.
+                Programs are shaped by lived experience, compassion, and evidence-based practice — responding to real struggles with care and community power. The <a href="/about" className="text-[#7C3AED] hover:underline">EmpowerQueer Hub</a> extends this mission digitally, making Wagayway&rsquo;s spirit of service accessible to anyone in the Philippines, wherever they may be.
               </p>
             </div>
 
@@ -293,7 +293,7 @@ export default function AboutPage() {
                 Whether you have hours or expertise to spare, there&rsquo;s a place for you here. Join 950+ members building a more inclusive Philippines — one community at a time.
               </p>
               <p className="text-[#474747]/70 text-base leading-relaxed mb-8">
-                Volunteers at EmpowerQueer don&rsquo;t just show up — they shape the movement. From running training sessions to amplifying community voices, every role makes a real difference in the lives of LGBTQIA+ Filipinos.
+                Volunteers at EmpowerQueer don&rsquo;t just show up — they shape the movement. From running <a href="/trainings" className="text-[#7C3AED] hover:underline">training sessions</a> to amplifying <a href="/voices" className="text-[#7C3AED] hover:underline">community voices</a>, every role makes a real difference in the lives of LGBTQIA+ Filipinos.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[

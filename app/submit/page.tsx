@@ -17,8 +17,10 @@ export default function SubmitPage() {
     setSubmitting(true);
     setSubmitError("");
     try {
-      const recaptchaToken = await getRecaptchaToken("submit");
-      const fd = new FormData(e.currentTarget);
+      const form = e.currentTarget;
+      let recaptchaToken: string | undefined;
+      try { recaptchaToken = await getRecaptchaToken("submit"); } catch { /* proceed without token */ }
+      const fd = new FormData(form);
       const typeMap: Record<string, string> = {
         resource: "RESOURCE",
         event: "EVENT",
@@ -105,7 +107,7 @@ export default function SubmitPage() {
               </div>
 
               <p className="text-[#474747] text-sm leading-relaxed">
-                EmpowerQueer Hub is built by the community, for the community — with every submission helping to create a stronger, more supportive space for LGBTQIA+ individuals and allies. Whether it&rsquo;s a mental health guide, a legal aid checklist, an event flyer, or a peer-led workshop, what you share can guide someone toward understanding, relief, or the courage to take their next step. Every contribution is reviewed with care, and once approved, it becomes part of a growing hub of community-powered support.
+                EmpowerQueer Hub is built by the community, for the community — with every submission helping to create a stronger, more supportive space for LGBTQIA+ individuals and allies. Whether it&rsquo;s a <a href="/resources" className="text-[#7C3AED] hover:underline">mental health guide</a>, a legal aid checklist, an <a href="/events" className="text-[#7C3AED] hover:underline">event flyer</a>, or a <a href="/trainings" className="text-[#7C3AED] hover:underline">peer-led workshop</a>, what you share can guide someone toward understanding, relief, or the courage to take their next step. Every contribution is reviewed with care, and once approved, it becomes part of a growing <a href="/directory" className="text-[#7C3AED] hover:underline">hub of community-powered support</a>.
               </p>
             </div>
 

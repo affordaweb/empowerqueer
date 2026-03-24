@@ -290,7 +290,7 @@ export default function VoicesPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Community Stories</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Voices Among Us</h1>
-          <p className="text-white/75 text-xl leading-relaxed max-w-2xl">Share your story. Speak your truth. Your voice matters here.</p>
+          <p className="text-white/75 text-xl leading-relaxed max-w-2xl">Share your story. Speak your truth. Your voice matters here. Browse <a href="/kopisodes" className="underline hover:text-white transition-colors">Kopisodes</a> for real conversations from the community.</p>
         </div>
       </section>
 
@@ -312,7 +312,7 @@ export default function VoicesPage() {
                   </div>
                   <h3 className="font-serif text-xl font-bold text-white mb-2 leading-tight">Have a story to share?</h3>
                   <p className="text-white/55 text-sm leading-relaxed mb-5">
-                    Your experience can inspire someone who needs it. You can remain anonymous. All submissions are reviewed with care.
+                    Your experience can inspire someone who needs it. You can remain anonymous. All submissions are reviewed with care. Find <a href="/resources" className="underline hover:text-white/90 transition-colors">support resources</a> or explore <a href="/events" className="underline hover:text-white/90 transition-colors">community events</a> while you&rsquo;re here.
                   </p>
                   <button
                     data-story-trigger

@@ -717,7 +717,7 @@ export default function OpportunitiesPage() {
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Opportunities Desk</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Grow, Lead & Make an Impact</h1>
           <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
-            Jobs, fellowships, trainings, and volunteer roles — curated for LGBTQIA+ Filipinos who are ready to build skills and lead change.
+            Jobs, fellowships, trainings, and volunteer roles — curated for LGBTQIA+ Filipinos who are ready to build skills and lead change. See our <a href="/trainings" className="underline hover:text-white transition-colors">free trainings</a>, upcoming <a href="/events" className="underline hover:text-white transition-colors">community events</a>, or <a href="/about" className="underline hover:text-white transition-colors">learn about the Hub</a>.
           </p>
         </div>
       </section>

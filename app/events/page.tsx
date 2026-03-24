@@ -479,7 +479,7 @@ function EventSubmitForm() {
             </div>
 
             <p className="text-[#474747] text-sm leading-relaxed">
-              Every event submitted to EmpowerQueer Hub goes through a quick review to ensure it aligns with our community values of inclusion, safety, and dignity. Once approved, your event will be visible to our 950+ members and featured across our network. We welcome Pride celebrations, health workshops, advocacy sessions, livelihood trainings, and any gathering that uplifts LGBTQIA+ voices.
+              Every event submitted to EmpowerQueer Hub goes through a quick review to ensure it aligns with our community values of inclusion, safety, and dignity. Once approved, your event will be visible to our 950+ members and featured across our network. We welcome Pride celebrations, <a href="/resources" className="text-[#7C3AED] hover:underline">health workshops</a>, advocacy sessions, <a href="/trainings" className="text-[#7C3AED] hover:underline">livelihood trainings</a>, and any gathering that uplifts <a href="/voices" className="text-[#7C3AED] hover:underline">LGBTQIA+ voices</a>.
             </p>
           </div>
 

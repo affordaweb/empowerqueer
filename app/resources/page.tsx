@@ -744,7 +744,7 @@ export default function ResourcesPage() {
           <span className="inline-block bg-white/15 border border-white/25 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">Resource Library</span>
           <h1 className="font-serif text-5xl font-bold text-white mb-4">Resources</h1>
           <p className="text-white/75 text-xl leading-relaxed max-w-2xl">
-            Guides, toolkits, and research for LGBTQIA+ wellbeing, safety, and advocacy — curated for LGBTQIA+ Filipinos and their allies.
+            Guides, toolkits, and research for LGBTQIA+ wellbeing, safety, and advocacy — curated for LGBTQIA+ Filipinos and their allies. Explore our <a href="/directory" className="underline hover:text-white transition-colors">service directory</a> or <a href="/trainings" className="underline hover:text-white transition-colors">free trainings</a>, and check <a href="https://www.who.int/health-topics/mental-health" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">WHO mental health guidance</a> for additional support.
           </p>
         </div>
       </section>
