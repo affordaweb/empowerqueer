@@ -9,7 +9,7 @@ declare global {
 
 const SITE_KEY =
   process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
-  "6LevTZQsAAAAAG6Yp6SRnJQnNp-PAdY4J4ECTNEF";
+  "6LeNET0sAAAAAPEEe6JdAhHy_gbbQ-_yM_ps0PD1";
 
 export { SITE_KEY };
 

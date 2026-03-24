@@ -161,7 +161,7 @@ export default function RootLayout({
         <VisitorChat />
         <IOSInstallBanner />
         <Script
-          src="https://www.google.com/recaptcha/api.js?render=6LevTZQsAAAAAG6Yp6SRnJQnNp-PAdY4J4ECTNEF"
+          src="https://www.google.com/recaptcha/api.js?render=6LeNET0sAAAAAPEEe6JdAhHy_gbbQ-_yM_ps0PD1"
           strategy="afterInteractive"
         />
         <Script
