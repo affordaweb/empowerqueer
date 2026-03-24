@@ -58,10 +58,13 @@ export default function ContactPage() {
           submittedBy: fd.get("email"),
         }),
       });
-      if (!res.ok) throw new Error("Failed to send");
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}));
+        throw new Error(errBody.error || `HTTP ${res.status}`);
+      }
       setSubmitted(true);
-    } catch {
-      setContactError("Something went wrong. Please try again.");
+    } catch (err) {
+      setContactError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
     }
