@@ -342,7 +342,7 @@ export default function Footer() {
             <div className="rainbow-bar h-[3px] w-16 rounded-full" />
             <p className="text-[#9A9A9A] text-xs">
               Batangas, Philippines · Founded 2018 · Crafted by:{" "}
-              <a href="/affordaweb"
+              <a href="https://www.empowerqueerhub.com/affordaweb"
                 className="text-[#A9D6B6] hover:text-white transition-colors">
                 AffordaWeb Solutions
               </a>
