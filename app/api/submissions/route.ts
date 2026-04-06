@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendNewSubmissionEmail } from "@/lib/email";
-import { verifyRecaptcha } from "@/lib/verifyRecaptcha";
 
 async function verifyTurnstile(token: string): Promise<boolean> {
   if (!process.env.TURNSTILE_SECRET_KEY) return true; // skip if not configured
@@ -106,11 +105,10 @@ export async function POST(req: NextRequest) {
       body = await req.json();
     }
 
-    const { type, data, submittedBy, recaptchaToken, turnstileToken, status: requestedStatus } = body as {
+    const { type, data, submittedBy, turnstileToken, status: requestedStatus } = body as {
       type: string;
       data: Record<string, unknown>;
       submittedBy?: string;
-      recaptchaToken?: string;
       turnstileToken?: string;
       status?: string;
     };
@@ -123,12 +121,6 @@ export async function POST(req: NextRequest) {
       const ok = await verifyTurnstile(turnstileToken);
       if (!ok) {
         return NextResponse.json({ error: "Turnstile verification failed." }, { status: 400 });
-      }
-    } else if (!session && recaptchaToken) {
-      // Keep reCAPTCHA for other submission types
-      const ok = await verifyRecaptcha(recaptchaToken);
-      if (!ok) {
-        return NextResponse.json({ error: "reCAPTCHA verification failed." }, { status: 400 });
       }
     }
 
