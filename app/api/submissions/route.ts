@@ -113,12 +113,12 @@ export async function POST(req: NextRequest) {
       status?: string;
     };
 
-    // Verify Turnstile for CONTACT submissions from public users
-    if (!session && type === "CONTACT") {
+    // Verify Turnstile for all public submissions (logged-in users bypass)
+    if (!session) {
       if (!turnstileToken) {
         return NextResponse.json({ error: "Missing verification token." }, { status: 400 });
       }
-      const ok = await verifyTurnstile(turnstileToken);
+      const ok = await verifyTurnstile(turnstileToken as string);
       if (!ok) {
         return NextResponse.json({ error: "Turnstile verification failed." }, { status: 400 });
       }

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import Script from 'next/script';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Calendar, MapPin, Clock, X, ExternalLink, Star, Tag, Send, CheckCircle } from "lucide-react";
@@ -381,6 +382,21 @@ function EventSubmitForm() {
   const [flyerFile, setFlyerFile] = useState<File | null>(null);
   const [flyerPreview, setFlyerPreview] = useState<string>("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const widgetRendered = useRef(false)
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true
+      ;(window as any).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
+        callback: (token: string) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+  }
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>, type: "image" | "flyer") {
     const file = e.target.files?.[0];
@@ -426,6 +442,7 @@ function EventSubmitForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "EVENT",
+          turnstileToken,
           data: {
             eventTitle: form.eventTitle,
             eventDate: form.eventDate,
@@ -648,9 +665,14 @@ function EventSubmitForm() {
                   <p className="text-red-500 text-sm">Something went wrong. Please try again or email us directly.</p>
                 )}
 
+                <div ref={widgetRef} className="flex justify-center" />
+                <Script
+                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                  onLoad={initTurnstile}
+                />
                 <button
                   type="submit"
-                  disabled={status === "loading"}
+                  disabled={status === "loading" || !turnstileToken}
                   className="w-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] hover:opacity-90 disabled:opacity-60 text-white font-semibold py-3.5 rounded-xl transition-opacity inline-flex items-center justify-center gap-2"
                 >
                   <Send size={16} />

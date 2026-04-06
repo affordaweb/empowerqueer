@@ -23,6 +23,7 @@ const schema = z.object({
     .regex(/[^A-Za-z0-9]/, "Must contain a special character"),
   photoUrl: z.string().url().optional().nullable(),
   captchaToken: z.string().optional(),
+  turnstileToken: z.string().optional(),
 });
 
 async function verifyCaptcha(token: string): Promise<boolean> {
@@ -51,17 +52,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, email, password, photoUrl, captchaToken } = parsed.data;
+    const { name, email, password, photoUrl, captchaToken, turnstileToken } = parsed.data;
 
-    // Verify captcha
-    if (captchaToken) {
-      const valid = await verifyCaptcha(captchaToken);
-      if (!valid) {
-        return NextResponse.json(
-          { error: "CAPTCHA verification failed. Please try again." },
-          { status: 400 }
-        );
-      }
+    // Verify Turnstile — required for all public registrations
+    const tokenToVerify = turnstileToken || captchaToken;
+    if (!tokenToVerify) {
+      return NextResponse.json(
+        { error: "Missing verification token." },
+        { status: 400 }
+      );
+    }
+    const valid = await verifyCaptcha(tokenToVerify);
+    if (!valid) {
+      return NextResponse.json(
+        { error: "CAPTCHA verification failed. Please try again." },
+        { status: 400 }
+      );
     }
 
     // Check duplicate email

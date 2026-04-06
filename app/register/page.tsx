@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Loader2, CheckCircle, Upload, X } from "lucide-react";
 import Link from "next/link";
+import Script from 'next/script';
 
 function getPasswordStrength(password: string): { score: number; label: string; color: string } {
   let score = 0;
@@ -33,6 +34,21 @@ export default function RegisterPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const widgetRendered = useRef(false)
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true
+      ;(window as any).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
+        callback: (token: string) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+  }
 
   const strength = getPasswordStrength(password);
 
@@ -91,7 +107,7 @@ export default function RegisterPage() {
       const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, photoUrl }),
+        body: JSON.stringify({ name, email, password, photoUrl, turnstileToken }),
       });
       const data = await res.json();
 
@@ -336,9 +352,14 @@ export default function RegisterPage() {
               </motion.p>
             )}
 
+            <div ref={widgetRef} className="flex justify-center" />
+            <Script
+              src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+              onLoad={initTurnstile}
+            />
             <button
               type="submit"
-              disabled={loading || uploadingPhoto}
+              disabled={loading || uploadingPhoto || !turnstileToken}
               className="w-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold rounded-xl px-6 py-3 hover:opacity-90 transition disabled:opacity-60 flex items-center justify-center gap-2"
             >
               {loading ? (

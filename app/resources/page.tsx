@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Script from 'next/script';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { ExternalLink, FileText, X, BookOpen, Heart, Shield, Users, Mic2, Activity, Scale, Star, Upload, CheckCircle, Send } from "lucide-react";
@@ -483,6 +484,21 @@ function ResourceSubmitForm() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const widgetRendered = useRef(false)
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true
+      ;(window as any).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
+        callback: (token: string) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+  }
 
   function handleCoverChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -522,6 +538,7 @@ Submitted by: ${form.submitterName} (${form.submitterEmail})
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "RESOURCE",
+          turnstileToken,
           data: {
             title: form.title,
             org: form.org,
@@ -702,9 +719,14 @@ Submitted by: ${form.submitterName} (${form.submitterEmail})
 
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
+      <div ref={widgetRef} className="flex justify-center" />
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        onLoad={initTurnstile}
+      />
       <button
         type="submit"
-        disabled={sending}
+        disabled={sending || !turnstileToken}
         className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-60"
       >
         {sending ? "Submitting…" : <><Send size={16} /> Submit Resource</>}

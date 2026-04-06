@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Script from 'next/script';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Upload } from "lucide-react";
@@ -10,6 +11,21 @@ export default function SubmitPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [submissionType, setSubmissionType] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const widgetRendered = useRef(false)
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true
+      ;(window as any).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
+        callback: (token: string) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,6 +47,7 @@ export default function SubmitPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: apiType,
+          turnstileToken,
           data: {
             title: fd.get("title"),
             submissionType,
@@ -328,9 +345,14 @@ export default function SubmitPage() {
               </div>
 
               {submitError && <p className="text-red-500 text-xs text-center">{submitError}</p>}
+              <div ref={widgetRef} className="flex justify-center" />
+              <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                onLoad={initTurnstile}
+              />
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={submitting || !turnstileToken}
                 className="btn-p btn-p-peach flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {submitting ? "Submitting…" : "Submit"}

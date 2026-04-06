@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Script from 'next/script';
 import { Facebook, ChevronRight, Phone, MapPin, X, Mic2, Upload, ImageIcon } from "lucide-react";
 
 /* ─── Story Modal ─────────────────────────────────────────────────────────── */
@@ -11,6 +12,21 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
   const [error, setError] = useState("");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageName, setImageName] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const widgetRendered = useRef(false)
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true
+      ;(window as any).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
+        callback: (token: string) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+  }
 
   function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -30,6 +46,7 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "STORY",
+          turnstileToken,
           data: {
             name: fd.get("storyName"),
             title: fd.get("title"),
@@ -198,9 +215,14 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
                 </div>
 
                 {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+                <div ref={widgetRef} className="flex justify-center" />
+                <Script
+                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                  onLoad={initTurnstile}
+                />
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || !turnstileToken}
                   className="w-full bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-bold py-3.5 rounded-xl hover:opacity-90 transition-opacity text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? "Submitting…" : "Submit My Story"}
