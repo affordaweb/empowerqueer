@@ -4,7 +4,22 @@ import { prisma } from "@/lib/prisma";
 import { sendNewSubmissionEmail } from "@/lib/email";
 import { verifyRecaptcha } from "@/lib/verifyRecaptcha";
 
-const VALID_TYPES = [
+async function verifyTurnstile(token: string): Promise<boolean> {
+  if (!process.env.TURNSTILE_SECRET_KEY) return true; // skip if not configured
+  try {
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ secret: process.env.TURNSTILE_SECRET_KEY, response: token }),
+    });
+    const data = await res.json() as { success: boolean };
+    return data.success === true;
+  } catch {
+    return false;
+  }
+}
+
+const VALID_TYPES= [
   "EVENT", "TRAINING", "RESOURCE", "OPPORTUNITY",
   "DIRECTORY", "STORY", "CONTACT",
 ] as const;
@@ -91,16 +106,26 @@ export async function POST(req: NextRequest) {
       body = await req.json();
     }
 
-    const { type, data, submittedBy, recaptchaToken, status: requestedStatus } = body as {
+    const { type, data, submittedBy, recaptchaToken, turnstileToken, status: requestedStatus } = body as {
       type: string;
       data: Record<string, unknown>;
       submittedBy?: string;
       recaptchaToken?: string;
+      turnstileToken?: string;
       status?: string;
     };
 
-    // Skip reCAPTCHA for logged-in dashboard users
-    if (!session && recaptchaToken) {
+    // Verify Turnstile for CONTACT submissions from public users
+    if (!session && type === "CONTACT") {
+      if (!turnstileToken) {
+        return NextResponse.json({ error: "Missing verification token." }, { status: 400 });
+      }
+      const ok = await verifyTurnstile(turnstileToken);
+      if (!ok) {
+        return NextResponse.json({ error: "Turnstile verification failed." }, { status: 400 });
+      }
+    } else if (!session && recaptchaToken) {
+      // Keep reCAPTCHA for other submission types
       const ok = await verifyRecaptcha(recaptchaToken);
       if (!ok) {
         return NextResponse.json({ error: "reCAPTCHA verification failed." }, { status: 400 });

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Script from 'next/script';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Mail, Phone, MapPin, ChevronDown } from "lucide-react";
-import { getRecaptchaToken } from "@/lib/recaptcha";
 
-const contactFaqs = [
+const contactFaqs= [
   {
     q: "Who can use EmpowerQueer Hub?",
     a: "Anyone can access the Hub — whether you're part of the LGBTQIA+ community, an ally, educator, peer leader, or just seeking reliable information. The platform is free and open to all, especially those looking for safe, inclusive support.",
@@ -34,6 +34,21 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [contactError, setContactError] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const widgetRendered = useRef(false)
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true
+      ;(window as any).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
+        callback: (token: string) => setTurnstileToken(token),
+        'expired-callback': () => setTurnstileToken(''),
+        'error-callback': () => setTurnstileToken(''),
+      })
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -41,15 +56,13 @@ export default function ContactPage() {
     setContactError("");
     try {
       const form = e.currentTarget;
-      let recaptchaToken: string | undefined;
-      try { recaptchaToken = await getRecaptchaToken("contact"); } catch { /* proceed without token */ }
       const fd = new FormData(form);
       const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "CONTACT",
-          recaptchaToken,
+          turnstileToken,
           data: {
             name: fd.get("name"),
             email: fd.get("email"),
@@ -238,7 +251,7 @@ export default function ContactPage() {
                   {contactError && <p className="text-red-500 text-xs text-center">{contactError}</p>}
                   <button
                     type="submit"
-                    disabled={submitting}
+                    disabled={submitting || !turnstileToken}
                     className="btn-p btn-p-mint flex w-full items-center justify-center gap-2 px-8 py-3.5 text-base disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {submitting ? "Sending..." : "Send Message"}
@@ -246,12 +259,11 @@ export default function ContactPage() {
                   <p className="text-[#474747] text-xs text-center">
                     All messages are handled with care and confidentiality.
                   </p>
-                  <p className="text-gray-400 text-[11px] text-center">
-                    Protected by reCAPTCHA —{" "}
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">Privacy</a>{" "}
-                    &amp;{" "}
-                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">Terms</a> apply.
-                  </p>
+                  <div ref={widgetRef} className="flex justify-center" />
+                  <Script
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                    onLoad={initTurnstile}
+                  />
                 </form>
               )}
             </div>
