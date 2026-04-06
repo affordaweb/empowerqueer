@@ -1,0 +1,95 @@
+# .github/workflows/content-refresh.yml
+#
+# Automated weekly content refresh for EmpowerQueer Hub.
+#
+# What it does:
+#   1. Runs fetch-content.ts to prune past events and add new resources
+#   2. If data files changed, opens a Pull Request so maintainers can review
+#      before the changes go live. (Safe: never force-pushes to main.)
+#
+# Schedule: every Monday at 02:00 UTC (10:00 AM Philippine Time)
+# Manual: can be triggered any time via "Run workflow" in GitHub Actions UI.
+
+name: Weekly Content Refresh
+
+on:
+  schedule:
+    - cron: "0 2 * * 1"   # Monday 02:00 UTC = 10:00 PHT
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  refresh:
+    name: Refresh Content
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      # ── Checkout ──────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── Node.js setup ─────────────────────────────────────────────────────
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # ── Install dependencies ───────────────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Install ts-node (dev dep used by the script) ──────────────────────
+      - name: Install ts-node
+        run: npm install --save-dev ts-node typescript @types/node 2>/dev/null || true
+
+      # ── Run content refresh script ────────────────────────────────────────
+      - name: Run content refresh
+        run: npx ts-node scripts/fetch-content.ts
+
+      # ── Check for changes ─────────────────────────────────────────────────
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      # ── Create Pull Request if data files changed ─────────────────────────
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(content): automated weekly content refresh"
+          branch: "automated/content-refresh-${{ github.run_number }}"
+          delete-branch: true
+          title: "🌈 Automated Content Refresh — ${{ github.run_number }}"
+          body: |
+            ## Automated Weekly Content Refresh
+
+            This PR was created automatically by the `content-refresh` workflow.
+
+            ### What changed
+            - Past events have been pruned from `data/events.ts`
+            - New resources may have been added from open-license RSS feeds
+              (ILGA World, UNAIDS, Human Rights Watch)
+
+            ### Before merging
+            - [ ] Review removed events (confirm they are indeed past)
+            - [ ] Review any new entries for quality and relevance
+            - [ ] Make sure no duplicate entries were introduced
+
+            > All sources are CC-BY, public-domain, or explicitly open for non-commercial reuse.
+            > Entries link back to original sources — no verbatim content is copied.
+          labels: |
+            automated
+            content
+          reviewers: ""
+
+      # ── Log if nothing changed ─────────────────────────────────────────────
+      - name: No changes
+        if: steps.changes.outputs.changed != 'true'
+        run: echo "No content changes. Everything is up to date."
