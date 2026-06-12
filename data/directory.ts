@@ -263,15 +263,26 @@ export const ALL_LISTINGS: Listing[] = [
     tags: ["PrEP", "STI", "Free Testing"],
     featured: true,
   },
-  {
-    id: "sh-2",
-    name: "Planned Parenthood – Philippines Partners",
-    category: "sexual-health",
-    description: "Affiliate clinics offering comprehensive sexual and reproductive health services, inclusive of LGBTQIA+ clients. Services include contraception, STI screening, and counseling.",
-    address: "Multiple locations, Metro Manila",
-    website: "https://www.ippf.org/about-us/member-associations/philippines",
-    tags: ["Reproductive Health", "STI", "Contraception"],
-  },
+    {
+      id: "sh-2",
+      name: "Planned Parenthood – Philippines Partners",
+      category: "sexual-health",
+      description: "Affiliate clinics offering comprehensive sexual and reproductive health services, inclusive of LGBTQIA+ clients. Services include contraception, STI screening, and counseling.",
+      address: "Multiple locations, Metro Manila",
+      website: "https://www.ippf.org/about-us/member-associations/philippines",
+      tags: ["Reproductive Health", "STI", "Contraception"],
+    },
+    {
+      id: "sh-3",
+      name: "PULSE Clinic Manila",
+      category: "sexual-health",
+      description: "Asia's leading LGBTQIA+-affirming sexual health and lifestyle clinic network with branches in Manila, Makati City, Cebu, and Angeles-Clark. Offers confidential HIV testing, PrEP, PEP, STI screening, ART, and mental health services. Walk-in and teleconsultation available.",
+      address: "Multiple locations: Manila, Makati, Cebu, Angeles-Clark",
+      phone: "+63 917 124 5497",
+      website: "https://www.pulse-clinic.com.ph",
+      tags: ["PrEP", "PEP", "HIV Testing", "STI", "Sexual Health"],
+      featured: true,
+    },
 
   // ── Healthcare Resources ───────────────────────────────────────────────────────
 
@@ -328,15 +339,24 @@ export const ALL_LISTINGS: Listing[] = [
     tags: ["Free", "Walk-in", "Batangas"],
     featured: true,
   },
-  {
-    id: "diag-3",
-    name: "Philippine Red Cross – HIV Testing Services",
-    category: "diagnostic",
-    description: "The Philippine Red Cross operates HIV testing and counseling centers across the country, open to all individuals including LGBTQIA+ community members.",
-    phone: "(02) 8790-2300",
-    website: "https://redcross.org.ph",
-    tags: ["Nationwide", "Red Cross", "Counseling"],
-  },
+    {
+      id: "diag-3",
+      name: "Philippine Red Cross – HIV Testing Services",
+      category: "diagnostic",
+      description: "The Philippine Red Cross operates HIV testing and counseling centers across the country, open to all individuals including LGBTQIA+ community members.",
+      phone: "(02) 8790-2300",
+      website: "https://redcross.org.ph",
+      tags: ["Nationwide", "Red Cross", "Counseling"],
+    },
+    {
+      id: "diag-4",
+      name: "HIVTest.ph — Free HIV Testing Center Directory",
+      category: "diagnostic",
+      description: "A comprehensive online directory of free and confidential HIV testing centers across the Philippines. Searchable by city or region, with details on services, hours, and contact information. Helps users find the nearest testing facility quickly.",
+      website: "https://hivtest.ph",
+      tags: ["Directory", "Free Testing", "Nationwide", "HIV"],
+      featured: true,
+    },
 
   // ── Youth Services ─────────────────────────────────────────────────────────────
 
