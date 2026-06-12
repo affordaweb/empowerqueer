@@ -127,6 +127,26 @@ export const ALL_RESOURCES: Resource[] = [
     tags: ["UNAIDS", "Annual Report", "Global", "Key Populations"],
     featured: true,
   },
+  {
+    id: "hiv-6",
+    title: "DOH Administrative Order 2026-0005 — PrEP and PEP Guidelines",
+    org: "Philippine Department of Health (DOH)",
+    category: "hiv-services",
+    description: "Official DOH guidelines governing differentiated service delivery for PrEP (Pre-Exposure Prophylaxis) and PEP (Post-Exposure Prophylaxis) for HIV prevention in the Philippines. Issued March 2026, replacing interim 2021 guidelines. Covers event-driven PrEP, telemedicine access, and task-sharing with community health workers. A Philippine government document in the public domain.",
+    link: "https://hivpreventioncoalition.unaids.org/en/resources/guidelines-differentiated-service-delivery-pre-exposure-prophylaxis-and-post-exposure",
+    tags: ["Philippines", "DOH", "PrEP", "PEP", "HIV Prevention"],
+    featured: true,
+  },
+  {
+    id: "hiv-7",
+    title: "Global AIDS Strategy 2026–2031: End Inequalities, End AIDS",
+    org: "UNAIDS",
+    category: "hiv-services",
+    description: "UNAIDS' global strategy framework for 2026–2031, setting targets and policy directions to end AIDS as a public health threat by 2030. Covers key populations including gay men and other men who have sex with men, transgender people, and sex workers. Open-access UN publication under CC BY-NC-SA 3.0 IGO.",
+    link: "https://www.unaids.org/en/2026-2031-global-aids-strategy",
+    tags: ["UNAIDS", "Global Strategy", "Key Populations", "Policy"],
+    featured: true,
+  },
 
   // ── Advocacy & Rights ──────────────────────────────────────────────────────────
 
@@ -195,6 +215,16 @@ export const ALL_RESOURCES: Resource[] = [
     description: "The UN Free & Equal campaign provides a rich library of fact sheets, videos, and educational materials on LGBTQ+ rights, all freely available for use in advocacy and community education. All materials are in the public domain.",
     link: "https://www.unfe.org/resources/",
     tags: ["UN", "Free Materials", "Education", "Public Domain"],
+    featured: true,
+  },
+  {
+    id: "ar-8",
+    title: "Justice with Pride: LGBTQIA+ Community Legal Guidebook in the Philippines",
+    org: "Mujer LGBT+ / TrustLaw (Thomson Reuters Foundation)",
+    category: "advocacy-rights",
+    description: "A comprehensive legal guidebook for LGBTQIA+ Filipinos covering the legal landscape, interactions with law enforcement, arrest and detention rights, healthcare protections, and available support services. Developed by Mujer LGBT+ with TrustLaw, SyCip Salazar Hernandez & Gatmaitan, and the British Embassy Manila. Freely available for download.",
+    link: "https://www.trust.org/resource/lgbtqia-community-legal-guidebook-in-the-philippines/",
+    tags: ["Philippines", "Legal Guide", "Know Your Rights", "Free PDF"],
     featured: true,
   },
 
@@ -321,6 +351,16 @@ export const ALL_RESOURCES: Resource[] = [
     link: "https://www.hrc.org/resources/workplace",
     tags: ["Workplace", "Rights", "Inclusion"],
   },
+  {
+    id: "sr-5",
+    title: "Queer Safe Spaces PH",
+    org: "Queer Safe Spaces PH",
+    category: "support-resources",
+    description: "The leading online support group for Filipino LGBTQIA+ individuals and allies with over 17,000 community members. Offers mental health teleconsultation (TeleQueer), socioeconomic empowerment programs, queer prom events, and community support. Partnered with Meta and Women's Fund Asia.",
+    link: "https://www.queersafespacesph.org/",
+    tags: ["Philippines", "Community", "Mental Health", "Support Group"],
+    featured: true,
+  },
 
   // ── Community Voices ──────────────────────────────────────────────────────────
 
@@ -400,6 +440,16 @@ export const ALL_RESOURCES: Resource[] = [
     description: "The Yogyakarta Principles are a set of international principles on the application of international human rights law to sexual orientation and gender identity. The document is freely available and widely used in LGBTQ+ rights advocacy and legal education.",
     link: "https://yogyakartaprinciples.org/",
     tags: ["International Law", "SOGIESC", "Rights", "Legal"],
+    featured: true,
+  },
+  {
+    id: "ed-6",
+    title: "Rainbow Rights Philippines",
+    org: "Rainbow Rights Philippines (RRights)",
+    category: "education",
+    description: "A non-profit organization focused on legal literacy and empowerment around SOGIE laws and policies in the Philippines. Offers community paralegal training, workplace diversity programs, access to justice trainings, and publishes research on gender and LBT women's experiences.",
+    link: "https://rrightsphl.org/",
+    tags: ["Philippines", "Legal Literacy", "SOGIE", "Capacity Building"],
     featured: true,
   },
 ];
