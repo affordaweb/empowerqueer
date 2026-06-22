@@ -264,5 +264,35 @@ export const ALL_EVENTS: Event[] = [
     link: "https://priderun.ph/",
     featured: false,
   },
+  {
+    id: "pridecast-ep1-2026",
+    title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 1)",
+    dateISO: "2026-06-12",
+    dateDisplay: "June 12, 2026",
+    time: "Online",
+    location: "Online — Wagayway Equality Facebook Page",
+    description:
+      "Tune up to PRIDEcast, a live online podcast discussing shared stories about sexuality, identity, and empowerment within the queer community. Ready to hear stories of pride? A Wagayway Equality Pride Month special.",
+    category: "Advocacy",
+    tags: ["Podcast", "Pride Month", "Wagayway Equality", "Online"],
+    image: "/images/gallery/EmpQueer-Image-160.jpg",
+    link: "https://www.facebook.com/wagaywayequality/videos/4307577292791018/",
+    featured: false,
+  },
+  {
+    id: "pridecast-ep2-2026",
+    title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 2)",
+    dateISO: "2026-06-19",
+    dateDisplay: "June 19, 2026",
+    time: "Online",
+    location: "Online — Wagayway Equality Facebook Page",
+    description:
+      "Tune up to PRIDEcast, a live online podcast discussing shared stories about sexuality, identity, and empowerment within the queer community. Ready to hear stories of pride? A Wagayway Equality Pride Month special.",
+    category: "Advocacy",
+    tags: ["Podcast", "Pride Month", "Wagayway Equality", "Online"],
+    image: "/images/gallery/EmpQueer-Image-160.jpg",
+    link: "https://www.facebook.com/wagaywayequality/videos/1328700122119728/",
+    featured: false,
+  },
 
 ];

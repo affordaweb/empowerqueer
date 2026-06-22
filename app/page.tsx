@@ -16,8 +16,6 @@ import {
   Calendar,
   Heart,
   Facebook,
-  Twitter,
-  Youtube,
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
@@ -127,31 +125,13 @@ function Features() {
           </p>
           <div className="flex items-center justify-center gap-3 mt-6">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/wagaywayequality"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
               className="w-9 h-9 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[#3A3C51] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
             >
               <Facebook size={16} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="w-9 h-9 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[#3A3C51] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
-            >
-              <Twitter size={16} />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="w-9 h-9 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-[#3A3C51] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
-            >
-              <Youtube size={16} />
             </a>
           </div>
         </div>
@@ -258,7 +238,7 @@ function EventsSection() {
                 Submit an Event <ArrowRight size={15} />
               </a>
               <a
-                href="https://www.facebook.com/wagayway.equality"
+                href="https://www.facebook.com/wagaywayequality"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1565C0] text-white text-sm font-semibold px-6 py-3 rounded-xl transition-colors"
@@ -388,7 +368,7 @@ function Kopisodes() {
             </p>
             <div className="flex sm:justify-end items-center gap-3 flex-wrap">
               <a
-                href="https://www.facebook.com/wagayway.equality"
+                href="https://www.facebook.com/wagaywayequality"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#1565C0] text-white text-[11px] font-bold px-4 py-2 rounded-full transition-colors"
@@ -1100,22 +1080,15 @@ function Footer() {
               communities to mental health, legal aid, and advocacy resources.
             </p>
             <div className="flex items-center gap-3 mb-4">
-              {[
-                { icon: Facebook, label: "Facebook" },
-                { icon: Twitter, label: "Twitter" },
-                { icon: Youtube, label: "YouTube" },
-              ].map(({ icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center text-[#7A7A7A] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+              <a
+                href="https://www.facebook.com/wagaywayequality"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-9 h-9 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center text-[#7A7A7A] hover:bg-[#A9D6B6] hover:text-white hover:border-[#A9D6B6] transition-all"
+              >
+                <Facebook size={16} />
+              </a>
             </div>
             <div className="space-y-1 text-[#7A7A7A] text-xs">
               <div className="flex items-center gap-2"><Phone size={12} /><span>+63.929.741.4738</span></div>
