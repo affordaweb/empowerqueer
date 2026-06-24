@@ -76,7 +76,7 @@ Today's date is:
 
 
 
-\[YYYY-MM-DD]
+2026-06-23
 
 
 
@@ -361,4 +361,36 @@ The rules help maintain stable, high-quality AffordaWeb projects.
 
 
 /\* END\_PROJECT\_RULES \*/
+
+## Session Memory — Last Update: 2026-06-23
+
+### Events Added to data/events.ts
+- 11th LGBTQIA+ Celebration — Province of Batangas (Nov 5) — featured
+- White Party Manila (Jun 27) — enhanced with performers Ben&Ben, Gloc-9, Maki, Marina Summers, 15 ambassadors, Mentorque Productions
+- Free HIV Testing at Espasyo (Ongoing) — Wagayway Equality, Batangas City
+- Project L.I.G.T.A.S. (Jul 15) — Community HIV & SOGIESC Outreach, Batangas
+- EmpowerQueer Financial Literacy Training (Aug 22) — Batangas City
+- VSO Voyage 2026 (Sep 12-13) — Volunteers' Academy, Batangas City
+- Kopisodes Podcast (Jul 10) — Wagayway Equality bi-monthly podcast on YouTube
+
+### PRIDEcast Moved from Events to Kopisodes
+- 2 PRIDEcast episodes (Jun 12 & Jun 19) removed from data/events.ts (past dates get auto-pruned)
+- Added to prisma/seed.ts KOPISODES array as entries order:7 and order:8
+- Seed logic changed from createMany-only-on-empty to individual upsert-by-slug
+- To deploy: run `npx prisma db seed` on production DB
+
+### Homepage Changes (app/page.tsx)
+- PRIDEcast Ep. 1 is the featured video (replaced old Facebook reel)
+- PRIDEcast Ep. 1 & 2 shown as top 2 "Latest Episodes" in sidebar
+- Both added to footer "Recent Posts" with direct slug links
+- Stats updated from "10+" to "12+ Episodes"
+- Badge changed from "Featured" to "PRIDEcast"
+
+### Key Architecture Facts
+- Events: hardcoded in data/events.ts, auto-pruned weekly by scripts/fetch-content.ts
+- Kopisodes: stored in Prisma DB (Kopisode model), fetched at runtime
+- Homepage Kopisodes section: hardcoded data (not from DB)
+- Kopisodes page (app/kopisodes/page.tsx): fetches from Prisma
+- Facebook videos blocked by automated requests — no direct scraping
+- Wagayway Equality founder: Aivan Alvarez, operates at Espasyo, Batangas City
 
