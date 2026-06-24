@@ -338,11 +338,11 @@ function Collaboration() {
 
 function Kopisodes() {
   const episodes = [
+    { img: "/images/gallery/EmpQueer-Image-160.jpg", tag: "Pride Month", title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 1)", date: "June 12" },
+    { img: "/images/gallery/EmpQueer-Image-160.jpg", tag: "Pride Month", title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 2)", date: "June 19" },
     { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", tag: "LGBTQ+ Issues", title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us", date: "2025" },
     { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", tag: "Support Resources", title: "SOGIESC 101 by Wagayway Equality Inc.", date: "2025" },
     { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", tag: "Support Resources", title: "HIV 101 — Prevention, Testing & Care", date: "2025" },
-    { img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg", tag: "Youth Services", title: "Human Rights 101 by Wagayway Equality", date: "2025" },
-    { img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg", tag: "LGBTQIA2S+", title: "Equality Desk — Know Your Rights", date: "2025" },
   ];
 
   return (
@@ -422,7 +422,7 @@ function Kopisodes() {
 
             {/* Stats row */}
             <div className="grid grid-cols-3 gap-3">
-              {[["10+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
+              {[["12+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
                 <div key={label} className="bg-white/4 border border-white/6 rounded-xl px-4 py-3 text-center">
                   <p className="font-serif text-xl font-bold text-white">{val}</p>
                   <p className="text-white/35 text-[11px] mt-0.5">{label}</p>
@@ -1056,10 +1056,10 @@ const footerCategories = [
 ];
 
 const recentPosts = [
+  { title: "PRIDEcast: Wagayway Equality Pride Special (Ep. 1)", href: "/kopisodes/pridecast-wagayway-equality-special-pride-podcast-ep-1" },
+  { title: "PRIDEcast: Wagayway Equality Pride Special (Ep. 2)", href: "/kopisodes/pridecast-wagayway-equality-special-pride-podcast-ep-2" },
   { title: "2025 HIV & AIDS Surveillance Update", href: "/kopisodes/" },
   { title: "Human Rights 101 by Wagayway Equality", href: "/kopisodes/" },
-  { title: "HIV 101 by Wagayway Equality", href: "/kopisodes/" },
-  { title: "SOGIESC 101 by Wagayway Equality Inc", href: "/kopisodes/" },
 ];
 
 function Footer() {

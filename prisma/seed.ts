@@ -155,6 +155,28 @@ const KOPISODES = [
     order: 6,
     published: true,
   },
+  {
+    slug: "pridecast-wagayway-equality-special-pride-podcast-ep-1",
+    title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 1)",
+    desc: "Tune up to PRIDEcast, a live online podcast discussing shared stories about sexuality, identity, and empowerment within the queer community. Ready to hear stories of pride? A Wagayway Equality Pride Month special.",
+    tags: ["Pride Month", "LGBTQ+ Issues"],
+    categoryIds: ["lgbtq-issues", "community-voices"],
+    date: "June 12, 2026",
+    img: "/images/gallery/EmpQueer-Image-160.jpg",
+    order: 7,
+    published: true,
+  },
+  {
+    slug: "pridecast-wagayway-equality-special-pride-podcast-ep-2",
+    title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 2)",
+    desc: "Tune up to PRIDEcast, a live online podcast discussing shared stories about sexuality, identity, and empowerment within the queer community. Ready to hear stories of pride? A Wagayway Equality Pride Month special.",
+    tags: ["Pride Month", "LGBTQ+ Issues"],
+    categoryIds: ["lgbtq-issues", "community-voices"],
+    date: "June 19, 2026",
+    img: "/images/gallery/EmpQueer-Image-160.jpg",
+    order: 8,
+    published: true,
+  },
 ];
 
 async function main() {
@@ -189,13 +211,19 @@ async function main() {
     console.log(`Gallery already seeded (${galleryCount} found)`);
   }
 
-  // Seed kopisodes (only if none exist)
-  const kopisodeCount = await prisma.kopisode.count();
-  if (kopisodeCount === 0) {
-    await prisma.kopisode.createMany({ data: KOPISODES });
-    console.log(`✅ Seeded ${KOPISODES.length} kopisodes`);
+  // Seed kopisodes (upsert by slug — adds new entries without duplicating existing)
+  let seeded = 0;
+  for (const k of KOPISODES) {
+    const existing = await prisma.kopisode.findUnique({ where: { slug: k.slug } });
+    if (!existing) {
+      await prisma.kopisode.create({ data: k });
+      seeded++;
+    }
+  }
+  if (seeded > 0) {
+    console.log(`✅ Added ${seeded} new kopisode(s)`);
   } else {
-    console.log(`Kopisodes already seeded (${kopisodeCount} found)`);
+    console.log(`All ${KOPISODES.length} kopisodes already present.`);
   }
 }
 
