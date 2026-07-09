@@ -452,4 +452,38 @@ export const ALL_RESOURCES: Resource[] = [
     tags: ["Philippines", "Legal Literacy", "SOGIE", "Capacity Building"],
     featured: true,
   },
+
+  // ── NEW ADDITIONS (2026) ─────────────────────────────────────────────────
+
+  {
+    id: "ed-7",
+    title: "Philippine Supreme Court Ruling on Same-Sex Property Co-Ownership (2026)",
+    org: "Supreme Court of the Philippines",
+    category: "advocacy-rights",
+    description: "In a landmark January 10, 2026 ruling, the Philippine Supreme Court recognized the right of same-sex couples to be considered co-owners of property if both parties contributed to acquiring it. The decision called on Congress to legislate on same-sex union recognition, emphasizing the Court 'does not have the monopoly to assure the freedom and rights of same-sex couples.' A historic step for LGBTQIA+ relationship recognition in the Philippines.",
+    link: "https://www.abs-cbn.com/news/nation/2026/2/10/supreme-court-recognizes-co-ownership-of-property-in-same-sex-relationships-1134",
+    tags: ["Philippines", "Supreme Court", "Property Rights", "Same-Sex", "Landmark"],
+    featured: true,
+  },
+  {
+    id: "sr-6",
+    title: "Tawag Paglaum — Helpline for Gender & Sexual Identity Support",
+    org: "Tawag Paglaum Centro Bisaya",
+    category: "support-resources",
+    description: "A 24/7 helpline based in the Philippines providing free, confidential emotional support for individuals struggling with gender and sexual identity concerns, including LGBTQIA+ individuals. Available 24 hours a day, 7 days a week.",
+    link: "https://findahelpline.com/ph/topics/gender-sexual-identity",
+    tags: ["Philippines", "Helpline", "Crisis", "24/7"],
+    featured: true,
+  },
+  {
+    id: "sr-7",
+    title: "HOPELINE — 24/7 Crisis Support Hotline Philippines",
+    org: "HOPELINE / NCMH Crisis Hotline",
+    category: "support-resources",
+    description: "A free, 24/7 crisis support hotline in the Philippines providing compassionate and confidential support by phone. Staffed by trained counselors ready to help individuals experiencing emotional distress, mental health crises, or suicidal thoughts. LGBTQIA+-affirming support available.",
+    phone: "(02) 8804-4673",
+    link: "https://www.facebook.com/HopelinePH/",
+    tags: ["Philippines", "Crisis", "Hotline", "24/7", "Free"],
+    featured: true,
+  },
 ];

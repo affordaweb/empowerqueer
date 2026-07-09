@@ -394,3 +394,10 @@ The rules help maintain stable, high-quality AffordaWeb projects.
 - Facebook videos blocked by automated requests — no direct scraping
 - Wagayway Equality founder: Aivan Alvarez, operates at Espasyo, Batangas City
 
+### Bulk Data Update — 2026-07-09
+- **events.ts**: Added 4 new post-Pride events (Cebu LGBTQ+ Mass Wedding Aug 21, Samesex Dancesport Aug 23, QCinema Pride Film Festival Oct 7-16, Batangas Pride Month Closing Jun 30)
+- **trainings.ts**: Added 4 new trainings (Masbate City Livelihood Training, Rainbow Rights Paralegal Training, Queer Safe Spaces SOGIESC Training, LRTA Inclusivity Training, PQSC Workshop Track)
+- **resources.ts**: Added 3 new resources (SCOT Ruling on Same-Sex Property Co-Ownership, Tawag Paglaum Helpline, HOPELINE Crisis Hotline)
+- **opportunities.ts**: Added 5 new opportunities (Sherri Eisenpress Scholarship, PCAFPD Scholarship, Point Foundation Flagship, Jonathan Lax Scholarship, UNDP PH Program Officer)
+- **directory.ts**: Added 6 new listings (Youth Voices Count, Bisdak Pride Inc., LGBTQ 4th District Batangas, TransMan Pilipinas, Tawag Paglaum, HOPELINE)
+

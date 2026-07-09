@@ -342,4 +342,66 @@ export const ALL_EVENTS: Event[] = [
     featured: false,
   },
 
+  // ── POST-PRIDE SEASON 2026 (JULY–DECEMBER) ─────────────────────────────
+
+  {
+    id: "cebu-lgbtq-mass-wedding-2026",
+    title: "1st Cebu Grand LGBTQ+ Mass Wedding",
+    dateISO: "2026-08-21",
+    dateDisplay: "August 21, 2026",
+    time: "10:00 AM",
+    location: "Cebu City, Cebu",
+    description:
+      "The first-ever mass wedding ceremony for LGBTQ+ couples organized by the LGBTS Christian Church Philippines. A historic celebration of love, commitment, and faith, welcoming same-sex couples to formalize their unions in a sacred and affirming ceremony.",
+    category: "Social",
+    tags: ["Cebu", "Mass Wedding", "Same-Sex Union", "LGBTS Christian Church"],
+    image: "/images/gallery/EmpQueer-Image-133.jpg",
+    link: "",
+    featured: false,
+  },
+  {
+    id: "samesex-dancesport-2026",
+    title: "Ikatlong Uri — Same-Sex Dancesport Competition",
+    dateISO: "2026-08-23",
+    dateDisplay: "August 23, 2026",
+    time: "12:00 PM",
+    location: "Kristong Hari, Quezon City",
+    description:
+      "A same-sex dancesport competition celebrating queer talent and athleticism on the dance floor. Couples compete in ballroom, Latin, and contemporary dance categories in a fun, inclusive, and competitive atmosphere.",
+    category: "Cultural",
+    tags: ["Quezon City", "Dancesport", "Competition", "Ballroom"],
+    image: "/images/gallery/EmpQueer-Image-202.jpg",
+    link: "",
+    featured: false,
+  },
+  {
+    id: "qcinema-pride-2026",
+    title: "QCinema International Film Festival — Pride Section",
+    dateISO: "2026-10-07",
+    dateDisplay: "October 7–16, 2026",
+    time: "Various Screening Times",
+    location: "Various cinemas across Quezon City",
+    description:
+      "The QCinema International Film Festival returns with its celebrated Pride Section, featuring award-winning queer films from the Philippines and around the world. Screenings, director Q&As, and panel discussions on queer representation in cinema. Organized by the Quezon City Government.",
+    category: "Cultural",
+    tags: ["Quezon City", "Film Festival", "QCinema", "Queer Cinema"],
+    image: "/images/gallery/EmpQueer-Image-170.jpg",
+    link: "https://qcinema.ph/",
+    featured: false,
+  },
+  {
+    id: "batangas-pride-month-closing-2026",
+    title: "Batangas Pride Month Closing — Sama-Sama sa Wagayway",
+    dateISO: "2026-06-30",
+    dateDisplay: "June 30, 2026",
+    time: "4:00 PM – 9:00 PM",
+    location: "Espasyo Community Center, Batangas City",
+    description:
+      "Wagayway Equality's community Pride Month closing event at Espasyo. A community gathering featuring reflections, performances, gratitude ceremonies for volunteers, and a commitment circle for the year ahead. Open to all LGBTQIA+ individuals and allies in Batangas.",
+    category: "Social",
+    tags: ["Batangas City", "Wagayway Equality", "Espasyo", "Pride Closing"],
+    image: "/images/gallery/EmpQueer-Image-116.jpg",
+    link: "https://www.facebook.com/wagaywayequality",
+    featured: false,
+  },
 ];
