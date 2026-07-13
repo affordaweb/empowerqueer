@@ -479,4 +479,35 @@ export const ALL_LISTINGS: Listing[] = [
     tags: ["24/7", "Crisis", "Hotline", "Counseling"],
     featured: true,
   },
+
+  // ── NEW ADDITIONS (2026-Q3) ─────────────────────────────────────────
+
+  {
+    id: "cc-11",
+    name: "CAMP Pag-ayo, Inc.",
+    category: "community-center",
+    description: "Culture and Arts Managers of the Philippines (CAMP) Pag-ayo, Inc. is a non-profit organization providing HIV Counseling and Testing (HCT) training, SOGIESC workshops, peer education, and mental health support. DOH-accredited HCT trainer and certified community-based HIV screening provider. Serves key populations, PLHIV, and LGBTQIA+ communities nationwide.",
+    address: "Makati City, Metro Manila, Philippines",
+    website: "https://www.campincph.org/",
+    tags: ["Manila", "HIV Training", "SOGIESC", "Peer Education", "DOH-Accredited"],
+    featured: true,
+  },
+  {
+    id: "cc-12",
+    name: "Bahaghari Soccsksargen",
+    category: "community-center",
+    description: "A regional LGBTQIA+ organization in SOCCSKSARGEN (Region 12), Mindanao, advocating for gender equality, HIV awareness, and inclusive health services. Partners with government agencies like PIA and local LGUs to conduct information and empowerment seminars for LGBTQIA+ youth leaders.",
+    address: "General Santos City, SOCCSKSARGEN, Philippines",
+    tags: ["Mindanao", "Youth", "HIV Awareness", "Gender Equality"],
+    featured: false,
+  },
+  {
+    id: "cc-13",
+    name: "LGBTQIA-Silbi Batangas City Inc.",
+    category: "community-center",
+    description: "A Batangas City-based LGBTQIA+ organization that organizes the annual Rampa Na: Batangas City Pride Month Celebration and confers the Bahaghari Award to individuals and institutions championing LGBTQ+ rights and inclusion in Batangas.",
+    address: "Batangas City, Batangas, Philippines",
+    tags: ["Batangas City", "Pride", "Advocacy", "Awards"],
+    featured: true,
+  },
 ];

@@ -401,3 +401,9 @@ The rules help maintain stable, high-quality AffordaWeb projects.
 - **opportunities.ts**: Added 5 new opportunities (Sherri Eisenpress Scholarship, PCAFPD Scholarship, Point Foundation Flagship, Jonathan Lax Scholarship, UNDP PH Program Officer)
 - **directory.ts**: Added 6 new listings (Youth Voices Count, Bisdak Pride Inc., LGBTQ 4th District Batangas, TransMan Pilipinas, Tawag Paglaum, HOPELINE)
 
+### Bulk Data Update — 2026-07-13
+- **events.ts**: Added 4 new events (Intensity Manila Circuit Oct 2-3, ICLAPM-26 Conference Oct 9-10, ICEPGI-26 Conference Nov 30-Dec 1, Dancesport venue updated to IBG-KAL Theater UP Diliman)
+- **trainings.ts**: Added 4 new trainings (CAMP Pag-ayo HCT Certification, CAMP Pag-ayo SOGIESC Seminar-Lecture, CAMP Pag-ayo IPECS Training, Balangaw SOGIESC-Sensitive Healthcare Module)
+- **directory.ts**: Added 3 new listings (CAMP Pag-ayo Inc., Bahaghari Soccsksargen, LGBTQIA-Silbi Batangas City Inc.)
+- **opportunities.ts**: Added 5 new opportunities (Babaylanes Programs Officer, LoveYourself Compliance Specialist, LoveYourself Registered Nurse, ILGA World Giving Specialist, UPCWGS Research Grant)
+
