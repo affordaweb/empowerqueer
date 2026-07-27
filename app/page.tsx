@@ -16,6 +16,7 @@ import {
   Calendar,
   Heart,
   Facebook,
+  Youtube,
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
@@ -393,31 +394,31 @@ function Kopisodes() {
             {/* Video embed */}
             <div className="relative rounded-2xl overflow-hidden bg-black shadow-2xl shadow-black/60" style={{ aspectRatio: "16/9" }}>
               <iframe
-                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwagaywayequality%2Fvideos%2F4307577292791018%2F&show_text=false&width=600"
+                src="https://www.youtube-nocookie.com/embed/videoseries?list=UUpv-kH_W9qhpnoNYP9FoaXg"
                 width="100%"
                 height="100%"
                 style={{ border: "none", overflow: "hidden" }}
                 scrolling="no"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                 allowFullScreen
-                title="PRIDEcast Ep. 1 — Wagayway Equality Pride Podcast"
+                title="Kopisodes YouTube playlist"
               />
               <div className="absolute top-4 left-4">
                 <span className="bg-[#FED7AA] text-[#7C2D12] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
-                  PRIDEcast
+                  Kopisodes
                 </span>
               </div>
             </div>
 
-            {/* Watch on Facebook CTA */}
+            {/* Watch on YouTube CTA */}
             <a
-              href="https://www.facebook.com/wagaywayequality/videos/4307577292791018/"
+              href="https://www.youtube.com/@Kopisodes/videos"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/25 hover:border-[#1877F2]/50 text-[#74AADF] hover:text-[#93C5FD] rounded-xl py-3 text-sm font-semibold transition-all"
             >
-              <Facebook size={15} />
-              Watch PRIDEcast Ep. 1 on Facebook
+              <Youtube size={15} />
+              Watch all Kopisodes on YouTube
             </a>
 
             {/* Stats row */}

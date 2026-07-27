@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Facebook } from "lucide-react";
+import { Facebook, Youtube } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import KopisodesClient from "./KopisodesClient";
 
@@ -50,6 +50,38 @@ export default async function KopsodesPage() {
               <Facebook size={15} />
               Follow on Facebook
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Official YouTube playlist */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+            <div>
+              <p className="text-[#7C3AED] text-xs font-bold uppercase tracking-[0.18em] mb-2">Watch & Listen</p>
+              <h2 className="font-serif text-3xl font-bold text-[#3A3C51]">Kopisodes on YouTube</h2>
+            </div>
+            <a
+              href="https://www.youtube.com/@Kopisodes/videos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[#7C3AED] font-semibold hover:underline"
+            >
+              <Youtube size={18} />
+              Open the YouTube channel
+            </a>
+          </div>
+          <div className="relative overflow-hidden rounded-2xl bg-black shadow-xl" style={{ aspectRatio: "16/9" }}>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/videoseries?list=UUpv-kH_W9qhpnoNYP9FoaXg"
+              title="Kopisodes YouTube playlist"
+              width="100%"
+              height="100%"
+              className="absolute inset-0 border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
