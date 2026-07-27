@@ -25,6 +25,9 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as https from "https";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -48,8 +51,7 @@ function slug(str: string): string {
 
 function httpsGet(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    https
-      .get(url, { headers: { "User-Agent": "EmpowerQueerHub/1.0" } }, (res) => {
+    const request = https.get(url, { headers: { "User-Agent": "EmpowerQueerHub/1.0" } }, (res) => {
         let body = "";
         if (res.statusCode === 301 || res.statusCode === 302) {
           httpsGet(res.headers.location!).then(resolve).catch(reject);
@@ -59,6 +61,7 @@ function httpsGet(url: string): Promise<string> {
         res.on("end", () => resolve(body));
       })
       .on("error", reject);
+    request.setTimeout(15_000, () => request.destroy(new Error(`Request timed out: ${url}`)));
   });
 }
 
@@ -75,9 +78,11 @@ async function prunePastEvents() {
   const patched = src.replace(
     /\{\s*\n([\s\S]*?)\n  \},/g,
     (match) => {
-      const dateMatch = match.match(/dateISO:\s*"(\d{4}-\d{2}-\d{2})"/);
-      if (!dateMatch) return match;
-      const eventDate = new Date(dateMatch[1] + "T00:00:00");
+     const dateMatch = match.match(/dateISO:\s*"(\d{4}-\d{2}-\d{2})"/);
+     if (!dateMatch) return match;
+     // Ongoing services use dateISO only to satisfy the Event type; they do not expire.
+     if (/dateDisplay:\s*"Ongoing\b/.test(match)) return match;
+     const eventDate = new Date(dateMatch[1] + "T00:00:00");
       if (eventDate < now) {
         removed++;
         return ""; // remove this event block
@@ -88,7 +93,7 @@ async function prunePastEvents() {
 
   if (removed > 0) {
     // Clean up any double-blank lines left by removals
-    const cleaned = patched.replace(/\n{3,}/g, "\n\n");
+    const cleaned = patched.replace(/\n(?:[ \t]*\n){2,}/g, "\n\n");
     fs.writeFileSync(filePath, cleaned, "utf8");
     log(`Pruned ${removed} past event(s) from data/events.ts`);
   } else {
@@ -168,7 +173,7 @@ async function fetchNewResources() {
   const existingIds = new Set((src.match(/id:\s*"([^"]+)"/g) || []).map((m) => m.replace(/id:\s*"/, "").replace(/"/, "")));
   const existingTitles = new Set((src.match(/title:\s*"([^"]+)"/g) || []).map((m) => m.replace(/title:\s*"/, "").replace(/"$/, "").toLowerCase()));
 
-  let newEntries: string[] = [];
+  const newEntries: string[] = [];
 
   for (const feed of RESOURCE_FEEDS) {
     log(`Fetching ${feed.org} RSS…`);
