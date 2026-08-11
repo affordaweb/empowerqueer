@@ -147,6 +147,16 @@ export const ALL_RESOURCES: Resource[] = [
     tags: ["UNAIDS", "Global Strategy", "Key Populations", "Policy"],
     featured: true,
   },
+  {
+    id: "hiv-8",
+    title: "The Global AIDS Strategy for 2026–2031: United Towards Ending AIDS",
+    org: "UNAIDS",
+    category: "hiv-services",
+    description: "UNAIDS' February 2026 strategy sets out a people-centred, rights-based path to ending AIDS as a public health threat by 2030. It emphasizes community leadership, stigma-free care, and sustained access to prevention, testing, treatment, and support.",
+    link: "https://www.unaids.org/en/resources/documents/2026/2026%E2%80%932031_Global-AIDS-Strategy",
+    tags: ["UNAIDS", "2026", "HIV", "Community Leadership", "Policy"],
+    featured: true,
+  },
 
   // ── Advocacy & Rights ──────────────────────────────────────────────────────────
 
@@ -450,6 +460,16 @@ export const ALL_RESOURCES: Resource[] = [
     description: "A non-profit organization focused on legal literacy and empowerment around SOGIE laws and policies in the Philippines. Offers community paralegal training, workplace diversity programs, access to justice trainings, and publishes research on gender and LBT women's experiences.",
     link: "https://rrightsphl.org/",
     tags: ["Philippines", "Legal Literacy", "SOGIE", "Capacity Building"],
+    featured: true,
+  },
+  {
+    id: "ed-8",
+    title: "SOGIESC Primer and Gender-Affirmative Terminology Guide",
+    org: "UP Rainbow Research Hub",
+    category: "education",
+    description: "An open educational resource introducing sexual orientation, gender identity, gender expression, and sex characteristics. It includes a practical guide to gender-affirmative terminology and a glossary for educators, students, and community advocates in the Philippines.",
+    link: "https://rainbowresearchhub.up.edu.ph/resources/sexual-orientation-gender-identity-gender-expression-and-sex-characteristics-a-primer/",
+    tags: ["Philippines", "SOGIESC", "Education", "Terminology", "UP"],
     featured: true,
   },
 

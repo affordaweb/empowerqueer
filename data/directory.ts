@@ -348,8 +348,8 @@ export const ALL_LISTINGS: Listing[] = [
       website: "https://redcross.org.ph",
       tags: ["Nationwide", "Red Cross", "Counseling"],
     },
-    {
-      id: "diag-4",
+  {
+    id: "diag-4",
       name: "HIVTest.ph — Free HIV Testing Center Directory",
       category: "diagnostic",
       description: "A comprehensive online directory of free and confidential HIV testing centers across the Philippines. Searchable by city or region, with details on services, hours, and contact information. Helps users find the nearest testing facility quickly.",
@@ -368,6 +368,16 @@ export const ALL_LISTINGS: Listing[] = [
     address: "Metro Manila, Philippines",
     website: "https://www.facebook.com/STRAPHILIPPINES",
     tags: ["Trans Women", "Youth", "Peer Support"],
+    featured: true,
+  },
+  {
+    id: "diag-5",
+    name: "HIVTest.ph — Free HIV Testing Center Finder",
+    category: "diagnostic",
+    description: "A Philippine directory for locating free and confidential HIV testing centers. Search by location and review available services, walk-in information, and contact details before visiting a facility.",
+    website: "https://hivtest.ph",
+    hotline: "1651-7",
+    tags: ["Directory", "Free Testing", "Nationwide", "HIV", "Confidential"],
     featured: true,
   },
   {

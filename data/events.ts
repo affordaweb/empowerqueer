@@ -102,36 +102,6 @@ export const ALL_EVENTS: Event[] = [
   // ── POST-PRIDE SEASON 2026 (JULY–DECEMBER) ─────────────────────────────
 
   {
-    id: "cebu-lgbtq-mass-wedding-2026",
-    title: "1st Cebu Grand LGBTQ+ Mass Wedding",
-    dateISO: "2026-08-21",
-    dateDisplay: "August 21, 2026",
-    time: "10:00 AM",
-    location: "Cebu City, Cebu",
-    description:
-      "The first-ever mass wedding ceremony for LGBTQ+ couples organized by the LGBTS Christian Church Philippines. A historic celebration of love, commitment, and faith, welcoming same-sex couples to formalize their unions in a sacred and affirming ceremony.",
-    category: "Social",
-    tags: ["Cebu", "Mass Wedding", "Same-Sex Union", "LGBTS Christian Church"],
-    image: "/images/gallery/EmpQueer-Image-133.jpg",
-    link: "",
-    featured: false,
-  },
-  {
-    id: "samesex-dancesport-2026",
-    title: "Ikatlong Uri — Same-Sex Dancesport Competition",
-    dateISO: "2026-08-23",
-    dateDisplay: "August 23, 2026",
-    time: "12:00 PM",
-    location: "IBG-KAL Theater, UP Diliman, Quezon City",
-    description:
-      "A same-sex dancesport competition organized by the UP Dancesport Society in partnership with the Institute for Dementia Care Asia (IDCA). Celebrates queer talent and athleticism with ballroom, Latin, and contemporary dance categories in a fun, inclusive atmosphere. Dance as a tool for building confidence, social connection, and well-being.",
-    category: "Cultural",
-    tags: ["Quezon City", "Dancesport", "Competition", "UP Diliman"],
-    image: "/images/gallery/EmpQueer-Image-202.jpg",
-    link: "",
-    featured: false,
-  },
-  {
     id: "intensity-manila-2026",
     title: "Intensity Manila Circuit Event 2026",
     dateISO: "2026-10-02",

@@ -36,7 +36,7 @@ export default async function KopsodesPage() {
               Honest Conversations Over Coffee
             </h2>
             <p className="text-[#474747] leading-relaxed mb-4">
-              The EmpowerQueer Hub Blog brings together <a href="/voices" className="text-[#7C3AED] hover:underline">personal stories</a>, reflections, and <a href="/resources" className="text-[#7C3AED] hover:underline">resources</a> from across the LGBTQIA+ spectrum. Each post is a window into lived experience—raw, real, and unapologetic. Whether you&rsquo;re here to learn, relate, or be inspired, this space is yours.
+              Watch the latest Kopisodes directly from the official YouTube playlist below, then explore <a href="/voices" className="text-[#7C3AED] hover:underline">personal stories</a>, reflections, and <a href="/resources" className="text-[#7C3AED] hover:underline">resources</a> from across the LGBTQIA+ spectrum. Each conversation is a window into lived experience—raw, real, and unapologetic.
             </p>
             <p className="text-[#474747] leading-relaxed mb-6">
               Kopisodes is the flagship podcast and video advocacy platform of Wagayway Equality Inc., created to amplify LGBTQIA+ voices, <a href="/voices" className="text-[#7C3AED] hover:underline">community stories</a>, and <a href="/resources" className="text-[#7C3AED] hover:underline">rights-based conversations</a> that inspire healing, solidarity, and <a href="/events" className="text-[#7C3AED] hover:underline">collective action</a>. Through relaxed, coffee-style conversations and creative video content, Kopisodes makes advocacy accessible, relatable, and deeply human.
