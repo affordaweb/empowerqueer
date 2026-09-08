@@ -505,4 +505,15 @@ export const ALL_RESOURCES: Resource[] = [
     tags: ["Philippines", "Crisis", "Hotline", "24/7", "Free"],
     featured: true,
   },
+
+  {
+    id: "wagayway-equality-fund",
+    title: "Invest in Equality Fund — Support Wagayway's Advocacy",
+    org: "Wagayway Equality",
+    category: "support-resources",
+    description: "Support Wagayway Equality's volunteer-led work to provide a safe space and voice for marginalized groups in Batangas and beyond.",
+    link: "https://gogetfunding.com/invest-in-equality-fund-wagayways-advocacy/",
+    tags: ["Wagayway Equality", "Advocacy", "Community Support", "Fundraising"],
+    featured: true,
+  },
 ];

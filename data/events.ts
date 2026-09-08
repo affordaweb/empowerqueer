@@ -70,21 +70,6 @@ export const ALL_EVENTS: Event[] = [
   },
 
   {
-    id: "empowerqueer-financial-training-2026",
-    title: "EmpowerQueer: Financial Literacy & Socio-Economic Empowerment Training",
-    dateISO: "2026-08-22",
-    dateDisplay: "August 22, 2026",
-    time: "9:00 AM – 4:00 PM",
-    location: "Batangas City (venue TBD via Wagayway Equality)",
-    description:
-      "Wagayway Equality's strategic program aimed at enhancing the socioeconomic well-being of LGBTQIA+ individuals. Features financial literacy training, savings and investment planning, and entrepreneurship workshops to build self-sufficiency and economic empowerment for the queer community. Organized by Wagayway Equality Inc. in partnership with Ascend Development Solutions.",
-    category: "Workshop",
-    tags: ["Batangas City", "Financial Literacy", "EmpowerQueer", "Wagayway Equality", "Training"],
-    image: "/images/gallery/EmpQueer-Image-190.jpg",
-    link: "https://www.facebook.com/wagaywayequality",
-    featured: false,
-  },
-  {
     id: "vso-voyage-2026",
     title: "VSO Voyage 2026 — Wagayway Equality Volunteers' Academy",
     dateISO: "2026-09-12",

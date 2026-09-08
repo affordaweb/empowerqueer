@@ -338,7 +338,7 @@ export const ALL_TRAININGS: Training[] = [
     description: "A leadership and volunteer development program grounded in lived LGBTQIA+ experience. Covers community systems, peer facilitation, advocacy planning, and inclusive leadership principles.",
     format: "In-Person",
     cost: "Free",
-    link: "mailto:contact@empowerqueerhub.com",
+    link: "mailto:wagaywayequalityofficial@gmail.com",
     tags: ["Philippines", "Leadership", "Volunteer"],
     featured: true,
   },
@@ -361,7 +361,7 @@ export const ALL_TRAININGS: Training[] = [
     description: "Expert-led training on applying the Sustainable Development Goals (SDGs) to organizational work and LGBTQIA+ community advocacy — connecting local advocacy to global frameworks.",
     format: "In-Person / Online",
     cost: "Free (Community Rate)",
-    link: "mailto:contact@empowerqueerhub.com",
+    link: "mailto:wagaywayequalityofficial@gmail.com",
     tags: ["SDGs", "Governance", "Advocacy"],
   },
 
@@ -387,7 +387,7 @@ export const ALL_TRAININGS: Training[] = [
     description: "Training on how to establish and operate a community-based Equality Desk — a local hub providing LGBTQIA+ support, referrals, and anti-discrimination resources in barangays and LGUs.",
     format: "In-Person",
     cost: "Free",
-    link: "mailto:contact@empowerqueerhub.com",
+    link: "mailto:wagaywayequalityofficial@gmail.com",
     tags: ["Philippines", "Barangay", "LGU"],
   },
     {
