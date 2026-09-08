@@ -257,7 +257,7 @@ const supportLines = [
   { label: "LoveYourself Support", value: "+63 922 536 6462", href: "tel:+639225366462" },
   { label: "Wagayway Equality", value: "+63 929 741 4738", href: "tel:+639297414738" },
   { label: "DOH Health Line", value: "1800-10-0800-3", href: "tel:180010008003" },
-  { label: "In Crisis? Find Help", value: "View Directory →", href: "/directory/" },
+  { label: "In Crisis? Find Help", value: "View Equality Desk →", href: "/equality-desk/" },
 ];
 
 const recentPosts = [
