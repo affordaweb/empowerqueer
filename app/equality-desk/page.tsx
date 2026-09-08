@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import Script from "next/script";
 import { AlertTriangle, CheckCircle, Clock, Send } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -35,11 +36,26 @@ type FormState = {
 function SupportForm() {
   const [form, setForm] = useState<FormState>({ name: "", pronouns: "", ageRange: "", location: "", contact: "", safety: "", support: "", concern: "", preferredOption: "", consent: false });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const widgetRef = useRef<HTMLDivElement>(null);
+  const widgetRendered = useRef(false);
   const update = (key: keyof FormState, value: string | boolean) => setForm(current => ({ ...current, [key]: value }));
+
+  function initTurnstile() {
+    if (widgetRef.current && !widgetRendered.current) {
+      widgetRendered.current = true;
+      (window as Window & { turnstile?: { render: (element: HTMLElement, options: Record<string, unknown>) => void } }).turnstile?.render(widgetRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "",
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+      });
+    }
+  }
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    if (!form.ageRange || !form.safety || !form.support || !form.preferredOption || !form.consent) return setStatus("error");
+    if (!form.ageRange || !form.safety || !form.support || !form.preferredOption || !form.consent || !turnstileToken) return setStatus("error");
     setStatus("sending");
     try {
       const response = await fetch(`${CONTACT_API}/api/contact`, {
@@ -49,6 +65,7 @@ function SupportForm() {
           name: form.name || "Anonymous",
           email: form.contact.includes("@") ? form.contact : "",
           subject: "Equality Desk Support Referral",
+          turnstileToken,
           message: Object.entries(form).filter(([key]) => key !== "consent").map(([key, value]) => `${key}: ${value}`).join("\n"),
         }),
       });
@@ -72,8 +89,10 @@ function SupportForm() {
     <label className="block text-sm text-[#3A3C51]">Briefly describe your concern or the support you need.<textarea value={form.concern} onChange={e => update("concern", e.target.value)} rows={4} className="mt-1 w-full rounded-xl border border-gray-200 px-4 py-3" /></label>
     <label className="block text-sm text-[#3A3C51]">Preferred support option<select required value={form.preferredOption} onChange={e => update("preferredOption", e.target.value)} className="mt-1 w-full rounded-xl border border-gray-200 px-4 py-3"><option value="">Select one</option><option>Information only</option><option>Referral to a service provider</option><option>Follow-up from the Equality Desk</option><option>Anonymous feedback only</option></select></label>
     <label className="flex gap-3 text-sm text-[#474747] leading-relaxed"><input type="checkbox" checked={form.consent} onChange={e => update("consent", e.target.checked)} className="mt-1" />I understand that this form is for support and referral. My information will be handled confidentially and shared only when necessary, with my consent.</label>
-    {status === "error" && <p className="text-sm text-red-600">Please complete the required fields and try again. If sending fails, contact Wagayway Equality directly.</p>}
-    <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold px-6 py-3 rounded-xl disabled:opacity-60"><Send size={15} />{status === "sending" ? "Sending..." : "Submit Confidentially"}</button>
+    {status === "error" && <p className="text-sm text-red-600">Please complete the required fields and verification, then try again. If sending fails, contact Wagayway Equality directly.</p>}
+    <div ref={widgetRef} className="flex justify-center" />
+    <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" onLoad={initTurnstile} />
+    <button type="submit" disabled={status === "sending" || !turnstileToken} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold px-8 py-3.5 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-60"><Send size={15} />{status === "sending" ? "Sending..." : "Submit Confidentially"}</button>
   </form>;
 }
 
