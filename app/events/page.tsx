@@ -604,7 +604,7 @@ export default function EventsPage() {
       .catch(() => {});
   }, []);
 
-  const upcoming = ALL_EVENTS.filter((e) => isUpcoming(e.dateISO)).sort((a, b) => {
+  const upcoming = ALL_EVENTS.filter((e) => e.ongoing || isUpcoming(e.dateISO)).sort((a, b) => {
     if (a.featured && !b.featured) return -1;
     if (!a.featured && b.featured) return 1;
     return new Date(a.dateISO).getTime() - new Date(b.dateISO).getTime();

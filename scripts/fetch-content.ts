@@ -80,8 +80,8 @@ async function prunePastEvents() {
     (match) => {
      const dateMatch = match.match(/dateISO:\s*"(\d{4}-\d{2}-\d{2})"/);
      if (!dateMatch) return match;
-     // Ongoing services use dateISO only to satisfy the Event type; they do not expire.
-     if (/dateDisplay:\s*"Ongoing\b/.test(match)) return match;
+      // Ongoing services are reviewed manually and do not expire by date.
+      if (/ongoing:\s*true/.test(match) || /dateDisplay:\s*"Ongoing\b/.test(match)) return match;
      const eventDate = new Date(dateMatch[1] + "T00:00:00");
       if (eventDate < now) {
         removed++;
