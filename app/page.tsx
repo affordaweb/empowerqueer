@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   Shield,
   BookOpen,
@@ -17,7 +18,6 @@ import {
   Heart,
   Facebook,
   Youtube,
-  MessageCircle,
   ArrowRight,
 } from "lucide-react";
 import Navbar from "./components/Navbar";
@@ -339,11 +339,11 @@ function Collaboration() {
 
 function Kopisodes() {
   const episodes = [
-    { img: "/images/gallery/EmpQueer-Image-160.jpg", tag: "Pride Month", title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 1)", date: "June 12" },
-    { img: "/images/gallery/EmpQueer-Image-160.jpg", tag: "Pride Month", title: "PRIDEcast: Wagayway Equality Special Pride Podcast (Ep. 2)", date: "June 19" },
-    { img: "/images/gallery/HIV-and-Aids-Surveillance.jpg", tag: "LGBTQ+ Issues", title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us", date: "2025" },
-    { img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", tag: "Support Resources", title: "SOGIESC 101 by Wagayway Equality Inc.", date: "2025" },
-    { img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg", tag: "Support Resources", title: "HIV 101 — Prevention, Testing & Care", date: "2025" },
+    { img: "https://i3.ytimg.com/vi/jee-3Pqe1Hk/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 4: KP and PLHIV Empowerment in Action", date: "Jan 27", url: "https://www.youtube.com/watch?v=jee-3Pqe1Hk" },
+    { img: "https://i4.ytimg.com/vi/7g6wutLmBsc/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 3: A Community-Based Stand Against HIV Stigma", date: "Nov 24", url: "https://www.youtube.com/watch?v=7g6wutLmBsc" },
+    { img: "https://i3.ytimg.com/vi/2hSWMFblo74/hqdefault.jpg", tag: "Community Voices", title: "KOPISODES 2: The Heart of Community-Centered Leadership", date: "Nov 24", url: "https://www.youtube.com/watch?v=2hSWMFblo74" },
+    { img: "https://i4.ytimg.com/vi/cnpp8jdgzv0/hqdefault.jpg", tag: "Advocacy & Rights", title: "KOPISODES: Living Our Values in Advocacy", date: "Nov 18", url: "https://www.youtube.com/watch?v=cnpp8jdgzv0" },
+    { img: "https://i4.ytimg.com/vi/3u1Spu7-5A0/hqdefault.jpg", tag: "Youth Services", title: "New Kopisodes! Brewing Now!", date: "Nov 17", url: "https://www.youtube.com/watch?v=3u1Spu7-5A0" },
   ];
 
   return (
@@ -377,9 +377,9 @@ function Kopisodes() {
                 <Facebook size={12} />
                 Follow on Facebook
               </a>
-              <a href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#FED7AA] text-sm font-semibold hover:gap-3 transition-all">
+              <Link href="/kopisodes/" className="inline-flex items-center gap-1.5 text-[#FED7AA] text-sm font-semibold hover:gap-3 transition-all">
                 All Episodes <ChevronRight size={14} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -456,7 +456,9 @@ function Kopisodes() {
               {episodes.map((ep, i) => (
                 <a
                   key={ep.title}
-                  href="/kopisodes/"
+                  href={ep.url ?? "/kopisodes/"}
+                  target={ep.url ? "_blank" : undefined}
+                  rel={ep.url ? "noopener noreferrer" : undefined}
                   className="flex gap-3 py-4 group hover:bg-white/3 -mx-3 px-3 rounded-xl transition-colors"
                 >
                   <div className="relative shrink-0">

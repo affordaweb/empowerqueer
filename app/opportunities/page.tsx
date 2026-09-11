@@ -35,9 +35,16 @@ function OpportunityCard({ opp, onOpen }: { opp: Opportunity; onOpen: (o: Opport
       onClick={() => onOpen(opp)}
     >
       <div className="flex items-start gap-0">
-        <div className={`shrink-0 w-16 flex items-center justify-center ${cat?.bg ?? "bg-[#F5F0FF]"}`} style={{ minHeight: "140px" }}>
-          {cat && <cat.icon size={22} className={cat.color} />}
-        </div>
+        {opp.cover ? (
+          <div className="shrink-0 w-28 self-stretch" style={{ minHeight: "140px" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={opp.cover} alt={`${opp.title} poster`} className="h-full w-full object-cover" style={{ minHeight: "140px" }} />
+          </div>
+        ) : (
+          <div className={`shrink-0 w-16 flex items-center justify-center ${cat?.bg ?? "bg-[#F5F0FF]"}`} style={{ minHeight: "140px" }}>
+            {cat && <cat.icon size={22} className={cat.color} />}
+          </div>
+        )}
         <div className="flex-1 p-5">
           <div className="flex flex-wrap gap-2 mb-2">
             {opp.featured && (
@@ -80,17 +87,20 @@ function OpportunityModal({ opp, onClose }: { opp: Opportunity; onClose: () => v
 
         <div className="flex flex-col md:flex-row">
           {/* Left */}
-          <div className={`md:w-2/5 shrink-0 ${cat?.bg ?? "bg-[#F5F0FF]"} rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none flex flex-col items-center justify-center gap-4 p-10`} style={{ minHeight: "260px" }}>
-            {cat && (
+          <div className={`md:w-2/5 shrink-0 ${cat?.bg ?? "bg-[#F5F0FF]"} rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none flex flex-col items-center justify-center gap-4 overflow-hidden ${opp.cover ? "p-0" : "p-10"}`} style={{ minHeight: "260px" }}>
+            {opp.cover ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={opp.cover} alt={`${opp.title} poster`} className="w-full h-full object-cover" style={{ minHeight: "260px" }} />
+            ) : cat && (
               <div className={`w-20 h-20 bg-white/60 rounded-2xl flex items-center justify-center`}>
                 <cat.icon size={36} className={cat.color} />
               </div>
             )}
-            <p className="text-center font-semibold text-[#3A3C51] text-sm">{opp.org}</p>
-            {opp.location && (
+            {!opp.cover && <p className="text-center font-semibold text-[#3A3C51] text-sm">{opp.org}</p>}
+            {!opp.cover && opp.location && (
               <p className="text-center text-xs text-[#474747] bg-white/50 rounded-full px-3 py-1">{opp.location}</p>
             )}
-            {opp.deadline && (
+            {!opp.cover && opp.deadline && (
               <p className="text-center text-xs font-bold text-red-600 bg-red-50 rounded-full px-3 py-1">Deadline: {opp.deadline}</p>
             )}
           </div>

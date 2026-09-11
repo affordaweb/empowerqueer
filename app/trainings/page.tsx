@@ -37,9 +37,16 @@ function TrainingCard({ training, onOpen }: { training: Training; onOpen: (t: Tr
       onClick={() => onOpen(training)}
     >
       <div className="flex items-start gap-0">
-        <div className={`shrink-0 w-16 flex items-center justify-center ${cat?.bg ?? "bg-[#F5F0FF]"}`} style={{ minHeight: "140px" }}>
-          {cat && <cat.icon size={22} className={cat.color} />}
-        </div>
+        {training.cover ? (
+          <div className="shrink-0 w-28 self-stretch" style={{ minHeight: "140px" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={training.cover} alt={`${training.title} poster`} className="h-full w-full object-cover" style={{ minHeight: "140px" }} />
+          </div>
+        ) : (
+          <div className={`shrink-0 w-16 flex items-center justify-center ${cat?.bg ?? "bg-[#F5F0FF]"}`} style={{ minHeight: "140px" }}>
+            {cat && <cat.icon size={22} className={cat.color} />}
+          </div>
+        )}
         <div className="flex-1 p-5">
           <div className="flex flex-wrap gap-2 mb-2">
             {training.featured && (
@@ -87,14 +94,17 @@ function TrainingModal({ training, onClose }: { training: Training; onClose: () 
 
         <div className="flex flex-col md:flex-row">
           {/* Left */}
-          <div className={`md:w-2/5 shrink-0 ${cat?.bg ?? "bg-[#F5F0FF]"} rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none flex flex-col items-center justify-center gap-4 p-10`} style={{ minHeight: "260px" }}>
-            {cat && (
+          <div className={`md:w-2/5 shrink-0 ${cat?.bg ?? "bg-[#F5F0FF]"} rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none flex flex-col items-center justify-center gap-4 overflow-hidden ${training.cover ? "p-0" : "p-10"}`} style={{ minHeight: "260px" }}>
+            {training.cover ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={training.cover} alt={`${training.title} poster`} className="w-full h-full object-cover" style={{ minHeight: "260px" }} />
+            ) : cat && (
               <div className="w-20 h-20 bg-white/60 rounded-2xl flex items-center justify-center">
                 <cat.icon size={36} className={cat.color} />
               </div>
             )}
-            <p className="text-center font-semibold text-[#3A3C51] text-sm">{training.org}</p>
-            <div className="flex flex-col gap-2 items-center">
+            {!training.cover && <p className="text-center font-semibold text-[#3A3C51] text-sm">{training.org}</p>}
+            {!training.cover && <div className="flex flex-col gap-2 items-center">
               {training.format && (
                 <span className="text-xs text-[#474747] bg-white/50 rounded-full px-3 py-1">{training.format}</span>
               )}
@@ -104,7 +114,7 @@ function TrainingModal({ training, onClose }: { training: Training; onClose: () 
               {(training.cost === "Free" || training.cost?.startsWith("Free")) && (
                 <span className="text-xs font-bold text-green-700 bg-green-50 border border-green-200 rounded-full px-3 py-1">Free</span>
               )}
-            </div>
+            </div>}
           </div>
 
           {/* Right */}

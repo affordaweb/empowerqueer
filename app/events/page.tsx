@@ -556,9 +556,14 @@ function CommunityEventCard({ sub }: { sub: CommunityEvent }) {
   const location = (d.location ?? d.eventLocation ?? "") as string;
   const description = (d.description ?? "") as string;
   const link = (d.eventLink ?? d.link ?? "") as string;
+  const image = (d.imageUrl ?? d.flyerUrl ?? "") as string;
   const org = (d.organizerName ?? sub.submittedBy ?? "") as string;
   return (
     <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      {image && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={image} alt={`${title} poster`} className="w-full h-44 object-cover" />
+      )}
       <div className="p-5">
         <span className="inline-block bg-[#F5F0FF] text-[#7C3AED] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-3">Community</span>
         <h3 className="font-serif text-base font-bold text-[#3A3C51] mb-2 leading-snug line-clamp-2">{title}</h3>
@@ -592,7 +597,10 @@ export default function EventsPage() {
   useEffect(() => {
     fetch("/api/public/submissions?type=EVENT")
       .then((r) => r.ok ? r.json() : { submissions: [] })
-      .then((d) => setCommunityEvents(d.submissions ?? []))
+      .then((d) => setCommunityEvents((d.submissions ?? []).filter((sub: CommunityEvent) => {
+        const date = sub.data.eventDate;
+        return typeof date !== "string" || !date || isUpcoming(date);
+      })))
       .catch(() => {});
   }, []);
 
