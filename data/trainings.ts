@@ -52,7 +52,7 @@ export const ALL_TRAININGS: Training[] = [
     format: "Online / Self-Paced",
     duration: "Self-paced",
     cost: "Free",
-    cover: "https://rainbowresearchhub.up.edu.ph/wp-content/uploads/2023/06/UP-RRH-Thumbnail-01-1024x576.png",
+    cover: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg",
     link: "https://rainbowresearchhub.up.edu.ph/resources/anong-bet-mo-girl-boy-bakla-tomboy-a-sogie-training/",
     tags: ["SOGIESC", "Philippines", "Self-Paced"],
     featured: true,
