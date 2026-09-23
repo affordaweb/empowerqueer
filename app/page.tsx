@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Shield,
@@ -19,9 +20,141 @@ import {
   Facebook,
   Youtube,
   ArrowRight,
+  X,
 } from "lucide-react";
 import Navbar from "./components/Navbar";
 import { StoryModal } from "./components/Footer";
+
+const BI_VISIBILITY_POST = "https://www.facebook.com/wagaywayequality/posts/pfbid035LuvrEVxpiFwwcgw5E2GBHNNLW9EbofGwMXSMY1cBnwGRrrRLo6shujXKn6XkXjal";
+const BI_VISIBILITY_EXPIRES_AT = Date.parse("2026-09-24T00:00:00+08:00");
+
+function BisexualVisibilityPopup() {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (
+      Date.now() >= BI_VISIBILITY_EXPIRES_AT ||
+      sessionStorage.getItem("bi-visibility-popup-dismissed") === "1"
+    ) {
+      return;
+    }
+
+    const revealTimer = window.setTimeout(() => setIsOpen(true), 0);
+    const expiryTimer = window.setTimeout(
+      () => setIsOpen(false),
+      BI_VISIBILITY_EXPIRES_AT - Date.now(),
+    );
+
+    return () => {
+      window.clearTimeout(revealTimer);
+      window.clearTimeout(expiryTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        sessionStorage.setItem("bi-visibility-popup-dismissed", "1");
+        setIsOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [isOpen]);
+
+  function dismiss() {
+    sessionStorage.setItem("bi-visibility-popup-dismissed", "1");
+    setIsOpen(false);
+  }
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[110] flex items-center justify-center bg-[#0F0A1E]/80 p-4 backdrop-blur-sm"
+      onClick={dismiss}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bi-visibility-popup-title"
+        aria-describedby="bi-visibility-popup-description"
+        className="relative grid max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-white shadow-2xl md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:overflow-hidden"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="relative h-56 bg-gradient-to-br from-[#D60270] via-[#9B4F96] to-[#0038A8] sm:h-72 md:h-auto md:min-h-[520px]">
+          <Image
+            src="/images/events/bisexual-visibility-day-2026.jpg"
+            alt="Bisexual Visibility Day 2026 poster by Wagayway Equality"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 448px"
+            className="object-contain"
+          />
+        </div>
+
+        <div className="relative flex flex-col justify-center p-7 sm:p-10">
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={dismiss}
+            aria-label="Close Bisexual Visibility Day announcement"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#F5F0FF] text-[#3A3C51] transition-colors hover:bg-[#E9D5FF] focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:ring-offset-2"
+          >
+            <X size={18} />
+          </button>
+
+          <div className="mb-5 flex w-fit overflow-hidden rounded-full" aria-hidden="true">
+            <span className="h-1.5 w-10 bg-[#D60270]" />
+            <span className="h-1.5 w-10 bg-[#9B4F96]" />
+            <span className="h-1.5 w-10 bg-[#0038A8]" />
+          </div>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#7C3AED]">
+            September 23, 2026
+          </p>
+          <h2
+            id="bi-visibility-popup-title"
+            className="mb-4 pr-8 font-serif text-3xl font-bold leading-tight text-[#3A3C51] sm:text-4xl"
+          >
+            Bisexual Visibility Day
+          </h2>
+          <p className="mb-3 text-lg font-semibold text-[#9B4F96]">
+            We see you. We celebrate you.
+          </p>
+          <p
+            id="bi-visibility-popup-description"
+            className="mb-7 text-sm leading-relaxed text-[#474747] sm:text-base"
+          >
+            Wagayway Equality celebrates every bisexual story and identity. Together,
+            let us keep bisexual people visible, valid, and valued, always.
+          </p>
+          <a
+            href={BI_VISIBILITY_POST}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1877F2] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1565C0] focus:outline-none focus:ring-2 focus:ring-[#1877F2] focus:ring-offset-2 sm:w-fit"
+          >
+            <Facebook size={17} />
+            View Facebook Post
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── Hero ──────────────────────────────────────────────────────────────────────
 
@@ -1177,6 +1310,7 @@ export default function Home() {
   return (
     <main className="bg-white min-h-screen">
       <Navbar />
+      <BisexualVisibilityPopup />
       <Hero />
       <Kopisodes />
       <Features />
