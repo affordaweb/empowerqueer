@@ -12,19 +12,19 @@ export interface Opportunity {
   featured?: boolean;
 }
 
-// Open opportunities verified on official sources September 10, 2026.
+// Open opportunities verified on official sources September 26, 2026.
 export const ALL_OPPORTUNITIES: Opportunity[] = [
   {
-    id: "outright-senior-program-manager-2026",
-    title: "Senior Program Manager, Global Rights and Grantmaking",
-    org: "Outright International",
-    category: "jobs",
-    description: "A full-time role managing an international LGBTIQ+ rights grant portfolio. Applicants may be based in the Philippines; substantial multi-country grant-management experience and English and Spanish proficiency are required.",
-    location: "Remote / Worldwide",
-    deadline: "Open - no closing date posted",
-    cover: "https://outrightinternational.bamboohr.com/jobs/share_image/38",
-    link: "https://outrightinternational.bamboohr.com/careers/84",
-    tags: ["LGBTIQ+ Rights", "Grantmaking", "Remote"],
+    id: "loveyourself-hr-finance-internships-2026",
+    title: "Human Resources and Finance Internships",
+    org: "LoveYourself Inc.",
+    category: "internships",
+    description: "LoveYourself is accepting currently enrolled students for Human Resources and Finance internships. Applicants should be gender-sensitive and committed to an inclusive, non-discriminatory workplace.",
+    location: "Kapitolyo, Pasig City",
+    deadline: "Open - posted September 22, 2026",
+    cover: "https://loveyourself.ph/wp-content/uploads/2026/03/JOIN-OUR-TEAM-1-scaled.png",
+    link: "https://loveyourself.ph/looking-for-interns/",
+    tags: ["Internship", "Human Resources", "Finance", "Pasig"],
     featured: true,
   },
   {

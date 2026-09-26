@@ -13,7 +13,7 @@ export interface Training {
   featured?: boolean;
 }
 
-// Current scheduled, on-demand, and self-paced programs verified September 10, 2026.
+// Current scheduled, on-demand, and self-paced programs verified September 26, 2026.
 export const ALL_TRAININGS: Training[] = [
   {
     id: "hct-2026-batches-8-9",
@@ -41,6 +41,20 @@ export const ALL_TRAININGS: Training[] = [
     cover: "https://app.glueup.com/resources/public/images/fixed-width/600/ec736bf2-742b-418a-a4ac-0993a8ce6464.jpg",
     link: "https://app.glueup.com/event/pfip-lead-forward-172038/",
     tags: ["Leadership", "Workplace", "Philippines"],
+    featured: true,
+  },
+  {
+    id: "pfip-transgender-experience-2026",
+    title: "The Transgender Experience",
+    org: "Philippine Financial & Inter-Industry Pride",
+    category: "inclusion-diversity",
+    description: "A virtual awareness session on understanding gender-expansive and gender-nonconforming identities. PFIP lists the session for November 13, 2026; check its learning calendar for registration details.",
+    format: "Online",
+    duration: "November 13, 2026",
+    cost: "Contact organizer",
+    cover: "https://pfip.com.ph/wp-content/uploads/2026/04/8-1.png",
+    link: "https://pfip.com.ph/wp-content/uploads/2026/04/8-1.png",
+    tags: ["Transgender", "Gender Expansive", "Workplace Inclusion"],
     featured: true,
   },
   {

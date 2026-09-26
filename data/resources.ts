@@ -11,8 +11,68 @@ export interface Resource {
   featured?: boolean;
 }
 
-// Current Philippine-focused and durable resources verified September 10, 2026.
+// Current Philippine-focused and durable resources verified September 26, 2026.
 export const ALL_RESOURCES: Resource[] = [
+  {
+    id: "balangaw-learning-materials",
+    title: "Philippine LGBTQI Learning Materials",
+    org: "Balangaw.ph / Babaylanes Inc.",
+    category: "education",
+    description: "A Philippine collection of modules, presentations, primers, and guides on SOGIESC, advocacy, inclusive health care, HIV, workplaces, disaster response, and community organizing.",
+    link: "https://www.balangaw.ph/resources/learning-materials",
+    tags: ["Philippines", "Learning Materials", "SOGIESC"],
+    featured: true,
+  },
+  {
+    id: "balangaw-ado-database",
+    title: "ADO Database: Anti-discrimination Ordinances in the Philippines",
+    org: "Balangaw.ph / Babaylanes Inc.",
+    category: "advocacy-rights",
+    description: "A searchable database and map of local Philippine ordinances that address discrimination based on sexual orientation, gender identity, gender expression, and sex characteristics.",
+    link: "https://www.balangaw.ph/special-interest/policies-and-legislations/ado-database",
+    tags: ["Philippines", "Anti-Discrimination", "Local Policy"],
+    featured: true,
+  },
+  {
+    id: "balangaw-right-to-care-tracker",
+    title: "Right to Care Ordinance Tracker",
+    org: "Balangaw.ph / Babaylanes Inc.",
+    category: "advocacy-rights",
+    description: "A national map distinguishing Philippine local governments that have adopted Right to Care ordinances from those where measures remain under consideration. Data was updated July 10, 2026.",
+    link: "https://www.balangaw.ph/special-interest/policies-and-legislations/right-to-care",
+    tags: ["Philippines", "Health Care Rights", "Local Policy"],
+    featured: true,
+  },
+  {
+    id: "rainbow-rights-ph-compendium",
+    title: "The Rainbow Rights Philippines Compendium on LGBTQIA+",
+    org: "Rainbow Rights Philippines",
+    category: "education",
+    description: "A Philippine LGBTQIA+ research bibliography covering books, journal articles, reports, theses, dissertations, and grey literature, with downloadable collections updated in December 2025.",
+    link: "https://rrightsphl.org/publications/compendium/",
+    tags: ["Philippines", "Research", "Bibliography"],
+  },
+  {
+    id: "national-lbqt-agenda-2025",
+    title: "The National LBQT Agenda",
+    org: "Gayon / Balangaw.ph",
+    category: "advocacy-rights",
+    description: "A community-defined policy and movement agenda for lesbian, bisexual, queer, transmasculine, and non-binary people in the Philippines, published in June 2025.",
+    link: "https://www.balangaw.ph/resources/studies-and-reports/2025-national-lbqt-agenda",
+    tags: ["Philippines", "LBQT", "Policy", "Movement Building"],
+    featured: true,
+  },
+  {
+    id: "who-responsible-suicide-reporting-philippines-2026",
+    title: "Changing the Story, One Word at a Time",
+    org: "World Health Organization Philippines",
+    category: "mental-health",
+    description: "A September 2026 guide to how responsible media language around suicide can reduce stigma, prevent harm, and encourage help-seeking in Philippine communities.",
+    cover: "https://cdn.who.int/media/images/default-source/western-pacific-(wpro)/countries/philippines/quote-card-tina-nolasco.tmb-1200v.jpg?sfvrsn=8bd30f82_1",
+    link: "https://www.who.int/westernpacific/newsroom/feature-stories/item/changing-the-story--one-word-at-a-time",
+    tags: ["Philippines", "Mental Health", "Suicide Prevention", "Media"],
+    featured: true,
+  },
   {
     id: "ph-lgbtqia-legal-guidebook-2025",
     title: "LGBTQIA+ Community Legal Guidebook in the Philippines",

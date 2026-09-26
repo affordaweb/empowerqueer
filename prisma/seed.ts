@@ -73,10 +73,6 @@ const GALLERY_IMAGES = [
   { src: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg", alt: "SOGIESC 101 by Wagayway Equality Inc", tags: ["Training"], order: 66 },
 ];
 
-function toSlug(title: string) {
-  return title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-");
-}
-
 const KOPISODES = [
   {
     slug: "2025-hiv-aids-surveillance-update-what-the-data-tells-us",
@@ -86,7 +82,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "hiv-aids"],
     date: "2025",
     img: "/images/gallery/HIV-and-Aids-Surveillance.jpg",
-    order: 0,
+    order: 7,
     published: true,
   },
   {
@@ -97,7 +93,7 @@ const KOPISODES = [
     categoryIds: ["youth-services", "advocacy-rights"],
     date: "2025",
     img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg",
-    order: 1,
+    order: 8,
     published: true,
   },
   {
@@ -108,7 +104,7 @@ const KOPISODES = [
     categoryIds: ["support-resources", "hiv-aids"],
     date: "2025",
     img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg",
-    order: 2,
+    order: 9,
     published: true,
   },
   {
@@ -119,7 +115,7 @@ const KOPISODES = [
     categoryIds: ["support-resources", "education"],
     date: "2025",
     img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg",
-    order: 3,
+    order: 10,
     published: true,
   },
   {
@@ -130,7 +126,7 @@ const KOPISODES = [
     categoryIds: ["advocacy-rights", "community-voices"],
     date: "2025",
     img: "/images/gallery/Wagayway-Equality-Join-in-Sublian-Festival.jpg",
-    order: 4,
+    order: 11,
     published: true,
   },
   {
@@ -141,7 +137,7 @@ const KOPISODES = [
     categoryIds: ["community-voices", "lgbtq-issues"],
     date: "2023",
     img: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
-    order: 5,
+    order: 13,
     published: true,
   },
   {
@@ -152,7 +148,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "advocacy-rights"],
     date: "2025",
     img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg",
-    order: 6,
+    order: 12,
     published: true,
   },
   {
@@ -163,7 +159,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "community-voices"],
     date: "June 12, 2026",
     img: "/images/gallery/EmpQueer-Image-160.jpg",
-    order: 7,
+    order: 1,
     published: true,
   },
   {
@@ -174,7 +170,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "community-voices"],
     date: "June 19, 2026",
     img: "/images/gallery/EmpQueer-Image-160.jpg",
-    order: 8,
+    order: 0,
     published: true,
   },
   {
@@ -185,7 +181,7 @@ const KOPISODES = [
     categoryIds: ["hiv-aids", "community-voices", "advocacy-rights"],
     date: "January 27, 2026",
     img: "https://i3.ytimg.com/vi/jee-3Pqe1Hk/hqdefault.jpg",
-    order: -5,
+    order: 2,
     published: true,
   },
   {
@@ -196,7 +192,7 @@ const KOPISODES = [
     categoryIds: ["hiv-aids", "advocacy-rights", "community-voices"],
     date: "November 24, 2025",
     img: "https://i4.ytimg.com/vi/7g6wutLmBsc/hqdefault.jpg",
-    order: -4,
+    order: 3,
     published: true,
   },
   {
@@ -207,7 +203,7 @@ const KOPISODES = [
     categoryIds: ["community-voices", "advocacy-rights"],
     date: "November 24, 2025",
     img: "https://i3.ytimg.com/vi/2hSWMFblo74/hqdefault.jpg",
-    order: -3,
+    order: 4,
     published: true,
   },
   {
@@ -218,7 +214,7 @@ const KOPISODES = [
     categoryIds: ["advocacy-rights", "community-voices"],
     date: "November 18, 2025",
     img: "https://i4.ytimg.com/vi/cnpp8jdgzv0/hqdefault.jpg",
-    order: -2,
+    order: 5,
     published: true,
   },
   {
@@ -229,7 +225,7 @@ const KOPISODES = [
     categoryIds: ["youth-services", "community-voices"],
     date: "November 17, 2025",
     img: "https://i4.ytimg.com/vi/3u1Spu7-5A0/hqdefault.jpg",
-    order: -1,
+    order: 6,
     published: true,
   },
 ];
@@ -266,20 +262,15 @@ async function main() {
     console.log(`Gallery already seeded (${galleryCount} found)`);
   }
 
-  // Seed kopisodes (upsert by slug — adds new entries without duplicating existing)
-  let seeded = 0;
+  // Keep seeded Kopisodes current while preserving database-only episodes.
   for (const k of KOPISODES) {
-    const existing = await prisma.kopisode.findUnique({ where: { slug: k.slug } });
-    if (!existing) {
-      await prisma.kopisode.create({ data: k });
-      seeded++;
-    }
+    await prisma.kopisode.upsert({
+      where: { slug: k.slug },
+      create: k,
+      update: k,
+    });
   }
-  if (seeded > 0) {
-    console.log(`✅ Added ${seeded} new kopisode(s)`);
-  } else {
-    console.log(`All ${KOPISODES.length} kopisodes already present.`);
-  }
+  console.log(`✅ Synced ${KOPISODES.length} kopisodes`);
 }
 
 main()
