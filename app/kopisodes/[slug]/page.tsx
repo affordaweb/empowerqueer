@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { ChevronLeft, Heart, Activity, Scale, Users, Mic, BookOpen, Star, Calendar, Tag } from "lucide-react";
+import { ChevronLeft, Heart, Activity, Scale, Users, Mic, BookOpen, Star, Calendar, Tag, Youtube } from "lucide-react";
 
 const CATEGORY_MAP: Record<string, { label: string; icon: React.ElementType; color: string }> = {
   "lgbtq-issues":      { label: "LGBTQ+ Issues",       icon: Heart,     color: "text-[#EC4899]" },
@@ -14,6 +14,14 @@ const CATEGORY_MAP: Record<string, { label: string; icon: React.ElementType; col
   "community-voices":  { label: "Community Voices",     icon: Mic,       color: "text-[#D97706]" },
   "youth-services":    { label: "Youth Services",       icon: Star,      color: "text-[#059669]" },
   "education":         { label: "Education",            icon: BookOpen,  color: "text-[#0891B2]" },
+};
+
+const VIDEO_URLS: Record<string, string> = {
+  "kopisodes-4-kp-and-plhiv-empowerment-in-action": "https://www.youtube.com/watch?v=jee-3Pqe1Hk",
+  "kopisodes-3-community-based-stand-against-hiv-stigma": "https://www.youtube.com/watch?v=7g6wutLmBsc",
+  "kopisodes-2-heart-of-community-centered-leadership": "https://www.youtube.com/watch?v=2hSWMFblo74",
+  "kopisodes-living-our-values-in-advocacy": "https://www.youtube.com/watch?v=cnpp8jdgzv0",
+  "new-kopisodes-brewing-now": "https://www.youtube.com/watch?v=3u1Spu7-5A0",
 };
 
 interface Episode {
@@ -141,6 +149,17 @@ export default function KopisodeArticlePage() {
 
               {/* Body */}
               <p className="text-[#474747] text-lg leading-relaxed mb-10">{episode.desc}</p>
+
+              {VIDEO_URLS[episode.slug] && (
+                <a
+                  href={VIDEO_URLS[episode.slug]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#7C3AED] text-white font-semibold px-5 py-3 rounded-xl hover:bg-[#6D28D9] transition-colors mb-8"
+                >
+                  <Youtube size={18} /> Watch on YouTube
+                </a>
+              )}
 
               {/* Tags */}
               {episode.tags.length > 0 && (

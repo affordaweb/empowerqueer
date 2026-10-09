@@ -116,7 +116,7 @@ function ListingModal({ listing, onClose }: { listing: Listing; onClose: () => v
             {/* Contact details */}
             <div className="space-y-3 mb-5">
               {listing.hotline && (
-                <a href={`tel:${listing.hotline}`} className="flex items-center gap-3 group">
+                <a href={`tel:${listing.hotline.split(/[\/;]/)[0].replace(/[^\d+]/g, "")}`} className="flex items-center gap-3 group">
                   <div className="w-8 h-8 bg-red-50 rounded-lg flex items-center justify-center shrink-0">
                     <Phone size={14} className="text-red-500" />
                   </div>
@@ -127,7 +127,7 @@ function ListingModal({ listing, onClose }: { listing: Listing; onClose: () => v
                 </a>
               )}
               {listing.phone && (
-                <a href={`tel:${listing.phone}`} className="flex items-center gap-3 group">
+                <a href={`tel:${listing.phone.split(/[\/;]/)[0].replace(/[^\d+]/g, "")}`} className="flex items-center gap-3 group">
                   <div className="w-8 h-8 bg-[#F5F0FF] rounded-lg flex items-center justify-center shrink-0">
                     <Phone size={14} className="text-[#7C3AED]" />
                   </div>

@@ -1,7 +1,7 @@
 // ─── DIRECTORY DATA ───────────────────────────────────────────────────────────
 // Philippine-focused directory of LGBTQIA+ organisations, health services,
-// hotlines, and support resources. All entries verified from official sources.
-// Descriptions are original. Sources: official org websites, DOH, CHR.
+// hotlines, and support resources. Entries use provider sources where available;
+// contact providers before visiting because hours and services can change.
 // ──────────────────────────────────────────────────────────────────────────────
 
 export interface Listing {
@@ -45,7 +45,8 @@ export const ALL_LISTINGS: Listing[] = [
     name: "Bahaghari Center for SOGIE Research, Education & Advocacy",
     category: "community-center",
     description: "The Bahaghari Center focuses on LGBTQIA+ welfare, education, and advocacy in the Philippines. It conducts research, provides community education, and collaborates with civil society organizations on SOGIESC rights across Luzon and nationwide.",
-    address: "Metro Manila, Philippines",
+    address: "2627 Dian Street, Barangay 757, San Andres, Manila 1017",
+    phone: "+63 2 8536 7886 / 0928 785 4244",
     website: "https://bahagharicenter.org/",
     tags: ["Research", "SOGIESC", "Education", "National"],
     featured: true,
@@ -63,8 +64,8 @@ export const ALL_LISTINGS: Listing[] = [
   {
     id: "cc-5",
     name: "Philippine Financial & Inter-Industry Pride (PFIP)",
-    category: "community-center",
-    description: "PFIP is an alliance of 80+ Philippine corporations advancing LGBTQIA+ workplace equality and economic inclusion. Runs the Rainbow Youth Academy scholarship, the annual Pride Summit, and DEI programs for member companies.",
+    category: "advocacy-rights",
+    description: "PFIP is a nonprofit community of practice of more than 100 member organizations advancing LGBTQIA+ workplace equality and economic inclusion through learning, research, and collaboration.",
     address: "Metro Manila, Philippines",
     website: "https://pfip.com.ph",
     tags: ["Workplace", "Scholarship", "DEI", "Corporate Alliance"],
@@ -92,11 +93,11 @@ export const ALL_LISTINGS: Listing[] = [
 
   {
     id: "ar-1",
-    name: "Equality Desk – Batangas City Government",
+    name: "Wagayway Equality Desk - Batangas City",
     category: "advocacy-rights",
-    description: "The Equality Desk is a dedicated in-office support hub developed by Wagayway Equality to serve LGBTQIA+ individuals within the Batangas City Government, providing referrals, support, and anti-discrimination resources.",
-    address: "Batangas City Hall, Batangas City, Philippines",
-    phone: "09763427850",
+    description: "A community-linked access point connecting LGBTQIA+ people and other community members with sexual-health, mental-health, human-rights, and socioeconomic support and referrals. Contact the Desk before visiting to confirm its current location and hours.",
+    address: "Batangas City, Philippines",
+    website: "https://www.empowerqueerhub.com/equality-desk/",
     tags: ["Government", "Anti-Discrimination", "Referrals"],
     featured: true,
   },
@@ -106,7 +107,7 @@ export const ALL_LISTINGS: Listing[] = [
     category: "advocacy-rights",
     description: "The CHR is the national human rights institution in the Philippines. Accepts complaints of human rights violations including discrimination based on sexual orientation and gender identity.",
     address: "Commonwealth Avenue, Quezon City, Philippines",
-    phone: "(02) 294-8704",
+    phone: "(02) 8294-8704 / 0936 068 0982 / 0920 506 1194",
     website: "https://chr.gov.ph",
     tags: ["National", "Human Rights", "Complaints"],
   },
@@ -126,7 +127,6 @@ export const ALL_LISTINGS: Listing[] = [
     description: "A health and human rights organization for Filipino sexual and gender minorities, offering HIV testing, counseling, treatment support, and legal aid services.",
     address: "Malate, Manila, Philippines",
     phone: "(02) 8524-0779",
-    website: "https://tlfshare.com",
     tags: ["Manila", "Legal Aid", "HIV", "Human Rights"],
     featured: true,
   },
@@ -163,9 +163,8 @@ export const ALL_LISTINGS: Listing[] = [
     id: "mh-4",
     name: "MentalHealthPH",
     category: "mental-health",
-    description: "Mental health advocacy organization and peer support network focused on raising awareness and reducing stigma. Maintains a directory of mental health professionals and free support groups.",
+    description: "Mental health advocacy organization and peer-support network focused on awareness and stigma reduction. Its help page also lists national crisis resources, including the DOH-NCMH hotline.",
     website: "https://mentalhealthph.org",
-    phone: "0917-899-8727",
     tags: ["Advocacy", "Peer Support", "Directory"],
   },
   {
@@ -181,9 +180,8 @@ export const ALL_LISTINGS: Listing[] = [
     id: "mh-6",
     name: "In Touch Community Services",
     category: "mental-health",
-    description: "Provides free mental health crisis intervention and counseling services to Filipinos in need. LGBTQIA+-affirming professionals available.",
-    phone: "(02) 893-7603",
-    hotline: "1-800-1888-1553",
+    description: "Provides a free, anonymous 24/7 crisis line. Counseling and subsidized counseling are separate services with their own availability and eligibility requirements.",
+    hotline: "+63 2 8893 7603 / +63 919 056 0709 / +63 917 800 1123 / +63 917 108 5412",
     website: "https://www.in-touch.org",
     tags: ["Free", "Crisis", "Counseling"],
   },
@@ -202,7 +200,7 @@ export const ALL_LISTINGS: Listing[] = [
   },
   {
     id: "hiv-2",
-    name: "Batangas Regional Hospital – HIV Treatment Hub",
+    name: "Batangas Medical Center - HIV Treatment Hub",
     category: "hiv-services",
     description: "Accredited HIV treatment hub offering ART (antiretroviral therapy), CD4 count monitoring, viral load testing, and psychosocial support for PLHIV.",
     address: "Kumintang Ibaba, Batangas City, Philippines",
@@ -214,21 +212,11 @@ export const ALL_LISTINGS: Listing[] = [
     id: "hiv-3",
     name: "LoveYourself Inc.",
     category: "hiv-services",
-    description: "Philippines-based HIV testing, prevention, treatment, and advocacy organization. Operates community-based sexual health clinics with LGBTQIA+-affirming staff.",
-    address: "San Juan City and Makati City, Metro Manila, Philippines",
-    phone: "0917-888-LOVE",
+    description: "Philippines-based HIV testing, prevention, treatment, and advocacy organization operating community-based hubs and clinics in Luzon, Visayas, and Mindanao.",
+    address: "Multiple locations across the Philippines",
+    phone: "0917 628 8743 / 0998 563 7307",
     website: "https://loveyourself.ph",
     tags: ["Manila", "Testing", "Community"],
-  },
-  {
-    id: "hiv-4",
-    name: "TLF Share Collective",
-    category: "hiv-services",
-    description: "A health and human rights organization for Filipino sexual and gender minorities, offering HIV testing, counseling, treatment support, and legal aid.",
-    address: "Malate, Manila, Philippines",
-    phone: "(02) 8524-0779",
-    website: "https://tlfshare.com",
-    tags: ["Manila", "Testing", "Legal Aid"],
   },
   {
     id: "hiv-5",
@@ -245,7 +233,6 @@ export const ALL_LISTINGS: Listing[] = [
     category: "hiv-services",
     description: "A Philippines-based health and human rights NGO delivering HIV prevention, testing, treatment, and advocacy services with a focus on key populations including gay men, MSM, and transgender individuals.",
     address: "Pasig City, Metro Manila, Philippines",
-    website: "https://www.actionphilippines.org/",
     tags: ["Manila", "Key Populations", "NGO"],
     featured: true,
   },
@@ -257,17 +244,17 @@ export const ALL_LISTINGS: Listing[] = [
     name: "LoveYourself Anglo – Sexual Health Clinic",
     category: "sexual-health",
     description: "LGBTQIA+-affirming sexual health clinic offering free HIV rapid testing, STI testing and treatment, condom distribution, and PrEP consultations.",
-    address: "Makati City, Metro Manila, Philippines",
-    phone: "0917-888-LOVE",
-    website: "https://loveyourself.ph",
+    address: "Unit 5, 3/F, Anglo Building, 715-A Shaw Boulevard, Mandaluyong City",
+    phone: "Testing: 0969 028 8272 / 0997 658 2437; Treatment: 0967 315 8719",
+    website: "https://loveyourself.ph/hubsclinics/",
     tags: ["PrEP", "STI", "Free Testing"],
     featured: true,
   },
     {
       id: "sh-2",
-      name: "Planned Parenthood – Philippines Partners",
+      name: "Family Planning Organization of the Philippines (FPOP)",
       category: "sexual-health",
-      description: "Affiliate clinics offering comprehensive sexual and reproductive health services, inclusive of LGBTQIA+ clients. Services include contraception, STI screening, and counseling.",
+      description: "The Philippine member association of the International Planned Parenthood Federation, providing sexual and reproductive healthcare, contraceptive care, fertility services, and comprehensive sexuality education.",
       address: "Multiple locations, Metro Manila",
       website: "https://www.ippf.org/about-us/member-associations/philippines",
       tags: ["Reproductive Health", "STI", "Contraception"],
@@ -276,9 +263,9 @@ export const ALL_LISTINGS: Listing[] = [
       id: "sh-3",
       name: "PULSE Clinic Manila",
       category: "sexual-health",
-      description: "Asia's leading LGBTQIA+-affirming sexual health and lifestyle clinic network with branches in Manila, Makati City, Cebu, and Angeles-Clark. Offers confidential HIV testing, PrEP, PEP, STI screening, ART, and mental health services. Walk-in and teleconsultation available.",
-      address: "Multiple locations: Manila, Makati, Cebu, Angeles-Clark",
-      phone: "+63 917 124 5497",
+       description: "LGBTQIA+-focused sexual health clinic offering confidential HIV testing, PrEP, PEP, STI screening, treatment, and teleconsultation services.",
+       address: "Manila and Angeles-Clark, Philippines",
+       phone: "+63 968 189 6969",
       website: "https://www.pulse-clinic.com.ph",
       tags: ["PrEP", "PEP", "HIV Testing", "STI", "Sexual Health"],
       featured: true,
@@ -348,15 +335,6 @@ export const ALL_LISTINGS: Listing[] = [
       website: "https://redcross.org.ph",
       tags: ["Nationwide", "Red Cross", "Counseling"],
     },
-  {
-    id: "diag-4",
-      name: "HIVTest.ph — Free HIV Testing Center Directory",
-      category: "diagnostic",
-      description: "A comprehensive online directory of free and confidential HIV testing centers across the Philippines. Searchable by city or region, with details on services, hours, and contact information. Helps users find the nearest testing facility quickly.",
-      website: "https://hivtest.ph",
-      tags: ["Directory", "Free Testing", "Nationwide", "HIV"],
-      featured: true,
-    },
 
   // ── Youth Services ─────────────────────────────────────────────────────────────
 
@@ -368,16 +346,6 @@ export const ALL_LISTINGS: Listing[] = [
     address: "Metro Manila, Philippines",
     website: "https://www.facebook.com/STRAPHILIPPINES",
     tags: ["Trans Women", "Youth", "Peer Support"],
-    featured: true,
-  },
-  {
-    id: "diag-5",
-    name: "HIVTest.ph — Free HIV Testing Center Finder",
-    category: "diagnostic",
-    description: "A Philippine directory for locating free and confidential HIV testing centers. Search by location and review available services, walk-in information, and contact details before visiting a facility.",
-    website: "https://hivtest.ph",
-    hotline: "1651-7",
-    tags: ["Directory", "Free Testing", "Nationwide", "HIV", "Confidential"],
     featured: true,
   },
   {
@@ -401,16 +369,6 @@ export const ALL_LISTINGS: Listing[] = [
   // ── Support Resources ──────────────────────────────────────────────────────────
 
   {
-    id: "sr-1",
-    name: "Tahanan – LGBTQIA+ Crisis Shelter",
-    category: "support-resources",
-    description: "Crisis shelter and temporary safe housing for LGBTQIA+ individuals facing homelessness, domestic violence, or family rejection. Provides psychosocial support and referrals.",
-    address: "Metro Manila, Philippines",
-    phone: "0917-111-0000",
-    tags: ["Shelter", "Crisis", "Safe Housing"],
-    featured: true,
-  },
-  {
     id: "sr-2",
     name: "GrayMatters Psychological Services",
     category: "support-resources",
@@ -430,16 +388,6 @@ export const ALL_LISTINGS: Listing[] = [
 
   // ── NEW ADDITIONS (2026) ─────────────────────────────────────────────────
 
-  {
-    id: "cc-8",
-    name: "Youth Voices Count (YVC)",
-    category: "community-center",
-    description: "A regional network in the Asia-Pacific mobilizing, building capacity, and empowering young people of diverse SOGIESC. Focuses on youth-led advocacy, peer support, and regional policy engagement for LGBTQIA+ youth rights.",
-    address: "Asia-Pacific (Based in the Philippines)",
-    website: "https://youthvoicescount.org/",
-    tags: ["Youth", "Regional", "Advocacy", "Capacity Building"],
-    featured: true,
-  },
   {
     id: "cc-9",
     name: "Bisdak Pride, Inc.",
@@ -469,27 +417,6 @@ export const ALL_LISTINGS: Listing[] = [
     tags: ["Trans Men", "Peer Support", "Healthcare Access"],
     featured: true,
   },
-  {
-    id: "mh-7",
-    name: "Tawag Paglaum Centro Bisaya — 24/7 Crisis Helpline",
-    category: "mental-health",
-    description: "A 24/7 helpline based in the Philippines providing free, confidential emotional and crisis support for individuals of all backgrounds, including LGBTQIA+ individuals. Staffed by trained volunteers offering compassionate listening and referrals.",
-    phone: "0966-467-9626",
-    website: "https://www.facebook.com/profile.php?id=100068862624004",
-    tags: ["24/7", "Crisis", "Helpline", "Free"],
-    featured: true,
-  },
-  {
-    id: "sr-4",
-    name: "HOPELINE — 24/7 Crisis Support Hotline",
-    category: "support-resources",
-    description: "A 24/7 free crisis support hotline in the Philippines providing compassionate and confidential support by phone. Staffed by trained counselors ready to help individuals experiencing emotional distress, mental health crises, or suicidal thoughts. LGBTQIA+-affirming.",
-    phone: "(02) 8804-4673",
-    website: "https://www.facebook.com/HopelinePH/",
-    tags: ["24/7", "Crisis", "Hotline", "Counseling"],
-    featured: true,
-  },
-
   // ── NEW ADDITIONS (2026-Q3) ─────────────────────────────────────────
 
   {
@@ -497,9 +424,10 @@ export const ALL_LISTINGS: Listing[] = [
     name: "CAMP Pag-ayo, Inc.",
     category: "community-center",
     description: "Culture and Arts Managers of the Philippines (CAMP) Pag-ayo, Inc. is a non-profit organization providing HIV Counseling and Testing (HCT) training, SOGIESC workshops, peer education, and mental health support. DOH-accredited HCT trainer and certified community-based HIV screening provider. Serves key populations, PLHIV, and LGBTQIA+ communities nationwide.",
-    address: "Makati City, Metro Manila, Philippines",
+    address: "45 Manila East Road, Barangay San Roque, Angono, Rizal",
+    phone: "+63 967 164 6030",
     website: "https://www.campincph.org/",
-    tags: ["Manila", "HIV Training", "SOGIESC", "Peer Education", "DOH-Accredited"],
+    tags: ["Rizal", "HIV Training", "SOGIESC", "Peer Education", "DOH-Accredited"],
     featured: true,
   },
   {
@@ -518,6 +446,38 @@ export const ALL_LISTINGS: Listing[] = [
     description: "A Batangas City-based LGBTQIA+ organization that organizes the annual Rampa Na: Batangas City Pride Month Celebration and confers the Bahaghari Award to individuals and institutions championing LGBTQ+ rights and inclusion in Batangas.",
     address: "Batangas City, Batangas, Philippines",
     tags: ["Batangas City", "Pride", "Advocacy", "Awards"],
+    featured: true,
+  },
+  {
+    id: "ar-5",
+    name: "ASEAN SOGIE Caucus",
+    category: "advocacy-rights",
+    description: "A Philippine-registered regional LGBTQIA+ human-rights organization advancing SOGIESC rights through advocacy, research, capacity building, and leadership development across Southeast Asia.",
+    address: "Quezon City, Metro Manila, Philippines",
+    website: "https://aseansogiecaucus.org/",
+    tags: ["Human Rights", "SOGIESC", "Southeast Asia", "Capacity Building"],
+    featured: true,
+  },
+  {
+    id: "sh-4",
+    name: "LoveYourself Victoria",
+    category: "sexual-health",
+    description: "A trans-health-focused LoveYourself hub offering HIV screening, hormone-management consultations, and pre-gender-affirming-surgery assessment and counseling.",
+    address: "2442 Park Avenue, 1/F Torres Building, Pasay City",
+    phone: "Testing: 0915 831 8715; Inquiries: 0961 524 1939 / (02) 7002 6976",
+    website: "https://loveyourself.ph/hubsclinics/",
+    tags: ["Trans Health", "HIV Testing", "Hormone Management", "Pasay"],
+    featured: true,
+  },
+  {
+    id: "hiv-7",
+    name: "HERO by LoveYourself",
+    category: "hiv-services",
+    description: "A LoveYourself community hub providing HIV testing, prevention, treatment support, and referrals for communities in Cavite and Southern Tagalog.",
+    address: "2/F EMA Building, Aguinaldo Highway, Bacoor, Cavite",
+    phone: "Testing: 0956 751 4053; Treatment: 0969 205 6211; (046) 537-7549",
+    website: "https://loveyourself.ph/hubsclinics/",
+    tags: ["HIV Testing", "Treatment", "Cavite", "Southern Tagalog"],
     featured: true,
   },
 ];

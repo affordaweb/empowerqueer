@@ -11,7 +11,7 @@ export interface Resource {
   featured?: boolean;
 }
 
-// Current Philippine-focused and durable resources verified September 26, 2026.
+// Current Philippine-focused and durable resources verified October 5, 2026.
 export const ALL_RESOURCES: Resource[] = [
   {
     id: "balangaw-learning-materials",
@@ -67,7 +67,7 @@ export const ALL_RESOURCES: Resource[] = [
     title: "Changing the Story, One Word at a Time",
     org: "World Health Organization Philippines",
     category: "mental-health",
-    description: "A September 2026 guide to how responsible media language around suicide can reduce stigma, prevent harm, and encourage help-seeking in Philippine communities.",
+    description: "A September 2026 WHO Philippines feature story examining how responsible media language around suicide can reduce stigma, prevent harm, and encourage help-seeking.",
     cover: "https://cdn.who.int/media/images/default-source/western-pacific-(wpro)/countries/philippines/quote-card-tina-nolasco.tmb-1200v.jpg?sfvrsn=8bd30f82_1",
     link: "https://www.who.int/westernpacific/newsroom/feature-stories/item/changing-the-story--one-word-at-a-time",
     tags: ["Philippines", "Mental Health", "Suicide Prevention", "Media"],
@@ -81,6 +81,7 @@ export const ALL_RESOURCES: Resource[] = [
     description: "A practical guide to Philippine protections and steps for responding to discrimination, arbitrary arrest, detention, and red-tagging. Published June 2025 with legal support from SyCip Law.",
     cover: "https://www.trust.org/wp-content/uploads/2025/06/LGBTQIA-Community-Legal-Guidebook-in-the-Philippines-3.jpg",
     pdf: "https://www.trust.org/wp-content/uploads/2025/06/LGBTQIA-Community-Legal-Guidebook-in-the-Philippines-2.pdf",
+    link: "https://www.trust.org/resource/lgbtqia-community-legal-guidebook-in-the-philippines/",
     tags: ["Philippines", "Legal Guide", "Know Your Rights"],
     featured: true,
   },
@@ -103,6 +104,7 @@ export const ALL_RESOURCES: Resource[] = [
     description: "A concise research brief mapping feminist and LGBT+ movements, anti-rights rollback, advocacy strategies, red-tagging risks, and evidence gaps in the Philippines.",
     cover: "https://s3-eu-west-1.amazonaws.com/figshare-production-eu-ids-previews8462-eu-west-1/53703131/thumb.png",
     pdf: "https://ndownloader.figshare.com/files/53703131",
+    link: "https://www.ids.ac.uk/publications/rapid-scoping-review-2025-philippines/",
     tags: ["Philippines", "Research", "Human Rights"],
   },
   {
@@ -112,19 +114,20 @@ export const ALL_RESOURCES: Resource[] = [
     category: "hiv-services",
     description: "UNAIDS' 2025 report on the HIV funding crisis, community-led responses, regional trends, and the needs of key populations, including examples from the Philippines.",
     cover: "https://www.unaids.org/sites/default/files/styles/large/public/2025-07/cover-2025-global-aids-update-JC3153_en.png?itok=W76Cgyc2",
-    pdf: "https://www.unaids.org/sites/default/files/2025-07/2025-global-aids-update-asia-pacific_0.pdf",
+    pdf: "https://www.unaids.org/sites/default/files/2025-07/2025-global-aids-update-JC3153_en.pdf",
+    link: "https://www.unaids.org/en/resources/documents/2025/2025-global-aids-update",
     tags: ["UNAIDS", "Asia-Pacific", "HIV", "Report"],
     featured: true,
   },
   {
-    id: "ph-hiv-surveillance-q4-2025",
-    title: "2025 Q4 HIV/AIDS Surveillance Report of the Philippines",
+    id: "ph-hiv-surveillance-q2-2026",
+    title: "2026 Q2 HIV/AIDS Surveillance Report of the Philippines",
     org: "Department of Health Epidemiology Bureau",
     category: "hiv-services",
-    description: "The national surveillance report covering HIV diagnoses, demographics, treatment, and reported trends through the fourth quarter of 2025.",
-    cover: "/resources/2025_Q4-HIV-AIDS-Surveillance-Report-of-the-Philippines-pdf.jpg",
-    pdf: "/resources/2025_Q4-HIV-AIDS-Surveillance-Report-of-the-Philippines.pdf",
-    tags: ["Philippines", "Surveillance", "Data"],
+    description: "The national surveillance report covering HIV diagnoses, demographics, treatment, and reported trends from April through June 2026.",
+    pdf: "https://www.ship.ph/wp-content/uploads/2026/08/2026_Q2-HIV-AIDS-Surveillance-of-the-Philippines-2.pdf",
+    link: "https://www.ship.ph/hiv-aids-registry-of-the-philippines/",
+    tags: ["Philippines", "Surveillance", "Data", "2026"],
   },
   {
     id: "doh-prep-pep-guidelines-2026",
@@ -143,6 +146,7 @@ export const ALL_RESOURCES: Resource[] = [
     category: "mental-health",
     description: "National findings on anxiety, depression, suicide risk, discrimination, conversion practices, access to care, and protective factors among LGBTQ+ Filipinos aged 15 to 24.",
     pdf: "https://www.thetrevorproject.org/survey-international/assets/static/2024_Philippines_National_Survey_EN.pdf",
+    link: "https://www.thetrevorproject.org/survey-international/ph/2024/en/",
     tags: ["Philippines", "Youth", "Mental Health", "Research"],
     featured: true,
   },
@@ -166,6 +170,17 @@ export const ALL_RESOURCES: Resource[] = [
     cover: "https://loveyourself.ph/wp-content/uploads/2020/10/LoveYourself-Trans-Health.jpg",
     link: "https://loveyourself.ph/trans-health/",
     tags: ["Trans Health", "Pasay", "Gender-Affirming Care"],
+    featured: true,
+  },
+  {
+    id: "ship-sail-clinics-2026",
+    title: "SAIL Clinics and TelePrEP Services",
+    org: "Sustained Health Initiatives of the Philippines",
+    category: "sexual-health",
+    description: "Current locations, schedules, contact details, and appointment links for SAIL clinics in Calamba, Caloocan, Cavite, and Makati, plus nationwide HIV self-testing and PrEP delivery through SAIL TelePrEP.",
+    cover: "https://www.ship.ph/wp-content/uploads/2026/07/SHIP-cover-photo-072026-1024x858.png",
+    link: "https://www.ship.ph/sail-clinics-2021-current/",
+    tags: ["Philippines", "HIV Testing", "PrEP", "TelePrEP", "Clinics"],
     featured: true,
   },
   {
@@ -216,6 +231,7 @@ export const ALL_RESOURCES: Resource[] = [
     description: "A supportive guide for young people considering coming out, with practical sections on safety, family conversations, mental health, and finding community.",
     cover: "/resources/Coming-Out-Handbook-pdf.jpg",
     pdf: "/resources/Coming-Out-Handbook.pdf",
+    link: "https://www.thetrevorproject.org/resources/guide/the-coming-out-handbook/",
     tags: ["Coming Out", "Youth", "Safety"],
   },
   {

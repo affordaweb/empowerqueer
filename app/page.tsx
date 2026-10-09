@@ -472,11 +472,11 @@ function Collaboration() {
 
 function Kopisodes() {
   const episodes = [
-    { img: "https://i3.ytimg.com/vi/jee-3Pqe1Hk/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 4: KP and PLHIV Empowerment in Action", date: "Jan 27", url: "https://www.youtube.com/watch?v=jee-3Pqe1Hk" },
-    { img: "https://i4.ytimg.com/vi/7g6wutLmBsc/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 3: A Community-Based Stand Against HIV Stigma", date: "Nov 24", url: "https://www.youtube.com/watch?v=7g6wutLmBsc" },
-    { img: "https://i3.ytimg.com/vi/2hSWMFblo74/hqdefault.jpg", tag: "Community Voices", title: "KOPISODES 2: The Heart of Community-Centered Leadership", date: "Nov 24", url: "https://www.youtube.com/watch?v=2hSWMFblo74" },
-    { img: "https://i4.ytimg.com/vi/cnpp8jdgzv0/hqdefault.jpg", tag: "Advocacy & Rights", title: "KOPISODES: Living Our Values in Advocacy", date: "Nov 18", url: "https://www.youtube.com/watch?v=cnpp8jdgzv0" },
-    { img: "https://i4.ytimg.com/vi/3u1Spu7-5A0/hqdefault.jpg", tag: "Youth Services", title: "New Kopisodes! Brewing Now!", date: "Nov 17", url: "https://www.youtube.com/watch?v=3u1Spu7-5A0" },
+    { img: "https://i3.ytimg.com/vi/jee-3Pqe1Hk/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 4: KP and PLHIV Empowerment in Action", date: "Jan 27, 2026", url: "https://www.youtube.com/watch?v=jee-3Pqe1Hk" },
+    { img: "https://i4.ytimg.com/vi/7g6wutLmBsc/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 3: A Community-Based Stand Against HIV Stigma", date: "Nov 24, 2025", url: "https://www.youtube.com/watch?v=7g6wutLmBsc" },
+    { img: "https://i3.ytimg.com/vi/2hSWMFblo74/hqdefault.jpg", tag: "Community Voices", title: "KOPISODES 2: The Heart of Community-Centered Leadership", date: "Nov 24, 2025", url: "https://www.youtube.com/watch?v=2hSWMFblo74" },
+    { img: "https://i4.ytimg.com/vi/cnpp8jdgzv0/hqdefault.jpg", tag: "Advocacy & Rights", title: "KOPISODES: Living Our Values in Advocacy", date: "Nov 18, 2025", url: "https://www.youtube.com/watch?v=cnpp8jdgzv0" },
+    { img: "https://i4.ytimg.com/vi/3u1Spu7-5A0/hqdefault.jpg", tag: "Youth Services", title: "New Kopisodes! Brewing Now!", date: "Nov 17, 2025", url: "https://www.youtube.com/watch?v=3u1Spu7-5A0" },
   ];
 
   return (
@@ -556,7 +556,7 @@ function Kopisodes() {
 
             {/* Stats row */}
             <div className="grid grid-cols-3 gap-3">
-              {[["12+", "Episodes"], ["4", "Seasons"], ["100%", "Community-led"]].map(([val, label]) => (
+              {[["5", "YouTube videos"], ["2025", "Launched"], ["100%", "Community-led"]].map(([val, label]) => (
                 <div key={label} className="bg-white/4 border border-white/6 rounded-xl px-4 py-3 text-center">
                   <p className="font-serif text-xl font-bold text-white">{val}</p>
                   <p className="text-white/35 text-[11px] mt-0.5">{label}</p>
@@ -574,7 +574,7 @@ function Kopisodes() {
                 <span className="text-white/80 font-semibold">Wagayway Equality Inc.</span> — amplifying LGBTQIA+ voices through relaxed, coffee-style conversations that inspire healing, solidarity, and collective action.
               </p>
               <a
-                href="https://www.facebook.com/wagayway.equality"
+                href="https://www.facebook.com/wagaywayequality"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 mt-3 text-[#74AADF] hover:text-[#93C5FD] text-[11px] font-semibold transition-colors"
@@ -584,7 +584,7 @@ function Kopisodes() {
               </a>
             </div>
 
-            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4 px-1">Latest Episodes</p>
+            <p className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-semibold mb-4 px-1">Latest on YouTube</p>
             <div className="flex flex-col divide-y divide-white/5">
               {episodes.map((ep, i) => (
                 <a
