@@ -20,32 +20,6 @@ export interface Event {
 // Verified against official organizer pages on October 5, 2026.
 export const ALL_EVENTS: Event[] = [
   {
-    id: "pfip-lead-forward-finale-2026",
-    title: "PFIP Lead Forward: Leadership Integration, Capstone Sharing, and Graduation",
-    dateISO: "2026-10-06",
-    dateDisplay: "October 6, 2026",
-    time: "10:00 AM-5:00 PM",
-    location: "Unilab Bayanihan Center, Pasig City",
-    description: "The concluding session of PFIP's six-month LGBTQIA+ leadership program features capstone presentations, leadership reflection and integration, formal recognition, and graduation.",
-    category: "Workshop",
-    tags: ["PFIP", "Leadership", "Workplace Inclusion", "LGBTQIA+ Professionals", "Pasig"],
-    image: "https://app.glueup.com/resources/public/images/fixed-width/600/ec736bf2-742b-418a-a4ac-0993a8ce6464.jpg",
-    link: "https://app.glueup.com/event/pfip-lead-forward-172038/",
-  },
-  {
-    id: "pfip-general-membership-meeting-q4-2026",
-    title: "PFIP General Membership Meeting",
-    dateISO: "2026-10-08",
-    dateDisplay: "October 8, 2026",
-    time: "Schedule to be announced by PFIP",
-    location: "To be announced",
-    description: "PFIP's fourth-quarter member gathering focuses on connection, collaboration, shared purpose, and workplace inclusion. Attendance appears intended for PFIP member companies; confirm access with the organizer.",
-    category: "Social",
-    tags: ["PFIP", "Workplace Inclusion", "Networking", "Members"],
-    image: "https://pfip.com.ph/wp-content/uploads/2026/04/7-1.png",
-    link: "https://pfip.com.ph/2025-programs/",
-  },
-  {
     id: "pfip-vismin-regional-forum-2026",
     title: "PFIP Visayas-Mindanao Regional Forum",
     dateISO: "2026-10-22",
