@@ -164,7 +164,7 @@ export default function RootLayout({
           id="sw-register"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }`,
+            __html: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).then((registration) => registration.update()).catch(() => {}); }`,
           }}
         />
       </body>

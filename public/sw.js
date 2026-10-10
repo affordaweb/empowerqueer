@@ -1,5 +1,5 @@
-const CACHE = "empowerqueer-v1";
-const OFFLINE = ["/", "/offline"];
+const CACHE = "empowerqueer-v2";
+const OFFLINE = ["/"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
@@ -18,18 +18,24 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
   const url = new URL(e.request.url);
-  // Only cache same-origin requests
   if (url.origin !== location.origin) return;
-  // Skip API routes and Next.js internals
   if (url.pathname.startsWith("/api/") || url.pathname.startsWith("/_next/")) return;
+
+  // Never serve cached page HTML while online after a deployment.
+  if (e.request.mode === "navigate") {
+    e.respondWith(fetch(e.request).catch(() => caches.match("/").then((cached) => cached || Response.error())));
+    return;
+  }
 
   e.respondWith(
     fetch(e.request)
       .then((res) => {
-        const clone = res.clone();
-        caches.open(CACHE).then((c) => c.put(e.request, clone));
+        if (res.ok) {
+          const clone = res.clone();
+          caches.open(CACHE).then((c) => c.put(e.request, clone));
+        }
         return res;
       })
-      .catch(() => caches.match(e.request).then((cached) => cached || caches.match("/")))
+      .catch(() => caches.match(e.request).then((cached) => cached || Response.error()))
   );
 });
