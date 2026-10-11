@@ -240,7 +240,7 @@ function EventSubmitForm() {
   function initTurnstile() {
     if (widgetRef.current && !widgetRendered.current) {
       widgetRendered.current = true
-      ;(window as any).turnstile?.render(widgetRef.current, {
+      ;(window as Window & { turnstile?: { render: (element: HTMLElement, options: Record<string, unknown>) => void } }).turnstile?.render(widgetRef.current, {
         sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
         callback: (token: string) => setTurnstileToken(token),
         'expired-callback': () => setTurnstileToken(''),
@@ -265,29 +265,6 @@ function EventSubmitForm() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL ?? "https://contact-form-gamma-seven.vercel.app";
-      const message = [
-        `EVENT SUBMISSION`,
-        ``,
-        `Event Title: ${form.eventTitle}`,
-        `Date: ${form.eventDate}`,
-        `Time: ${form.eventTime}`,
-        `Location: ${form.location}`,
-        `Category: ${form.category}`,
-        `Tags: ${form.tags}`,
-        `Image URL: ${form.imageUrl || "Not provided"}`,
-        `Image File: ${imageFile ? imageFile.name : "Not uploaded"}`,
-        `Flyer File: ${flyerFile ? flyerFile.name : "Not uploaded"}`,
-        flyerFile || imageFile ? `\nNote: Files were selected. Please reply to this email to receive the uploaded files.` : "",
-        `Event Link: ${form.eventLink || "Not provided"}`,
-        ``,
-        `Description:`,
-        form.description,
-        ``,
-        `Organizer: ${form.organizerName}`,
-        `Phone: ${form.organizerPhone || "Not provided"}`,
-      ].join("\n");
-
       const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -634,7 +611,7 @@ export default function EventsPage() {
             Events
           </h1>
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">
-            LGBTQIA+ gatherings, advocacy events, and celebrations — with priority on Batangas City and Batangas Province.
+            LGBTQIA+ gatherings, advocacy events, and community observances — with priority on Batangas City and Batangas Province.
           </p>
         </div>
       </section>
