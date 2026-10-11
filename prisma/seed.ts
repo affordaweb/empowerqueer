@@ -243,11 +243,11 @@ const KOPISODES = [
 
 async function main() {
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "aivan.c.alvarez@gmail.com";
-  const ADMIN_PASSWORD = process.env.ADMIN_INITIAL_PASSWORD || "EmpQueer@26!";
+  const ADMIN_PASSWORD = process.env.ADMIN_INITIAL_PASSWORD;
 
   // Seed admin user
   const existing = await prisma.user.findUnique({ where: { email: ADMIN_EMAIL } });
-  if (!existing) {
+  if (!existing && ADMIN_PASSWORD) {
     const passwordHash = await bcrypt.hash(ADMIN_PASSWORD, 12);
     const admin = await prisma.user.create({
       data: {
@@ -260,8 +260,10 @@ async function main() {
     });
     console.log(`✅ Admin user created: ${admin.email}`);
     console.log(`   ID: ${admin.id}`);
-  } else {
+  } else if (existing) {
     console.log(`Admin user already exists: ${ADMIN_EMAIL}`);
+  } else {
+    console.log("Admin user not seeded: ADMIN_INITIAL_PASSWORD is not configured");
   }
 
   // Seed gallery images (only if none exist)
