@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { ChevronLeft, Heart, Activity, Scale, Users, Mic, BookOpen, Star, Calendar, Tag, Youtube } from "lucide-react";
+import { ChevronLeft, Heart, Activity, Scale, Users, Mic, BookOpen, Star, Calendar, Tag, Youtube, Facebook } from "lucide-react";
 
 const CATEGORY_MAP: Record<string, { label: string; icon: React.ElementType; color: string }> = {
   "lgbtq-issues":      { label: "LGBTQ+ Issues",       icon: Heart,     color: "text-[#EC4899]" },
@@ -22,6 +22,10 @@ const VIDEO_URLS: Record<string, string> = {
   "kopisodes-2-heart-of-community-centered-leadership": "https://www.youtube.com/watch?v=2hSWMFblo74",
   "kopisodes-living-our-values-in-advocacy": "https://www.youtube.com/watch?v=cnpp8jdgzv0",
   "new-kopisodes-brewing-now": "https://www.youtube.com/watch?v=3u1Spu7-5A0",
+};
+
+const FACEBOOK_URLS: Record<string, string> = {
+  "may-puwang-ka-rito-mental-health-message": "https://www.facebook.com/wagaywayequality",
 };
 
 interface Episode {
@@ -158,6 +162,17 @@ export default function KopisodeArticlePage() {
                   className="inline-flex items-center gap-2 bg-[#7C3AED] text-white font-semibold px-5 py-3 rounded-xl hover:bg-[#6D28D9] transition-colors mb-8"
                 >
                   <Youtube size={18} /> Watch on YouTube
+                </a>
+              )}
+
+              {FACEBOOK_URLS[episode.slug] && (
+                <a
+                  href={FACEBOOK_URLS[episode.slug]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#1877F2] text-white font-semibold px-5 py-3 rounded-xl hover:bg-[#1565C0] transition-colors mb-8"
+                >
+                  <Facebook size={18} /> View on Facebook
                 </a>
               )}
 

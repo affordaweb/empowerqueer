@@ -19,7 +19,7 @@ export function StoryModal({ onClose }: { onClose: () => void }) {
   function initTurnstile() {
     if (widgetRef.current && !widgetRendered.current) {
       widgetRendered.current = true
-      ;(window as any).turnstile?.render(widgetRef.current, {
+      ;(window as Window & { turnstile?: { render: (element: HTMLElement, options: Record<string, unknown>) => void } }).turnstile?.render(widgetRef.current, {
         sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '',
         callback: (token: string) => setTurnstileToken(token),
         'expired-callback': () => setTurnstileToken(''),
@@ -261,10 +261,10 @@ const supportLines = [
 ];
 
 const recentPosts = [
+  { title: "May Puwang Ka Rito: A Mental Health Message", href: "/kopisodes/may-puwang-ka-rito-mental-health-message" },
   { title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us", href: "/kopisodes/2025-hiv-aids-surveillance-update-what-the-data-tells-us" },
   { title: "Human Rights 101 by Wagayway Equality", href: "/kopisodes/human-rights-101-by-wagayway-equality" },
   { title: "HIV 101 by Wagayway Equality", href: "/kopisodes/hiv-101-by-wagayway-equality" },
-  { title: "SOGIESC 101 by Wagayway Equality Inc", href: "/kopisodes/sogiesc-101-by-wagayway-equality-inc" },
 ];
 
 /* ─── Footer ──────────────────────────────────────────────────────────────── */

@@ -75,6 +75,17 @@ const GALLERY_IMAGES = [
 
 const KOPISODES = [
   {
+    slug: "may-puwang-ka-rito-mental-health-message",
+    title: "May Puwang Ka Rito: A Mental Health Message from Mx. Clarence",
+    desc: "Hindi kailangang strong every day. In this World Mental Health Day message, Wagayway Equality volunteer Mx. Clarence reminds us to care for ourselves, listen without judgment, and be gentle with one another. May puwang ka rito.",
+    tags: ["Mental Health", "Community Voices", "Support Resources"],
+    categoryIds: ["support-resources", "community-voices", "lgbtq-issues"],
+    date: "October 11, 2026",
+    img: "/images/gallery/world-mental-health-day-mx-clarence.jpg",
+    order: 0,
+    published: true,
+  },
+  {
     slug: "2025-hiv-aids-surveillance-update-what-the-data-tells-us",
     title: "2025 HIV & AIDS Surveillance Update: What the Data Tells Us",
     desc: "The latest HIV & AIDS Surveillance of the Philippines (Oct–Dec 2025) report highlights both progress and urgent gaps in our national response. By the end of 2025, an estimated 252,800 Filipinos are living with HIV, yet only 61% have been reached.",
@@ -82,7 +93,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "hiv-aids"],
     date: "2025",
     img: "/images/gallery/HIV-and-Aids-Surveillance.jpg",
-    order: 7,
+    order: 8,
     published: true,
   },
   {
@@ -93,7 +104,7 @@ const KOPISODES = [
     categoryIds: ["youth-services", "advocacy-rights"],
     date: "2025",
     img: "/images/gallery/HUMAN-RIGHTS-101-by-Wagayway-Equality.jpg",
-    order: 8,
+    order: 9,
     published: true,
   },
   {
@@ -104,7 +115,7 @@ const KOPISODES = [
     categoryIds: ["support-resources", "hiv-aids"],
     date: "2025",
     img: "/images/gallery/HIV-101-by-Wagayway-Equality.jpg",
-    order: 9,
+    order: 10,
     published: true,
   },
   {
@@ -115,7 +126,7 @@ const KOPISODES = [
     categoryIds: ["support-resources", "education"],
     date: "2025",
     img: "/images/gallery/SOGIESC-101-by-Wagayway-Equality-Inc.jpg",
-    order: 10,
+    order: 11,
     published: true,
   },
   {
@@ -126,7 +137,7 @@ const KOPISODES = [
     categoryIds: ["advocacy-rights", "community-voices"],
     date: "2025",
     img: "/images/gallery/Wagayway-Equality-Join-in-Sublian-Festival.jpg",
-    order: 11,
+    order: 12,
     published: true,
   },
   {
@@ -137,7 +148,7 @@ const KOPISODES = [
     categoryIds: ["community-voices", "lgbtq-issues"],
     date: "2023",
     img: "/images/gallery/Batangas-Pride-Month-Celebration-2023.jpg",
-    order: 13,
+    order: 14,
     published: true,
   },
   {
@@ -148,7 +159,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "advocacy-rights"],
     date: "2025",
     img: "/images/gallery/Equality-Desk-by-Wagayway-Equality.jpg",
-    order: 12,
+    order: 13,
     published: true,
   },
   {
@@ -159,7 +170,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "community-voices"],
     date: "June 12, 2026",
     img: "/images/gallery/EmpQueer-Image-160.jpg",
-    order: 1,
+    order: 2,
     published: true,
   },
   {
@@ -170,7 +181,7 @@ const KOPISODES = [
     categoryIds: ["lgbtq-issues", "community-voices"],
     date: "June 19, 2026",
     img: "/images/gallery/EmpQueer-Image-160.jpg",
-    order: 0,
+    order: 1,
     published: true,
   },
   {
@@ -181,7 +192,7 @@ const KOPISODES = [
     categoryIds: ["hiv-aids", "community-voices", "advocacy-rights"],
     date: "January 27, 2026",
     img: "https://i3.ytimg.com/vi/jee-3Pqe1Hk/hqdefault.jpg",
-    order: 2,
+    order: 3,
     published: true,
   },
   {
@@ -192,7 +203,7 @@ const KOPISODES = [
     categoryIds: ["hiv-aids", "advocacy-rights", "community-voices"],
     date: "November 24, 2025",
     img: "https://i4.ytimg.com/vi/7g6wutLmBsc/hqdefault.jpg",
-    order: 3,
+    order: 4,
     published: true,
   },
   {
@@ -203,7 +214,7 @@ const KOPISODES = [
     categoryIds: ["community-voices", "advocacy-rights"],
     date: "November 24, 2025",
     img: "https://i3.ytimg.com/vi/2hSWMFblo74/hqdefault.jpg",
-    order: 4,
+    order: 5,
     published: true,
   },
   {
@@ -214,7 +225,7 @@ const KOPISODES = [
     categoryIds: ["advocacy-rights", "community-voices"],
     date: "November 18, 2025",
     img: "https://i4.ytimg.com/vi/cnpp8jdgzv0/hqdefault.jpg",
-    order: 5,
+    order: 6,
     published: true,
   },
   {
@@ -225,7 +236,7 @@ const KOPISODES = [
     categoryIds: ["youth-services", "community-voices"],
     date: "November 17, 2025",
     img: "https://i4.ytimg.com/vi/3u1Spu7-5A0/hqdefault.jpg",
-    order: 6,
+    order: 7,
     published: true,
   },
 ];

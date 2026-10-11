@@ -124,10 +124,10 @@ Footer Categories: Community Center, Community Voices, Diagnostic & Testing, Men
 Social: Facebook, Twitter, YouTube
 
 Recent Posts
+• May Puwang Ka Rito: A Mental Health Message from Mx. Clarence
 • 2025 HIV & AIDS Surveillance Update: What the Data Tells Us
 • Human Rights 101 by Wagayway Equality
 • HIV 101 by Wagayway Equality
-• SOGIESC 101 by Wagayway Equality Inc
 
 Design Philosophy
 Field	Value
