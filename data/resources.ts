@@ -243,4 +243,14 @@ export const ALL_RESOURCES: Resource[] = [
     link: "/kopisodes/",
     tags: ["Podcast", "Philippines", "Community"],
   },
+
+  {
+    id: "unaids-lgbti-communities-anti-rights-2026",
+    title: "LGBTI Communities Lead the Response to Growing Anti-Rights Movements",
+    org: "UNAIDS",
+    category: "advocacy-rights",
+    description: "An October 2026 UNAIDS feature on community-led responses to anti-rights movements and the human rights violations affecting LGBTI people worldwide.",
+    link: "https://www.unaids.org/en/resources/presscentre/featurestories/2026/october/20261029_lgbti_lead",
+    tags: ["LGBTI", "Human Rights", "Advocacy", "UNAIDS"],
+  },
 ];

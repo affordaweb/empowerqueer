@@ -65,6 +65,18 @@ function httpsGet(url: string): Promise<string> {
   });
 }
 
+function cleanText(value: string): string {
+  return value
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;|&#34;/gi, '"')
+    .replace(/&apos;|&#39;/gi, "'")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 // ─── Past-event pruner ────────────────────────────────────────────────────────
 
 async function prunePastEvents() {
@@ -74,8 +86,16 @@ async function prunePastEvents() {
   const now = today();
   let removed = 0;
 
-  // Match each event object block: from opening { to closing },
-  const patched = src.replace(
+  const arrayStart = src.indexOf("export const ALL_EVENTS");
+  if (arrayStart === -1) {
+    log("Could not find ALL_EVENTS array — skipping event pruning.");
+    return;
+  }
+
+  // Restrict object matching to the array so the Event interface stays intact.
+  const prefix = src.slice(0, arrayStart);
+  const events = src.slice(arrayStart);
+  const patchedEvents = events.replace(
     /\{\s*\n([\s\S]*?)\n  \},/g,
     (match) => {
      const dateMatch = match.match(/dateISO:\s*"(\d{4}-\d{2}-\d{2})"/);
@@ -93,7 +113,7 @@ async function prunePastEvents() {
 
   if (removed > 0) {
     // Clean up any double-blank lines left by removals
-    const cleaned = patched.replace(/\n(?:[ \t]*\n){2,}/g, "\n\n");
+    const cleaned = (prefix + patchedEvents).replace(/\n(?:[ \t]*\n){2,}/g, "\n\n");
     fs.writeFileSync(filePath, cleaned, "utf8");
     log(`Pruned ${removed} past event(s) from data/events.ts`);
   } else {
@@ -183,29 +203,37 @@ async function fetchNewResources() {
 
       for (const item of items) {
         if (!item.title || !item.link) continue;
-        if (existingTitles.has(item.title.toLowerCase())) continue;
+        const title = cleanText(item.title);
+        const description = cleanText(item.description || title);
+        const searchable = `${title} ${description}`.toLowerCase();
 
-        const id = `auto-${slug(item.title)}`;
+        // Reject feed tests/media assets and unrelated stories from broad feeds.
+        if (title.length < 10 || /\b(test|banner|carousel)\b|_/.test(title.toLowerCase())) continue;
+        if (feed.org === "UNAIDS" && !/lgbt|queer|transgender|intersex|sexual orientation|gender identity/.test(searchable)) continue;
+        if (existingTitles.has(title.toLowerCase())) continue;
+
+        const id = `auto-${slug(title)}`;
         if (existingIds.has(id)) continue;
 
         // Sanitize: keep only first 280 chars of description
-        const desc = (item.description || item.title).slice(0, 280).replace(/"/g, "'");
+        const desc = description.slice(0, 280);
+        const link = item.link.replace(/^http:\/\//, "https://");
 
         const entry = [
           `  {`,
           `    id: "${id}",`,
-          `    title: "${item.title.replace(/"/g, "'")}",`,
-          `    org: "${feed.org}",`,
-          `    category: "${feed.defaultCategory}",`,
-          `    description: "${desc}",`,
-          `    link: "${item.link}",`,
+          `    title: ${JSON.stringify(title)},`,
+          `    org: ${JSON.stringify(feed.org)},`,
+          `    category: ${JSON.stringify(feed.defaultCategory)},`,
+          `    description: ${JSON.stringify(desc)},`,
+          `    link: ${JSON.stringify(link)},`,
           `    tags: ${JSON.stringify(feed.tags)},`,
           `  },`,
         ].join("\n");
 
         newEntries.push(entry);
         existingIds.add(id);
-        existingTitles.add(item.title.toLowerCase());
+        existingTitles.add(title.toLowerCase());
         log(`  + New resource: "${item.title.slice(0, 60)}"`);
       }
     } catch (err) {

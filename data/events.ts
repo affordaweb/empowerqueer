@@ -20,19 +20,6 @@ export interface Event {
 // Verified against official organizer pages on October 9, 2026.
 export const ALL_EVENTS: Event[] = [
   {
-    id: "pfip-vismin-regional-forum-2026",
-    title: "PFIP Visayas-Mindanao Regional Forum",
-    dateISO: "2026-10-22",
-    dateDisplay: "October 22, 2026",
-    time: "Schedule to be announced by PFIP",
-    location: "TOA Global (Cebu)",
-    description: "PFIP's regional forum centers regional voices in building stronger, more inclusive workplaces across Visayas and Mindanao. Confirm the schedule and access details with PFIP before attending.",
-    category: "Advocacy",
-    tags: ["PFIP", "Cebu", "Workplace Inclusion", "Visayas", "Mindanao"],
-    image: "https://pfip.com.ph/wp-content/uploads/2026/04/7-1.png",
-    link: "https://pfip.com.ph/2025-programs/",
-  },
-  {
     id: "pfip-q4-fellowship-2026",
     title: "PFIP Q4 Fellowship",
     dateISO: "2026-11-12",
