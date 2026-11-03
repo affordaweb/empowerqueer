@@ -12,8 +12,21 @@ export interface Opportunity {
   featured?: boolean;
 }
 
-// Open opportunities verified on official sources October 5, 2026.
+// Open opportunities verified on official sources November 2, 2026.
 export const ALL_OPPORTUNITIES: Opportunity[] = [
+  {
+    id: "loveyourself-medical-doctor-2026",
+    title: "Part-Time Medical Doctor / Physician",
+    org: "LoveYourself Inc.",
+    category: "jobs",
+    description: "LoveYourself is recruiting physicians to provide gender-affirming primary care, including ART, PrEP, PEP, and transgender health services. The role is part-time for six hours per week.",
+    location: "Mandaluyong City, Cavite City, Cebu City, or Silay City",
+    deadline: "Open - no closing date posted",
+    cover: "https://loveyourself.ph/wp-content/uploads/2026/10/Website-Gallery-750x400.png",
+    link: "https://loveyourself.ph/looking-for-medical-doctor-physician/",
+    tags: ["Physician", "Gender-Affirming Care", "HIV", "Part-Time"],
+    featured: true,
+  },
   {
     id: "loveyourself-hr-finance-internships-2026",
     title: "Human Resources and Finance Internships",
@@ -38,19 +51,6 @@ export const ALL_OPPORTUNITIES: Opportunity[] = [
     cover: "https://loveyourself.ph/wp-content/uploads/2026/03/JOIN-OUR-TEAM-1-750x400.png",
     link: "https://loveyourself.ph/hiring-registered-nurse/",
     tags: ["Nursing", "HIV", "Healthcare", "Philippines"],
-    featured: true,
-  },
-  {
-    id: "ship-pinalapit-community-advisory-board-2026",
-    title: "PINALAPIT Study Community Advisory Board",
-    org: "Sustained Health Initiatives of the Philippines",
-    category: "advocacy",
-    description: "SHIP is selecting seven community members to help shape a national study on delivering twice-yearly injectable PrEP alongside oral PrEP. Applicants must be at least 18 and identify with one of the study's key populations; an honorarium and training are provided.",
-    location: "Philippines / In-person and virtual sessions",
-    deadline: "October 23, 2026",
-    cover: "https://www.ship.ph/wp-content/uploads/2026/09/Pinalapit-1.png",
-    link: "https://www.ship.ph/join-the-pinalapit-study-community-advisory-board/",
-    tags: ["PrEP", "Community Advisory Board", "HIV Research", "Philippines"],
     featured: true,
   },
   {

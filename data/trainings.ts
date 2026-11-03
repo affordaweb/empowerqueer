@@ -13,16 +13,16 @@ export interface Training {
   featured?: boolean;
 }
 
-// Current scheduled, on-demand, and self-paced programs verified October 5, 2026.
+// Current scheduled, on-demand, and self-paced programs verified November 2, 2026.
 export const ALL_TRAININGS: Training[] = [
   {
-    id: "hct-2026-batches-8-10",
-    title: "HIV Counseling and Testing (HCT) Training - Batches 8, 9, and 10",
+    id: "hct-2026-batch-9",
+    title: "HIV Counseling and Testing (HCT) Training - Batch 9",
     org: "CAMP Pag-ayo, Inc.",
     category: "hiv-sexual-health",
-    description: "A five-day HIV counseling and testing certification workshop for medical and non-medical professionals, advocates, and key-population support workers. Batch 8 runs October 21-25 with enrollment by October 13; Batch 9 runs November 9-13 with enrollment by November 2; Batch 10 runs December 9-13 with enrollment by December 1. The organizer excludes participants operating in Bicol Region and Central Visayas.",
+    description: "A five-day HIV counseling and testing certification workshop for medical and non-medical professionals, advocates, and key-population support workers. The organizer's current schedule lists one remaining 2026 batch, with enrollment due December 1.",
     format: "In-Person - Jade Hotel and Suites, Makati City",
-    duration: "5 days per batch; October 21-25, November 9-13, or December 9-13, 2026",
+    duration: "5 days; December 9-13, 2026",
     cost: "PHP 25,000 individual; PHP 23,500 each for groups of at least four",
     link: "https://forms.gle/s2VQoWEPXmjrZbq96",
     tags: ["HIV", "Counseling", "Certification", "DOH", "Makati", "CAMP Pag-ayo"],
