@@ -13,19 +13,19 @@ export interface Training {
   featured?: boolean;
 }
 
-// Current scheduled, on-demand, and self-paced programs verified November 2, 2026.
+// Current scheduled, on-demand, and self-paced programs verified November 5, 2026.
 export const ALL_TRAININGS: Training[] = [
   {
     id: "hct-2026-batch-9",
-    title: "HIV Counseling and Testing (HCT) Training - Batch 9",
+    title: "HIV Counseling and Testing (HCT) Training - 2026 Batch 9 and 2027 Q1",
     org: "CAMP Pag-ayo, Inc.",
     category: "hiv-sexual-health",
-    description: "A five-day HIV counseling and testing certification workshop for medical and non-medical professionals, advocates, and key-population support workers. The organizer's current schedule lists one remaining 2026 batch, with enrollment due December 1.",
+    description: "A five-day DOH-aligned HIV counseling and testing certification workshop for medical and non-medical professionals, advocates, and key-population support workers. CAMP's confirmed schedule lists Batch 9 on December 9-13, 2026, followed by three 2027 batches in January, February, and March. Enrollment closes about a week before each batch.",
     format: "In-Person - Jade Hotel and Suites, Makati City",
-    duration: "5 days; December 9-13, 2026",
-    cost: "PHP 25,000 individual; PHP 23,500 each for groups of at least four",
+    duration: "5 days; December 9-13, 2026; January 25-29, February 17-21, or March 15-19, 2027",
+    cost: "Confirm current rates with organizer (2026 rate: PHP 25,000 individual; PHP 23,500 each for groups of at least four)",
     link: "https://forms.gle/s2VQoWEPXmjrZbq96",
-    tags: ["HIV", "Counseling", "Certification", "DOH", "Makati", "CAMP Pag-ayo"],
+    tags: ["HIV", "Counseling", "Certification", "DOH", "Makati", "CAMP Pag-ayo", "2027"],
     featured: true,
   },
   {
@@ -117,5 +117,17 @@ export const ALL_TRAININGS: Training[] = [
     link: "https://www.balangaw.ph/resources/learning-materials/building-rainbow-communities-lgbtqi-community-based-organizing-modules",
     tags: ["LGBTQI Organizing", "Provincial Communities", "Organizational Development", "Public Policy"],
     featured: true,
+  },
+  {
+    id: "ship-hiv-telehealth-training",
+    title: "HIV Telehealth Training Program (HTTP)",
+    org: "Sustained Health Initiatives of the Philippines",
+    category: "hiv-sexual-health",
+    description: "An online upskilling program for doctors, nurses, and allied health professionals on HIV prevention, treatment, and care, delivered through telehealth sessions. SHIP's program page invites healthcare workers and institutions to register interest in future batches; confirm current schedules and requirements with the organizer.",
+    format: "Online / Blended",
+    duration: "No current public schedule; inquire with SHIP",
+    cost: "Contact organizer",
+    link: "https://www.ship.ph/programs/telehealth/",
+    tags: ["HIV", "Telehealth", "Healthcare Workers", "SHIP"],
   },
 ];

@@ -12,8 +12,21 @@ export interface Opportunity {
   featured?: boolean;
 }
 
-// Open opportunities verified on official sources November 2, 2026.
+// Open opportunities verified on official sources November 5, 2026.
 export const ALL_OPPORTUNITIES: Opportunity[] = [
+  {
+    id: "ilga-world-advocacy-specialist-treaty-bodies-2026",
+    title: "Advocacy Specialist: Treaty Bodies",
+    org: "ILGA World",
+    category: "jobs",
+    description: "A full-time role coordinating ILGA World's engagement with the UN human rights treaty body system, including shadow report and briefing inputs, support for strategic litigation, and national follow-up on treaty body recommendations. The position is based in Geneva and requires relocation and successful work authorization; the expected start is January or February 2027.",
+    location: "Geneva, Switzerland",
+    deadline: "November 10, 2026 at 11:59 PM CET",
+    cover: "https://ilga.org/wp-content/uploads/2026/10/advocacy_specialist_treaty_bodies-1.png",
+    link: "https://ilga.org/vacancies/job-opportunity-advocacy-specialist-treaty-bodies",
+    tags: ["Human Rights", "UN Treaty Bodies", "Advocacy", "Geneva"],
+    featured: true,
+  },
   {
     id: "loveyourself-medical-doctor-2026",
     title: "Part-Time Medical Doctor / Physician",

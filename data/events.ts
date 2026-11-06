@@ -17,8 +17,22 @@ export interface Event {
   ongoing?: boolean;
 }
 
-// Verified against official organizer pages on October 9, 2026.
+// Verified against official organizer pages on November 5, 2026.
 export const ALL_EVENTS: Event[] = [
+  {
+    id: "mr-gay-world-2026",
+    title: "Mr Gay World 2026",
+    dateISO: "2026-12-01",
+    dateDisplay: "November 22 - December 1, 2026",
+    time: "Finals on December 1; full schedule to be announced",
+    location: "Cebu City, Philippines",
+    description: "The 18th edition of Mr Gay World comes to Cebu City for a week of advocacy, leadership, and pageantry. Drei Arias, crowned Mr. Gay World Philippines 2026, carries the Philippine flag. Follow the organizer for the final schedule, venue details, and tickets.",
+    category: "Cultural",
+    tags: ["Mr Gay World", "Cebu City", "Pageant", "Advocacy", "International"],
+    image: "https://images.assettype.com/tribune/2026-06-27/7438bjkv/IMG1468.jpeg?w=1200&auto=format&q=70",
+    link: "https://www.facebook.com/mgworg",
+    featured: true,
+  },
   {
     id: "pfip-q4-fellowship-2026",
     title: "PFIP Q4 Fellowship",
@@ -59,6 +73,19 @@ export const ALL_EVENTS: Event[] = [
     link: "https://glaad.org/tdor/",
   },
   {
+    id: "transgender-awareness-week-2026",
+    title: "Transgender Awareness Week 2026",
+    dateISO: "2026-11-19",
+    dateDisplay: "November 13-19, 2026",
+    time: "Activities vary by organizer",
+    location: "Philippines and worldwide",
+    description: "A week of visibility, education, and advocacy leading into Transgender Day of Remembrance. Philippine groups use the period to center trans-led services and stories, and to call for legal gender recognition and protection from discrimination.",
+    category: "Advocacy",
+    tags: ["Transgender", "Visibility", "Human Rights", "Community"],
+    image: "https://media.glaad.org/wp-content/uploads/2025/11/19170541/GLAAD_TransgenderDayofRemebrance_Final_1200x630.jpg",
+    link: "https://glaad.org/tdor/",
+  },
+  {
     id: "qcinema-2026",
     title: "14th QCinema International Film Festival",
     dateISO: "2026-11-22",
@@ -79,11 +106,11 @@ export const ALL_EVENTS: Event[] = [
     dateDisplay: "December 1, 2026",
     time: "Local activities to be announced",
     location: "Philippines and worldwide",
-    description: "The global health observance brings communities together to raise HIV awareness, support prevention and treatment, remember those who have died, and stand against HIV-related stigma.",
+    description: "The global observance returns under the 2026 theme \"Ending AIDS starts with access,\" calling for access to services, rights, resources, and political leadership. Philippine communities and clinics usually mark the day with testing drives, forums, and memorial activities.",
     category: "Health",
     tags: ["HIV", "World AIDS Day", "Health", "Community Solidarity"],
     image: "/images/gallery/HIV-and-Aids-Surveillance.jpg",
-    link: "https://www.who.int/campaigns/world-aids-day",
+    link: "https://www.unaids.org/en/2026-world-aids-day",
   },
   {
     id: "human-rights-day-2026",

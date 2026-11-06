@@ -407,3 +407,10 @@ The rules help maintain stable, high-quality AffordaWeb projects.
 - **directory.ts**: Added 3 new listings (CAMP Pag-ayo Inc., Bahaghari Soccsksargen, LGBTQIA-Silbi Batangas City Inc.)
 - **opportunities.ts**: Added 5 new opportunities (Babaylanes Programs Officer, LoveYourself Compliance Specialist, LoveYourself Registered Nurse, ILGA World Giving Specialist, UPCWGS Research Grant)
 
+### Bulk Data Update — 2026-11-05
+- **events.ts**: Verified-date header updated to November 5, 2026. Added Mr Gay World 2026 (Cebu City, Nov 22 - Dec 1; featured) and Transgender Awareness Week 2026 (Nov 13-19). Updated World AIDS Day 2026 copy to the UNAIDS theme "Ending AIDS starts with access" and linked the UNAIDS campaign page.
+- **trainings.ts**: Verified-date header updated to November 5, 2026. Expanded the CAMP Pag-ayo HCT entry from 2026 Batch 9 alone to the confirmed schedule through 2027 Q1 (Dec 9-13, 2026; Jan 25-29, Feb 17-21, Mar 15-19, 2027) and clarified that current rates should be confirmed. Added SHIP HIV Telehealth Training Program.
+- **opportunities.ts**: Verified-date header updated to November 5, 2026. Added ILGA World Advocacy Specialist: Treaty Bodies (Geneva, deadline Nov 10, 2026; featured).
+- **resources.ts**: Verified-date header updated to November 5, 2026. Added UNAIDS "United to End AIDS" special report (July 2026), UNAIDS World AIDS Day 2026 campaign page, and HRW World Report 2026: Philippines.
+- Source policy: only official organizer/agency pages were used (Mr Gay World, GLAAD, UNAIDS, CAMP Pag-ayo, SHIP, ILGA World, HRW). Leads that could not be confirmed as current (APCOM SOGIESC Rights Officer, expired scholarships, past PNCA/QCinema Pride dates) were intentionally excluded.
+

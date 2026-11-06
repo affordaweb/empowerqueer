@@ -11,7 +11,7 @@ export interface Resource {
   featured?: boolean;
 }
 
-// Current Philippine-focused and durable resources verified October 5, 2026.
+// Current Philippine-focused and durable resources verified November 5, 2026.
 export const ALL_RESOURCES: Resource[] = [
   {
     id: "balangaw-learning-materials",
@@ -252,5 +252,36 @@ export const ALL_RESOURCES: Resource[] = [
     description: "An October 2026 UNAIDS feature on community-led responses to anti-rights movements and the human rights violations affecting LGBTI people worldwide.",
     link: "https://www.unaids.org/en/resources/presscentre/featurestories/2026/october/20261029_lgbti_lead",
     tags: ["LGBTI", "Human Rights", "Advocacy", "UNAIDS"],
+  },
+  {
+    id: "unaids-united-to-end-aids-2026",
+    title: "United to End AIDS: UNAIDS Special Report for AIDS 2026",
+    org: "UNAIDS",
+    category: "hiv-services",
+    description: "The July 2026 special report presents the latest global HIV data, warning that funding cuts and reduced prevention and community services could reverse progress, and sets out what is needed to reach the 2030 targets.",
+    pdf: "https://www.unaids.org/sites/default/files/2026-07/20260727_special_report_IAC_1.pdf",
+    link: "https://www.unaids.org/en/resources/documents/2026/20260727_special_report_AIDS2026",
+    tags: ["UNAIDS", "HIV", "Global", "Report"],
+    featured: true,
+  },
+  {
+    id: "unaids-world-aids-day-2026",
+    title: "World AIDS Day 2026: Ending AIDS Starts with Access",
+    org: "UNAIDS",
+    category: "hiv-services",
+    description: "UNAIDS' 2026 campaign page explains this year's access theme and shares materials on the services, rights, resources, and political leadership needed to end AIDS as a public health threat.",
+    link: "https://www.unaids.org/en/2026-world-aids-day",
+    tags: ["World AIDS Day", "HIV", "Access", "Campaign"],
+    featured: true,
+  },
+  {
+    id: "hrw-world-report-2026-philippines",
+    title: "World Report 2026: Philippines",
+    org: "Human Rights Watch",
+    category: "advocacy-rights",
+    description: "HRW's annual country review covers the Philippines' human rights record, including the stalled SOGIESC anti-discrimination and civil partnership bills, attacks on activists and journalists, and impunity for abuses.",
+    link: "https://www.hrw.org/world-report/2026/country-chapters/philippines",
+    tags: ["Philippines", "Human Rights", "SOGIESC", "Report"],
+    featured: true,
   },
 ];
