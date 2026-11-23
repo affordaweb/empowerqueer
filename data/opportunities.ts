@@ -12,20 +12,30 @@ export interface Opportunity {
   featured?: boolean;
 }
 
-// Open opportunities verified on official sources November 5, 2026.
+// Open opportunities verified on official sources November 22, 2026.
 export const ALL_OPPORTUNITIES: Opportunity[] = [
   {
-    id: "ilga-world-advocacy-specialist-treaty-bodies-2026",
-    title: "Advocacy Specialist: Treaty Bodies",
+    id: "ilga-world-director-movement-building-2026",
+    title: "Director for Movement Building and Partnerships",
     org: "ILGA World",
     category: "jobs",
-    description: "A full-time role coordinating ILGA World's engagement with the UN human rights treaty body system, including shadow report and briefing inputs, support for strategic litigation, and national follow-up on treaty body recommendations. The position is based in Geneva and requires relocation and successful work authorization; the expected start is January or February 2027.",
-    location: "Geneva, Switzerland",
-    deadline: "November 10, 2026 at 11:59 PM CET",
-    cover: "https://ilga.org/wp-content/uploads/2026/10/advocacy_specialist_treaty_bodies-1.png",
-    link: "https://ilga.org/vacancies/job-opportunity-advocacy-specialist-treaty-bodies",
-    tags: ["Human Rights", "UN Treaty Bodies", "Advocacy", "Geneva"],
+    description: "A new executive leadership role guiding ILGA World's movement-building work, including cross-movement partnerships, regranting, and monitoring, evaluation, and learning. The post is a global remote position for 18 months, renewable, with a March 2027 start.",
+    location: "Global remote",
+    deadline: "December 4, 2026 at 1:00 PM CET",
+    link: "https://ilga.org/vacancies/job-opportunity-director-movement-building-partnerships/",
+    tags: ["Human Rights", "Movement Building", "Leadership", "Remote"],
     featured: true,
+  },
+  {
+    id: "roots-of-health-hiv-landscape-consultant-2026",
+    title: "HIV Program Landscape Analysis Consultant",
+    org: "Roots of Health / Ugat ng Kalusugan",
+    category: "jobs",
+    description: "A three-month consultancy to design and lead an HIV program landscape analysis in Puerto Princesa City under the RAMPA project with Babaylanes. The work covers desk review, three linked stakeholder meetings, and a final report with prioritized recommendations. Applicants need a master's degree or equivalent and at least five years of HIV programming experience.",
+    location: "Puerto Princesa City, Palawan",
+    deadline: "Open - no closing date posted",
+    link: "https://rootsofhealth.org/job-opening-hiv-program-landscape-analysis-consultant/",
+    tags: ["Consultancy", "HIV", "Research", "Palawan"],
   },
   {
     id: "loveyourself-medical-doctor-2026",
@@ -64,19 +74,6 @@ export const ALL_OPPORTUNITIES: Opportunity[] = [
     cover: "https://loveyourself.ph/wp-content/uploads/2026/03/JOIN-OUR-TEAM-1-750x400.png",
     link: "https://loveyourself.ph/hiring-registered-nurse/",
     tags: ["Nursing", "HIV", "Healthcare", "Philippines"],
-    featured: true,
-  },
-  {
-    id: "point-flagship-scholarship-2027",
-    title: "Point Foundation Flagship Scholarship",
-    org: "Point Foundation",
-    category: "scholarships",
-    description: "Awards of up to US$15,000 for LGBTQ+ community members and allies enrolled full-time at accredited nonprofit institutions in the United States. Applicants need a minimum 3.3 GPA; fully online programs are excluded.",
-    location: "United States institutions",
-    deadline: "November 19, 2026 at 5:00 PM PST",
-    cover: "https://pointfoundation.org/hubfs/art%20-%20butterfly%20-%20community%20college%20scholarship%20(1).png",
-    link: "https://pointfoundation.org/scholarships/flagship",
-    tags: ["LGBTQ+", "Scholarship", "Higher Education"],
     featured: true,
   },
   {

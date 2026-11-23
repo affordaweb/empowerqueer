@@ -472,6 +472,7 @@ function Collaboration() {
 
 function Kopisodes() {
   const episodes = [
+    { img: "https://i3.ytimg.com/vi/F3lcRBE57ig/hqdefault.jpg", tag: "Community Voices", title: "Spooktacular Gathering 2026: That's a Wrap!", date: "Nov 1, 2026", url: "https://www.youtube.com/watch?v=F3lcRBE57ig" },
     { img: "/images/gallery/world-mental-health-day-mx-clarence.jpg", tag: "Mental Health", title: "May Puwang Ka Rito: A Mental Health Message from Mx. Clarence", date: "Oct 11, 2026", url: "https://www.facebook.com/wagaywayequality" },
     { img: "https://i3.ytimg.com/vi/jee-3Pqe1Hk/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 4: KP and PLHIV Empowerment in Action", date: "Jan 27, 2026", url: "https://www.youtube.com/watch?v=jee-3Pqe1Hk" },
     { img: "https://i4.ytimg.com/vi/7g6wutLmBsc/hqdefault.jpg", tag: "HIV & AIDS", title: "KOPISODES 3: A Community-Based Stand Against HIV Stigma", date: "Nov 24, 2025", url: "https://www.youtube.com/watch?v=7g6wutLmBsc" },
@@ -1192,6 +1193,7 @@ const footerCategories = [
 ];
 
 const recentPosts = [
+  { title: "Spooktacular Gathering 2026: That's a Wrap!", href: "/kopisodes/spooktacular-gathering-2026-recap" },
   { title: "May Puwang Ka Rito: A Mental Health Message", href: "/kopisodes/may-puwang-ka-rito-mental-health-message" },
   { title: "PRIDEcast: Wagayway Equality Pride Special (Ep. 2)", href: "/kopisodes/pridecast-wagayway-equality-special-pride-podcast-ep-2" },
   { title: "PRIDEcast: Wagayway Equality Pride Special (Ep. 1)", href: "/kopisodes/pridecast-wagayway-equality-special-pride-podcast-ep-1" },

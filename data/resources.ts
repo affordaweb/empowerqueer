@@ -11,7 +11,7 @@ export interface Resource {
   featured?: boolean;
 }
 
-// Current Philippine-focused and durable resources verified November 5, 2026.
+// Current Philippine-focused and durable resources verified November 22, 2026.
 export const ALL_RESOURCES: Resource[] = [
   {
     id: "balangaw-learning-materials",
@@ -124,7 +124,7 @@ export const ALL_RESOURCES: Resource[] = [
     title: "2026 Q2 HIV/AIDS Surveillance Report of the Philippines",
     org: "Department of Health Epidemiology Bureau",
     category: "hiv-services",
-    description: "The national surveillance report covering HIV diagnoses, demographics, treatment, and reported trends from April through June 2026.",
+    description: "The national surveillance report covering April to June 2026. DOH estimates that 288,000 Filipinos were living with HIV in 2026, with 56% diagnosed and 69% of those diagnosed on antiretroviral therapy. Newly reported cases fell 39% compared with the same quarter of 2025.",
     pdf: "https://www.ship.ph/wp-content/uploads/2026/08/2026_Q2-HIV-AIDS-Surveillance-of-the-Philippines-2.pdf",
     link: "https://www.ship.ph/hiv-aids-registry-of-the-philippines/",
     tags: ["Philippines", "Surveillance", "Data", "2026"],
@@ -283,5 +283,44 @@ export const ALL_RESOURCES: Resource[] = [
     link: "https://www.hrw.org/world-report/2026/country-chapters/philippines",
     tags: ["Philippines", "Human Rights", "SOGIESC", "Report"],
     featured: true,
+  },
+  {
+    id: "sogie-equality-bill-plenary-2026",
+    title: "What to Know About the Latest SOGIE Equality Bill as It Advances to House Plenary",
+    org: "Philstar Life",
+    category: "advocacy-rights",
+    description: "An explainer on the consolidated SOGIESC Equality Bill after the House Committee on Women and Gender Equality approved 11 related measures in principle on November 11, 2026, clearing the way for plenary consideration. It covers the protections proposed, who the bill covers, and the debates still ahead.",
+    cover: "https://d2nnykqiaju69u.cloudfront.net/pslife_photos/Melanie_temp/SOGIESC%20BANNER.png",
+    link: "https://philstarlife.com/news-and-views/292085-what-to-know-about-the-latest-sogie-equality-bill-as-it-advances-to-house-plenary",
+    tags: ["Philippines", "SOGIESC", "Anti-Discrimination", "Congress"],
+    featured: true,
+  },
+  {
+    id: "ilga-world-database-philippines",
+    title: "ILGA World Database: Philippines",
+    org: "ILGA World",
+    category: "advocacy-rights",
+    description: "A regularly updated country profile tracking Philippine laws and policies on SOGIESC discrimination, legal gender recognition, same-sex unions, and related developments, with news entries through November 2026.",
+    link: "https://database.ilga.org/philippines-lgbti",
+    tags: ["Philippines", "Law", "Policy", "Reference"],
+  },
+  {
+    id: "who-world-aids-day-2026",
+    title: "World AIDS Day 2026: Ending AIDS Starts with Access",
+    org: "World Health Organization",
+    category: "hiv-services",
+    description: "WHO's 2026 World AIDS Day page explains the access theme and the call for renewed political commitment, sustained investment, and equitable access to HIV prevention, testing, treatment, and care for everyone, everywhere.",
+    link: "https://www.who.int/news-room/events/detail/2026/12/01/default-calendar/world-aids-day-2026---ending-aids-starts-with-access",
+    tags: ["World AIDS Day", "HIV", "Access", "Global Health"],
+    featured: true,
+  },
+  {
+    id: "unaids-prevention-revolution-2026",
+    title: "Young People in Asia and the Pacific Are Helping Shape a Prevention Revolution 2.0",
+    org: "UNAIDS",
+    category: "community-voices",
+    description: "A UNAIDS feature on youth-led HIV prevention across Asia and the Pacific, including Wagayway Equality's Equality Desk in Batangas City, which connects young people, LGBTQI+ communities, and people living with HIV to screening, referrals, and support.",
+    link: "https://unaids.org/en/resources/presscentre/featurestories/2026/june/20260611_yp_prevention_revolution",
+    tags: ["Philippines", "Youth", "HIV Prevention", "Community-Led"],
   },
 ];

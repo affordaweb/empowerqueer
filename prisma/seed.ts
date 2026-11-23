@@ -75,6 +75,17 @@ const GALLERY_IMAGES = [
 
 const KOPISODES = [
   {
+    slug: "spooktacular-gathering-2026-recap",
+    title: "Spooktacular Gathering 2026: That's a Wrap!",
+    desc: "\"Too Queer to Fear, Too Fierce to Disappear.\" A recap of Wagayway Equality's Spooktacular Gathering 2026, where the community came together for a night of costumes, camaraderie, and unapologetic queer joy. The video looks back at the people and moments that made the celebration possible.",
+    tags: ["Community Voices", "LGBTQ+ Issues"],
+    categoryIds: ["community-voices", "lgbtq-issues"],
+    date: "November 1, 2026",
+    img: "https://i3.ytimg.com/vi/F3lcRBE57ig/hqdefault.jpg",
+    order: -1,
+    published: true,
+  },
+  {
     slug: "may-puwang-ka-rito-mental-health-message",
     title: "May Puwang Ka Rito: A Mental Health Message from Mx. Clarence",
     desc: "Hindi kailangang strong every day. In this World Mental Health Day message, Wagayway Equality volunteer Mx. Clarence reminds us to care for ourselves, listen without judgment, and be gentle with one another. May puwang ka rito.",
